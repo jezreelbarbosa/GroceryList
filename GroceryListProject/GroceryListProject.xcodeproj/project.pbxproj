@@ -15,6 +15,14 @@
 		0D20C0DF24200B7800FCA5B4 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0DE24200B7800FCA5B4 /* GroceryListViewController.swift */; };
 		0D20C0E224200BE300FCA5B4 /* GroceryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0E124200BE300FCA5B4 /* GroceryDetailsViewController.swift */; };
 		0D20C0E524200C5100FCA5B4 /* UIDecimalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0E424200C5100FCA5B4 /* UIDecimalField.swift */; };
+		0D20C0E924200DE200FCA5B4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0E824200DE200FCA5B4 /* Colors.xcassets */; };
+		0D20C0EB24200E0B00FCA5B4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0EA24200E0B00FCA5B4 /* Colors.swift */; };
+		0D20C0EE24200E4D00FCA5B4 /* GroceryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0ED24200E4D00FCA5B4 /* GroceryListView.swift */; };
+		0D20C0F024200E6D00FCA5B4 /* GroceryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0EF24200E6D00FCA5B4 /* GroceryTableViewCell.swift */; };
+		0D20C0F224200E9900FCA5B4 /* GroceriesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0F124200E9900FCA5B4 /* GroceriesFooterView.swift */; };
+		0D20C0F524200EDE00FCA5B4 /* GroceryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0F424200EDE00FCA5B4 /* GroceryDetailsView.swift */; };
+		0D20C0F724200EEE00FCA5B4 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0F624200EEE00FCA5B4 /* Grocery.swift */; };
+		0D20C0FB24200F4900FCA5B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0FD24200F4900FCA5B4 /* Localizable.strings */; };
 		3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +37,16 @@
 		0D20C0DE24200B7800FCA5B4 /* GroceryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 		0D20C0E124200BE300FCA5B4 /* GroceryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsViewController.swift; sourceTree = "<group>"; };
 		0D20C0E424200C5100FCA5B4 /* UIDecimalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDecimalField.swift; sourceTree = "<group>"; };
+		0D20C0E824200DE200FCA5B4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		0D20C0EA24200E0B00FCA5B4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0D20C0ED24200E4D00FCA5B4 /* GroceryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListView.swift; sourceTree = "<group>"; };
+		0D20C0EF24200E6D00FCA5B4 /* GroceryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTableViewCell.swift; sourceTree = "<group>"; };
+		0D20C0F124200E9900FCA5B4 /* GroceriesFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesFooterView.swift; sourceTree = "<group>"; };
+		0D20C0F424200EDE00FCA5B4 /* GroceryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsView.swift; sourceTree = "<group>"; };
+		0D20C0F624200EEE00FCA5B4 /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
+		0D20C0F824200F1900FCA5B4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0D20C0FC24200F4900FCA5B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D20C0FE24200F4D00FCA5B4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0D3241FE46700FCA5B4 /* Info.plist */,
+				0D20C0FD24200F4900FCA5B4 /* Localizable.strings */,
 				0D20C0DB24200A4800FCA5B4 /* Model */,
 				0D20C0DA24200A4300FCA5B4 /* View */,
 				0D20C0D924200A2B00FCA5B4 /* Controller */,
@@ -88,8 +107,9 @@
 		0D20C0DA24200A4300FCA5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0D20C0E324200C3700FCA5B4 /* UIKit */,
 				0D20C0DC24200A6400FCA5B4 /* Bundle */,
+				0D20C0EC24200E3100FCA5B4 /* Grocery List */,
+				0D20C0F324200EC000FCA5B4 /* Grocery Details */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0CB241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld */,
+				0D20C0F624200EEE00FCA5B4 /* Grocery.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,7 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */,
-				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
+				0D20C0E324200C3700FCA5B4 /* UIKit */,
+				0D20C0E624200D9E00FCA5B4 /* Assets */,
+				0D20C0E724200DCC00FCA5B4 /* Colors */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -134,6 +157,41 @@
 				0D20C0E424200C5100FCA5B4 /* UIDecimalField.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		0D20C0E624200D9E00FCA5B4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0D20C0E724200DCC00FCA5B4 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0EA24200E0B00FCA5B4 /* Colors.swift */,
+				0D20C0E824200DE200FCA5B4 /* Colors.xcassets */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		0D20C0EC24200E3100FCA5B4 /* Grocery List */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0ED24200E4D00FCA5B4 /* GroceryListView.swift */,
+				0D20C0EF24200E6D00FCA5B4 /* GroceryTableViewCell.swift */,
+				0D20C0F124200E9900FCA5B4 /* GroceriesFooterView.swift */,
+			);
+			path = "Grocery List";
+			sourceTree = "<group>";
+		};
+		0D20C0F324200EC000FCA5B4 /* Grocery Details */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0F424200EDE00FCA5B4 /* GroceryDetailsView.swift */,
+			);
+			path = "Grocery Details";
 			sourceTree = "<group>";
 		};
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
@@ -196,6 +254,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 0D20C0B6241FE46600FCA5B4;
 			productRefGroup = 0D20C0C0241FE46600FCA5B4 /* Products */;
@@ -212,6 +271,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D20C0E924200DE200FCA5B4 /* Colors.xcassets in Resources */,
+				0D20C0FB24200F4900FCA5B4 /* Localizable.strings in Resources */,
 				0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */,
 				0D20C0CF241FE46700FCA5B4 /* Assets.xcassets in Resources */,
 			);
@@ -250,11 +311,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D20C0DF24200B7800FCA5B4 /* GroceryListViewController.swift in Sources */,
+				0D20C0F224200E9900FCA5B4 /* GroceriesFooterView.swift in Sources */,
 				0D20C0C7241FE46600FCA5B4 /* GroceriesNavigationController.swift in Sources */,
+				0D20C0EE24200E4D00FCA5B4 /* GroceryListView.swift in Sources */,
 				0D20C0E224200BE300FCA5B4 /* GroceryDetailsViewController.swift in Sources */,
+				0D20C0F024200E6D00FCA5B4 /* GroceryTableViewCell.swift in Sources */,
+				0D20C0F524200EDE00FCA5B4 /* GroceryDetailsView.swift in Sources */,
+				0D20C0EB24200E0B00FCA5B4 /* Colors.swift in Sources */,
 				0D20C0CD241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld in Sources */,
 				0D20C0E524200C5100FCA5B4 /* UIDecimalField.swift in Sources */,
 				0D20C0C3241FE46600FCA5B4 /* AppDelegate.swift in Sources */,
+				0D20C0F724200EEE00FCA5B4 /* Grocery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +332,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				0D20C0D1241FE46700FCA5B4 /* Base */,
+				0D20C0F824200F1900FCA5B4 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0D20C0FD24200F4900FCA5B4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D20C0FC24200F4900FCA5B4 /* en */,
+				0D20C0FE24200F4D00FCA5B4 /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -276,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -336,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

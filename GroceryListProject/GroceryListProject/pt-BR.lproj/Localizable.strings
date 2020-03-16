@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  GroceryListProject
+
+  Created by Jezreel Barbosa on 16/03/20.
+  Copyright © 2020 JezreelBarbosa. All rights reserved.
+*/
+
+// MARK: - Grocery List View
+"GroceryListView.navigationItem.Title" = "Lista de Compras";
+
+
+// MARK: - Groceries Footer View
+"GroceriesFooterView.totalNameLabel.Text" = "TOTAL:";
+
+
+// MARK: - Grocery Item View
+"GroceryItemView.groceryNameTextField.placeholder" = "Nome do item";
+"GroceryItemView.priceTextLabel.Text" = "Preço:";
+"GroceryItemView.quantityTextLabel.Text" = "Quantidade:";
+"GroceryItemView.unitSegmentedControl.Title.0" = "Unidade";
+"GroceryItemView.totalTextLabel.Text" = "Total:";
+"GroceryItemView.addButton.Title" = "Salvar";
