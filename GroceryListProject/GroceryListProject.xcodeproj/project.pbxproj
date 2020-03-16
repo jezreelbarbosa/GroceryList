@@ -12,6 +12,7 @@
 		0D20C0CD241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0CB241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld */; };
 		0D20C0CF241FE46700FCA5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */; };
 		0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */; };
+		3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D20C0D1241FE46700FCA5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D20C0D3241FE46700FCA5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
+		DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				0D20C0C1241FE46600FCA5B4 /* GroceryListProject */,
 				0D20C0C0241FE46600FCA5B4 /* Products */,
+				7C150F7AFA53548FCF2B104B /* Pods */,
+				7B0BEA66D762A2BB6D40756B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = GroceryListProject;
 			sourceTree = "<group>";
 		};
+		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C150F7AFA53548FCF2B104B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */,
+				DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D20C0D6241FE46700FCA5B4 /* Build configuration list for PBXNativeTarget "GroceryListProject" */;
 			buildPhases = (
+				6BF34DAB937D60ADA9D3BF93 /* [CP] Check Pods Manifest.lock */,
 				0D20C0BB241FE46600FCA5B4 /* Sources */,
 				0D20C0BC241FE46600FCA5B4 /* Frameworks */,
 				0D20C0BD241FE46600FCA5B4 /* Resources */,
@@ -128,6 +154,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6BF34DAB937D60ADA9D3BF93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroceryListProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D20C0BB241FE46600FCA5B4 /* Sources */ = {
@@ -270,6 +321,7 @@
 		};
 		0D20C0D7241FE46700FCA5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +342,7 @@
 		};
 		0D20C0D8241FE46700FCA5B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
