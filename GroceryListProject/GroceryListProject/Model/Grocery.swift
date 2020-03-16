@@ -11,9 +11,9 @@ import Foundation
 class Grocery {
     // Static Properties
     
-    static let valuesDidChangedNN = Notification.Name("com.jezreelbarbosa.GroceryCalculator.Grocery.valuesDidChangedNN")
-    static let listDidUpdateNN = Notification.Name("com.jezreelbarbosa.GroceryCalculator.Grocery.listDidUpdateNN")
-    static let listAddedNewItemNN = Notification.Name("com.jezreelbarbosa.GroceryCalculator.Grocery.listAddedNewItemNN")
+    static let valuesDidChangedNN = Notification.Name("com.jezreelbarbosa.listinha.Grocery.valuesDidChangedNN")
+    static let listDidUpdateNN = Notification.Name("com.jezreelbarbosa.listinha.Grocery.listDidUpdateNN")
+    static let listAddedNewItemNN = Notification.Name("com.jezreelbarbosa.listinha.Grocery.listAddedNewItemNN")
     
     static var list: [Grocery] = [] {
         didSet {
