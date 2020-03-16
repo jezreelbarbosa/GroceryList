@@ -61,14 +61,46 @@
 		0D20C0C1241FE46600FCA5B4 /* GroceryListProject */ = {
 			isa = PBXGroup;
 			children = (
-				0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */,
-				0D20C0C6241FE46600FCA5B4 /* ViewController.swift */,
-				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
-				0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */,
 				0D20C0D3241FE46700FCA5B4 /* Info.plist */,
-				0D20C0CB241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld */,
+				0D20C0DB24200A4800FCA5B4 /* Model */,
+				0D20C0DA24200A4300FCA5B4 /* View */,
+				0D20C0D924200A2B00FCA5B4 /* Controller */,
 			);
 			path = GroceryListProject;
+			sourceTree = "<group>";
+		};
+		0D20C0D924200A2B00FCA5B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */,
+				0D20C0C6241FE46600FCA5B4 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D20C0DA24200A4300FCA5B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0DC24200A6400FCA5B4 /* Bundle */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D20C0DB24200A4800FCA5B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0CB241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D20C0DC24200A6400FCA5B4 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */,
+				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
+			);
+			path = Bundle;
 			sourceTree = "<group>";
 		};
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
@@ -85,7 +117,6 @@
 				DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */,
 				DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
