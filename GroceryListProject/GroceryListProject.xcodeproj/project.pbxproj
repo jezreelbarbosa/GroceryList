@@ -8,21 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		0D20C0C3241FE46600FCA5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */; };
-		0D20C0C7241FE46600FCA5B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0C6241FE46600FCA5B4 /* ViewController.swift */; };
+		0D20C0C7241FE46600FCA5B4 /* GroceriesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0C6241FE46600FCA5B4 /* GroceriesNavigationController.swift */; };
 		0D20C0CD241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0CB241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld */; };
 		0D20C0CF241FE46700FCA5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */; };
 		0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */; };
+		0D20C0DF24200B7800FCA5B4 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0DE24200B7800FCA5B4 /* GroceryListViewController.swift */; };
+		0D20C0E224200BE300FCA5B4 /* GroceryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0E124200BE300FCA5B4 /* GroceryDetailsViewController.swift */; };
 		3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D20C0BF241FE46600FCA5B4 /* GroceryListProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryListProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D20C0C6241FE46600FCA5B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D20C0C6241FE46600FCA5B4 /* GroceriesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesNavigationController.swift; sourceTree = "<group>"; };
 		0D20C0CC241FE46600FCA5B4 /* GroceryListProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroceryListProject.xcdatamodel; sourceTree = "<group>"; };
 		0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D20C0D1241FE46700FCA5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D20C0D3241FE46700FCA5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D20C0DE24200B7800FCA5B4 /* GroceryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
+		0D20C0E124200BE300FCA5B4 /* GroceryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsViewController.swift; sourceTree = "<group>"; };
 		1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */,
-				0D20C0C6241FE46600FCA5B4 /* ViewController.swift */,
+				0D20C0DD24200B1D00FCA5B4 /* Grocery List */,
+				0D20C0E024200B8700FCA5B4 /* Grocery Details */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -101,6 +106,23 @@
 				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
 			);
 			path = Bundle;
+			sourceTree = "<group>";
+		};
+		0D20C0DD24200B1D00FCA5B4 /* Grocery List */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0C6241FE46600FCA5B4 /* GroceriesNavigationController.swift */,
+				0D20C0DE24200B7800FCA5B4 /* GroceryListViewController.swift */,
+			);
+			path = "Grocery List";
+			sourceTree = "<group>";
+		};
+		0D20C0E024200B8700FCA5B4 /* Grocery Details */ = {
+			isa = PBXGroup;
+			children = (
+				0D20C0E124200BE300FCA5B4 /* GroceryDetailsViewController.swift */,
+			);
+			path = "Grocery Details";
 			sourceTree = "<group>";
 		};
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
@@ -216,7 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D20C0C7241FE46600FCA5B4 /* ViewController.swift in Sources */,
+				0D20C0DF24200B7800FCA5B4 /* GroceryListViewController.swift in Sources */,
+				0D20C0C7241FE46600FCA5B4 /* GroceriesNavigationController.swift in Sources */,
+				0D20C0E224200BE300FCA5B4 /* GroceryDetailsViewController.swift in Sources */,
 				0D20C0CD241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld in Sources */,
 				0D20C0C3241FE46600FCA5B4 /* AppDelegate.swift in Sources */,
 			);
@@ -364,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.GroceryListProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.listinha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -385,7 +409,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.GroceryListProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.listinha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
