@@ -1,2 +1,2 @@
 # GroceryList
-Just an app to help me to do groceries
+Just an app to help people to do groceries
