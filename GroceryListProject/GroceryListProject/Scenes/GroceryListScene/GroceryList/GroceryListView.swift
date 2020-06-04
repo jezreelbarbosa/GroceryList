@@ -6,10 +6,9 @@
 //  Copyright © 2020 JezreelBarbosa. All rights reserved.
 //
 
-import UIKit
 import Stevia
 
-class GroceryListView: UIView {
+final class GroceryListView: UIView {
     // Static Properties
     // Static Methods
     // Public Types
@@ -22,8 +21,8 @@ class GroceryListView: UIView {
     // Public Methods
     
     func customizeNavigationBar(_ viewController: UIViewController) {
-        viewController.navigationItem.title = NSLocalizedString("GroceryListView.navigationItem.Title", comment: "")
-        viewController.navigationController?.view.backgroundColor = .appBackground
+        viewController.navigationItem.title = "GroceryListView_navigationItem_Title".localized
+        viewController.navigationController?.view.backgroundColor = Colors.GroceryListScene.background
         viewController.navigationItem.rightBarButtonItem = addBarButtonItem
     }
     
@@ -38,11 +37,7 @@ class GroceryListView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        renderSuperView()
-        renderLayout()
-        renderStyle()
+        fatalError()
     }
     
     // Override Methods
@@ -67,7 +62,7 @@ class GroceryListView: UIView {
     
     private func renderStyle() {
         style { (s) in
-            s.backgroundColor = .appBackground
+            s.backgroundColor = Colors.GroceryListScene.background
         }
         tableView.style { (s) in
             s.separatorStyle = .singleLine

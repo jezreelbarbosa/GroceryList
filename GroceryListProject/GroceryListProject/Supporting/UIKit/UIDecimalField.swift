@@ -8,33 +8,26 @@
 
 import UIKit
 
-class UIDecimalField: UITextField {
+open class UIDecimalField: UITextField {
     // Static Properties
     // Static Methods
     // Public Types
     // Public Properties
     
-    var decimal: Decimal {
+    final var decimal: Decimal {
         return decimalFromString / pow(10, numberFormatter.maximumFractionDigits)
     }
-    var maximum: Decimal = 999_999_999.999999
     
-    var locale: Locale = .current {
+    final var maximum: Decimal = 999_999_999.999999
+    
+    final var numberFormatter = NumberFormatter() {
         didSet {
-            numberFormatter.locale = locale
             sendActions(for: .editingChanged)
         }
     }
-    var fractionDigits: Int = 2 {
+    
+    var isPlaceholderShownWhenValueIsZero: Bool = true {
         didSet {
-            numberFormatter.maximumFractionDigits = fractionDigits
-            numberFormatter.minimumFractionDigits = fractionDigits
-            sendActions(for: .editingChanged)
-        }
-    }
-    var numberStyle: NumberFormatter.Style = .decimal {
-        didSet {
-            numberFormatter.numberStyle = numberStyle
             sendActions(for: .editingChanged)
         }
     }
@@ -46,33 +39,31 @@ class UIDecimalField: UITextField {
             text = lastValue
             return
         }
-        text = stringFromDecimal
-        lastValue = text
+        if isPlaceholderShownWhenValueIsZero && decimal == 0 {
+            text = nil
+            placeholder = stringFromDecimal
+        }
+        else {
+            text = stringFromDecimal
+            lastValue = text
+        }
     }
     
     // Initialisation/Lifecycle Methods
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         initView()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         initView()
     }
     
     // Override Methods
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        numberFormatter.locale = locale
-        addTarget(self, action: #selector(editingChanged), for: .editingChanged)
-        keyboardType = .numberPad
-        textAlignment = .right
-        sendActions(for: .editingChanged)
-    }
-    
-    override func deleteBackward() {
+    open override func deleteBackward() {
         let last = digits.dropLast()
         text = String(last)
         sendActions(for: .editingChanged)
@@ -85,7 +76,6 @@ class UIDecimalField: UITextField {
         return text ?? ""
     }
     private var lastValue: String?
-    private let numberFormatter = NumberFormatter()
     
     private var stringFromDecimal: String {
         return numberFormatter.string(for: decimal) ?? ""
@@ -106,5 +96,10 @@ class UIDecimalField: UITextField {
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = 2
         numberFormatter.minimumFractionDigits = 2
+        numberFormatter.locale = .current
+        addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        keyboardType = .numberPad
+        textAlignment = .right
+        sendActions(for: .editingChanged)
     }
 }

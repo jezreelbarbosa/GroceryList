@@ -23,32 +23,13 @@ class GroceryItemView: UIView {
     let unitSegmentedControl = UISegmentedControl()
     let addButton = UIButton(type: .custom)
     
+    let priceTextLabel = UILabel()
+    let quantityTextLabel = UILabel()
+    
+    let totalTextLabel = UILabel()
+    let totalValueLabel = UILabel()
+    
     // Public Methods
-    
-    func fillView(_ grocery: Grocery) {
-        groceryNameTextField.text = grocery.name
-        priceDecimalField.text = grocery.priceString
-        quantityDecimalField.text = grocery.quantityString
-        unitSegmentedControl.selectedSegmentIndex = grocery.unit.rawValue
-        totalValueLabel.text = grocery.totalString
-        
-        unitSegmentedControl.sendActions(for: .valueChanged)
-        priceDecimalField.sendActions(for: .editingChanged)
-        quantityDecimalField.sendActions(for: .editingChanged)
-    }
-    
-    func clearView() {
-        groceryNameTextField.text = nil
-        priceDecimalField.text = nil
-        quantityDecimalField.text = nil
-        unitSegmentedControl.selectedSegmentIndex = 0
-        
-        unitSegmentedControl.sendActions(for: .valueChanged)
-        priceDecimalField.sendActions(for: .editingChanged)
-        quantityDecimalField.sendActions(for: .editingChanged)
-        updateTotalValue()
-    }
-    
     // Initialisation/Lifecycle Methods
     
     override init(frame: CGRect) {
@@ -60,36 +41,13 @@ class GroceryItemView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        renderSuperView()
-        renderLayout()
-        renderStyle()
+        fatalError()
     }
     
     // Override Methods
     // Private Types
     // Private Properties
-    
-    private let priceTextLabel = UILabel()
-    private let quantityTextLabel = UILabel()
-    
-    private let totalTextLabel = UILabel()
-    private let totalValueLabel = UILabel()
-    private let totalNumberFormatter = NumberFormatter()
-    
     // Private Methods
-    
-    @objc private func selectedSegmentChanged() {
-        quantityDecimalField.fractionDigits = (unitSegmentedControl.selectedSegmentIndex == 0) ? 0 : 3
-        updateTotalValue()
-    }
-    
-    @objc private func updateTotalValue() {
-        let factor: Decimal = unitSegmentedControl.selectedSegmentIndex == 1 ? 0.1 : 1
-        let total = priceDecimalField.decimal * quantityDecimalField.decimal / factor
-        totalValueLabel.text = totalNumberFormatter.string(for: total)
-    }
     
     private func renderSuperView() {
         sv(
@@ -135,79 +93,76 @@ class GroceryItemView: UIView {
     
     private func renderStyle() {
         style { (s) in
-            s.backgroundColor = .appBackground
+            s.backgroundColor = Colors.GroceryListScene.background
         }
         groceryNameTextField.style { (s) in
-            s.placeholder = NSLocalizedString("GroceryItemView.groceryNameTextField.placeholder", comment: "")
+            s.placeholder = "GroceryItemView_groceryNameTextField_placeholder".localized
             s.borderStyle = .roundedRect
             s.textAlignment = .left
+            s.returnKeyType = .next
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         
         priceTextLabel.style { (s) in
-            s.text = NSLocalizedString("GroceryItemView.priceTextLabel.Text", comment: "")
+            s.text = "GroceryItemView_priceTextLabel_Text".localized
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         priceDecimalField.style { (s) in
-            s.fractionDigits = 2
-            s.numberStyle = .currency
+            s.numberFormatter.minimumFractionDigits = 2
+            s.numberFormatter.maximumFractionDigits = 2
+            s.numberFormatter.numberStyle = .currency
+            s.returnKeyType = .next
             s.borderStyle = .roundedRect
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
-            s.addTarget(self, action: #selector(updateTotalValue), for: .editingChanged)
+            s.textColor = Colors.GroceryListScene.label
         }
         
         quantityTextLabel.style { (s) in
-            s.text = NSLocalizedString("GroceryItemView.quantityTextLabel.Text", comment: "")
+            s.text = "GroceryItemView_quantityTextLabel_Text".localized
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         quantityDecimalField.style { (s) in
-            s.fractionDigits = 0
-            s.numberStyle = .decimal
+            s.numberFormatter.minimumFractionDigits = 0
+            s.numberFormatter.maximumFractionDigits = 0
+            s.numberFormatter.numberStyle = .decimal
+            s.returnKeyType = .done
             s.borderStyle = .roundedRect
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
-            s.addTarget(self, action: #selector(updateTotalValue), for: .editingChanged)
+            s.textColor = Colors.GroceryListScene.label
+            s.text = "1"
         }
         
         unitSegmentedControl.style { (s) in
-            s.insertSegment(withTitle: NSLocalizedString("GroceryItemView.unitSegmentedControl.Title.0", comment: ""), at: 0, animated: false)
+            s.insertSegment(withTitle: "GroceryItemView_unitSegmentedControl_Title_0".localized, at: 0, animated: false)
             s.insertSegment(withTitle: "100g", at: 1, animated: false)
             s.insertSegment(withTitle: "Kg", at: 2, animated: false)
             s.insertSegment(withTitle: "L", at: 3, animated: false)
             s.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 14, weight: .regular)], for: .normal)
             s.selectedSegmentIndex = 0
-            s.addTarget(self, action: #selector(selectedSegmentChanged), for: .valueChanged)
         }
         
         totalTextLabel.style { (s) in
-            s.text = NSLocalizedString("GroceryItemView.totalTextLabel.Text", comment: "")
+            s.text = "GroceryItemView_totalTextLabel_Text".localized
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         totalValueLabel.style { (s) in
             s.textAlignment = .right
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         
         addButton.style { (s) in
-            let title = NSLocalizedString("GroceryItemView.addButton.Title", comment: "")
+            let title = "GroceryItemView_addButton_Title".localized
             s.setAttributedTitle(NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.white]), for: .normal)
             s.backgroundColor = s.tintColor
             s.layer.cornerRadius = 8
         }
-        
-        totalNumberFormatter.locale = .current
-        totalNumberFormatter.numberStyle = .currency
-        totalNumberFormatter.minimumFractionDigits = 2
-        totalNumberFormatter.maximumFractionDigits = 2
-        updateTotalValue()
     }
 }

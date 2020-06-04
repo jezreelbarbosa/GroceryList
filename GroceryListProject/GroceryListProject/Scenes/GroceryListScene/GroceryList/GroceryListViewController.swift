@@ -8,26 +8,29 @@
 
 import UIKit
 
-class GroceryListViewController: UIViewController {
+protocol GroceryListDelegate: class {
+    func touchAddBarButtonItem()
+    func didSelectGrocery(_ grocery: Grocery)
+}
+
+final class GroceryListViewController: UIViewController {
     // Static Properties
     // Static Methods
     // Public Types
     // Public Properties
+    
+    weak var delegate: GroceryListDelegate?
+    
     // Public Methods
     // Initialisation/Lifecycle Methods
     
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init() {
+        super.init(nibName: nil, bundle: nil)
         initController()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initController()
+        fatalError()
     }
     
     deinit {
@@ -37,39 +40,37 @@ class GroceryListViewController: UIViewController {
     // Override Methods
     
     override func willMove(toParent parent: UIViewController?) {
-        groceryView.customizeNavigationBar(self)
+        mainView.customizeNavigationBar(self)
     }
     
     // Private Types
     // Private Properties
     
-    private let groceryView = GroceryListView()
+    private let mainView = GroceryListView()
     
     // Private Methods
     
     private func initController() {
-        self.view = groceryView
+        self.view = mainView
         
-        groceryView.tableView.dataSource = self
-        groceryView.tableView.delegate = self
-        groceryView.tableView.register(GroceryTableViewCell.self, forCellReuseIdentifier: GroceryTableViewCell.reuseIdentifier)
-        groceryView.tableView.register(GroceriesFooterView.self, forHeaderFooterViewReuseIdentifier: GroceriesFooterView.reuseIdentifier)
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
+        mainView.tableView.register(GroceryTableViewCell.self, forCellReuseIdentifier: GroceryTableViewCell.reuseIdentifier)
+        mainView.tableView.register(GroceriesFooterView.self, forHeaderFooterViewReuseIdentifier: GroceriesFooterView.reuseIdentifier)
         
-        groceryView.addBarButtonItem.target = self
-        groceryView.addBarButtonItem.action = #selector(addBarButtonDidTouchUp)
+        mainView.addBarButtonItem.target = self
+        mainView.addBarButtonItem.action = #selector(touchAddBarButtonItem)
         
         NotificationCenter.default.addObserver(self, selector: #selector(groceryListAddedNewItem), name: Grocery.listAddedNewItemNN, object: nil)
     }
     
-    @objc private func addBarButtonDidTouchUp() {
-        if let navController = navigationController as? GroceriesNavigationController {
-            present(navController.groceryItemViewController, animated: true, completion: nil)
-        }
+    @objc private func touchAddBarButtonItem() {
+        delegate?.touchAddBarButtonItem()
     }
     
     @objc private func groceryListAddedNewItem() {
         DispatchQueue.main.async {
-            self.groceryView.tableView.reloadData()
+            self.mainView.tableView.reloadData()
         }
     }
 }
@@ -106,16 +107,13 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let navController = navigationController as? GroceriesNavigationController {
-            navController.groceryItemViewController.grocery = Grocery.list[indexPath.row]
-            present(navController.groceryItemViewController, animated: true, completion: nil)
-        }
+        delegate?.didSelectGrocery(Grocery.list[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: GroceriesFooterView.reuseIdentifier) as! GroceriesFooterView
         
-        footer.fill(Grocery.listTotalString)
+        footer.fill()
         
         return footer
     }

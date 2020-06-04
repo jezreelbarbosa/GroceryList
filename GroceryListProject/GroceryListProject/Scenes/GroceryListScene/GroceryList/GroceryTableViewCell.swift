@@ -6,10 +6,9 @@
 //  Copyright © 2020 JezreelBarbosa. All rights reserved.
 //
 
-import UIKit
 import Stevia
 
-class GroceryTableViewCell: UITableViewCell {
+final class GroceryTableViewCell: UITableViewCell {
     // Static properties
     
     static let reuseIdentifier: String = "GroceryTableViewCell"
@@ -20,54 +19,59 @@ class GroceryTableViewCell: UITableViewCell {
     // Public Methods
     
     func fill(_ grocery: Grocery) {
-        nameLabel.text = grocery.name
-        priceLabel.text = grocery.priceString
-        quantityLabel.text = grocery.quantityString
-        quantityUnitLabel.text = grocery.unit.shortName
-        totalLabel.text = grocery.totalString
+        presentationModel.grocery = grocery
         
-        self.grocery = grocery
-        NotificationCenter.default.addObserver(self, selector: #selector(groceryDidChangeInformation), name: Grocery.valuesDidChangedNN, object: grocery)
+        presentationModel.updateValues()
     }
     
     // Initialisation/Lifecycle Methods
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         renderSuperView()
         renderLayout()
         renderStyle()
+        
+        presentationModel.nameBox.bind { [weak self] (name) in
+            self?.nameLabel.text = name
+        }
+        presentationModel.priceBox.bind { [weak self] (price) in
+            self?.priceLabel.text = price
+        }
+        presentationModel.quantityBox.bind { [weak self] (quantity) in
+            self?.quantityLabel.text = quantity
+        }
+        presentationModel.unitBox.bind { [weak self] (unit) in
+            self?.quantityUnitLabel.text = unit
+        }
+        presentationModel.totalBox.bind { [weak self] (total) in
+            self?.totalLabel.text = total
+        }
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        renderSuperView()
-        renderLayout()
-        renderStyle()
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+       fatalError()
     }
     
     // Override Methods
     
     override func prepareForReuse() {
-        NotificationCenter.default.removeObserver(self)
+        super.prepareForReuse()
+        
+        presentationModel.grocery = nil
+        
         nameLabel.text = nil
         priceLabel.text = nil
         quantityLabel.text = nil
         quantityUnitLabel.text = nil
         totalLabel.text = nil
-        grocery = nil
     }
     
     // Private Types
     // Private Properties
     
-    private weak var grocery: Grocery?
+    private let presentationModel = GroceryPresentationModel()
     
     private let nameLabel = UILabel()
     private let priceLabel = UILabel()
@@ -80,16 +84,6 @@ class GroceryTableViewCell: UITableViewCell {
     private let totalLabel = UILabel()
     
     // Private Methods
-    
-    @objc private func groceryDidChangeInformation() {
-        if let grocery = self.grocery {
-            nameLabel.text = grocery.name
-            priceLabel.text = grocery.priceString
-            quantityLabel.text = grocery.quantityString
-            quantityUnitLabel.text = grocery.unit.shortName
-            totalLabel.text = grocery.totalString
-        }
-    }
     
     private func renderSuperView() {
         sv(
@@ -131,37 +125,37 @@ class GroceryTableViewCell: UITableViewCell {
         nameLabel.style { (s) in
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .semibold)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         
         priceLabel.style { (s) in
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 14, weight: .light)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         
         separatorLabel.style { (s) in
             s.text = "•"
             s.textAlignment = .center
             s.font = .systemFont(ofSize: 14, weight: .light)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         
         quantityLabel.style { (s) in
             s.textAlignment = .right
             s.font = .systemFont(ofSize: 14, weight: .light)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         quantityUnitLabel.style { (s) in
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 14, weight: .light)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         
         totalLabel.style { (s) in
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
     }
 }

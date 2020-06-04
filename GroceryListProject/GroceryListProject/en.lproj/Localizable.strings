@@ -6,18 +6,20 @@
   Copyright © 2020 JezreelBarbosa. All rights reserved.
 */
 
-// MARK: - Grocery List View
-"GroceryListView.navigationItem.Title" = "Shopping list";
+// MARK: - Grocery List Scene
+
+// - Grocery List View
+"GroceryListView_navigationItem_Title" = "Shopping list";
 
 
-// MARK: - Groceries Footer View
-"GroceriesFooterView.totalNameLabel.Text" = "TOTAL:";
+// - Groceries Footer View
+"GroceriesFooterView_totalNameLabel_Text" = "TOTAL:";
 
 
-// MARK: - Grocery Item View
-"GroceryItemView.groceryNameTextField.placeholder" = "Item Name";
-"GroceryItemView.priceTextLabel.Text" = "Price:";
-"GroceryItemView.quantityTextLabel.Text" = "Quantity:";
-"GroceryItemView.unitSegmentedControl.Title.0" = "Unit";
-"GroceryItemView.totalTextLabel.Text" = "Total:";
-"GroceryItemView.addButton.Title" = "Save";
+// - Grocery Item View
+"GroceryItemView_groceryNameTextField_placeholder" = "Item Name";
+"GroceryItemView_priceTextLabel_Text" = "Price:";
+"GroceryItemView_quantityTextLabel_Text" = "Quantity:";
+"GroceryItemView_unitSegmentedControl_Title_0" = "Unit";
+"GroceryItemView_totalTextLabel_Text" = "Total:";
+"GroceryItemView_addButton_Title" = "Save";

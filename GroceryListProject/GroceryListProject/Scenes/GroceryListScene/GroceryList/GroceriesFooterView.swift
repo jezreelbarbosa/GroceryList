@@ -6,10 +6,9 @@
 //  Copyright © 2020 JezreelBarbosa. All rights reserved.
 //
 
-import UIKit
 import Stevia
 
-class GroceriesFooterView: UITableViewHeaderFooterView {
+final class GroceriesFooterView: UITableViewHeaderFooterView {
     // Static properties
     
     static let reuseIdentifier: String = "GroceriesFooterView"
@@ -19,8 +18,8 @@ class GroceriesFooterView: UITableViewHeaderFooterView {
     // Public Properties
     // Public Methods
     
-    func fill(_ total: String) {
-        totalLabel.text = total
+    func fill() {
+        updateInformation()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateInformation), name: Grocery.listDidUpdateNN, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateInformation), name: Grocery.valuesDidChangedNN, object: nil)
@@ -37,11 +36,7 @@ class GroceriesFooterView: UITableViewHeaderFooterView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        renderSuperView()
-        renderLayout()
-        renderStyle()
+        fatalError()
     }
     
     deinit {
@@ -63,7 +58,7 @@ class GroceriesFooterView: UITableViewHeaderFooterView {
     // Private Methods
     
     @objc private func updateInformation() {
-        totalLabel.text = Grocery.listTotalString
+        totalLabel.text = GroceryPresentationModel.listTotal
     }
     
     private func renderSuperView() {
@@ -85,13 +80,13 @@ class GroceriesFooterView: UITableViewHeaderFooterView {
             
         }
         totalNameLabel.style { (s) in
-            s.text = NSLocalizedString("GroceriesFooterView.totalNameLabel.Text", comment: "")
+            s.text = "GroceriesFooterView_totalNameLabel_Text".localized
             s.textAlignment = .left
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
         totalLabel.style { (s) in
             s.textAlignment = .right
-            s.textColor = .appLabel
+            s.textColor = Colors.GroceryListScene.label
         }
     }
 }
