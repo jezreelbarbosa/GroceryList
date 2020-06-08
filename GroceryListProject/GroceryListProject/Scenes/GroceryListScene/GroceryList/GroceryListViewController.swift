@@ -56,7 +56,7 @@ final class GroceryListViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         mainView.tableView.register(GroceryTableViewCell.self, forCellReuseIdentifier: GroceryTableViewCell.reuseIdentifier)
-        mainView.tableView.register(GroceriesFooterView.self, forHeaderFooterViewReuseIdentifier: GroceriesFooterView.reuseIdentifier)
+        mainView.tableView.register(GroceryListFooterView.self, forHeaderFooterViewReuseIdentifier: GroceryListFooterView.reuseIdentifier)
         
         mainView.addBarButtonItem.target = self
         mainView.addBarButtonItem.action = #selector(touchAddBarButtonItem)
@@ -111,7 +111,7 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: GroceriesFooterView.reuseIdentifier) as! GroceriesFooterView
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: GroceryListFooterView.reuseIdentifier) as! GroceryListFooterView
         
         footer.fill()
         
@@ -119,6 +119,6 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return GroceriesFooterView.rowHeight
+        return GroceryListFooterView.rowHeight
     }
 }

@@ -1,14 +1,14 @@
 //
-//  GroceryPresentationModel.swift
+//  GroceryCellViewModel.swift
 //  GroceryListProject
 //
-//  Created by Jezreel Barbosa on 03/06/20.
+//  Created by Jezreel Barbosa on 05/06/20.
 //  Copyright © 2020 JezreelBarbosa. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-final class GroceryPresentationModel {
+final class GroceryCellViewModel {
     // Static Properties
     
     static var listTotal: String {
@@ -45,7 +45,6 @@ final class GroceryPresentationModel {
     let quantityBox: Box<String> = Box("")
     let totalBox: Box<String> = Box("")
     let unitBox: Box<String> = Box("")
-    let unitOfMeasurimentBox: Box<Grocery.UnitOfMeasurement> = Box(.unit)
     
     // Public Methods
     
@@ -55,7 +54,6 @@ final class GroceryPresentationModel {
         quantityBox.value = quantity
         totalBox.value = total
         unitBox.value = unit
-        unitOfMeasurimentBox.value = unitOfMeasuriment
     }
     
     // Initialisation/Lifecycle Methods
@@ -134,10 +132,6 @@ final class GroceryPresentationModel {
             return "L"
             
         }
-    }
-    
-    private var unitOfMeasuriment: Grocery.UnitOfMeasurement {
-        return grocery?.unit ?? .unit
     }
     
     // Private Methods

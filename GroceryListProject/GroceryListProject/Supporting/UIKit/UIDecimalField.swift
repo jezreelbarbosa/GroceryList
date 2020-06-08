@@ -64,8 +64,7 @@ open class UIDecimalField: UITextField {
     // Override Methods
     
     open override func deleteBackward() {
-        let last = digits.dropLast()
-        text = String(last)
+        super.deleteBackward()
         sendActions(for: .editingChanged)
     }
     
@@ -90,9 +89,19 @@ open class UIDecimalField: UITextField {
         return maximum / pow(10, numberFormatter.maximumFractionDigits)
     }
     
+    private let selectionButton = UIButton()
+    
     // Private Methods
     
     private func initView() {
+        addSubview(selectionButton)
+        selectionButton.translatesAutoresizingMaskIntoConstraints = false
+        selectionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        selectionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        selectionButton.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        selectionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        selectionButton.addTarget(self, action: #selector(touchSelection), for: .touchUpInside)
+        
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = 2
         numberFormatter.minimumFractionDigits = 2
@@ -101,5 +110,9 @@ open class UIDecimalField: UITextField {
         keyboardType = .numberPad
         textAlignment = .right
         sendActions(for: .editingChanged)
+    }
+    
+    @objc private func touchSelection() {
+        becomeFirstResponder()
     }
 }

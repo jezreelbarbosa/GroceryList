@@ -17,11 +17,11 @@ final class Box<T> {
     
     // Public Properties
     
-    var listener: Listener?
+    private(set) var listener: Listener?
     
     var value: T {
         didSet{
-            listener?(value)
+            fire()
         }
     }
     
@@ -29,11 +29,15 @@ final class Box<T> {
     
     func bind(listener: Listener?) {
         self.listener = listener
-        listener?(value)
     }
     
     func fire() {
         listener?(value)
+    }
+    
+    func bindAndFire(listener: Listener?) {
+        bind(listener: listener)
+        fire()
     }
     
     // Initialisation/Lifecycle Methods

@@ -66,6 +66,8 @@ class GroceryItemView: UIView {
     private func renderLayout() {
         groceryNameTextField.top(36).left(16).right(16)
         
+        priceDecimalField.setContentCompressionResistancePriority(.required, for: .horizontal)
+        priceDecimalField.setContentCompressionResistancePriority(.required, for: .vertical)
         priceDecimalField.Top == groceryNameTextField.Bottom + 8
         align(horizontally: priceTextLabel, priceDecimalField)
         priceTextLabel.left(16).Right == priceDecimalField.right(16).Left - 8

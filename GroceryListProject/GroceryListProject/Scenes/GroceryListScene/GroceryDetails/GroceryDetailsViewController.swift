@@ -30,13 +30,13 @@ class GroceryItemViewController: UIViewController {
     // Private Properties
     
     private let mainView = GroceryItemView()
-    private let presentationModel = GroceryPresentationModel()
+    private let viewModel = GroceryDetailsViewModel()
     
     // Private Methods
     
     private func initController(grocery: Grocery) {
         self.view = mainView
-        presentationModel.grocery = grocery
+        viewModel.grocery = grocery
 
         mainView.groceryNameTextField.delegate = self
         mainView.priceDecimalField.delegate = self
@@ -45,17 +45,12 @@ class GroceryItemViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         mainView.addGestureRecognizer(tap)
         
-        mainView.groceryNameTextField.text = presentationModel.nameBox.value
-        mainView.priceDecimalField.text = presentationModel.priceBox.value
-        mainView.quantityDecimalField.text = presentationModel.quantityBox.value
-        mainView.unitSegmentedControl.selectedSegmentIndex = presentationModel.unitOfMeasurimentBox.value.rawValue
-        mainView.totalValueLabel.text = presentationModel.totalBox.value
+        mainView.groceryNameTextField.text = viewModel.name
+        mainView.priceDecimalField.text = viewModel.price
+        mainView.quantityDecimalField.text = viewModel.quantity
+        mainView.unitSegmentedControl.selectedSegmentIndex = viewModel.unit.rawValue
         
-        mainView.priceDecimalField.sendActions(for: .editingChanged)
-        mainView.unitSegmentedControl.sendActions(for: .valueChanged)
-        mainView.quantityDecimalField.sendActions(for: .editingChanged)
-        
-        presentationModel.totalBox.bind { [weak self] (total) in
+        viewModel.totalBox.bindAndFire { [weak self] (total) in
             self?.mainView.totalValueLabel.text = total
         }
         
@@ -85,7 +80,7 @@ class GroceryItemViewController: UIViewController {
         let price = mainView.priceDecimalField.decimal
         let quantity = mainView.quantityDecimalField.decimal
         
-        presentationModel.grocery?.setValues(name, price: price, quantity: quantity, unit: unit)
+        viewModel.grocery?.setValues(name, price: price, quantity: quantity, unit: unit)
     }
     
     @objc private func touchedAddButton() {

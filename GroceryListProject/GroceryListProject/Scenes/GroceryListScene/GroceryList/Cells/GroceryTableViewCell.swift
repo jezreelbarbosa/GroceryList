@@ -19,9 +19,9 @@ final class GroceryTableViewCell: UITableViewCell {
     // Public Methods
     
     func fill(_ grocery: Grocery) {
-        presentationModel.grocery = grocery
+        viewModel.grocery = grocery
         
-        presentationModel.updateValues()
+        viewModel.updateValues()
     }
     
     // Initialisation/Lifecycle Methods
@@ -33,19 +33,19 @@ final class GroceryTableViewCell: UITableViewCell {
         renderLayout()
         renderStyle()
         
-        presentationModel.nameBox.bind { [weak self] (name) in
+        viewModel.nameBox.bindAndFire { [weak self] (name) in
             self?.nameLabel.text = name
         }
-        presentationModel.priceBox.bind { [weak self] (price) in
+        viewModel.priceBox.bindAndFire { [weak self] (price) in
             self?.priceLabel.text = price
         }
-        presentationModel.quantityBox.bind { [weak self] (quantity) in
+        viewModel.quantityBox.bindAndFire { [weak self] (quantity) in
             self?.quantityLabel.text = quantity
         }
-        presentationModel.unitBox.bind { [weak self] (unit) in
+        viewModel.unitBox.bindAndFire { [weak self] (unit) in
             self?.quantityUnitLabel.text = unit
         }
-        presentationModel.totalBox.bind { [weak self] (total) in
+        viewModel.totalBox.bindAndFire { [weak self] (total) in
             self?.totalLabel.text = total
         }
     }
@@ -59,7 +59,7 @@ final class GroceryTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        presentationModel.grocery = nil
+        viewModel.grocery = nil
         
         nameLabel.text = nil
         priceLabel.text = nil
@@ -71,7 +71,7 @@ final class GroceryTableViewCell: UITableViewCell {
     // Private Types
     // Private Properties
     
-    private let presentationModel = GroceryPresentationModel()
+    private let viewModel = GroceryCellViewModel()
     
     private let nameLabel = UILabel()
     private let priceLabel = UILabel()

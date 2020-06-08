@@ -1,5 +1,5 @@
 //
-//  GroceriesFooterView.swift
+//  GroceryListFooterView.swift
 //  GroceryListProject
 //
 //  Created by Jezreel Barbosa on 16/03/20.
@@ -8,10 +8,10 @@
 
 import Stevia
 
-final class GroceriesFooterView: UITableViewHeaderFooterView {
+final class GroceryListFooterView: UITableViewHeaderFooterView {
     // Static properties
     
-    static let reuseIdentifier: String = "GroceriesFooterView"
+    static let reuseIdentifier: String = "GroceryListFooterView"
     static let rowHeight: CGFloat = 44.0
     
     // Public Types
@@ -58,7 +58,7 @@ final class GroceriesFooterView: UITableViewHeaderFooterView {
     // Private Methods
     
     @objc private func updateInformation() {
-        totalLabel.text = GroceryPresentationModel.listTotal
+        totalLabel.text = GroceryCellViewModel.listTotal
     }
     
     private func renderSuperView() {
