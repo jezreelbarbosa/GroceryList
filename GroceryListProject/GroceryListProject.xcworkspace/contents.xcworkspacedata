@@ -11,6 +11,9 @@
       location = "group:Storage/Storage.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AppData/AppData.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:GroceryListProject.xcodeproj">
    </FileRef>
    <FileRef
