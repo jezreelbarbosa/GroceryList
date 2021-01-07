@@ -1,0 +1,6 @@
+framework module Pods_GroceryListProjectTarget_GroceryListProject {
+  umbrella header "Pods-GroceryListProjectTarget-GroceryListProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

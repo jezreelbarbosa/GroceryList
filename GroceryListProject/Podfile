@@ -1,11 +1,155 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '11.4'
+source 'https://cdn.cocoapods.org/'
 
-target 'GroceryListProject' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  # use_frameworks!
+platform :ios, '12.0'
+# inhibit_all_warnings!
+use_frameworks!
+workspace 'GroceryListProject'
 
-  # Pods for GroceryListProject
+# Mark: - Pods
+
+def sharedPods
+  pod 'SwiftLint'
+end
+
+def presentationPods
   pod 'SteviaLayout'
+  pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager', :branch => 'master'
+end
+
+def diPods
+  pod 'Swinject', '~> 2.6.0'
+  pod 'SwinjectAutoregistration', '~> 2.6.0'
+end
+
+def networkingPods
+
+end
+
+def storagePods
+  pod 'KeychainAccess'
+end
+
+plugin 'cocoapods-wholemodule'
+
+# Mark: - Main Target
+
+abstract_target 'GroceryListProjectTarget' do
+  project 'GroceryListProject'
+  # Pods for GrimoghProject
+  sharedPods
+  presentationPods
+  diPods
+  networkingPods
+  storagePods
+
+  target 'GroceryListProject' do
+        target 'GroceryListProjectTests' do
+          inherit! :search_paths
+        end
+  end
+
+  #  target 'GrimoghProjectProd'do
+  #  end
+
+end
+
+# Mark: - Core Targets
+
+target 'Domain' do
+  project 'Domain/Domain'
+  # Pods for Domain
+  sharedPods
+
+  target 'DomainTests'
+end
+
+target 'AppData' do
+  project 'AppData/AppData'
+  # Pods for AppData
+  sharedPods
+
+  target 'AppDataTests'
+end
+
+target 'Networking' do
+  project 'Networking/Networking'
+  # Pods for Network
+  sharedPods
+  networkingPods
+
+  target 'NetworkingTests'
+end
+
+target 'Storage' do
+  project 'Storage/Storage'
+  # Pods for Storage
+  sharedPods
+  storagePods
+
+  target 'StorageTests'
+end
+
+# Mark: - Supporting Targets
+
+target 'Common' do
+  project 'Common/Common'
+  # Pods for Common
+  sharedPods
+  diPods
+
+  target 'CommonTests'
+end
+
+target 'DI' do
+  project 'DI/DI'
+  # Pods for DI
+  sharedPods
+  diPods
+
+  target 'DITests'
+end
+
+target 'AppNavigation' do
+  project 'AppNavigation/AppNavigation'
+  # Pods for AppNavigation
+  sharedPods
+  diPods
+
+  target 'AppNavigationTests'
+end
+
+target 'Presentation' do
+  project 'Presentation/Presentation'
+  # Pods for SharedPresentation
+  sharedPods
+  presentationPods
+
+  target 'PresentationTests'
+end
+
+# Mark: - Feature Targets
+
+target 'MainList' do
+  project 'MainList/MainList'
+  # Pods for SharedPresentation
+  sharedPods
+  presentationPods
+  diPods
+
+  target 'MainListTests'
+end
+
+# Mark: - Post install
+
+post_install do |installer|
+
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 12.0
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      end
+    end
+  end
 
 end
