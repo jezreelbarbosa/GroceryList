@@ -31,9 +31,30 @@
 		0DF03E33248AD21E001C095A /* GroceryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF03E32248AD21E001C095A /* GroceryDetailsViewModel.swift */; };
 		0DF4077D25A7460C0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; };
 		0DF4077E25A7460C0005609F /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0DF4078B25A748900005609F /* GroceryListProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4078A25A748900005609F /* GroceryListProjectTests.swift */; };
+		0DF4079A25A748D80005609F /* GroceryListProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4079925A748D80005609F /* GroceryListProjectUITests.swift */; };
+		0DF407D325A749970005609F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF407D225A749970005609F /* Networking.framework */; };
+		0DF407D425A749970005609F /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF407D225A749970005609F /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DF78140248EC6C3005457CB /* GroceryFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF7813F248EC6C3005457CB /* GroceryFooterViewModel.swift */; };
 		3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0DF4078D25A748900005609F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D20C0B7241FE46600FCA5B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D20C0BE241FE46600FCA5B4;
+			remoteInfo = GroceryListProject;
+		};
+		0DF4079C25A748D80005609F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D20C0B7241FE46600FCA5B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D20C0BE241FE46600FCA5B4;
+			remoteInfo = GroceryListProject;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0DF4077F25A7460D0005609F /* Embed Frameworks */ = {
@@ -42,6 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0DF407D425A749970005609F /* Networking.framework in Embed Frameworks */,
 				0DF4077E25A7460C0005609F /* Common.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -75,6 +97,13 @@
 		0DC07A3F2485D4D50010EC36 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		0DF03E32248AD21E001C095A /* GroceryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsViewModel.swift; sourceTree = "<group>"; };
 		0DF4077C25A7460C0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DF4078825A748900005609F /* GroceryListProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DF4078A25A748900005609F /* GroceryListProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListProjectTests.swift; sourceTree = "<group>"; };
+		0DF4078C25A748900005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF4079725A748D80005609F /* GroceryListProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DF4079925A748D80005609F /* GroceryListProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListProjectUITests.swift; sourceTree = "<group>"; };
+		0DF4079B25A748D80005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF407D225A749970005609F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF7813F248EC6C3005457CB /* GroceryFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryFooterViewModel.swift; sourceTree = "<group>"; };
 		1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +117,21 @@
 			files = (
 				3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */,
 				0DF4077D25A7460C0005609F /* Common.framework in Frameworks */,
+				0DF407D325A749970005609F /* Networking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DF4078525A748900005609F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DF4079425A748D80005609F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0C1241FE46600FCA5B4 /* GroceryListProject */,
+				0DF4078925A748900005609F /* GroceryListProjectTests */,
+				0DF4079825A748D80005609F /* GroceryListProjectUITests */,
 				0D20C0C0241FE46600FCA5B4 /* Products */,
 				7C150F7AFA53548FCF2B104B /* Pods */,
 				7B0BEA66D762A2BB6D40756B /* Frameworks */,
@@ -117,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0BF241FE46600FCA5B4 /* Listinha.app */,
+				0DF4078825A748900005609F /* GroceryListProjectTests.xctest */,
+				0DF4079725A748D80005609F /* GroceryListProjectUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,9 +303,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0DF4078925A748900005609F /* GroceryListProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				0DF4078A25A748900005609F /* GroceryListProjectTests.swift */,
+				0DF4078C25A748900005609F /* Info.plist */,
+			);
+			path = GroceryListProjectTests;
+			sourceTree = "<group>";
+		};
+		0DF4079825A748D80005609F /* GroceryListProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0DF4079925A748D80005609F /* GroceryListProjectUITests.swift */,
+				0DF4079B25A748D80005609F /* Info.plist */,
+			);
+			path = GroceryListProjectUITests;
+			sourceTree = "<group>";
+		};
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DF407D225A749970005609F /* Networking.framework */,
 				0DF4077C25A7460C0005609F /* Common.framework */,
 				1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */,
 			);
@@ -295,18 +362,62 @@
 			productReference = 0D20C0BF241FE46600FCA5B4 /* Listinha.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0DF4078725A748900005609F /* GroceryListProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DF4078F25A748900005609F /* Build configuration list for PBXNativeTarget "GroceryListProjectTests" */;
+			buildPhases = (
+				0DF4078425A748900005609F /* Sources */,
+				0DF4078525A748900005609F /* Frameworks */,
+				0DF4078625A748900005609F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DF4078E25A748900005609F /* PBXTargetDependency */,
+			);
+			name = GroceryListProjectTests;
+			productName = GroceryListProjectTests;
+			productReference = 0DF4078825A748900005609F /* GroceryListProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0DF4079625A748D80005609F /* GroceryListProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DF4079E25A748D80005609F /* Build configuration list for PBXNativeTarget "GroceryListProjectUITests" */;
+			buildPhases = (
+				0DF4079325A748D80005609F /* Sources */,
+				0DF4079425A748D80005609F /* Frameworks */,
+				0DF4079525A748D80005609F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DF4079D25A748D80005609F /* PBXTargetDependency */,
+			);
+			name = GroceryListProjectUITests;
+			productName = GroceryListProjectUITests;
+			productReference = 0DF4079725A748D80005609F /* GroceryListProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0D20C0B7241FE46600FCA5B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = JezreelBarbosa;
 				TargetAttributes = {
 					0D20C0BE241FE46600FCA5B4 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					0DF4078725A748900005609F = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 0D20C0BE241FE46600FCA5B4;
+					};
+					0DF4079625A748D80005609F = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 0D20C0BE241FE46600FCA5B4;
 					};
 				};
 			};
@@ -324,6 +435,8 @@
 			projectRoot = "";
 			targets = (
 				0D20C0BE241FE46600FCA5B4 /* GroceryListProject */,
+				0DF4078725A748900005609F /* GroceryListProjectTests */,
+				0DF4079625A748D80005609F /* GroceryListProjectUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,6 +448,20 @@
 			files = (
 				0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */,
 				0D20C0CF241FE46700FCA5B4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DF4078625A748900005609F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DF4079525A748D80005609F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +521,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DF4078425A748900005609F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DF4078B25A748900005609F /* GroceryListProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DF4079325A748D80005609F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DF4079A25A748D80005609F /* GroceryListProjectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0DF4078E25A748900005609F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D20C0BE241FE46600FCA5B4 /* GroceryListProject */;
+			targetProxy = 0DF4078D25A748900005609F /* PBXContainerItemProxy */;
+		};
+		0DF4079D25A748D80005609F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D20C0BE241FE46600FCA5B4 /* GroceryListProject */;
+			targetProxy = 0DF4079C25A748D80005609F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */ = {
@@ -530,7 +686,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = GroceryListProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,7 +694,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.listinha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist;
 				PRODUCT_NAME = Listinha;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -551,7 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = GroceryListProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -559,10 +715,96 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.listinha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist;
 				PRODUCT_NAME = Listinha;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0DF4079025A748900005609F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P38KT438VN;
+				INFOPLIST_FILE = GroceryListProjectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.GroceryListProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Listinha.app/Listinha";
+			};
+			name = Debug;
+		};
+		0DF4079125A748900005609F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P38KT438VN;
+				INFOPLIST_FILE = GroceryListProjectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.GroceryListProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Listinha.app/Listinha";
+			};
+			name = Release;
+		};
+		0DF4079F25A748D80005609F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P38KT438VN;
+				INFOPLIST_FILE = GroceryListProjectUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.GroceryListProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroceryListProject;
+			};
+			name = Debug;
+		};
+		0DF407A025A748D80005609F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P38KT438VN;
+				INFOPLIST_FILE = GroceryListProjectUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.GroceryListProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroceryListProject;
 			};
 			name = Release;
 		};
@@ -583,6 +825,24 @@
 			buildConfigurations = (
 				0D20C0D7241FE46700FCA5B4 /* Debug */,
 				0D20C0D8241FE46700FCA5B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DF4078F25A748900005609F /* Build configuration list for PBXNativeTarget "GroceryListProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DF4079025A748900005609F /* Debug */,
+				0DF4079125A748900005609F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DF4079E25A748D80005609F /* Build configuration list for PBXNativeTarget "GroceryListProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DF4079F25A748D80005609F /* Debug */,
+				0DF407A025A748D80005609F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
