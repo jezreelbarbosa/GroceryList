@@ -10,23 +10,6 @@ import Foundation
 
 final class GroceryCellViewModel {
     // Static Properties
-    
-    static var listTotal: String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.locale = .current
-        numberFormatter.numberStyle = .currency
-        
-        var totalDecimal: Decimal = 0
-        Grocery.list.forEach { (grocery) in
-            let factor: Decimal = (grocery.unit == .g100) ? 0.1 : 1
-            let subTotal = grocery.price * grocery.quantity / factor
-            totalDecimal += subTotal
-        }
-        return numberFormatter.string(for: totalDecimal) ?? ""
-    }
-    
     // Static Methods
     // Public Types
     // Public Properties

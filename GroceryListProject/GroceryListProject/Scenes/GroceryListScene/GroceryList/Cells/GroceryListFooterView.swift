@@ -17,14 +17,6 @@ final class GroceryListFooterView: UITableViewHeaderFooterView {
     // Public Types
     // Public Properties
     // Public Methods
-    
-    func fill() {
-        updateInformation()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateInformation), name: Grocery.listDidUpdateNN, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateInformation), name: Grocery.valuesDidChangedNN, object: nil)
-    }
-    
     // Initialisation/Lifecycle Methods
     
     override init(reuseIdentifier: String?) {
@@ -33,33 +25,26 @@ final class GroceryListFooterView: UITableViewHeaderFooterView {
         renderSuperView()
         renderLayout()
         renderStyle()
+        
+        viewModel.listTotalBox.bindAndFire { [weak self] (total) in
+            self?.totalLabel.text = total
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError()
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     // Override Methods
-    
-    override func prepareForReuse() {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     // Private Types
     // Private Properties
+    
+    private let viewModel = GroceryFooterViewModel()
     
     private let totalLabel = UILabel()
     private let totalNameLabel = UILabel()
     
     // Private Methods
-    
-    @objc private func updateInformation() {
-        totalLabel.text = GroceryCellViewModel.listTotal
-    }
     
     private func renderSuperView() {
         sv(
@@ -80,7 +65,7 @@ final class GroceryListFooterView: UITableViewHeaderFooterView {
             
         }
         totalNameLabel.style { (s) in
-            s.text = "GroceriesFooterView_totalNameLabel_Text".localized
+            s.text = Texts.GroceryListScene.footerTotalLabel.localizedText
             s.textAlignment = .left
             s.textColor = Colors.GroceryListScene.label
         }

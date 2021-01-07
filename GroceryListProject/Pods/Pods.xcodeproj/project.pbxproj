@@ -44,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		0B771EDE6538B729E1DCA194B9ACB3CC /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
+		0DD08CC325753829002B68FC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../../.gitignore; sourceTree = "<group>"; };
 		13A5836D94AFDEC20B71197DC8B1EA38 /* Pods-GroceryListProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GroceryListProject-acknowledgements.plist"; sourceTree = "<group>"; };
 		15E4941A80D2F4C8A37602C49D0CEC4B /* Stevia+Stacks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+Stacks.swift"; path = "Source/Stevia+Stacks.swift"; sourceTree = "<group>"; };
 		1F4FA129862B4B59099265553AB97C79 /* Pods-GroceryListProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GroceryListProject-dummy.m"; sourceTree = "<group>"; };
@@ -59,8 +60,8 @@
 		69B8E93F55446BC39986D0E3AF690B98 /* Stevia+Alignment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+Alignment.swift"; path = "Source/Stevia+Alignment.swift"; sourceTree = "<group>"; };
 		84284E1CC99D3947CC1234E950B1C707 /* Stevia+Position.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+Position.swift"; path = "Source/Stevia+Position.swift"; sourceTree = "<group>"; };
 		9314D0794C36CC4B272425F63D85078A /* Stevia+Equation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+Equation.swift"; path = "Source/Stevia+Equation.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AC093777CCD2B812610B3CD54F69A0C7 /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-GroceryListProject.a"; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AC093777CCD2B812610B3CD54F69A0C7 /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5B9121E588C516A648B972E6A35AC0 /* SteviaLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SteviaLayout-dummy.m"; sourceTree = "<group>"; };
 		AEDA0B4FE76F498B1632B9D64050D321 /* Pods-GroceryListProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GroceryListProject-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BDBDFEE5EFF4D0683A0DC2C62F1C3154 /* Stevia+FlexibleMargin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+FlexibleMargin.swift"; path = "Source/Stevia+FlexibleMargin.swift"; sourceTree = "<group>"; };
@@ -71,7 +72,7 @@
 		D1E1D2B66A5B03009253E80C9EF97CDA /* SteviaLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SteviaLayout.debug.xcconfig; sourceTree = "<group>"; };
 		D248717855E241C45992BBC6D93A59B8 /* SteviaLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SteviaLayout-prefix.pch"; sourceTree = "<group>"; };
 		DAFA1553F036A8BB4CBFB650DBEC5E7A /* SteviaLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SteviaLayout.modulemap; sourceTree = "<group>"; };
-		DE90CE8A0DA0F3A5364FCDD4803AD3EC /* libSteviaLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSteviaLayout.a; path = libSteviaLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE90CE8A0DA0F3A5364FCDD4803AD3EC /* libSteviaLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSteviaLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB00B7AD8D6F2C62F01885195C4D92F /* Stevia+LayoutAnchors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+LayoutAnchors.swift"; path = "Source/Stevia+LayoutAnchors.swift"; sourceTree = "<group>"; };
 		E32CB94F29151CC8DEF932E38C8044E7 /* Stevia+Constraints.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+Constraints.swift"; path = "Source/Stevia+Constraints.swift"; sourceTree = "<group>"; };
 		E4D94E4B4CBE950BDD6A011648FBA001 /* Stevia+Fill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Stevia+Fill.swift"; path = "Source/Stevia+Fill.swift"; sourceTree = "<group>"; };
@@ -151,7 +152,6 @@
 				3BDDA1BB2AAC69FEE855EF3F27155CB5 /* Stevia+Style.swift */,
 				62CF10A8BCE241512373E9F38E616D60 /* Support Files */,
 			);
-			name = SteviaLayout;
 			path = SteviaLayout;
 			sourceTree = "<group>";
 		};
@@ -168,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				0DD08CC325753829002B68FC /* .gitignore */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
 				D0084CFB2A907B8F5ECF2535A2C13978 /* Pods */,
 				B81BC1EFDB75246EA0F7127105FD6687 /* Products */,

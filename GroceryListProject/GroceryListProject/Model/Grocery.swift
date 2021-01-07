@@ -41,7 +41,6 @@ class Grocery {
     private(set) var quantity: Decimal
     private(set) var unit: UnitOfMeasurement
     
-    
     // Public Methods
     
     func setValues(_ name: String, price: Decimal, quantity: Decimal, unit: UnitOfMeasurement) {

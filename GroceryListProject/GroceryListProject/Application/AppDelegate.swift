@@ -12,7 +12,18 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    static func changeRootViewController(to viewController: UIViewController, animated: Bool = true) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let window = appDelegate.window else { return }
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+        if animated {
+            UIView.transition(with: window, duration: 0.4, options: [.transitionFlipFromRight], animations: {}, completion: nil)
+        }
+    }
+    
     var window: UIWindow?
+    
+    // MARK: - Application Delegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,11 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         
         return true
-    }
-    
-    func changeRootViewController(to viewController: UIViewController) {
-        window!.rootViewController = viewController
-        UIView.transition(with: window!, duration: 0.3, options: [.transitionCrossDissolve], animations: {}, completion: nil)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -97,6 +103,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
 }
 

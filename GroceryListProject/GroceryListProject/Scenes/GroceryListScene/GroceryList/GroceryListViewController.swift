@@ -113,8 +113,6 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: GroceryListFooterView.reuseIdentifier) as! GroceryListFooterView
         
-        footer.fill()
-        
         return footer
     }
     

@@ -98,7 +98,7 @@ class GroceryItemView: UIView {
             s.backgroundColor = Colors.GroceryListScene.background
         }
         groceryNameTextField.style { (s) in
-            s.placeholder = "GroceryItemView_groceryNameTextField_placeholder".localized
+            s.placeholder = Texts.GroceryListScene.groceryNameTextFieldPlaceholder.localizedText
             s.borderStyle = .roundedRect
             s.textAlignment = .left
             s.returnKeyType = .next
@@ -107,7 +107,7 @@ class GroceryItemView: UIView {
         }
         
         priceTextLabel.style { (s) in
-            s.text = "GroceryItemView_priceTextLabel_Text".localized
+            s.text = Texts.GroceryListScene.priceTextLabel.localizedText
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
             s.textColor = Colors.GroceryListScene.label
@@ -123,7 +123,7 @@ class GroceryItemView: UIView {
         }
         
         quantityTextLabel.style { (s) in
-            s.text = "GroceryItemView_quantityTextLabel_Text".localized
+            s.text = Texts.GroceryListScene.quantityTextLabel.localizedText
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
             s.textColor = Colors.GroceryListScene.label
@@ -140,7 +140,7 @@ class GroceryItemView: UIView {
         }
         
         unitSegmentedControl.style { (s) in
-            s.insertSegment(withTitle: "GroceryItemView_unitSegmentedControl_Title_0".localized, at: 0, animated: false)
+            s.insertSegment(withTitle: Texts.GroceryListScene.unitSegmetedControl_Title0.localizedText, at: 0, animated: false)
             s.insertSegment(withTitle: "100g", at: 1, animated: false)
             s.insertSegment(withTitle: "Kg", at: 2, animated: false)
             s.insertSegment(withTitle: "L", at: 3, animated: false)
@@ -149,7 +149,7 @@ class GroceryItemView: UIView {
         }
         
         totalTextLabel.style { (s) in
-            s.text = "GroceryItemView_totalTextLabel_Text".localized
+            s.text = Texts.GroceryListScene.itemTotalLabel.localizedText
             s.textAlignment = .left
             s.font = .systemFont(ofSize: 17, weight: .regular)
             s.textColor = Colors.GroceryListScene.label
@@ -161,7 +161,7 @@ class GroceryItemView: UIView {
         }
         
         addButton.style { (s) in
-            let title = "GroceryItemView_addButton_Title".localized
+            let title = Texts.GroceryListScene.addButton.localizedText
             s.setAttributedTitle(NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.white]), for: .normal)
             s.backgroundColor = s.tintColor
             s.layer.cornerRadius = 8

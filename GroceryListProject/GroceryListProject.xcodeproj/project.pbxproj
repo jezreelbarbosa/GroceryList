@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D06513324AB96BA0079567E /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D06513224AB96BA0079567E /* Texts.swift */; };
+		0D06513524AB9A850079567E /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D06513424AB9A850079567E /* LocalizedString.swift */; };
 		0D20C0C3241FE46600FCA5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */; };
 		0D20C0C7241FE46600FCA5B4 /* GroceriesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0C6241FE46600FCA5B4 /* GroceriesNavigationController.swift */; };
 		0D20C0CD241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0CB241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld */; };
@@ -21,17 +23,35 @@
 		0D20C0F224200E9900FCA5B4 /* GroceryListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0F124200E9900FCA5B4 /* GroceryListFooterView.swift */; };
 		0D20C0F524200EDE00FCA5B4 /* GroceryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0F424200EDE00FCA5B4 /* GroceryDetailsView.swift */; };
 		0D20C0F724200EEE00FCA5B4 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0F624200EEE00FCA5B4 /* Grocery.swift */; };
-		0D20C0FB24200F4900FCA5B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0FD24200F4900FCA5B4 /* Localizable.strings */; };
 		0D733A4E24888E3300C32644 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D733A4D24888E3300C32644 /* Box.swift */; };
 		0D8CE4C7248ABAB9004625E4 /* GroceryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8CE4C6248ABAB9004625E4 /* GroceryCellViewModel.swift */; };
 		0DAF8CD92485DFD60099CA89 /* String+LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF8CD82485DFD60099CA89 /* String+LocalizedText.swift */; };
 		0DC07A3E2485D4B70010EC36 /* UIColor+dynamicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC07A3D2485D4B70010EC36 /* UIColor+dynamicColor.swift */; };
 		0DC07A402485D4D50010EC36 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC07A3F2485D4D50010EC36 /* Palette.swift */; };
 		0DF03E33248AD21E001C095A /* GroceryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF03E32248AD21E001C095A /* GroceryDetailsViewModel.swift */; };
+		0DF4077D25A7460C0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; };
+		0DF4077E25A7460C0005609F /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0DF78140248EC6C3005457CB /* GroceryFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF7813F248EC6C3005457CB /* GroceryFooterViewModel.swift */; };
 		3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0DF4077F25A7460D0005609F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0DF4077E25A7460C0005609F /* Common.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0D06513224AB96BA0079567E /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
+		0D06513424AB9A850079567E /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		0D20C0BF241FE46600FCA5B4 /* Listinha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listinha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D20C0C6241FE46600FCA5B4 /* GroceriesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesNavigationController.swift; sourceTree = "<group>"; };
@@ -48,14 +68,14 @@
 		0D20C0F124200E9900FCA5B4 /* GroceryListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListFooterView.swift; sourceTree = "<group>"; };
 		0D20C0F424200EDE00FCA5B4 /* GroceryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsView.swift; sourceTree = "<group>"; };
 		0D20C0F624200EEE00FCA5B4 /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
-		0D20C0FC24200F4900FCA5B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0D20C0FE24200F4D00FCA5B4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D733A4D24888E3300C32644 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		0D8CE4C6248ABAB9004625E4 /* GroceryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryCellViewModel.swift; sourceTree = "<group>"; };
 		0DAF8CD82485DFD60099CA89 /* String+LocalizedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedText.swift"; sourceTree = "<group>"; };
 		0DC07A3D2485D4B70010EC36 /* UIColor+dynamicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+dynamicColor.swift"; sourceTree = "<group>"; };
 		0DC07A3F2485D4D50010EC36 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		0DF03E32248AD21E001C095A /* GroceryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsViewModel.swift; sourceTree = "<group>"; };
+		0DF4077C25A7460C0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DF7813F248EC6C3005457CB /* GroceryFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryFooterViewModel.swift; sourceTree = "<group>"; };
 		1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryListProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,12 +87,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC3465493E4990170E21402 /* libPods-GroceryListProject.a in Frameworks */,
+				0DF4077D25A7460C0005609F /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D06513124AB96530079567E /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				0D06513224AB96BA0079567E /* Texts.swift */,
+				0D06513424AB9A850079567E /* LocalizedString.swift */,
+			);
+			path = Texts;
+			sourceTree = "<group>";
+		};
 		0D20C0B6241FE46600FCA5B4 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0D3241FE46700FCA5B4 /* Info.plist */,
-				0D20C0FD24200F4900FCA5B4 /* Localizable.strings */,
 				0D20C0DB24200A4800FCA5B4 /* Model */,
 				0DC07A382485D1F50010EC36 /* Application */,
 				0DC07A372485D1E70010EC36 /* Scenes */,
@@ -116,9 +145,10 @@
 		0D20C0DC24200A6400FCA5B4 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				0D733A4C24888E2800C32644 /* Utils */,
 				0D20C0E624200D9E00FCA5B4 /* Assets */,
 				0D20C0E724200DCC00FCA5B4 /* Colors */,
+				0D06513124AB96530079567E /* Texts */,
+				0D733A4C24888E2800C32644 /* Utils */,
 				0D20C0E324200C3700FCA5B4 /* UIKit */,
 				0DC07A3C2485D4830010EC36 /* Extensions */,
 			);
@@ -162,8 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				0D20C0EF24200E6D00FCA5B4 /* GroceryTableViewCell.swift */,
-				0D20C0F124200E9900FCA5B4 /* GroceryListFooterView.swift */,
 				0D8CE4C6248ABAB9004625E4 /* GroceryCellViewModel.swift */,
+				0D20C0F124200E9900FCA5B4 /* GroceryListFooterView.swift */,
+				0DF7813F248EC6C3005457CB /* GroceryFooterViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -227,6 +258,7 @@
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DF4077C25A7460C0005609F /* Common.framework */,
 				1AF8B9811E77B63D3041630C /* libPods-GroceryListProject.a */,
 			);
 			name = Frameworks;
@@ -252,6 +284,7 @@
 				0D20C0BB241FE46600FCA5B4 /* Sources */,
 				0D20C0BC241FE46600FCA5B4 /* Frameworks */,
 				0D20C0BD241FE46600FCA5B4 /* Resources */,
+				0DF4077F25A7460D0005609F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,7 +317,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"pt-BR",
 			);
 			mainGroup = 0D20C0B6241FE46600FCA5B4;
 			productRefGroup = 0D20C0C0241FE46600FCA5B4 /* Products */;
@@ -301,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D20C0FB24200F4900FCA5B4 /* Localizable.strings in Resources */,
 				0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */,
 				0D20C0CF241FE46700FCA5B4 /* Assets.xcassets in Resources */,
 			);
@@ -346,14 +377,17 @@
 				0DC07A3E2485D4B70010EC36 /* UIColor+dynamicColor.swift in Sources */,
 				0D20C0EE24200E4D00FCA5B4 /* GroceryListView.swift in Sources */,
 				0D20C0E224200BE300FCA5B4 /* GroceryDetailsViewController.swift in Sources */,
+				0D06513324AB96BA0079567E /* Texts.swift in Sources */,
 				0D20C0F024200E6D00FCA5B4 /* GroceryTableViewCell.swift in Sources */,
 				0D20C0F524200EDE00FCA5B4 /* GroceryDetailsView.swift in Sources */,
 				0D8CE4C7248ABAB9004625E4 /* GroceryCellViewModel.swift in Sources */,
 				0D20C0EB24200E0B00FCA5B4 /* Colors.swift in Sources */,
+				0DF78140248EC6C3005457CB /* GroceryFooterViewModel.swift in Sources */,
 				0D20C0CD241FE46600FCA5B4 /* GroceryListProject.xcdatamodeld in Sources */,
 				0D20C0E524200C5100FCA5B4 /* UIDecimalField.swift in Sources */,
 				0DF03E33248AD21E001C095A /* GroceryDetailsViewModel.swift in Sources */,
 				0D733A4E24888E3300C32644 /* Box.swift in Sources */,
+				0D06513524AB9A850079567E /* LocalizedString.swift in Sources */,
 				0D20C0C3241FE46600FCA5B4 /* AppDelegate.swift in Sources */,
 				0D20C0F724200EEE00FCA5B4 /* Grocery.swift in Sources */,
 				0DC07A402485D4D50010EC36 /* Palette.swift in Sources */,
@@ -369,15 +403,6 @@
 				0D20C0D1241FE46700FCA5B4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		0D20C0FD24200F4900FCA5B4 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D20C0FC24200F4900FCA5B4 /* en */,
-				0D20C0FE24200F4D00FCA5B4 /* pt-BR */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -507,12 +532,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = GroceryListProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "0.0.0-TestFlight";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.listinha;
 				PRODUCT_NAME = Listinha;
 				SWIFT_VERSION = 5.0;
@@ -528,12 +553,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = GroceryListProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "0.0.0-TestFlight";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.listinha;
 				PRODUCT_NAME = Listinha;
 				SWIFT_VERSION = 5.0;

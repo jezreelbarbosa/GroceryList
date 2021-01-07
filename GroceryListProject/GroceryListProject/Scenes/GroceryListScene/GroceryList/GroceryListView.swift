@@ -21,7 +21,8 @@ final class GroceryListView: UIView {
     // Public Methods
     
     func customizeNavigationBar(_ viewController: UIViewController) {
-        viewController.navigationItem.title = "GroceryListView_navigationItem_Title".localized
+//        viewController.navigationItem.title = "GroceryListView_navigationItem_Title".localized
+        viewController.navigationItem.title = Texts.GroceryListScene.navigationTitle.localizedText
         viewController.navigationController?.view.backgroundColor = Colors.GroceryListScene.background
         viewController.navigationItem.rightBarButtonItem = addBarButtonItem
     }
