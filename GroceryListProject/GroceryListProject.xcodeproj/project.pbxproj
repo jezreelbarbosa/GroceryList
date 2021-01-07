@@ -212,6 +212,9 @@
 		0D20C0C1241FE46600FCA5B4 /* GroceryListProject */ = {
 			isa = PBXGroup;
 			children = (
+				0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */,
+				0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */,
+				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
 				0D20C0D3241FE46700FCA5B4 /* Info.plist */,
 				0D20C0DB24200A4800FCA5B4 /* Model */,
 				0DC07A382485D1F50010EC36 /* Application */,
@@ -233,7 +236,6 @@
 		0D20C0DC24200A6400FCA5B4 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				0D20C0E624200D9E00FCA5B4 /* Assets */,
 				0D20C0E724200DCC00FCA5B4 /* Colors */,
 				0D06513124AB96530079567E /* Texts */,
 				0D733A4C24888E2800C32644 /* Utils */,
@@ -249,14 +251,6 @@
 				0D20C0E424200C5100FCA5B4 /* UIDecimalField.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		0D20C0E624200D9E00FCA5B4 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		0D20C0E724200DCC00FCA5B4 /* Colors */ = {
@@ -298,8 +292,6 @@
 		0DC07A382485D1F50010EC36 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */,
-				0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
