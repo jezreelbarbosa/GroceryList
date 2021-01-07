@@ -10,6 +10,8 @@
 		0DF4076A25A745DF0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4076025A745DF0005609F /* Common.framework */; };
 		0DF4076F25A745DF0005609F /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4076E25A745DF0005609F /* CommonTests.swift */; };
 		0DF4077125A745DF0005609F /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF4076325A745DF0005609F /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0DF40B5125A7B4A40005609F /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B5025A7B4A40005609F /* Generics.swift */; };
+		0DF40B5525A7B4B90005609F /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B5425A7B4B90005609F /* DependencyFactory.swift */; };
 		2A9B232FCA64417C7B193365 /* Pods_Common_CommonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3978DF85AFCCC8964FB0075 /* Pods_Common_CommonTests.framework */; };
 		BE8A37DA36A82BA5AC71660C /* Pods_Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4E67B5F44F48C632FD9244 /* Pods_Common.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		0DF4076925A745DF0005609F /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4076E25A745DF0005609F /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		0DF4077025A745DF0005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF40B5025A7B4A40005609F /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
+		0DF40B5425A7B4B90005609F /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
 		1A4E67B5F44F48C632FD9244 /* Pods_Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		380A07B4F093ABB8B8D28200 /* Pods-Common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Common.debug.xcconfig"; path = "Target Support Files/Pods-Common/Pods-Common.debug.xcconfig"; sourceTree = "<group>"; };
 		4E2E700E292332ADF0BCD676 /* Pods-Common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Common.release.xcconfig"; path = "Target Support Files/Pods-Common/Pods-Common.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		0DF4076225A745DF0005609F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0DF40B5025A7B4A40005609F /* Generics.swift */,
+				0DF40B5425A7B4B90005609F /* DependencyFactory.swift */,
 				0DF4076325A745DF0005609F /* Common.h */,
 				0DF4076425A745DF0005609F /* Info.plist */,
 			);
@@ -183,6 +189,7 @@
 				TargetAttributes = {
 					0DF4075F25A745DF0005609F = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 					0DF4076825A745DF0005609F = {
 						CreatedOnToolsVersion = 12.3;
@@ -294,6 +301,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF40B5125A7B4A40005609F /* Generics.swift in Sources */,
+				0DF40B5525A7B4B90005609F /* DependencyFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 380A07B4F093ABB8B8D28200 /* Pods-Common.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
@@ -459,6 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.Common;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -468,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E2E700E292332ADF0BCD676 /* Pods-Common.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
@@ -494,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F7C285EC93E9FA68CBE1828 /* Pods-Common-CommonTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = CommonTests/Info.plist;
@@ -513,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 02FCDAF748703559442C2EFB /* Pods-Common-CommonTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = CommonTests/Info.plist;
