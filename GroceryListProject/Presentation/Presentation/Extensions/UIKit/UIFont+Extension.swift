@@ -12,8 +12,10 @@ class GetBundle {}
 extension UIFont {
 
     static func register(path: String, fileNameString: String, type: String) {
+
         let frameworkBundle = Bundle(for: GetBundle.self)
-        var errorRef: Unmanaged<CFError>? = nil
+        var errorRef: Unmanaged<CFError>?
+
         guard let resourceBundleURL = frameworkBundle.path(forResource: path + "/" + fileNameString, ofType: type),
               let fontData = NSData(contentsOfFile: resourceBundleURL), let dataProvider = CGDataProvider.init(data: fontData),
               let fontRef = CGFont.init(dataProvider),

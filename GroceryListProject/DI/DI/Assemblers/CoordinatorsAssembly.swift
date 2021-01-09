@@ -27,11 +27,22 @@ class CoodinatorAssembly {
                            coordinatorsFactory: coordinatorsFactory)
         }
     }
+
+    private func assembleGroceryCoordinator(container: Container) {
+        let appCoordinator = container.resolveSafe(AppCoordinator.self)
+        let viewControllersFactory = container.resolveSafe(GroceryListVCFactory.self)
+        let coordinatorFactory = container.resolveSafe(GroceryListCoordinatorFactory.self)
+        container.register(GroceryListCoordinator.self) { _ in
+            GroceryListCoordinator(navigationController: appCoordinator.navigationController, delegate: appCoordinator,
+                                   viewControllersFactory: viewControllersFactory, coordinatorFactory: coordinatorFactory)
+        }
+    }
 }
 
 extension CoodinatorAssembly: Assembly {
 
     func assemble(container: Container) {
         assembleAppCoordinator(container: container)
+        assembleGroceryCoordinator(container: container)
     }
 }

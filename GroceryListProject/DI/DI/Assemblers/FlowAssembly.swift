@@ -8,14 +8,20 @@
 import Swinject
 import Common
 import AppNavigation
+import MainList
 
 class FlowAssembly {
 
+    private func assembleMainList(container: Container) {
+        let coordinator = container.resolveSafe(GroceryListCoordinator.self)
+        container.register(MainListCoordinating.self) { _ in coordinator }
+        container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
+    }
 }
 
 extension FlowAssembly: Assembly {
 
     func assemble(container: Container) {
-
+        assembleMainList(container: container)
     }
 }

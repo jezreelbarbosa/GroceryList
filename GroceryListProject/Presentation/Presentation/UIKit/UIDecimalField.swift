@@ -13,22 +13,16 @@ open class UIDecimalField: UITextField {
     // Public Types
     // Public Properties
 
-    final var decimal: Decimal {
-        return decimalFromString / pow(10, numberFormatter.maximumFractionDigits)
-    }
+    final var decimal: Decimal { decimalFromString / pow(10, numberFormatter.maximumFractionDigits) }
 
     final var maximum: Decimal = 999_999_999.999999
 
     final var numberFormatter = NumberFormatter() {
-        didSet {
-            sendActions(for: .editingChanged)
-        }
+        didSet { sendActions(for: .editingChanged) }
     }
 
     var isPlaceholderShownWhenValueIsZero: Bool = true {
-        didSet {
-            sendActions(for: .editingChanged)
-        }
+        didSet { sendActions(for: .editingChanged) }
     }
 
     // Public Methods
@@ -72,23 +66,13 @@ open class UIDecimalField: UITextField {
     // Private Types
     // Private Properties
 
-    private var string: String {
-        return text ?? ""
-    }
     private var lastValue: String?
 
-    private var stringFromDecimal: String {
-        return numberFormatter.string(for: decimal) ?? ""
-    }
-    private var decimalFromString: Decimal {
-        return Decimal(string: digits) ?? 0
-    }
-    private var digits: String {
-        return string.filter({ $0.isWholeNumber })
-    }
-    private var maximumFraction: Decimal {
-        return maximum / pow(10, numberFormatter.maximumFractionDigits)
-    }
+    private var string: String { text ?? "" }
+    private var stringFromDecimal: String { numberFormatter.string(for: decimal) ?? "" }
+    private var decimalFromString: Decimal { Decimal(string: digits) ?? 0 }
+    private var digits: String { string.filter({ $0.isWholeNumber }) }
+    private var maximumFraction: Decimal { maximum / pow(10, numberFormatter.maximumFractionDigits)}
 
     private let selectionButton = UIButton()
 

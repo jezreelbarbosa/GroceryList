@@ -11,6 +11,6 @@ import AppNavigation
 class ViewControllersFactoryAssembly: Assembly {
 
     func assemble(container: Container) {
-
+        container.register(GroceryListVCFactory.self) { ViewControllersFactory(resolver: $0) }
     }
 }

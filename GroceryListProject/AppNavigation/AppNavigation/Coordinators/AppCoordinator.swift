@@ -10,25 +10,21 @@ import Common
 
 public protocol AppCoordinatorsFactoryProtocol: DependencyFactory {
 
+    func makeGroceryListCoordinator() -> GroceryListCoordinator
 }
 
 public class AppCoordinator: Coordinator {
-    // Static Properties
-    // Static Methods
-    // Public Types
-    // Public Properties
+
+    // Properties
 
     public let navigationController: UINavigationController
     public var childCoordinators: [Coordinator]
 
-    // Public Methods
+    private let launchOptions: LaunchOptions?
+    private let window: UIWindow?
+    private let coordinatorsFactory: AppCoordinatorsFactoryProtocol
 
-    public func start() {
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-    }
-
-    // Initialization/Lifecycle Methods
+    // Lifecycle 
 
     public init(with launchOptions: LaunchOptions?, window: UIWindow?, navigationController: UINavigationController,
                 coordinatorsFactory: AppCoordinatorsFactoryProtocol) {
@@ -39,13 +35,18 @@ public class AppCoordinator: Coordinator {
         self.coordinatorsFactory = coordinatorsFactory
     }
 
-    // Override Methods
-    // Private Types
-    // Private Properties
+    // Functions
 
-    private let launchOptions: LaunchOptions?
-    private let window: UIWindow?
-    private let coordinatorsFactory: AppCoordinatorsFactoryProtocol
+    public func start() {
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
 
-    // Private Methods
+        let coordinator = coordinatorsFactory.makeGroceryListCoordinator()
+        childCoordinators = [coordinator]
+        coordinator.start()
+    }
+}
+
+extension AppCoordinator: GroceryListCoordinatorDelegate {
+
 }

@@ -41,7 +41,7 @@ public class DependencyInjector {
             DomainAssembly(),
             AppDataAssembly(),
             StorageAssembly(),
-            NetworkingAssembly(),
+            NetworkingAssembly()
         ])
         let appCoordinator = assembler.resolver.resolveSafe(AppCoordinator.self)
         completion(assembler, appCoordinator)

@@ -1,0 +1,63 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Podfile
+  - Podfile.lock
+
+force_cast: error
+force_try: error
+
+cyclomatic_complexity: 12
+file_length: 550
+function_body_length: 80
+function_parameter_count: 8
+line_length: 150
+type_body_length: 300
+variable_name:
+  min_length:
+    error: 0
+    warning: 1
+  excluded:
+    - N
+
+opt_in_rules:
+  - force_unwrapping
+
+custom_rules:
+
+  # From https://github.com/Twigz/Game
+  force_https:
+    name: "Force HTTPS over HTTP"
+    regex: "((?i)http(?!s))"
+    match_kinds: string
+    message: "HTTPS should be favored over HTTP"
+    severity: warning
+
+  # From https://github.com/brandenr/swiftlintconfig
+  comments_space:
+    name: "Space After Comment"
+    regex: '(^ *//\w+)'
+    message: "There should be a space after //"
+    severity: error
+  empty_line_after_guard:
+    name: "Empty Line After Guard"
+    regex: '(^ *guard[ a-zA-Z0-9=?.\(\),><!]*\{[ a-zA-Z0-9=?.\(\),><!]*\}\n *(?!(?:return|guard))\S+)'
+    message: "There should be an empty line after a guard"
+    severity: error
+  empty_line_after_super:
+    name: "Empty Line After Super"
+    regex: '(^ *super\.[ a-zA-Z0-9=?.\(\)\{\}:,><!]*\n *(?!(?:\}|return))\S+)'
+    message: "There should be an empty line after super"
+    severity: error
+  multiple_empty_lines:
+    name: "Multiple Empty Lines"
+    regex: '((?:\s*\n){3,})'
+    message: "There are too many line breaks"
+    severity: error
+  unnecessary_type:
+    name: "Unnecessary Type"
+    regex: '[ a-zA-Z0-9]*(?:let|var) [ a-zA-Z0-9]*: ([a-zA-Z0-9]*)[\? ]*= \1'
+    message: "Type Definition Not Needed"
+    severity: error
+
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace

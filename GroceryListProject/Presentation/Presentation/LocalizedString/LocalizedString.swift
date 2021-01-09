@@ -26,9 +26,9 @@ public struct LocalizedString {
 
     public var localizedText: String {
         switch NSLocalizedString("Localized", comment: "") {
-            case Language.ptBR.rawValue: return texts[.ptBR] ?? defaultText
-            case Language.enUS.rawValue: return texts[.enUS] ?? defaultText
-            default: return defaultText
+        case Language.ptBR.rawValue: return texts[.ptBR] ?? defaultText
+        case Language.enUS.rawValue: return texts[.enUS] ?? defaultText
+        default: return defaultText
         }
     }
 

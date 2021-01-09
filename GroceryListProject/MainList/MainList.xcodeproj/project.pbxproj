@@ -13,6 +13,10 @@
 		0DF4097D25A75D2E0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4097C25A75D2E0005609F /* Common.framework */; };
 		0DF4098125A75D350005609F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098025A75D350005609F /* Domain.framework */; };
 		0DF4098525A75D3D0005609F /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098425A75D3D0005609F /* Presentation.framework */; };
+		0DF4DAFE25AA03140076D0EB /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DAFD25AA03140076D0EB /* MainListView.swift */; };
+		0DF4DB0225AA03230076D0EB /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB0125AA03230076D0EB /* MainListViewController.swift */; };
+		0DF4DB0625AA03300076D0EB /* MainListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB0525AA03300076D0EB /* MainListPresenter.swift */; };
+		0DF4DB0E25AA2C2C0076D0EB /* GroceryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB0D25AA2C2C0076D0EB /* GroceryListTableViewCell.swift */; };
 		5DC5CC3848A4B88348ED34F9 /* Pods_MainList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DA98D9C2C7B4E2AE938A7F /* Pods_MainList.framework */; };
 		5FAA77C5C6DC9C92DE8FF2ED /* Pods_MainList_MainListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5CE5F99763890B07304DFF /* Pods_MainList_MainListTests.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +41,10 @@
 		0DF4097C25A75D2E0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4098025A75D350005609F /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4098425A75D3D0005609F /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DF4DAFD25AA03140076D0EB /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		0DF4DB0125AA03230076D0EB /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
+		0DF4DB0525AA03300076D0EB /* MainListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListPresenter.swift; sourceTree = "<group>"; };
+		0DF4DB0D25AA2C2C0076D0EB /* GroceryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewCell.swift; sourceTree = "<group>"; };
 		1CA11D7641447098514B5F6A /* Pods-MainList-MainListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainList-MainListTests.release.xcconfig"; path = "Target Support Files/Pods-MainList-MainListTests/Pods-MainList-MainListTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A7A2AF5848B64262C344F32 /* Pods-MainList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainList.debug.xcconfig"; path = "Target Support Files/Pods-MainList/Pods-MainList.debug.xcconfig"; sourceTree = "<group>"; };
 		A12A5664A6977FA5886D719C /* Pods-MainList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainList.release.xcconfig"; path = "Target Support Files/Pods-MainList/Pods-MainList.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +100,8 @@
 		0DF4096125A75D0D0005609F /* MainList */ = {
 			isa = PBXGroup;
 			children = (
+				0DF4DAFC25AA02FD0076D0EB /* Resources */,
+				0DF4DAFB25AA02EA0076D0EB /* MainList */,
 				0DF4096225A75D0D0005609F /* MainList.h */,
 				0DF4096325A75D0D0005609F /* Info.plist */,
 			);
@@ -117,6 +127,24 @@
 				DE5CE5F99763890B07304DFF /* Pods_MainList_MainListTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0DF4DAFB25AA02EA0076D0EB /* MainList */ = {
+			isa = PBXGroup;
+			children = (
+				0DF4DB0D25AA2C2C0076D0EB /* GroceryListTableViewCell.swift */,
+				0DF4DAFD25AA03140076D0EB /* MainListView.swift */,
+				0DF4DB0125AA03230076D0EB /* MainListViewController.swift */,
+				0DF4DB0525AA03300076D0EB /* MainListPresenter.swift */,
+			);
+			path = MainList;
+			sourceTree = "<group>";
+		};
+		0DF4DAFC25AA02FD0076D0EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		CD16521FAD2FAE5113729F40 /* Pods */ = {
@@ -195,6 +223,7 @@
 				TargetAttributes = {
 					0DF4095E25A75D0D0005609F = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 					0DF4096725A75D0D0005609F = {
 						CreatedOnToolsVersion = 12.3;
@@ -306,6 +335,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF4DAFE25AA03140076D0EB /* MainListView.swift in Sources */,
+				0DF4DB0625AA03300076D0EB /* MainListPresenter.swift in Sources */,
+				0DF4DB0225AA03230076D0EB /* MainListViewController.swift in Sources */,
+				0DF4DB0E25AA2C2C0076D0EB /* GroceryListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A7A2AF5848B64262C344F32 /* Pods-MainList.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
@@ -471,6 +505,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.MainList;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -480,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A12A5664A6977FA5886D719C /* Pods-MainList.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XCSQ883CT6;

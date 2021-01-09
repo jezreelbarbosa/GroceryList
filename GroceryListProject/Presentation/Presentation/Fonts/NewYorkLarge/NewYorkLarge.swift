@@ -24,15 +24,15 @@ public enum NewYorkLargeFontWeight: CaseIterable {
 
     var name: String {
         switch self {
-            case .regular: return "NewYorkLarge-Regular"
-            case .semibold: return "NewYorkLarge-Semibold"
+        case .regular: return "NewYorkLarge-Regular"
+        case .semibold: return "NewYorkLarge-Semibold"
         }
     }
 
     var asSystemFontWeight: UIFont.Weight {
         switch self {
-            case .regular: return .regular
-            case .semibold: return .semibold
+        case .regular: return .regular
+        case .semibold: return .semibold
         }
     }
 }

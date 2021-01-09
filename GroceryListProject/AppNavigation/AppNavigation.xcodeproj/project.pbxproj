@@ -14,6 +14,7 @@
 		0DF4098925A75D750005609F /* MainList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098825A75D750005609F /* MainList.framework */; };
 		0DF40B4C25A7B4700005609F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B4B25A7B4700005609F /* AppCoordinator.swift */; };
 		0DF40B5C25A7B51B0005609F /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B5B25A7B51B0005609F /* CoordinatorProtocol.swift */; };
+		0DF4DB1825AA3E960076D0EB /* GroceryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB1725AA3E960076D0EB /* GroceryListCoordinator.swift */; };
 		9CDAAB9CE011251D4DAB063A /* Pods_AppNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 623B500FE6C8F9F81646A4C1 /* Pods_AppNavigation.framework */; };
 		D5D39209427B9A1B3A9AD715 /* Pods_AppNavigation_AppNavigationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63733B0786F4842B5B98201E /* Pods_AppNavigation_AppNavigationTests.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		0DF4098825A75D750005609F /* MainList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MainList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF40B4B25A7B4700005609F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0DF40B5B25A7B51B0005609F /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		0DF4DB1725AA3E960076D0EB /* GroceryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListCoordinator.swift; sourceTree = "<group>"; };
 		4CDB515667FB1CA1DF15292C /* Pods-AppNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppNavigation.debug.xcconfig"; path = "Target Support Files/Pods-AppNavigation/Pods-AppNavigation.debug.xcconfig"; sourceTree = "<group>"; };
 		623B500FE6C8F9F81646A4C1 /* Pods_AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63733B0786F4842B5B98201E /* Pods_AppNavigation_AppNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppNavigation_AppNavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF40B4B25A7B4700005609F /* AppCoordinator.swift */,
+				0DF4DB1725AA3E960076D0EB /* GroceryListCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF40B5C25A7B51B0005609F /* CoordinatorProtocol.swift in Sources */,
+				0DF4DB1825AA3E960076D0EB /* GroceryListCoordinator.swift in Sources */,
 				0DF40B4C25A7B4700005609F /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,7 +534,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 937F8E8DC4E53D8880C8FDB0 /* Pods-AppNavigation-AppNavigationTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = AppNavigationTests/Info.plist;
@@ -550,7 +553,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A09C9BEA810D8C9B70017F /* Pods-AppNavigation-AppNavigationTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = AppNavigationTests/Info.plist;
