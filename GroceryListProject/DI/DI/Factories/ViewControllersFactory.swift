@@ -19,7 +19,7 @@ class ViewControllersFactory: DependencyFactory {
     }
 }
 
-extension ViewControllersFactory: GroceryListVCFactory {
+extension ViewControllersFactory: MainListVCFactory {
 
     func makeMainListViewController() -> MainListViewController {
         guard let presenter = resolver.resolve(MainListPresenting.self) as? MainListPresenter else { preconditionFailure() }

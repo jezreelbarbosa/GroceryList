@@ -13,7 +13,7 @@ import MainList
 class FlowAssembly {
 
     private func assembleMainList(container: Container) {
-        let coordinator = container.resolveSafe(GroceryListCoordinator.self)
+        let coordinator = container.resolveSafe(MainListCoordinator.self)
         container.register(MainListCoordinating.self) { _ in coordinator }
         container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
     }

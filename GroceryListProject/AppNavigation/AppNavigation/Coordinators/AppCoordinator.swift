@@ -10,7 +10,7 @@ import Common
 
 public protocol AppCoordinatorsFactoryProtocol: DependencyFactory {
 
-    func makeGroceryListCoordinator() -> GroceryListCoordinator
+    func makeGroceryListCoordinator() -> MainListCoordinator
 }
 
 public class AppCoordinator: Coordinator {
@@ -47,6 +47,6 @@ public class AppCoordinator: Coordinator {
     }
 }
 
-extension AppCoordinator: GroceryListCoordinatorDelegate {
+extension AppCoordinator: MainListCoordinatorDelegate {
 
 }

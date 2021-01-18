@@ -20,11 +20,11 @@ class CoordinatorsFactory: DependencyFactory {
 
 extension CoordinatorsFactory: AppCoordinatorsFactoryProtocol {
 
-    func makeGroceryListCoordinator() -> GroceryListCoordinator {
-        resolver.resolveSafe(GroceryListCoordinator.self)
+    func makeGroceryListCoordinator() -> MainListCoordinator {
+        resolver.resolveSafe(MainListCoordinator.self)
     }
 }
 
-extension CoordinatorsFactory: GroceryListCoordinatorFactory {
+extension CoordinatorsFactory: MainListCoordinatorFactory {
 
 }

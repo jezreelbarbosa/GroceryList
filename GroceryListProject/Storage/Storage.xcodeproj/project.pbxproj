@@ -532,7 +532,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -558,7 +558,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -583,7 +583,7 @@
 			baseConfigurationReference = ED0FFBBB5719CEEE93916AD3 /* Pods-Storage-StorageTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = StorageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,7 +602,7 @@
 			baseConfigurationReference = 64615BFA1D272CD9952D2EA4 /* Pods-Storage-StorageTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = StorageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -623,7 +623,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TestHostTarget/Preview Content\"";
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TestHostTarget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -645,7 +645,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TestHostTarget/Preview Content\"";
-				DEVELOPMENT_TEAM = XCSQ883CT6;
+				DEVELOPMENT_TEAM = P38KT438VN;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TestHostTarget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;

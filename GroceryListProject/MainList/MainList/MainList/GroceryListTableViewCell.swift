@@ -17,6 +17,7 @@ public final class GroceryListTableViewCell: UICodeTableViewCell {
     // Properties
 
     let titleLabel = UILabel()
+    let detailLabel = UILabel()
 
     // Lifecycle
 
@@ -34,7 +35,11 @@ public final class GroceryListTableViewCell: UICodeTableViewCell {
 
     public override func initStyle() {
         style { s in
-            s.selectionStyle = .none
+            s.selectionStyle = .default
+        }
+
+        titleLabel.style { s in
+            s.textColor = Resources.Colors.foregroundColor
         }
     }
 

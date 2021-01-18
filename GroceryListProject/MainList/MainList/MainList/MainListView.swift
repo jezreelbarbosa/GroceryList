@@ -35,6 +35,11 @@ public final class MainListView: UICodeView {
         style { s in
             s.backgroundColor = .cyan
         }
+
+        tableView.style { s in
+            s.backgroundColor = Resources.Colors.backgroundColor
+            s.separatorStyle = .none
+        }
     }
 
     // Functions

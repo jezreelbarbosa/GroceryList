@@ -30,10 +30,10 @@ class CoodinatorAssembly {
 
     private func assembleGroceryCoordinator(container: Container) {
         let appCoordinator = container.resolveSafe(AppCoordinator.self)
-        let viewControllersFactory = container.resolveSafe(GroceryListVCFactory.self)
-        let coordinatorFactory = container.resolveSafe(GroceryListCoordinatorFactory.self)
-        container.register(GroceryListCoordinator.self) { _ in
-            GroceryListCoordinator(navigationController: appCoordinator.navigationController, delegate: appCoordinator,
+        let viewControllersFactory = container.resolveSafe(MainListVCFactory.self)
+        let coordinatorFactory = container.resolveSafe(MainListCoordinatorFactory.self)
+        container.register(MainListCoordinator.self) { _ in
+            MainListCoordinator(navigationController: appCoordinator.navigationController, delegate: appCoordinator,
                                    viewControllersFactory: viewControllersFactory, coordinatorFactory: coordinatorFactory)
         }
     }
