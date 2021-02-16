@@ -79,10 +79,10 @@ extension CoreDataStoring {
         let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
         let entityKeys = request.entity?.attributesByName.enumerated().map { $0.element.key } ?? []
 
-        if let object = try context.fetch(request).first(where: { ($0.value(forKey: item.key) as? UUID) == item.value }) {
-            return object.dictionaryWithValues(forKeys: entityKeys)
-        } else {
-            return [:]
+        guard let object = try context.fetch(request).first(where: { ($0.value(forKey: item.key) as? UUID) == item.value }) else {
+            throw CoreError.error
         }
+
+        return object.dictionaryWithValues(forKeys: entityKeys)
     }
 }

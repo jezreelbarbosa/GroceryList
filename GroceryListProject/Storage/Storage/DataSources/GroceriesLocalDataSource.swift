@@ -27,7 +27,19 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
             return .success(list)
         } catch let error {
             debugPrint(error)
-            return.failure(GroceryError.getListError)
+            return .failure(GroceryError.getListError)
+        }
+    }
+
+    public func saveNewGroceryList(request: GroceryListCompleteInfoResponseDTO) -> Result<Void, Error> {
+        do {
+            let data = try JSONEncoder().encode(request)
+            try coreData.setNew(values: ["data": data], entity: .groceryListEntity, item: ("id", request.id))
+            
+            return .success(())
+        } catch let error {
+            debugPrint(error)
+            return .failure(GroceryError.getListError)
         }
     }
 }

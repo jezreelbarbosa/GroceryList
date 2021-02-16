@@ -25,4 +25,11 @@ extension GroceriesRepository: Domain.GroceriesRepository {
             }
         }
     }
+
+    public func saveNewGroceryList(request: NewGroceryListRequest) -> Result<Void, Error> {
+        let requestDTO = GroceryListCompleteInfoResponseDTO(
+            id: UUID(), icon: request.icon, name: request.name, date: request.date, items: []
+        )
+        return local.saveNewGroceryList(request: requestDTO)
+    }
 }

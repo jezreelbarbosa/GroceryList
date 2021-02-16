@@ -62,6 +62,7 @@ public class MainListViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         mainView.tableView.register(GroceryListTableViewCell.self)
+        mainView.tableView.tableFooterView = UIView()
 
         navigationItem.title = Resources.Texts.homeNavigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true

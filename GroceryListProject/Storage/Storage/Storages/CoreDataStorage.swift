@@ -12,23 +12,13 @@ public class CoreDataStorage: CoreDataStoring {
     public var persistentContainer: NSPersistentContainer
 
     public init() {
-        //...
+        let modelName = "CoreDataStorage"
 
-        let modelName = "CoreDataStorage" //pass this as a parameter
-
-        guard let modelURL = Bundle(for: type(of: self)).url(forResource: modelName, withExtension: "momd") else {
-            fatalError("Error loading model from bundle")
-        }
-
-        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
-            fatalError("Error initializing mom from: \(modelURL)")
-        }
+        guard let modelURL = Bundle(for: type(of: self)).url(forResource: modelName, withExtension: "momd"),
+              let model = NSManagedObjectModel(contentsOf: modelURL)
+        else { fatalError() }
 
         let container = NSPersistentContainer(name: modelName, managedObjectModel: model)
-
-        //...
-
-//        let container = NSPersistentContainer(name: "CoreDataStorage")
 
         container.loadPersistentStores { storeDescription, error in
             debugPrint(storeDescription)

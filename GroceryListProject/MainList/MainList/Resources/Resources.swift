@@ -17,7 +17,7 @@ class Resources {
         static let modalBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
 
         static let tableBackgroundColor = UIColor.dynamic(any: Palette.White.ghostWhite, dark: Palette.Black.black)
-        static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.black)
+        static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
         static let cellSeparatorColor = UIColor.dynamic(any: Palette.Gray.jet.withAlphaComponent(0.29),
                                                         dark: Palette.Gray.devisGrey.withAlphaComponent(0.65))
     }

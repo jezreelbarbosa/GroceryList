@@ -10,4 +10,5 @@ import Foundation
 public protocol GroceriesLocalDataSource {
 
     func getGroceryMainList() -> Result<[GroceryListCompleteInfoResponseDTO], Error>
+    func saveNewGroceryList(request: GroceryListCompleteInfoResponseDTO) -> Result<Void, Error>
 }
