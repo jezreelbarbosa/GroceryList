@@ -7,18 +7,13 @@
 
 import Swinject
 import AppData
-import Networking
+import Storage
 
-class StorageAssembly {
-
-    private func assembleUser(_ container: Container) {
-
-    }
-}
-
-extension StorageAssembly: Assembly {
+class StorageAssembly: Assembly {
 
     func assemble(container: Container) {
-        assembleUser(container)
+        container.register(CoreDataStorage.self) { _ in CoreDataStorage() }
+
+        container.autoregister(AppData.GroceriesLocalDataSource.self, initializer: Storage.GroceriesLocalDataSource.init)
     }
 }

@@ -9,16 +9,12 @@ import UIKit.UIColor
 
 public extension UIColor {
 
-    static func dynamic(any: UIColor, dark: UIColor? = nil) -> UIColor {
-        guard #available(iOS 13, *) else {
-            return any
+    static func dynamic(any anyColor: UIColor, dark darkColor: UIColor? = nil) -> UIColor {
+        guard #available(iOS 13, *) else { return anyColor }
+
+        return UIColor { (uiTraitCollection: UITraitCollection) -> UIColor in
+            guard uiTraitCollection.userInterfaceStyle == .dark, let darkColor = darkColor else { return anyColor }
+            return darkColor
         }
-        let dynamicColor = UIColor { (uiTraitCollection: UITraitCollection) -> UIColor in
-            if uiTraitCollection.userInterfaceStyle == .dark, let dark = dark {
-                return dark
-            }
-            return any
-        }
-        return dynamicColor
     }
 }

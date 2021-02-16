@@ -12,20 +12,26 @@ class Resources {
 
     struct Colors {
 
-        static let backgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.black)
-        static let foregroundColor = UIColor.dynamic(any: Palette.Black.black, dark: Palette.White.white)
+        static let textColor = UIColor.dynamic(any: Palette.Black.black, dark: Palette.White.white)
+
+        static let modalBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
+
+        static let tableBackgroundColor = UIColor.dynamic(any: Palette.White.ghostWhite, dark: Palette.Black.black)
+        static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.black)
+        static let cellSeparatorColor = UIColor.dynamic(any: Palette.Gray.jet.withAlphaComponent(0.29),
+                                                        dark: Palette.Gray.devisGrey.withAlphaComponent(0.65))
     }
 
     struct Texts {
 
-        static let navigationTitle = LocalizedString(texts: [
-            .enUS: "Sheets",
-            .ptBR: "Fichas"
+        static let homeNavigationTitle = LocalizedString(texts: [
+            .enUS: "Home",
+            .ptBR: "Início"
         ]).localizedText
 
-        static let sheetsPlaceholder = LocalizedString(texts: [
-            .enUS: "You haven't created any character sheets yet. :( Go ahead!",
-            .ptBR: "Você ainda não criou nenhuma ficha de personagem. :( Vá em frente!"
+        static let newListNavigationTitle = LocalizedString(texts: [
+            .enUS: "New list",
+            .ptBR: "Nova lista"
         ]).localizedText
     }
 }

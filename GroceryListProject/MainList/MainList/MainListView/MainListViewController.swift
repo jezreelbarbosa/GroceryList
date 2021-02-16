@@ -10,10 +10,12 @@ import UIKit
 
 public protocol MainListPresenting {
 
-    var groceriesBox: Box<[String]> { get }
-    func updateList()
+    var groceriesBox: Box<[GroceryListHeaderInfoViewModel]> { get }
+    var errorMessageBox: Box<String> { get }
 
-    func didSelected(groceryList: String)
+    func updateList()
+    func didSelected(row: Int)
+    func createNewList()
 }
 
 public class MainListViewController: UIViewController {
@@ -23,7 +25,7 @@ public class MainListViewController: UIViewController {
     private lazy var mainView = MainListView()
     private let presenter: MainListPresenting
 
-    private var grocerieLists: [String] = []
+    private var grocerieLists: [GroceryListHeaderInfoViewModel] = []
 
     // Lifecycle
 
@@ -48,10 +50,25 @@ public class MainListViewController: UIViewController {
     }
 
     public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         presenter.updateList()
+        mainView.tableView.selectRow(at: nil, animated: animated, scrollPosition: .none)
     }
 
     // Functions
+
+    private func setupView() {
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
+        mainView.tableView.register(GroceryListTableViewCell.self)
+
+        navigationItem.title = Resources.Texts.homeNavigationTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonAction))
+        navigationItem.rightBarButtonItem = addBarButton
+    }
 
     private func setupPresenter() {
         presenter.groceriesBox.bind { [unowned self] value in
@@ -60,12 +77,16 @@ public class MainListViewController: UIViewController {
                 self.mainView.tableView.reloadData()
             }
         }
+
+        presenter.errorMessageBox.bind { [unowned self] value in
+            self.presentAttentionAlert(withMessage: value)
+        }
     }
 
-    private func setupView() {
-        mainView.tableView.dataSource = self
-        mainView.tableView.delegate = self
-        mainView.tableView.register(GroceryListTableViewCell.self)
+    // Actions
+
+    @objc private func addBarButtonAction() {
+        presenter.createNewList()
     }
 }
 
@@ -78,12 +99,17 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(GroceryListTableViewCell.self)
 
-        cell.fill(title: grocerieLists[indexPath.row])
+        cell.fill(model: grocerieLists[indexPath.row])
+        cell.setFirstLastCellFor(row: indexPath.row, count: grocerieLists.count)
 
         return cell
     }
 
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return GroceryListTableViewCell.rowHeight
+    }
+
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelected(groceryList: grocerieLists[indexPath.row])
+        presenter.didSelected(row: indexPath.row)
     }
 }

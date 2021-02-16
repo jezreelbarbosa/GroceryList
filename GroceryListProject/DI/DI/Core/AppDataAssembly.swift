@@ -9,16 +9,9 @@ import Swinject
 import Domain
 import AppData
 
-class AppDataAssembly {
-
-    private func assembleApp(_ container: Container) {
-
-    }
-}
-
-extension AppDataAssembly: Assembly {
+class AppDataAssembly: Assembly {
 
     func assemble(container: Container) {
-        assembleApp(container)
+        container.autoregister(Domain.GroceriesRepository.self, initializer: AppData.GroceriesRepository.init)
     }
 }

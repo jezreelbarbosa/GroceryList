@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIViewController {
 
-    func presentAlert(withMessage message: String) {
+    func presentAttentionAlert(withMessage message: String) {
         let alert = UIAlertController.attentionAlert(message: message)
         present(alert, animated: true, completion: nil)
     }

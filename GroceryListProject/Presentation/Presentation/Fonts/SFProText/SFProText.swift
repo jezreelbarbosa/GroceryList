@@ -20,13 +20,11 @@ public enum SFProTextFontWeight: CaseIterable {
     }
 
     case regular
-    case regularItalic
     case semibold
 
     var name: String {
         switch self {
         case .regular: return "SFProText-Regular"
-        case .regularItalic: return "SFProText-RegularItalic"
         case .semibold: return "SFProText-Semibold"
         }
     }
@@ -34,7 +32,6 @@ public enum SFProTextFontWeight: CaseIterable {
     var asSystemFontWeight: UIFont.Weight {
         switch self {
         case .regular: return .regular
-        case .regularItalic: return .regular
         case .semibold: return .semibold
         }
     }

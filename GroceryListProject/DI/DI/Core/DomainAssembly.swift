@@ -8,16 +8,9 @@
 import Swinject
 import Domain
 
-class DomainAssembly {
-
-    private func assembleApp(_ container: Container) {
-
-    }
-}
-
-extension DomainAssembly: Assembly {
+class DomainAssembly: Assembly {
 
     func assemble(container: Container) {
-        assembleApp(container)
+        container.autoregister(GetGroceryMainListUseCaseProtocol.self, initializer: GetGroceryMainListUseCase.init)
     }
 }

@@ -1,0 +1,13 @@
+//
+//  GroceriesLocalDataSource.swift
+//  AppData
+//
+//  Created by Jezreel Barbosa on 11/02/21.
+//
+
+import Foundation
+
+public protocol GroceriesLocalDataSource {
+
+    func getGroceryMainList() -> Result<[GroceryListCompleteInfoResponseDTO], Error>
+}

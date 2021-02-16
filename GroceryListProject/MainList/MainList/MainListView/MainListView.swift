@@ -8,7 +8,7 @@
 import Presentation
 import Stevia
 
-public final class MainListView: UICodeView {
+final class MainListView: UICodeView {
 
     // Properties
 
@@ -33,12 +33,12 @@ public final class MainListView: UICodeView {
 
     public override func initStyle() {
         style { s in
-            s.backgroundColor = .cyan
+            s.backgroundColor = Resources.Colors.tableBackgroundColor
         }
 
         tableView.style { s in
-            s.backgroundColor = Resources.Colors.backgroundColor
-            s.separatorStyle = .none
+            s.backgroundColor = .clear
+            s.separatorStyle = .singleLine
         }
     }
 

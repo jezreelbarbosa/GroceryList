@@ -8,3 +8,8 @@
 import UIKit
 
 public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
+
+public enum CoreError: Error {
+
+    case error
+}

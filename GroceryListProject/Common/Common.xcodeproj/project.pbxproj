@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D63AF0625DC0837004DC196 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF0525DC0837004DC196 /* Optional+Extension.swift */; };
+		0D63B01725DC4C99004DC196 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63B01625DC4C99004DC196 /* Defaultable.swift */; };
 		0DF4076A25A745DF0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4076025A745DF0005609F /* Common.framework */; };
 		0DF4076F25A745DF0005609F /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4076E25A745DF0005609F /* CommonTests.swift */; };
 		0DF4077125A745DF0005609F /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF4076325A745DF0005609F /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		02FCDAF748703559442C2EFB /* Pods-Common-CommonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Common-CommonTests.release.xcconfig"; path = "Target Support Files/Pods-Common-CommonTests/Pods-Common-CommonTests.release.xcconfig"; sourceTree = "<group>"; };
+		0D63AF0525DC0837004DC196 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		0D63B01625DC4C99004DC196 /* Defaultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		0DF4076025A745DF0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4076325A745DF0005609F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		0DF4076425A745DF0005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			children = (
 				0DF40B5025A7B4A40005609F /* Generics.swift */,
 				0DF40B5425A7B4B90005609F /* DependencyFactory.swift */,
+				0D63AF0525DC0837004DC196 /* Optional+Extension.swift */,
+				0D63B01625DC4C99004DC196 /* Defaultable.swift */,
 				0DF4076325A745DF0005609F /* Common.h */,
 				0DF4076425A745DF0005609F /* Info.plist */,
 			);
@@ -302,6 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF40B5125A7B4A40005609F /* Generics.swift in Sources */,
+				0D63B01725DC4C99004DC196 /* Defaultable.swift in Sources */,
+				0D63AF0625DC0837004DC196 /* Optional+Extension.swift in Sources */,
 				0DF40B5525A7B4B90005609F /* DependencyFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

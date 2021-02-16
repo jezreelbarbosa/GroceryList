@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D05394525D6EC9500478D0A /* Keyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05394425D6EC9400478D0A /* Keyable.swift */; };
+		0D05394E25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */; };
+		0D05395B25D6EDDB00478D0A /* CoreDataStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */; };
+		0D63AEFE25DBF87A004DC196 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */; };
+		0D63AF4B25DC4A34004DC196 /* StorageErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */; };
+		0D63AFE325DC4C61004DC196 /* AppData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4085625A74BBB0005609F /* AppData.framework */; };
+		0D83156225D5B9B200825277 /* GroceriesLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83156125D5B9B200825277 /* GroceriesLocalDataSource.swift */; };
 		0DF407EF25A74A870005609F /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF407E525A74A870005609F /* Storage.framework */; };
 		0DF407F425A74A870005609F /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF407F325A74A870005609F /* StorageTests.swift */; };
 		0DF407F625A74A870005609F /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF407E825A74A870005609F /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +40,12 @@
 
 /* Begin PBXFileReference section */
 		02FBDD2D157BC9EC8E5AA0D3 /* Pods-Storage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage.debug.xcconfig"; path = "Target Support Files/Pods-Storage/Pods-Storage.debug.xcconfig"; sourceTree = "<group>"; };
+		0D05394425D6EC9400478D0A /* Keyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyable.swift; sourceTree = "<group>"; };
+		0D05394D25D6ED8500478D0A /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
+		0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStoring.swift; sourceTree = "<group>"; };
+		0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageErrors.swift; sourceTree = "<group>"; };
+		0D83156125D5B9B200825277 /* GroceriesLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesLocalDataSource.swift; sourceTree = "<group>"; };
 		0DF407E525A74A870005609F /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF407E825A74A870005609F /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		0DF407E925A74A870005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF4080325A74A8E0005609F /* Common.framework in Frameworks */,
+				0D63AFE325DC4C61004DC196 /* AppData.framework in Frameworks */,
 				8300BBED147C23E88580BE8E /* Pods_Storage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +99,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D05394225D6EBF200478D0A /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */,
+				0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		0D05394325D6EC0600478D0A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0D05394425D6EC9400478D0A /* Keyable.swift */,
+				0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0D63AF4925DC4A22004DC196 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		0D83156025D5B9A100825277 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				0D83156125D5B9B200825277 /* GroceriesLocalDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
 		0DF407DB25A74A870005609F = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +158,10 @@
 		0DF407E725A74A870005609F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				0D83156025D5B9A100825277 /* DataSources */,
+				0D05394325D6EC0600478D0A /* Protocols */,
+				0D05394225D6EBF200478D0A /* Storages */,
+				0D63AF4925DC4A22004DC196 /* Supporting */,
 				0DF407E825A74A870005609F /* Storage.h */,
 				0DF407E925A74A870005609F /* Info.plist */,
 			);
@@ -249,6 +301,7 @@
 				TargetAttributes = {
 					0DF407E425A74A870005609F = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1240;
 					};
 					0DF407ED25A74A870005609F = {
 						CreatedOnToolsVersion = 12.3;
@@ -373,6 +426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D63AEFE25DBF87A004DC196 /* CoreDataStorage.swift in Sources */,
+				0D83156225D5B9B200825277 /* GroceriesLocalDataSource.swift in Sources */,
+				0D05395B25D6EDDB00478D0A /* CoreDataStoring.swift in Sources */,
+				0D05394E25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld in Sources */,
+				0D63AF4B25DC4A34004DC196 /* StorageErrors.swift in Sources */,
+				0D05394525D6EC9500478D0A /* Keyable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 02FBDD2D157BC9EC8E5AA0D3 /* Pods-Storage.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P38KT438VN;
@@ -547,6 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.Storage;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -556,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FCA718423531E1D9480661FE /* Pods-Storage.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P38KT438VN;
@@ -582,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED0FFBBB5719CEEE93916AD3 /* Pods-Storage-StorageTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = StorageTests/Info.plist;
@@ -601,6 +664,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64615BFA1D272CD9952D2EA4 /* Pods-Storage-StorageTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = StorageTests/Info.plist;
@@ -700,6 +764,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0D05394D25D6ED8500478D0A /* CoreDataStorage.xcdatamodel */,
+			);
+			currentVersion = 0D05394D25D6ED8500478D0A /* CoreDataStorage.xcdatamodel */;
+			path = CoreDataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0DF407DC25A74A870005609F /* Project object */;
 }

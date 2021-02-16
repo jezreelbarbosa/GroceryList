@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D63AF1325DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF1225DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift */; };
+		0D63AF1725DC45D2004DC196 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF1625DC45D2004DC196 /* GroceryItem.swift */; };
+		0D63AF5125DC4A67004DC196 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF5025DC4A67004DC196 /* DataProtocols.swift */; };
+		0D83154525D5B00100825277 /* GroceriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83154425D5B00100825277 /* GroceriesRepository.swift */; };
+		0D83154A25D5B06000825277 /* GroceriesLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83154925D5B06000825277 /* GroceriesLocalDataSource.swift */; };
 		0DF4083725A74B900005609F /* AppData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4082D25A74B900005609F /* AppData.framework */; };
 		0DF4083C25A74B900005609F /* AppDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4083B25A74B900005609F /* AppDataTests.swift */; };
 		0DF4083E25A74B900005609F /* AppData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF4083025A74B900005609F /* AppData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D63AF1225DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListCompleteInfoResponseDTO.swift; sourceTree = "<group>"; };
+		0D63AF1625DC45D2004DC196 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		0D63AF5025DC4A67004DC196 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
+		0D83154425D5B00100825277 /* GroceriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesRepository.swift; sourceTree = "<group>"; };
+		0D83154925D5B06000825277 /* GroceriesLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesLocalDataSource.swift; sourceTree = "<group>"; };
 		0DF4082D25A74B900005609F /* AppData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4083025A74B900005609F /* AppData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
 		0DF4083125A74B900005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +88,39 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		0D63AF4F25DC4A4D004DC196 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				0D63AF5025DC4A67004DC196 /* DataProtocols.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		0D83154225D5AF7700825277 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				0D83154425D5B00100825277 /* GroceriesRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		0D83154325D5AFEA00825277 /* DataTransferOutputs */ = {
+			isa = PBXGroup;
+			children = (
+				0D63AF1225DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift */,
+				0D63AF1625DC45D2004DC196 /* GroceryItem.swift */,
+			);
+			path = DataTransferOutputs;
+			sourceTree = "<group>";
+		};
+		0D83154825D5B05200825277 /* LocalDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				0D83154925D5B06000825277 /* GroceriesLocalDataSource.swift */,
+			);
+			path = LocalDataSources;
+			sourceTree = "<group>";
+		};
 		0DF4082325A74B900005609F = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +144,10 @@
 		0DF4082F25A74B900005609F /* AppData */ = {
 			isa = PBXGroup;
 			children = (
+				0D83154325D5AFEA00825277 /* DataTransferOutputs */,
+				0D83154225D5AF7700825277 /* Repositories */,
+				0D83154825D5B05200825277 /* LocalDataSources */,
+				0D63AF4F25DC4A4D004DC196 /* Supporting */,
 				0DF4083025A74B900005609F /* AppData.h */,
 				0DF4083125A74B900005609F /* Info.plist */,
 			);
@@ -190,6 +237,7 @@
 				TargetAttributes = {
 					0DF4082C25A74B900005609F = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1240;
 					};
 					0DF4083525A74B900005609F = {
 						CreatedOnToolsVersion = 12.3;
@@ -284,6 +332,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D83154A25D5B06000825277 /* GroceriesLocalDataSource.swift in Sources */,
+				0D63AF1325DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift in Sources */,
+				0D63AF1725DC45D2004DC196 /* GroceryItem.swift in Sources */,
+				0D83154525D5B00100825277 /* GroceriesRepository.swift in Sources */,
+				0D63AF5125DC4A67004DC196 /* DataProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 186594E176FC6F4D7B897968 /* Pods-AppData.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P38KT438VN;
@@ -449,6 +503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist.AppData;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3746DECFC6468290314927A0 /* Pods-AppData.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P38KT438VN;
@@ -484,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 439AB08E2738D3D9614423F8 /* Pods-AppData-AppDataTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = AppDataTests/Info.plist;
@@ -503,6 +560,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0FF7758BB05C45DD76A02899 /* Pods-AppData-AppDataTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = AppDataTests/Info.plist;

@@ -13,18 +13,19 @@ public final class Palette {
     /// White ⬜️
     public struct White {
         public static var white: UIColor { #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) }
-        public static var champagne: UIColor {  #colorLiteral(red: 0.9450980392, green: 0.8745098039, blue: 0.7882352941, alpha: 1) }
-        public static var lightFrenchBeige: UIColor { #colorLiteral(red: 0.8039215686, green: 0.6941176471, blue: 0.5215686275, alpha: 1) }
+        public static var ghostWhite: UIColor { #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1) }
     }
 
     /// Gray  🌫
     public struct Gray {
-
+        public static var jet: UIColor { #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 1) }
+        public static var devisGrey: UIColor { #colorLiteral(red: 0.3294117647, green: 0.3294117647, blue: 0.3450980392, alpha: 1) }
     }
 
     /// Black ⬛️
     public struct Black {
         public static var black: UIColor { #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) }
+        public static var eerieBlack: UIColor { #colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1) }
     }
 
     /// Red 🟥

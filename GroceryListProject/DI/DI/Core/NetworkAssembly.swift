@@ -9,16 +9,9 @@ import Swinject
 import AppData
 import Networking
 
-class NetworkingAssembly {
-
-    private func assembleUser(_ container: Container) {
-
-    }
-}
-
-extension NetworkingAssembly: Assembly {
+class NetworkingAssembly: Assembly {
 
     func assemble(container: Container) {
-        assembleUser(container)
+
     }
 }
