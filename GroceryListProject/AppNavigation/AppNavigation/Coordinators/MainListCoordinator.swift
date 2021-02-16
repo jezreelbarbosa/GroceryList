@@ -16,6 +16,7 @@ public protocol MainListCoordinatorDelegate: CoordinatorDelegate {
 public protocol MainListVCFactory: DependencyFactory {
 
     func makeMainListViewController() -> MainListViewController
+    func makeNewListViewController() -> NewListViewController
 }
 
 public protocol MainListCoordinatorFactory: DependencyFactory {
@@ -54,4 +55,11 @@ public class MainListCoordinator: NavigationCoordinator {
 
 extension MainListCoordinator: MainListCoordinating {
 
+    public func showNewListView() {
+        let viewController = viewControllersFactory.makeNewListViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalTransitionStyle = .coverVertical
+        navigationController.modalPresentationStyle = .pageSheet
+        self.navigationController.present(navigationController, animated: true, completion: nil)
+    }
 }

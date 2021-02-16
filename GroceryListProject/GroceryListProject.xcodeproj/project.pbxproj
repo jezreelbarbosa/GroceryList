@@ -64,9 +64,9 @@
 				0DF4080825A74AA10005609F /* Storage.framework in Embed Frameworks */,
 				0DF407D425A749970005609F /* Networking.framework in Embed Frameworks */,
 				0DCCDED525A7C57400644240 /* Presentation.framework in Embed Frameworks */,
-				0DF408E325A74D790005609F /* DI.framework in Embed Frameworks */,
 				0DF4091725A74E200005609F /* AppNavigation.framework in Embed Frameworks */,
 				0DF4098E25A75DA70005609F /* MainList.framework in Embed Frameworks */,
+				0DF408E325A74D790005609F /* DI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,9 +116,9 @@
 				0DF4080725A74AA10005609F /* Storage.framework in Frameworks */,
 				0DF407D325A749970005609F /* Networking.framework in Frameworks */,
 				0DCCDED425A7C57400644240 /* Presentation.framework in Frameworks */,
-				0DF408E225A74D790005609F /* DI.framework in Frameworks */,
 				0DF4091625A74E200005609F /* AppNavigation.framework in Frameworks */,
 				0DF4098D25A75DA70005609F /* MainList.framework in Frameworks */,
+				0DF408E225A74D790005609F /* DI.framework in Frameworks */,
 				721A1F0FB7F7E0B0062249E1 /* Pods_GroceryListProjectTarget_GroceryListProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

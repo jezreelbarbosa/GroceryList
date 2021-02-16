@@ -16,6 +16,7 @@ class FlowAssembly {
         let coordinator = container.resolveSafe(MainListCoordinator.self)
         container.register(MainListCoordinating.self) { _ in coordinator }
         container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
+        container.autoregister(NewListPresenting.self, initializer: NewListPresenter.init)
     }
 }
 

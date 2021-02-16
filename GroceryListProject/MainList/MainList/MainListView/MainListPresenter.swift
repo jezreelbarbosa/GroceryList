@@ -10,6 +10,7 @@ import Domain
 
 public protocol MainListCoordinating: AnyObject {
 
+    func showNewListView()
 }
 
 public final class MainListPresenter {
@@ -52,12 +53,6 @@ extension MainListPresenter: MainListPresenting {
     }
 
     public func createNewList() {
-        let result = createNewGroceryListUseCase.execute(request: NewGroceryListRequest(icon: "", name: "Some List", date: Date()))
-        result.successHandler { _ in
-            self.updateList()
-        }
-        result.failureHandler { error in
-            self.errorMessageBox.value = error.localizedDescription
-        }
+        coordinator?.showNewListView()
     }
 }
