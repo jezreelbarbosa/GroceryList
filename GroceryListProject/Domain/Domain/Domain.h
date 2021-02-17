@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Common/Common.h"
 
 //! Project version number for Domain.
 FOUNDATION_EXPORT double DomainVersionNumber;

@@ -26,8 +26,9 @@ extension ViewControllersFactory: MainListVCFactory {
         return MainListViewController(presenter: presenter)
     }
 
-    func makeNewListViewController() -> NewListViewController {
-        guard let presenter = resolver.resolve(NewListPresenting.self) as? NewListPresenter else { preconditionFailure() }
+    func makeNewListViewController(successCompletion: @escaping VoidCompletion) -> NewListViewController {
+        guard let presenter = resolver.resolve(NewListPresenting.self, argument: successCompletion) as? NewListPresenter
+        else { preconditionFailure() }
         return NewListViewController(presenter: presenter)
     }
 }

@@ -16,7 +16,7 @@ public protocol MainListCoordinatorDelegate: CoordinatorDelegate {
 public protocol MainListVCFactory: DependencyFactory {
 
     func makeMainListViewController() -> MainListViewController
-    func makeNewListViewController() -> NewListViewController
+    func makeNewListViewController(successCompletion: @escaping VoidCompletion) -> NewListViewController
 }
 
 public protocol MainListCoordinatorFactory: DependencyFactory {
@@ -55,8 +55,8 @@ public class MainListCoordinator: NavigationCoordinator {
 
 extension MainListCoordinator: MainListCoordinating {
 
-    public func showNewListView() {
-        let viewController = viewControllersFactory.makeNewListViewController()
+    public func showNewListView(successCompletion: @escaping VoidCompletion) {
+        let viewController = viewControllersFactory.makeNewListViewController(successCompletion: successCompletion)
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalTransitionStyle = .coverVertical
         navigationController.modalPresentationStyle = .pageSheet

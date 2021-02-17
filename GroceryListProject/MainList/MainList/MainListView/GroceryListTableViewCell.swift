@@ -26,6 +26,9 @@ final class GroceryListTableViewCell: UICodeTableViewCell {
     let topSeparatorLine = UIView()
     let bottomSeparatorLine = UIView()
 
+    var topSeparatorLineHiddenStatus = true
+    var bottomSeparatorLineHiddenStatus = true
+
     // Lifecycle
 
     public override func initSubViews() {
@@ -92,7 +95,17 @@ final class GroceryListTableViewCell: UICodeTableViewCell {
         super.prepareForReuse()
 
         topSeparatorLine.isHidden = true
+        topSeparatorLineHiddenStatus = true
+
         bottomSeparatorLine.isHidden = true
+        bottomSeparatorLineHiddenStatus = true
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        topSeparatorLine.isHidden = selected ? true : topSeparatorLineHiddenStatus
+        bottomSeparatorLine.isHidden = selected ? true : bottomSeparatorLineHiddenStatus
     }
 
     // Functions
@@ -106,9 +119,11 @@ final class GroceryListTableViewCell: UICodeTableViewCell {
     func setFirstLastCellFor(row: Int, count: Int) {
         if row == 0 {
             topSeparatorLine.isHidden = false
+            topSeparatorLineHiddenStatus = false
         }
         if count == row + 1 {
             bottomSeparatorLine.isHidden = false
+            bottomSeparatorLineHiddenStatus = false
         }
     }
 

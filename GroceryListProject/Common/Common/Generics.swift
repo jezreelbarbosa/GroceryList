@@ -9,6 +9,8 @@ import UIKit
 
 public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
 
+public typealias VoidCompletion = () -> Void
+
 public enum CoreError: Error {
 
     case error

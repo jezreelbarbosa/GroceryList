@@ -10,7 +10,7 @@ import Domain
 
 public protocol MainListCoordinating: AnyObject {
 
-    func showNewListView()
+    func showNewListView(successCompletion: @escaping VoidCompletion)
 }
 
 public final class MainListPresenter {
@@ -53,6 +53,8 @@ extension MainListPresenter: MainListPresenting {
     }
 
     public func createNewList() {
-        coordinator?.showNewListView()
+        coordinator?.showNewListView { [weak self] in
+            self?.updateList()
+        }
     }
 }

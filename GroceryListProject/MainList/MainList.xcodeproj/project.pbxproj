@@ -10,6 +10,7 @@
 		0D1A635E25DC7A8100C77914 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A635D25DC7A8100C77914 /* NewListViewController.swift */; };
 		0D1A636225DC7AC300C77914 /* NewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A636125DC7AC300C77914 /* NewListView.swift */; };
 		0D1A636825DC7AD400C77914 /* NewListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A636725DC7AD400C77914 /* NewListPresenter.swift */; };
+		0D615B4625DD599700868E66 /* NewGroceryListHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615B4525DD599700868E66 /* NewGroceryListHeaderViewModel.swift */; };
 		0DCEB1DE25B2316C00CA353B /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCEB1DD25B2316C00CA353B /* Resources.swift */; };
 		0DE0B59125C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0B59025C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift */; };
 		0DF4096925A75D0D0005609F /* MainList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4095F25A75D0D0005609F /* MainList.framework */; };
@@ -40,6 +41,7 @@
 		0D1A635D25DC7A8100C77914 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
 		0D1A636125DC7AC300C77914 /* NewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListView.swift; sourceTree = "<group>"; };
 		0D1A636725DC7AD400C77914 /* NewListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListPresenter.swift; sourceTree = "<group>"; };
+		0D615B4525DD599700868E66 /* NewGroceryListHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroceryListHeaderViewModel.swift; sourceTree = "<group>"; };
 		0DCEB1DD25B2316C00CA353B /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		0DE0B59025C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListHeaderInfoViewModel.swift; sourceTree = "<group>"; };
 		0DF4095F25A75D0D0005609F /* MainList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MainList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 			children = (
 				0DCEB1DD25B2316C00CA353B /* Resources.swift */,
 				0DE0B59025C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift */,
+				0D615B4525DD599700868E66 /* NewGroceryListHeaderViewModel.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				0D1A636825DC7AD400C77914 /* NewListPresenter.swift in Sources */,
 				0DE0B59125C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift in Sources */,
 				0DF4DB0625AA03300076D0EB /* MainListPresenter.swift in Sources */,
+				0D615B4625DD599700868E66 /* NewGroceryListHeaderViewModel.swift in Sources */,
 				0DF4DB0225AA03230076D0EB /* MainListViewController.swift in Sources */,
 				0D1A635E25DC7A8100C77914 /* NewListViewController.swift in Sources */,
 				0D1A636225DC7AC300C77914 /* NewListView.swift in Sources */,

@@ -6,7 +6,7 @@
 //
 
 import Swinject
-import Common
+import Domain
 import AppNavigation
 import MainList
 
@@ -16,7 +16,13 @@ class FlowAssembly {
         let coordinator = container.resolveSafe(MainListCoordinator.self)
         container.register(MainListCoordinating.self) { _ in coordinator }
         container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
-        container.autoregister(NewListPresenting.self, initializer: NewListPresenter.init)
+
+        container.register(NewListPresenting.self) { (resolver: Resolver, successCompletion: @escaping VoidCompletion) in
+            NewListPresenter(
+                createNewGroceryListUseCase: resolver.resolveSafe(CreateNewGroceryListUseCaseProtocol.self),
+                successCompletion: successCompletion
+            )
+        }
     }
 }
 

@@ -10,6 +10,9 @@ import UIKit
 
 public protocol NewListPresenting {
 
+    var errorMessageBox: Box<String> { get }
+
+    func createNewGroceryList(model: NewGroceryListHeaderViewModel, successCompletion: () -> Void)
 }
 
 public class NewListViewController: UIViewController {
@@ -38,11 +41,7 @@ public class NewListViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-    }
-
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
+        setupPresenter()
     }
 
     // Functions
@@ -57,13 +56,24 @@ public class NewListViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelBarButton
     }
 
+    private func setupPresenter() {
+        presenter.errorMessageBox.bind { [unowned self] value in
+            self.presentAttentionAlert(withMessage: value)
+        }
+    }
+
     // Actions
 
     @objc private func saveBarButtonAction() {
-
+        presenter.createNewGroceryList(model: NewGroceryListHeaderViewModel(
+            icon: mainView.iconTextField.text.defaultValue,
+            name: mainView.nameTextField.text.defaultValue
+        )) {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     @objc private func cancelBarButtonAction() {
-
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -21,8 +21,8 @@ public class CoreDataStorage: CoreDataStoring {
         let container = NSPersistentContainer(name: modelName, managedObjectModel: model)
 
         container.loadPersistentStores { storeDescription, error in
-            debugPrint(storeDescription)
             if let error = error as NSError? {
+                debugPrint(storeDescription)
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
