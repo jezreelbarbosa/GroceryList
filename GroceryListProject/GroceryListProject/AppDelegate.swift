@@ -12,6 +12,7 @@ import DI
 import Common
 import Presentation
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         Font.registerFonts()
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = LocalizedString(texts: [
+            .enUS: "Done",
+            .ptBR: "Concluído"
+        ]).localizedText
 
         dependencyInjector = DependencyInjector(launchOptions: launchOptions, window: window)
         dependencyInjector.build(completion: { [unowned self] (assembler, appCoordinator) in

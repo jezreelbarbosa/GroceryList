@@ -644,7 +644,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED0FFBBB5719CEEE93916AD3 /* Pods-Storage-StorageTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = StorageTests/Info.plist;
@@ -664,7 +663,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64615BFA1D272CD9952D2EA4 /* Pods-Storage-StorageTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38KT438VN;
 				INFOPLIST_FILE = StorageTests/Info.plist;

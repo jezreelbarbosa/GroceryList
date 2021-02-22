@@ -12,8 +12,8 @@ final class NewListView: UICodeView {
 
     // Properties
 
-    let iconTextField = UITextField()
-    let nameTextField = UITextField()
+    let iconTextField = UICodeTextField()
+    let nameTextField = UICodeTextField()
 
     // Lifecycle
 
@@ -43,6 +43,7 @@ final class NewListView: UICodeView {
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .center
             s.borderStyle = .none
+            s.setupCaracterLimit(limit: 1)
             s.placeholder = "G"
         }
 
@@ -53,7 +54,4 @@ final class NewListView: UICodeView {
             s.placeholder = "Grocery List"
         }
     }
-
-    // Functions
-
 }
