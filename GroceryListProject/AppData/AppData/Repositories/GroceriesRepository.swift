@@ -32,4 +32,8 @@ extension GroceriesRepository: Domain.GroceriesRepository {
         )
         return local.saveNewGroceryList(request: requestDTO)
     }
+
+    public func removeGroceryList(id: UUID) -> Result<Void, Error> {
+        local.removeGroceryList(id: id)
+    }
 }

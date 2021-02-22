@@ -13,5 +13,6 @@ class DomainAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(GetGroceryMainListUseCaseProtocol.self, initializer: GetGroceryMainListUseCase.init)
         container.autoregister(CreateNewGroceryListUseCaseProtocol.self, initializer: CreateNewGroceryListUseCase.init)
+        container.autoregister(RemoveGroceryListUseCaseProtocol.self, initializer: RemoveGroceryListUseCase.init)
     }
 }

@@ -19,32 +19,55 @@ public final class MainListPresenter {
 
     weak var coordinator: MainListCoordinating?
 
-    public let groceriesBox = Box([GroceryListHeaderInfoViewModel]())
-    public var errorMessageBox = Box(String())
+    public let groceriesBox: Box<[GroceryListHeaderInfoViewModel]>
+    public let errorMessageBox: Box<String>
+    public let removeRowBox: Box<Int?>
+    public var reloadTableView: VoidCompletion
 
     private let getGroceryMainListUseCase: GetGroceryMainListUseCaseProtocol
-    private let createNewGroceryListUseCase: CreateNewGroceryListUseCaseProtocol
+    private let removeGroceryListUseCase: RemoveGroceryListUseCaseProtocol
+
+    private var groceriesInfos: [GroceryListHeaderInfoResponse]
 
     // Lifecycle
 
-    public init(coordinator: MainListCoordinating, getGroceryMainListUseCase: GetGroceryMainListUseCaseProtocol,
-                createNewGroceryListUseCase: CreateNewGroceryListUseCaseProtocol) {
+    public init(coordinator: MainListCoordinating,
+                getGroceryMainListUseCase: GetGroceryMainListUseCaseProtocol,
+                removeGroceryListUseCase: RemoveGroceryListUseCaseProtocol) {
         self.coordinator = coordinator
         self.getGroceryMainListUseCase = getGroceryMainListUseCase
-        self.createNewGroceryListUseCase = createNewGroceryListUseCase
+        self.removeGroceryListUseCase = removeGroceryListUseCase
+
+        self.groceriesBox = Box([])
+        self.errorMessageBox = Box("")
+        self.removeRowBox = Box(nil)
+
+        self.groceriesInfos = []
+        self.reloadTableView = {}
+    }
+
+    // Functions
+
+    public func updateList(hasToReloadTableView: Bool) {
+        let result = getGroceryMainListUseCase.execute()
+        result.successHandler { response in
+            self.groceriesInfos = response
+            self.groceriesBox.value = response.map({ GroceryListHeaderInfoViewModel(response: $0) })
+
+            guard hasToReloadTableView else { return }
+
+            self.reloadTableView()
+        }
+        result.failureHandler { error in
+            self.errorMessageBox.value = error.localizedDescription
+        }
     }
 }
 
 extension MainListPresenter: MainListPresenting {
 
     public func updateList() {
-        let result = getGroceryMainListUseCase.execute()
-        result.successHandler { response in
-            self.groceriesBox.value = response.map({ GroceryListHeaderInfoViewModel(response: $0) })
-        }
-        result.failureHandler { error in
-            self.errorMessageBox.value = error.localizedDescription
-        }
+        self.updateList(hasToReloadTableView: true)
     }
 
     public func didSelected(row: Int) {
@@ -55,6 +78,17 @@ extension MainListPresenter: MainListPresenting {
     public func createNewList() {
         coordinator?.showNewListView { [weak self] in
             self?.updateList()
+        }
+    }
+
+    public func deleteItem(at row: Int) {
+        let result = removeGroceryListUseCase.execute(id: groceriesInfos[row].id)
+        result.successHandler { _ in
+            self.updateList(hasToReloadTableView: false)
+            self.removeRowBox.value = row
+        }
+        result.failureHandler { error in
+            self.errorMessageBox.value = error.localizedDescription
         }
     }
 }

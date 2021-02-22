@@ -12,4 +12,6 @@ public enum GroceryError: String, DataError {
     public static let numberPrefix: String = "S - 1"
 
     case getListError = "01"
+    case saveItemError = "02"
+    case removeItemError = "03"
 }

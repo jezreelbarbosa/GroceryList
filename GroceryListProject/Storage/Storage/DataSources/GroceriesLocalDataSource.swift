@@ -42,4 +42,14 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
             return .failure(GroceryError.getListError)
         }
     }
+
+    public func removeGroceryList(id: UUID) -> Result<Void, Error> {
+        do {
+            try coreData.remove(entity: .groceryListEntity, item: ("id", id))
+            return .success(())
+        } catch let error {
+            debugPrint(error)
+            return .failure(GroceryError.getListError)
+        }
+    }
 }

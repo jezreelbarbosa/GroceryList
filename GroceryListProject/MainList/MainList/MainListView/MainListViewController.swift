@@ -12,10 +12,14 @@ public protocol MainListPresenting {
 
     var groceriesBox: Box<[GroceryListHeaderInfoViewModel]> { get }
     var errorMessageBox: Box<String> { get }
+    var removeRowBox: Box<Int?> { get }
+
+    var reloadTableView: VoidCompletion { get set }
 
     func updateList()
     func didSelected(row: Int)
     func createNewList()
+    func deleteItem(at row: Int)
 }
 
 public class MainListViewController: UIViewController {
@@ -23,9 +27,9 @@ public class MainListViewController: UIViewController {
     // Properties
 
     private lazy var mainView = MainListView()
-    private let presenter: MainListPresenting
+    private var presenter: MainListPresenting
 
-    private var grocerieLists: [GroceryListHeaderInfoViewModel] = []
+    private var groceriesList: [GroceryListHeaderInfoViewModel] = []
 
     // Lifecycle
 
@@ -73,14 +77,25 @@ public class MainListViewController: UIViewController {
 
     private func setupPresenter() {
         presenter.groceriesBox.bind { [unowned self] value in
-            DispatchQueue.main.async {
-                self.grocerieLists = value
-                self.mainView.tableView.reloadData()
-            }
+            self.groceriesList = value
         }
 
         presenter.errorMessageBox.bind { [unowned self] value in
             self.presentAttentionAlert(withMessage: value)
+        }
+
+        presenter.removeRowBox.bind { [unowned self] value in
+            guard let value = value else { return }
+
+            DispatchQueue.main.async {
+                self.mainView.tableView.deleteRows(at: [IndexPath(row: value, section: 0)], with: .fade)
+            }
+        }
+
+        presenter.reloadTableView = { [unowned self] in
+            DispatchQueue.main.async {
+                self.mainView.tableView.reloadData()
+            }
         }
     }
 
@@ -94,14 +109,14 @@ public class MainListViewController: UIViewController {
 extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grocerieLists.count
+        return groceriesList.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(GroceryListTableViewCell.self)
 
-        cell.fill(model: grocerieLists[indexPath.row])
-        cell.setFirstLastCellFor(row: indexPath.row, count: grocerieLists.count)
+        cell.fill(model: groceriesList[indexPath.row])
+        cell.setFirstLastCellFor(row: indexPath.row, count: groceriesList.count)
 
         return cell
     }
@@ -112,5 +127,15 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelected(row: indexPath.row)
+    }
+
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.deleteItem(at: indexPath.row)
+        }
     }
 }

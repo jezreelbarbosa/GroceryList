@@ -55,6 +55,7 @@ extension CoreDataStoring {
         }
 
         context.delete(object)
+        try context.save()
     }
 
     public func removeAll(entity: ValueKeyable) throws {
