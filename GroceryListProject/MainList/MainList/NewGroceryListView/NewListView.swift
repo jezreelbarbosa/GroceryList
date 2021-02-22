@@ -44,14 +44,28 @@ final class NewListView: UICodeView {
             s.textAlignment = .center
             s.borderStyle = .none
             s.setupCaracterLimit(limit: 1)
-            s.placeholder = "G"
         }
 
         nameTextField.style { s in
             s.font = Font.sfProText(.regular, size: 24)
             s.textColor = Resources.Colors.textColor
             s.borderStyle = .none
-            s.placeholder = "Grocery List"
+            s.placeholder = Resources.Texts.newListNamePlaceholder
+            s.addTarget(self, action: #selector(nameTextFieldEditingChanged), for: .editingChanged)
+            s.sendActions(for: .editingChanged)
         }
+    }
+
+    // Functions
+
+    @objc private func nameTextFieldEditingChanged() {
+        let letter: String
+        if let text = nameTextField.text, !text.isEmpty {
+            letter = text[0..<1]
+        } else {
+            letter = (nameTextField.placeholder?[0..<1]).defaultValue
+        }
+
+        iconTextField.placeholder = letter
     }
 }

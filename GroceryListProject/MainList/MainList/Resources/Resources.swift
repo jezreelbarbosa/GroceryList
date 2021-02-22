@@ -33,5 +33,10 @@ class Resources {
             .enUS: "New list",
             .ptBR: "Nova lista"
         ]).localizedText
+
+        static let newListNamePlaceholder = LocalizedString(texts: [
+            .enUS: "Grocery List",
+            .ptBR: "Lista de Compras"
+        ]).localizedText
     }
 }
