@@ -10,6 +10,8 @@
 		0D20C0C3241FE46600FCA5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */; };
 		0D20C0CF241FE46700FCA5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */; };
 		0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */; };
+		0D22D09325E438FD00E48981 /* GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D09225E438FD00E48981 /* GroceryList.framework */; };
+		0D22D09425E438FD00E48981 /* GroceryList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D09225E438FD00E48981 /* GroceryList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DCCDED425A7C57400644240 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4094F25A74F350005609F /* Presentation.framework */; };
 		0DCCDED525A7C57400644240 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4094F25A74F350005609F /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DF4077D25A7460C0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; };
@@ -66,6 +68,7 @@
 				0DCCDED525A7C57400644240 /* Presentation.framework in Embed Frameworks */,
 				0DF4091725A74E200005609F /* AppNavigation.framework in Embed Frameworks */,
 				0DF4098E25A75DA70005609F /* MainList.framework in Embed Frameworks */,
+				0D22D09425E438FD00E48981 /* GroceryList.framework in Embed Frameworks */,
 				0DF408E325A74D790005609F /* DI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,6 +82,7 @@
 		0D20C0CE241FE46700FCA5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D20C0D1241FE46700FCA5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D20C0D3241FE46700FCA5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D22D09225E438FD00E48981 /* GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9DD8E025D48DB800851531 /* Notification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4077C25A7460C0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4078825A748900005609F /* GroceryListProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,7 @@
 				0DF4089C25A74C5D0005609F /* Domain.framework in Frameworks */,
 				0DF4086125A74BE50005609F /* AppData.framework in Frameworks */,
 				0DF4080725A74AA10005609F /* Storage.framework in Frameworks */,
+				0D22D09325E438FD00E48981 /* GroceryList.framework in Frameworks */,
 				0DF407D325A749970005609F /* Networking.framework in Frameworks */,
 				0DCCDED425A7C57400644240 /* Presentation.framework in Frameworks */,
 				0DF4091625A74E200005609F /* AppNavigation.framework in Frameworks */,
@@ -195,6 +200,7 @@
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D22D09225E438FD00E48981 /* GroceryList.framework */,
 				0D9DD8E025D48DB800851531 /* Notification.framework */,
 				0DF4098C25A75DA70005609F /* MainList.framework */,
 				0DF4094F25A74F350005609F /* Presentation.framework */,

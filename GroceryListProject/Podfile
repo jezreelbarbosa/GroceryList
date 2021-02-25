@@ -140,6 +140,16 @@ target 'MainList' do
   target 'MainListTests'
 end
 
+target 'GroceryList' do
+  project 'GroceryList/GroceryList'
+  # Pods for SharedPresentation
+  sharedPods
+  presentationPods
+  diPods
+
+  target 'GroceryListTests'
+end
+
 # Mark: - Post install
 
 post_install do |installer|

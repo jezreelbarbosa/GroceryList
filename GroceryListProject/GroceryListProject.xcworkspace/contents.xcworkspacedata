@@ -34,6 +34,9 @@
       <FileRef
          location = "group:MainList/MainList.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:GroceryList/GroceryList.xcodeproj">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -35,7 +35,6 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
         do {
             let data = try JSONEncoder().encode(request)
             try coreData.setNew(values: ["data": data], entity: .groceryListEntity, item: ("id", request.id))
-            
             return .success(())
         } catch let error {
             debugPrint(error)

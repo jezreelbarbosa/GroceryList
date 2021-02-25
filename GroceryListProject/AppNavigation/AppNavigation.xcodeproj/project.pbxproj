@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D22D08F25E438E100E48981 /* GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D08E25E438E100E48981 /* GroceryList.framework */; };
 		0DCEB1BC25B22F7E00CA353B /* GroceryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCEB1BB25B22F7E00CA353B /* GroceryListCoordinator.swift */; };
 		0DF408FE25A74DE80005609F /* AppNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF408F425A74DE80005609F /* AppNavigation.framework */; };
 		0DF4090325A74DE80005609F /* AppNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4090225A74DE80005609F /* AppNavigationTests.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D22D08E25E438E100E48981 /* GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCEB1BB25B22F7E00CA353B /* GroceryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListCoordinator.swift; sourceTree = "<group>"; };
 		0DF408F425A74DE80005609F /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF408F725A74DE80005609F /* AppNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppNavigation.h; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			files = (
 				0DF4091225A74E070005609F /* Common.framework in Frameworks */,
 				0DF4098925A75D750005609F /* MainList.framework in Frameworks */,
+				0D22D08F25E438E100E48981 /* GroceryList.framework in Frameworks */,
 				9CDAAB9CE011251D4DAB063A /* Pods_AppNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +120,7 @@
 		0DF4091025A74E070005609F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D22D08E25E438E100E48981 /* GroceryList.framework */,
 				0DF4098825A75D750005609F /* MainList.framework */,
 				0DF4091125A74E070005609F /* Common.framework */,
 				623B500FE6C8F9F81646A4C1 /* Pods_AppNavigation.framework */,
@@ -492,7 +496,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppNavigation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,7 +524,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppNavigation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
