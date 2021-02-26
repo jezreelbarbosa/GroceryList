@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 16/02/21.
 //
 
-import Foundation
-
 public struct NewGroceryListRequest {
 
     public let icon: String

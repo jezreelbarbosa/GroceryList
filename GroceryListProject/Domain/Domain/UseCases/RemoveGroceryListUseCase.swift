@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 21/02/21.
 //
 
-import Foundation
-
 public protocol RemoveGroceryListUseCaseProtocol {
 
     func execute(id: UUID) -> Result<Void, Error>

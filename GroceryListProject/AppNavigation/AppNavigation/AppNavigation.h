@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Common/Common.h"
 
 //! Project version number for AppNavigation.
 FOUNDATION_EXPORT double AppNavigationVersionNumber;
@@ -14,5 +15,3 @@ FOUNDATION_EXPORT double AppNavigationVersionNumber;
 FOUNDATION_EXPORT const unsigned char AppNavigationVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AppNavigation/PublicHeader.h>
-
-

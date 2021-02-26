@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 30/01/21.
 //
 
-import Foundation
-
 public extension String {
 
     subscript(_ range: CountableRange<Int>) -> String {

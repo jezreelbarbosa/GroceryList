@@ -5,7 +5,6 @@
 //  Created by Jezreel Barbosa on 12/02/21.
 //
 
-import Common
 import CoreData
 
 public protocol CoreDataStoring {

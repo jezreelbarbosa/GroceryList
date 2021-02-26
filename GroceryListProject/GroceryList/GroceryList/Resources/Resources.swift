@@ -1,8 +1,8 @@
 //
 //  Resources.swift
-//  MainList
+//  GroceryList
 //
-//  Created by Jezreel Barbosa on 15/01/21.
+//  Created by Jezreel Barbosa on 26/02/21.
 //
 
 import UIKit

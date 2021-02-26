@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 11/02/21.
 //
 
-import Foundation
-
 public typealias ResultCompletion<T> = (_ result: Swift.Result<T, Error>) -> Void
 
 public extension Swift.Result {

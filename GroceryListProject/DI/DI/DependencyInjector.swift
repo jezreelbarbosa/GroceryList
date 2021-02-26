@@ -8,7 +8,6 @@
 import Swinject
 import SwinjectAutoregistration
 import Domain
-import Common
 import AppNavigation
 
 public class DependencyInjector {

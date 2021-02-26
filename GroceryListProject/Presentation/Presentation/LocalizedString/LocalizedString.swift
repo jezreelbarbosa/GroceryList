@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 07/01/21.
 //
 
-import Foundation
-
 public protocol StringText {
 
     var text: String { get }

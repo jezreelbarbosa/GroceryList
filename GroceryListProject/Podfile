@@ -135,7 +135,6 @@ target 'MainList' do
   # Pods for SharedPresentation
   sharedPods
   presentationPods
-  diPods
 
   target 'MainListTests'
 end
@@ -145,7 +144,6 @@ target 'GroceryList' do
   # Pods for SharedPresentation
   sharedPods
   presentationPods
-  diPods
 
   target 'GroceryListTests'
 end

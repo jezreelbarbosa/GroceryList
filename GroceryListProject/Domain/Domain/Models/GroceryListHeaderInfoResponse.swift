@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 30/01/21.
 //
 
-import Foundation
-
 public struct GroceryListHeaderInfoResponse {
 
     public let id: UUID

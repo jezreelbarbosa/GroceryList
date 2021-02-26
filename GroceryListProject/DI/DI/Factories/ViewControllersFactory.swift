@@ -6,7 +6,6 @@
 //
 
 import Swinject
-import Common
 import AppNavigation
 import MainList
 

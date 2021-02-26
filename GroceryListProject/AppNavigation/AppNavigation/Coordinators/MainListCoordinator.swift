@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Common
 import MainList
 
 public protocol MainListCoordinatorDelegate: CoordinatorDelegate {

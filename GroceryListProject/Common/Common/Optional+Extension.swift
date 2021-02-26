@@ -5,8 +5,6 @@
 //  Created by Jezreel Barbosa on 16/02/21.
 //
 
-import Foundation
-
 extension Optional {
 
     static public func ==<T: Comparable>(lhs: T?, rhs: T?) -> Bool {

@@ -5,7 +5,6 @@
 //  Created by Jezreel Barbosa on 09/01/21.
 //
 
-import Presentation
 import Domain
 
 public protocol MainListCoordinating: AnyObject {
