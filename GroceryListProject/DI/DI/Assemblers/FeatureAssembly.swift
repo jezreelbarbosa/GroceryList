@@ -30,7 +30,8 @@ class FeatureAssembly {
         container.register(GroceryListPresenting.self) { (resolver: Resolver, id: UUID) in
             GroceryListPresenter(
                 groceryListID: id, coordinator: resolver.resolveSafe(GroceryListCoordinator.self),
-                getGroceryListUseCase: resolver.resolveSafe(GetGroceryListUseCaseProtocol.self)
+                getGroceryListUseCase: resolver.resolveSafe(GetGroceryListUseCaseProtocol.self),
+                updateGroceryListUseCase: resolver.resolveSafe(UpdateGroceryListUseCaseProtocol.self)
             )
         }
     }

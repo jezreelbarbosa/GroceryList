@@ -5,6 +5,8 @@
 //  Created by Jezreel Barbosa on 16/02/21.
 //
 
+import Domain
+
 public struct GroceryItemDTO: Codable {
 
     let name: String
@@ -17,6 +19,13 @@ public struct GroceryItemDTO: Codable {
         self.quantity = quantity
         self.unit = unit
         self.price = price
+    }
+
+    init(from domain: GroceryItemModel) {
+        self.name = domain.name
+        self.quantity = domain.quantity
+        self.unit = domain.unit.rawValue
+        self.price = domain.price
     }
 
     enum CodingKeys: String, CodingKey {

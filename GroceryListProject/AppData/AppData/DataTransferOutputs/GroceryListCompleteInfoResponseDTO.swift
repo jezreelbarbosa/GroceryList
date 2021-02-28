@@ -13,7 +13,7 @@ public struct GroceryListCompleteInfoResponseDTO: Codable {
     public let name: String
     public let date: Date
 
-    public let items: [GroceryItemDTO]
+    public var items: [GroceryItemDTO]
 
     public init(id: UUID, icon: String, name: String, date: Date, items: [GroceryItemDTO]) {
         self.id = id

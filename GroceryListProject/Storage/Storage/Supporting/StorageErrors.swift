@@ -15,4 +15,5 @@ public enum GroceryError: String, DataError {
     case saveNewListError = "02"
     case removeListError = "03"
     case getListError = "04"
+    case updateListError = "05"
 }

@@ -11,4 +11,5 @@ public protocol GroceriesLocalDataSource {
     func saveNewGroceryList(request: GroceryListCompleteInfoResponseDTO) -> Result<Void, Error>
     func removeGroceryList(id: UUID) -> Result<Void, Error>
     func getGroceryList(id: UUID) -> Result<GroceryListCompleteInfoResponseDTO, Error>
+    func update(groceryList: GroceryListUpdatedItemsDTO) -> Result<Void, Error>
 }

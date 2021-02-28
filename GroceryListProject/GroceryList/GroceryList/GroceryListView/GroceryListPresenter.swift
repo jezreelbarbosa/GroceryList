@@ -20,25 +20,27 @@ public final class GroceryListPresenter {
     weak var coordinator: GroceryListCoordinating?
 
     public var errorMessageBox: Box<String>
-    public var totalPriceBox: Box<String>
     public var removeRowBox: Box<Int?>
     public var groceryListBox: Box<GroceryListViewModel>
     public var reloadTableView: VoidCompletion
 
     let groceryListID: UUID
+    var groceryListModel: GroceryListModel?
 
     let getGroceryListUseCase: GetGroceryListUseCaseProtocol
+    let updateGroceryListUseCase: UpdateGroceryListUseCaseProtocol
 
     // Lifecycle
 
     public init(groceryListID: UUID, coordinator: GroceryListCoordinating,
-                getGroceryListUseCase: GetGroceryListUseCaseProtocol) {
+                getGroceryListUseCase: GetGroceryListUseCaseProtocol,
+                updateGroceryListUseCase: UpdateGroceryListUseCaseProtocol) {
         self.groceryListID = groceryListID
         self.coordinator = coordinator
         self.getGroceryListUseCase = getGroceryListUseCase
+        self.updateGroceryListUseCase = updateGroceryListUseCase
 
         self.errorMessageBox = Box(.defaultValue)
-        self.totalPriceBox = Box(.defaultValue)
         self.removeRowBox = Box(nil)
         self.groceryListBox = Box(GroceryListViewModel.empty)
         self.reloadTableView = {}
@@ -53,6 +55,7 @@ public final class GroceryListPresenter {
     func updateList(hasToReloadTableView: Bool) {
         let result = getGroceryListUseCase.execute(id: groceryListID)
         result.successHandler { model in
+            self.groceryListModel = model
             self.groceryListBox.value = GroceryListViewModel(from: model)
         }
         result.failureHandler { error in
@@ -72,7 +75,20 @@ extension GroceryListPresenter: GroceryListPresenting {
     }
 
     public func deleteItem(at row: Int) {
+        guard let list = groceryListModel else { return }
 
+        var newItems = list.items
+        newItems.remove(at: row)
+        let newModel = GroceryListModel(id: list.id, name: list.name, items: newItems)
+
+        let result = updateGroceryListUseCase.execute(model: newModel)
+        result.successHandler { _ in
+            self.updateList(hasToReloadTableView: false)
+            self.removeRowBox.value = row
+        }
+        result.failureHandler { error in
+            self.errorMessageBox.value = error.localizedDescription
+        }
     }
 
     public func didSelected(row: Int) {
@@ -80,6 +96,17 @@ extension GroceryListPresenter: GroceryListPresenting {
     }
 
     public func createNewItem() {
+        guard let list = groceryListModel else { return }
 
+        let newItem = GroceryItemModel(name: "Macarrão", quantity: 1, unit: .unit, price: 2.00)
+        let newModel = GroceryListModel(id: list.id, name: list.name, items: list.items + [newItem])
+
+        let result = updateGroceryListUseCase.execute(model: newModel)
+        result.successHandler { _ in
+            self.updateList(hasToReloadTableView: true)
+        }
+        result.failureHandler { error in
+            self.errorMessageBox.value = error.localizedDescription
+        }
     }
 }

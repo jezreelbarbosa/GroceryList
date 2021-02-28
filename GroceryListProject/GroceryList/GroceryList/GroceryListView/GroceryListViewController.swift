@@ -10,7 +10,6 @@ import UIKit
 public protocol GroceryListPresenting {
 
     var errorMessageBox: Box<String> { get }
-    var totalPriceBox: Box<String> { get }
     var removeRowBox: Box<Int?> { get }
     var groceryListBox: Box<GroceryListViewModel> { get }
     var reloadTableView: VoidCompletion { get set }
@@ -80,15 +79,12 @@ public class GroceryListViewController: UIViewController {
             self.presentAttentionAlert(withMessage: value)
         }
 
-        presenter.totalPriceBox.bind { [unowned self] value in
-            self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self).fill(total: value)
-        }
-
         presenter.removeRowBox.bind { [unowned self] value in
             guard let value = value else { return }
 
             DispatchQueue.main.async {
                 self.mainView.tableView.deleteRows(at: [IndexPath(row: value, section: 0)], with: .fade)
+                self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self).fill(total: groceryList.totalPrice)
             }
         }
 

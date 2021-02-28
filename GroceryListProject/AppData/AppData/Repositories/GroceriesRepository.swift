@@ -45,4 +45,8 @@ extension GroceriesRepository: Domain.GroceriesRepository {
             })
         }
     }
+
+    public func updateGroceryList(model: GroceryListModel) -> Result<Void, Error> {
+        local.update(groceryList: GroceryListUpdatedItemsDTO(from: model))
+    }
 }
