@@ -28,8 +28,11 @@ public class GroceryListCoordinator: NavigationCoordinator {
 
     // Lifecycle
 
-    public init(navigationController: UINavigationController, viewControllersFactory: GroceryListVCFactory) {
+    public init(navigationController: UINavigationController,
+                delegate: GroceryListCoordinatorDelegate?,
+                viewControllersFactory: GroceryListVCFactory) {
         self.navigationController = navigationController
+        self.delegate = delegate
         self.viewControllersFactory = viewControllersFactory
         self.childCoordinators = []
     }

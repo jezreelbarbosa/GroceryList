@@ -16,8 +16,8 @@ class FeatureAssembly {
     func assembleMainList(container: Container) {
         let coordinator = container.resolveSafe(MainListCoordinator.self)
         container.register(MainListCoordinating.self) { _ in coordinator }
-        container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
 
+        container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
         container.register(NewListPresenting.self) { (resolver: Resolver, successCompletion: @escaping VoidCompletion) in
             NewListPresenter(
                 createNewGroceryListUseCase: resolver.resolveSafe(CreateNewGroceryListUseCaseProtocol.self),
@@ -27,9 +27,12 @@ class FeatureAssembly {
     }
 
     func assembleGroceryList(container: Container) {
+        let coordinator = container.resolveSafe(GroceryListCoordinator.self)
+        container.register(GroceryListCoordinating.self) { _ in coordinator }
+
         container.register(GroceryListPresenting.self) { (resolver: Resolver, id: UUID) in
             GroceryListPresenter(
-                groceryListID: id, coordinator: resolver.resolveSafe(GroceryListCoordinator.self),
+                groceryListID: id, coordinator: coordinator,
                 getGroceryListUseCase: resolver.resolveSafe(GetGroceryListUseCaseProtocol.self),
                 updateGroceryListUseCase: resolver.resolveSafe(UpdateGroceryListUseCaseProtocol.self)
             )

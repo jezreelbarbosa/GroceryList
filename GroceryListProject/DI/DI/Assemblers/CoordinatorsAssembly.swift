@@ -10,20 +10,38 @@ import AppNavigation
 
 class CoodinatorAssembly {
 
+    // Properties
+
     let launchOptions: LaunchOptions?
     let window: UIWindow?
+
+    // Coordinators
+
+    weak var appCoordinator: AppCoordinator?
+    weak var mainListCoordinator: MainListCoordinator?
+    weak var groceryListCoordinator: GroceryListCoordinator?
+
+    // Lifecycle
 
     init(launchOptions: LaunchOptions?, window: UIWindow?) {
         self.launchOptions = launchOptions
         self.window = window
     }
 
+    // Assemblers
+
     func assembleAppCoordinator(container: Container) {
         let navigationController = UINavigationController()
         let coordinatorsFactory = container.resolveSafe(AppCoordinatorsFactoryProtocol.self)
+
         container.register(AppCoordinator.self) { _ in
-            AppCoordinator(with: self.launchOptions, window: self.window, navigationController: navigationController,
-                           coordinatorsFactory: coordinatorsFactory)
+            if let coordinator = self.appCoordinator { return coordinator }
+
+            let coordinator = AppCoordinator(with: self.launchOptions, window: self.window,
+                                             navigationController: navigationController,
+                                             coordinatorsFactory: coordinatorsFactory)
+            self.appCoordinator = coordinator
+            return coordinator
         }
     }
 
@@ -31,18 +49,27 @@ class CoodinatorAssembly {
         let appCoordinator = container.resolveSafe(AppCoordinator.self)
         let viewControllersFactory = container.resolveSafe(MainListVCFactory.self)
         let coordinatorFactory = container.resolveSafe(MainListCoordinatorFactory.self)
-        container.register(MainListCoordinator.self) { _ in
-            MainListCoordinator(navigationController: appCoordinator.navigationController, delegate: appCoordinator,
-                                viewControllersFactory: viewControllersFactory, coordinatorFactory: coordinatorFactory)
+
+        container.register(MainListCoordinator.self) { [weak self] _ in
+            if let coordinator = self?.mainListCoordinator { return coordinator }
+
+            let coordinator = MainListCoordinator(navigationController: appCoordinator.navigationController, delegate: appCoordinator,
+                                                  viewControllersFactory: viewControllersFactory, coordinatorFactory: coordinatorFactory)
+            self?.mainListCoordinator = coordinator
+            return coordinator
         }
     }
 
     func assembleGroceryListCoordinator(container: Container) {
-        let appCoordinator = container.resolveSafe(AppCoordinator.self)
+        let mainListCoordinator = container.resolveSafe(MainListCoordinator.self)
         let viewControllersFactory = container.resolveSafe(GroceryListVCFactory.self)
-        container.register(GroceryListCoordinator.self) { _ in
-            GroceryListCoordinator(navigationController: appCoordinator.navigationController,
-                                   viewControllersFactory: viewControllersFactory)
+
+        container.register(GroceryListCoordinator.self) { [weak self] _ in
+            if let coordinator = self?.groceryListCoordinator { return coordinator }
+            let coordinator = GroceryListCoordinator(navigationController: mainListCoordinator.navigationController,
+                                                     delegate: mainListCoordinator, viewControllersFactory: viewControllersFactory)
+            self?.groceryListCoordinator = coordinator
+            return coordinator
         }
     }
 }

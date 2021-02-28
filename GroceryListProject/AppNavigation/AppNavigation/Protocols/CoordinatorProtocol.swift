@@ -25,13 +25,6 @@ extension Coordinator {
         self.childCoordinators.removeAll(where: { $0 === coordinator })
     }
 
-    public func coordinatorDidExit<T: Coordinator>(_ coordinator: T.Type) {
-        debugPrint(childCoordinators)
-        guard let index = self.childCoordinators.firstIndex(where: { $0 === coordinator.self }) else { return }
-        debugPrint(childCoordinators[index])
-        self.childCoordinators.remove(at: index)
-    }
-
     public func start() {
         do { /* Nothing */ }
     }
