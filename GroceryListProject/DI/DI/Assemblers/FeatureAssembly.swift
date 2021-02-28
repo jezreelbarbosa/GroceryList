@@ -1,5 +1,5 @@
 //
-//  FlowAssembly.swift
+//  FeatureAssembly.swift
 //  DI
 //
 //  Created by Jezreel Barbosa on 07/01/21.
@@ -9,10 +9,11 @@ import Swinject
 import Domain
 import AppNavigation
 import MainList
+import GroceryList
 
-class FlowAssembly {
+class FeatureAssembly {
 
-    private func assembleMainList(container: Container) {
+    func assembleMainList(container: Container) {
         let coordinator = container.resolveSafe(MainListCoordinator.self)
         container.register(MainListCoordinating.self) { _ in coordinator }
         container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
@@ -24,11 +25,21 @@ class FlowAssembly {
             )
         }
     }
+
+    func assembleGroceryList(container: Container) {
+        container.register(GroceryListPresenting.self) { (resolver: Resolver, id: UUID) in
+            GroceryListPresenter(
+                groceryListID: id, coordinator: resolver.resolveSafe(GroceryListCoordinator.self),
+                createNewGroceryListUseCase: resolver.resolveSafe(CreateNewGroceryListUseCaseProtocol.self)
+            )
+        }
+    }
 }
 
-extension FlowAssembly: Assembly {
+extension FeatureAssembly: Assembly {
 
     func assemble(container: Container) {
         assembleMainList(container: container)
+        assembleGroceryList(container: container)
     }
 }

@@ -15,10 +15,9 @@ class Resources {
 
         static let modalBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
 
-        static let tableBackgroundColor = UIColor.dynamic(any: Palette.White.ghostWhite, dark: Palette.Black.black)
-        static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
-        static let cellSeparatorColor = UIColor.dynamic(any: Palette.Gray.jet.withAlphaComponent(0.29),
-                                                        dark: Palette.Gray.devisGrey.withAlphaComponent(0.65))
+        static let tableBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.black)
+        static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.black)
+        static let footerBackgroundColor = UIColor.dynamic(any: Palette.White.ghostWhite, dark: Palette.Black.eerieBlack)
     }
 
     struct Texts {
@@ -33,9 +32,33 @@ class Resources {
             .ptBR: "Nova lista"
         ]).localizedText
 
-        static let newListNamePlaceholder = LocalizedString(texts: [
-            .enUS: "Grocery List",
-            .ptBR: "Lista de Compras"
+        // - Unit
+
+        static let unitUnit = LocalizedString(texts: [
+            .enUS: "unit",
+            .ptBR: "unidade"
+        ]).localizedText
+
+        static let unitKilogram = LocalizedString(texts: [
+            .enUS: "Kg",
+            .ptBR: "Kg"
+        ]).localizedText
+
+        static let unitHundredGrams = LocalizedString(texts: [
+            .enUS: "100g / Kg",
+            .ptBR: "100g / Kg"
+        ]).localizedText
+
+        static let unitLiter = LocalizedString(texts: [
+            .enUS: "L",
+            .ptBR: "L"
+        ]).localizedText
+
+        // -
+
+        static let totalFooterText = LocalizedString(texts: [
+            .enUS: "TOTAL",
+            .ptBR: "TOTAL"
         ]).localizedText
     }
 }

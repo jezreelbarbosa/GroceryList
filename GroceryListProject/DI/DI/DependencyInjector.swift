@@ -34,7 +34,7 @@ public class DependencyInjector {
             CoodinatorAssembly(launchOptions: self.launchOptions, window: self.window),
 
             // Assembler das features
-            FlowAssembly(),
+            FeatureAssembly(),
 
             // Assembler dos frameworks
             DomainAssembly(),

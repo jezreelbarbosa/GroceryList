@@ -12,5 +12,6 @@ class ViewControllersFactoryAssembly: Assembly {
 
     func assemble(container: Container) {
         container.register(MainListVCFactory.self) { ViewControllersFactory(resolver: $0) }
+        container.register(GroceryListVCFactory.self) { ViewControllersFactory(resolver: $0) }
     }
 }

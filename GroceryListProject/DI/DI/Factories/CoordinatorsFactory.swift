@@ -26,4 +26,7 @@ extension CoordinatorsFactory: AppCoordinatorsFactoryProtocol {
 
 extension CoordinatorsFactory: MainListCoordinatorFactory {
 
+    func makeGroceryListCoordinator() -> GroceryListCoordinator {
+        resolver.resolveSafe(GroceryListCoordinator.self)
+    }
 }

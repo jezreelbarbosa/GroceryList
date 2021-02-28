@@ -8,6 +8,7 @@
 import Swinject
 import AppNavigation
 import MainList
+import GroceryList
 
 class ViewControllersFactory: DependencyFactory {
 
@@ -21,13 +22,20 @@ class ViewControllersFactory: DependencyFactory {
 extension ViewControllersFactory: MainListVCFactory {
 
     func makeMainListViewController() -> MainListViewController {
-        guard let presenter = resolver.resolve(MainListPresenting.self) as? MainListPresenter else { preconditionFailure() }
+        guard let presenter = resolver.resolve(MainListPresenting.self) else { preconditionFailure() }
         return MainListViewController(presenter: presenter)
     }
 
     func makeNewListViewController(successCompletion: @escaping VoidCompletion) -> NewListViewController {
-        guard let presenter = resolver.resolve(NewListPresenting.self, argument: successCompletion) as? NewListPresenter
-        else { preconditionFailure() }
+        guard let presenter = resolver.resolve(NewListPresenting.self, argument: successCompletion) else { preconditionFailure() }
         return NewListViewController(presenter: presenter)
+    }
+}
+
+extension ViewControllersFactory: GroceryListVCFactory {
+
+    func makeGroceryListViewController(id: UUID) -> GroceryListViewController {
+        guard let presenter = resolver.resolve(GroceryListPresenting.self, argument: id) else { preconditionFailure() }
+        return GroceryListViewController(presenter: presenter)
     }
 }

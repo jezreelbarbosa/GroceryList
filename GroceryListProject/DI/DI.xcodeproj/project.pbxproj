@@ -19,7 +19,7 @@
 		0DF40B7025A7B6390005609F /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6125A7B6390005609F /* DependencyInjector.swift */; };
 		0DF40B7125A7B63A0005609F /* CoordinatorsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6325A7B6390005609F /* CoordinatorsAssembly.swift */; };
 		0DF40B7225A7B63A0005609F /* CoordinatorsFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6425A7B6390005609F /* CoordinatorsFactoryAssembly.swift */; };
-		0DF40B7325A7B63A0005609F /* FlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6525A7B6390005609F /* FlowAssembly.swift */; };
+		0DF40B7325A7B63A0005609F /* FeatureAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6525A7B6390005609F /* FeatureAssembly.swift */; };
 		0DF40B7425A7B63A0005609F /* ViewControllersFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6625A7B6390005609F /* ViewControllersFactoryAssembly.swift */; };
 		0DF40B7525A7B63A0005609F /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6825A7B6390005609F /* ViewControllersFactory.swift */; };
 		0DF40B7625A7B63A0005609F /* CoordinatorsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B6925A7B6390005609F /* CoordinatorsFactory.swift */; };
@@ -59,7 +59,7 @@
 		0DF40B6125A7B6390005609F /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		0DF40B6325A7B6390005609F /* CoordinatorsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsAssembly.swift; sourceTree = "<group>"; };
 		0DF40B6425A7B6390005609F /* CoordinatorsFactoryAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsFactoryAssembly.swift; sourceTree = "<group>"; };
-		0DF40B6525A7B6390005609F /* FlowAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAssembly.swift; sourceTree = "<group>"; };
+		0DF40B6525A7B6390005609F /* FeatureAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureAssembly.swift; sourceTree = "<group>"; };
 		0DF40B6625A7B6390005609F /* ViewControllersFactoryAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllersFactoryAssembly.swift; sourceTree = "<group>"; };
 		0DF40B6825A7B6390005609F /* ViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 		0DF40B6925A7B6390005609F /* CoordinatorsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsFactory.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF40B6325A7B6390005609F /* CoordinatorsAssembly.swift */,
-				0DF40B6525A7B6390005609F /* FlowAssembly.swift */,
+				0DF40B6525A7B6390005609F /* FeatureAssembly.swift */,
 				0DF40B6625A7B6390005609F /* ViewControllersFactoryAssembly.swift */,
 				0DF40B6425A7B6390005609F /* CoordinatorsFactoryAssembly.swift */,
 			);
@@ -389,7 +389,7 @@
 			files = (
 				0DF40B7625A7B63A0005609F /* CoordinatorsFactory.swift in Sources */,
 				0DF40B7125A7B63A0005609F /* CoordinatorsAssembly.swift in Sources */,
-				0DF40B7325A7B63A0005609F /* FlowAssembly.swift in Sources */,
+				0DF40B7325A7B63A0005609F /* FeatureAssembly.swift in Sources */,
 				0DF40B7A25A7B63A0005609F /* Resolver+Extension.swift in Sources */,
 				0DF40B7825A7B63A0005609F /* AppDataAssembly.swift in Sources */,
 				0DF40B8425A7B6BB0005609F /* StorageAssembly.swift in Sources */,

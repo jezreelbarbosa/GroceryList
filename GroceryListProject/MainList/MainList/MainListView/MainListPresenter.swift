@@ -10,6 +10,8 @@ import Domain
 public protocol MainListCoordinating: AnyObject {
 
     func showNewListView(successCompletion: @escaping VoidCompletion)
+    func showGroceryList(id: UUID)
+    func didExit()
 }
 
 public final class MainListPresenter {
@@ -45,9 +47,13 @@ public final class MainListPresenter {
         self.reloadTableView = {}
     }
 
+    deinit {
+        coordinator?.didExit()
+    }
+
     // Functions
 
-    public func updateList(hasToReloadTableView: Bool) {
+    func updateList(hasToReloadTableView: Bool) {
         let result = getGroceryMainListUseCase.execute()
         result.successHandler { response in
             self.groceriesInfos = response
@@ -70,8 +76,7 @@ extension MainListPresenter: MainListPresenting {
     }
 
     public func didSelected(row: Int) {
-        // TODO: call coordinator
-        debugPrint(row)
+        coordinator?.showGroceryList(id: groceriesInfos[row].id)
     }
 
     public func createNewList() {

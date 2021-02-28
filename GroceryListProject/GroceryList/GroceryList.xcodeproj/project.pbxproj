@@ -14,6 +14,13 @@
 		0D22D08925E438B800E48981 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D08825E438B800E48981 /* Domain.framework */; };
 		0D22D08C25E438BD00E48981 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D08B25E438BD00E48981 /* Presentation.framework */; };
 		0D24A06E25E923EE00D283D4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D24A06D25E923EE00D283D4 /* Resources.swift */; };
+		0D7EAD0325EACF1800A97CC2 /* GroceryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EAD0225EACF1800A97CC2 /* GroceryListView.swift */; };
+		0D7EAD0725EACF2500A97CC2 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EAD0625EACF2500A97CC2 /* GroceryListViewController.swift */; };
+		0D7EAD0B25EACF4100A97CC2 /* GroceryListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EAD0A25EACF4100A97CC2 /* GroceryListPresenter.swift */; };
+		0D7EAD0F25EACF5100A97CC2 /* GroceryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EAD0E25EACF5100A97CC2 /* GroceryItemTableViewCell.swift */; };
+		0D7EAD1525EAD91D00A97CC2 /* GroceryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EAD1425EAD91D00A97CC2 /* GroceryItemViewModel.swift */; };
+		0D7EADC325EB0FF300A97CC2 /* GroceryTotalFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADC225EB0FF300A97CC2 /* GroceryTotalFooterView.swift */; };
+		0D7EADCD25EB21DD00A97CC2 /* GroceryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADCC25EB21DD00A97CC2 /* GroceryListViewModel.swift */; };
 		57B8C161EDE2B844C99CACCB /* Pods_GroceryList_GroceryListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B5EAD3BCB2F76A80EC7531 /* Pods_GroceryList_GroceryListTests.framework */; };
 		ABA0FFA93C52C05B1808B438 /* Pods_GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02A96F473FBAA887B2E45F6 /* Pods_GroceryList.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +46,13 @@
 		0D22D08825E438B800E48981 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D22D08B25E438BD00E48981 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D24A06D25E923EE00D283D4 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		0D7EAD0225EACF1800A97CC2 /* GroceryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListView.swift; sourceTree = "<group>"; };
+		0D7EAD0625EACF2500A97CC2 /* GroceryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
+		0D7EAD0A25EACF4100A97CC2 /* GroceryListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListPresenter.swift; sourceTree = "<group>"; };
+		0D7EAD0E25EACF5100A97CC2 /* GroceryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemTableViewCell.swift; sourceTree = "<group>"; };
+		0D7EAD1425EAD91D00A97CC2 /* GroceryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemViewModel.swift; sourceTree = "<group>"; };
+		0D7EADC225EB0FF300A97CC2 /* GroceryTotalFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTotalFooterView.swift; sourceTree = "<group>"; };
+		0D7EADCC25EB21DD00A97CC2 /* GroceryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListViewModel.swift; sourceTree = "<group>"; };
 		4E80C4F241E74341F176877D /* Pods-GroceryList-GroceryListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList-GroceryListTests.debug.xcconfig"; path = "Target Support Files/Pods-GroceryList-GroceryListTests/Pods-GroceryList-GroceryListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87B5EAD3BCB2F76A80EC7531 /* Pods_GroceryList_GroceryListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryList_GroceryListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88422F546CD68E590C3029BE /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0D24A06C25E923D800D283D4 /* Resources */,
+				0D7EAD0125EACEFF00A97CC2 /* GroceryListView */,
 				0D22D06825E4385400E48981 /* GroceryList.h */,
 				0D22D06925E4385400E48981 /* Info.plist */,
 			);
@@ -126,8 +141,22 @@
 			isa = PBXGroup;
 			children = (
 				0D24A06D25E923EE00D283D4 /* Resources.swift */,
+				0D7EADCC25EB21DD00A97CC2 /* GroceryListViewModel.swift */,
+				0D7EAD1425EAD91D00A97CC2 /* GroceryItemViewModel.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0D7EAD0125EACEFF00A97CC2 /* GroceryListView */ = {
+			isa = PBXGroup;
+			children = (
+				0D7EAD0E25EACF5100A97CC2 /* GroceryItemTableViewCell.swift */,
+				0D7EADC225EB0FF300A97CC2 /* GroceryTotalFooterView.swift */,
+				0D7EAD0225EACF1800A97CC2 /* GroceryListView.swift */,
+				0D7EAD0625EACF2500A97CC2 /* GroceryListViewController.swift */,
+				0D7EAD0A25EACF4100A97CC2 /* GroceryListPresenter.swift */,
+			);
+			path = GroceryListView;
 			sourceTree = "<group>";
 		};
 		A65A33CF54AAFDC2298DE8F1 /* Pods */ = {
@@ -318,7 +347,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7EADCD25EB21DD00A97CC2 /* GroceryListViewModel.swift in Sources */,
+				0D7EAD0F25EACF5100A97CC2 /* GroceryItemTableViewCell.swift in Sources */,
+				0D7EAD0B25EACF4100A97CC2 /* GroceryListPresenter.swift in Sources */,
+				0D7EAD0325EACF1800A97CC2 /* GroceryListView.swift in Sources */,
 				0D24A06E25E923EE00D283D4 /* Resources.swift in Sources */,
+				0D7EAD0725EACF2500A97CC2 /* GroceryListViewController.swift in Sources */,
+				0D7EAD1525EAD91D00A97CC2 /* GroceryItemViewModel.swift in Sources */,
+				0D7EADC325EB0FF300A97CC2 /* GroceryTotalFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

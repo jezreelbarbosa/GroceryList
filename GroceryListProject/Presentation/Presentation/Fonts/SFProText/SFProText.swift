@@ -21,11 +21,13 @@ public enum SFProTextFontWeight: CaseIterable {
 
     case regular
     case semibold
+    case light
 
     var name: String {
         switch self {
         case .regular: return "SFProText-Regular"
         case .semibold: return "SFProText-Semibold"
+        case .light: return "SFProText-Light"
         }
     }
 
@@ -33,6 +35,7 @@ public enum SFProTextFontWeight: CaseIterable {
         switch self {
         case .regular: return .regular
         case .semibold: return .semibold
+        case .light: return .light
         }
     }
 }

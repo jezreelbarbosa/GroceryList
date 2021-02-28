@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D615B9B25DDE08D00868E66 /* UICodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */; };
 		0D615C0325DDE1E100868E66 /* Mask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615C0225DDE1E100868E66 /* Mask+Extension.swift */; };
+		0D7EADBD25EB0E0E00A97CC2 /* SFProText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */; };
+		0D7EADC925EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */; };
 		0DE0B57E25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0B57D25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf */; };
 		0DE0B58325C5DED800ADF4C7 /* SFProDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0B58225C5DED800ADF4C7 /* SFProDisplay.swift */; };
 		0DE0B58925C5DF8900ADF4C7 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0B58625C5DF8900ADF4C7 /* SFProDisplay-Regular.otf */; };
@@ -61,6 +63,8 @@
 		0997657ACCDD93A2F9F25B44 /* Pods-Presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.debug.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.debug.xcconfig"; sourceTree = "<group>"; };
 		0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeTextField.swift; sourceTree = "<group>"; };
 		0D615C0225DDE1E100868E66 /* Mask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mask+Extension.swift"; sourceTree = "<group>"; };
+		0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.otf"; sourceTree = "<group>"; };
+		0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		0DE0B57D25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.otf"; sourceTree = "<group>"; };
 		0DE0B58225C5DED800ADF4C7 /* SFProDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFProDisplay.swift; sourceTree = "<group>"; };
 		0DE0B58625C5DF8900ADF4C7 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				0DF40B1325A7ADFB0005609F /* SFProText.swift */,
 				0DF40B1025A7ADFB0005609F /* SFProText-Regular.otf */,
 				0DF40B1225A7ADFB0005609F /* SFProText-Semibold.otf */,
+				0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */,
 			);
 			path = SFProText;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				0DF4DB0925AA05A90076D0EB /* UICodeView.swift */,
 				0DF4DB1325AA2D4E0076D0EB /* UICodeTableViewCell.swift */,
 				0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */,
+				0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7EADBD25EB0E0E00A97CC2 /* SFProText-Light.otf in Resources */,
 				0DE0B57E25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf in Resources */,
 				0DF40B1525A7ADFB0005609F /* NewYorkLarge-Regular.otf in Resources */,
 				0DE0B58A25C5DF8900ADF4C7 /* SFProDisplay-Semibold.otf in Resources */,
@@ -529,6 +536,7 @@
 				0DE0B58325C5DED800ADF4C7 /* SFProDisplay.swift in Sources */,
 				0DF40B1425A7ADFB0005609F /* NewYorkLarge.swift in Sources */,
 				0DF40B3625A7AE7E0005609F /* UIColor+Extension.swift in Sources */,
+				0D7EADC925EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift in Sources */,
 				0DF40B3D25A7AE7E0005609F /* LocalizedString.swift in Sources */,
 				0DF4DB1425AA2D4E0076D0EB /* UICodeTableViewCell.swift in Sources */,
 				0DF40B3825A7AE7E0005609F /* UINavigationController+Extension.swift in Sources */,

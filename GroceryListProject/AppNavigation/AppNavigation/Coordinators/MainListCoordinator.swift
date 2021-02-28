@@ -8,9 +8,7 @@
 import UIKit
 import MainList
 
-public protocol MainListCoordinatorDelegate: CoordinatorDelegate {
-
-}
+public protocol MainListCoordinatorDelegate: CoordinatorDelegate {}
 
 public protocol MainListVCFactory: DependencyFactory {
 
@@ -20,6 +18,7 @@ public protocol MainListVCFactory: DependencyFactory {
 
 public protocol MainListCoordinatorFactory: DependencyFactory {
 
+    func makeGroceryListCoordinator() -> GroceryListCoordinator
 }
 
 public class MainListCoordinator: NavigationCoordinator {
@@ -58,7 +57,21 @@ extension MainListCoordinator: MainListCoordinating {
         let viewController = viewControllersFactory.makeNewListViewController(successCompletion: successCompletion)
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalTransitionStyle = .coverVertical
-        navigationController.modalPresentationStyle = .pageSheet
+        navigationController.modalPresentationStyle = .fullScreen
         self.navigationController.present(navigationController, animated: true, completion: nil)
     }
+
+    public func showGroceryList(id: UUID) {
+        let coordinator = coordinatorFactory.makeGroceryListCoordinator()
+        childCoordinators.append(coordinator)
+        coordinator.start(id: id)
+    }
+
+    public func didExit() {
+        delegate?.coordinatorDidExit(self)
+    }
+}
+
+extension MainListCoordinator: GroceryListCoordinatorDelegate {
+
 }

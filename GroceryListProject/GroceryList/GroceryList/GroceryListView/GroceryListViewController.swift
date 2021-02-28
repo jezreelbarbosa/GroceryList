@@ -1,39 +1,41 @@
 //
-//  MainListViewController.swift
-//  MainList
+//  GroceryListViewController.swift
+//  GroceryList
 //
-//  Created by Jezreel Barbosa on 09/01/21.
+//  Created by Jezreel Barbosa on 27/02/21.
 //
 
 import UIKit
 
-public protocol MainListPresenting {
+public protocol GroceryListPresenting {
 
-    var groceriesBox: Box<[GroceryListHeaderInfoViewModel]> { get }
     var errorMessageBox: Box<String> { get }
+    var totalPriceBox: Box<String> { get }
     var removeRowBox: Box<Int?> { get }
-
+    var groceryListBox: Box<GroceryListViewModel> { get }
     var reloadTableView: VoidCompletion { get set }
 
     func updateList()
-    func didSelected(row: Int)
-    func createNewList()
     func deleteItem(at row: Int)
+    func didSelected(row: Int)
+    func createNewItem()
 }
 
-public class MainListViewController: UIViewController {
+public class GroceryListViewController: UIViewController {
 
     // Properties
 
-    private lazy var mainView = MainListView()
-    private var presenter: MainListPresenting
+    private lazy var mainView = GroceryListView()
+    private var presenter: GroceryListPresenting
 
-    private var groceriesList: [GroceryListHeaderInfoViewModel] = []
+    private var groceryList: GroceryListViewModel
 
     // Lifecycle
 
-    public init(presenter: MainListPresenting) {
+    public init(presenter: GroceryListPresenting) {
         self.presenter = presenter
+        self.groceryList = presenter.groceryListBox.value
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -56,7 +58,6 @@ public class MainListViewController: UIViewController {
         super.viewWillAppear(animated)
 
         presenter.updateList()
-        mainView.tableView.selectRow(at: nil, animated: animated, scrollPosition: .none)
     }
 
     // Functions
@@ -64,24 +65,23 @@ public class MainListViewController: UIViewController {
     private func setupView() {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
-        mainView.tableView.register(GroceryListTableViewCell.self)
+        mainView.tableView.register(GroceryItemTableViewCell.self)
+        mainView.tableView.register(GroceryTotalFooterView.self)
         mainView.tableView.tableFooterView = UIView()
 
-        navigationItem.title = Resources.Texts.homeNavigationTitle
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .never
 
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonAction))
         navigationItem.rightBarButtonItem = addBarButton
     }
 
     private func setupPresenter() {
-        presenter.groceriesBox.bind { [unowned self] value in
-            self.groceriesList = value
-        }
-
         presenter.errorMessageBox.bind { [unowned self] value in
             self.presentAttentionAlert(withMessage: value)
+        }
+
+        presenter.totalPriceBox.bind { [unowned self] value in
+            self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self).fill(total: value)
         }
 
         presenter.removeRowBox.bind { [unowned self] value in
@@ -97,32 +97,36 @@ public class MainListViewController: UIViewController {
                 self.mainView.tableView.reloadData()
             }
         }
+
+        presenter.groceryListBox.bind { [unowned self] value in
+            self.navigationItem.title = value.listName
+            self.groceryList = value
+        }
     }
 
     // Actions
 
     @objc private func addBarButtonAction() {
-        presenter.createNewList()
+        presenter.createNewItem()
     }
 }
 
-extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
+extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groceriesList.count
+        return groceryList.items.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(GroceryListTableViewCell.self)
+        let cell = tableView.dequeueReusableCell(GroceryItemTableViewCell.self)
 
-        cell.fill(model: groceriesList[indexPath.row])
-        cell.setFirstLastCellFor(row: indexPath.row, count: groceriesList.count)
+        cell.fill(model: groceryList.items[indexPath.row])
 
         return cell
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return GroceryListTableViewCell.rowHeight
+        return GroceryItemTableViewCell.rowHeight
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,5 +141,19 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             presenter.deleteItem(at: indexPath.row)
         }
+    }
+
+    // Footer View
+
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = tableView.dequeueReusableHeaderFooterView(GroceryTotalFooterView.self)
+
+        footer.fill(total: groceryList.totalPrice)
+
+        return footer
+    }
+
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return GroceryTotalFooterView.rowHeight
     }
 }

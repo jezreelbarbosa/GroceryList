@@ -12,7 +12,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell {
     // Static properties
 
     public override class var reuseIdentifier: String { "GroceryListTableViewCell" }
-    static let rowHeight: CGFloat = 72.0
+    static let rowHeight: CGFloat = 80.0
 
     // Properties
 

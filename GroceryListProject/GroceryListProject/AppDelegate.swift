@@ -6,12 +6,12 @@
 //  Copyright © 2020 JezreelBarbosa. All rights reserved.
 //
 
+import Common
 import Swinject
 import Domain
 import DI
-import Common
+import AppNavigation
 import Presentation
-import CoreData
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -21,8 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var dependencyInjector: DependencyInjector!
-    private var assembler: Assembler!
+    var dependencyInjector: DependencyInjector!
+    var assembler: Assembler!
+    var appCoordinator: AppCoordinator!
 
     // Methods
 
@@ -39,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dependencyInjector = DependencyInjector(launchOptions: launchOptions, window: window)
         dependencyInjector.build(completion: { [unowned self] (assembler, appCoordinator) in
             self.assembler = assembler
+            self.appCoordinator = appCoordinator
             appCoordinator.start()
         })
 
