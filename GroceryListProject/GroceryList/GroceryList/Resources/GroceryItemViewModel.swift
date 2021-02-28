@@ -42,7 +42,7 @@ struct GroceryItemViewModel {
         }
 
         self.details = price + " • " + quantity + " " + unit
-        self.totalDecimalPrice = model.price * model.quantity
+        self.totalDecimalPrice = model.price * model.quantity * ((model.unit == .hundredGrams) ? 10 : 1)
         self.totalPrice = numberFormatter.string(for: totalDecimalPrice).defaultValue
     }
 }

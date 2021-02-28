@@ -9,7 +9,7 @@ import Domain
 
 public protocol GroceryListCoordinating: AnyObject {
 
-    func showItemView(successCompletion: @escaping VoidCompletion)
+    func showItemView(item: GroceryItemModel?, successCompletion: @escaping VoidCompletion)
     func didExit()
 }
 
@@ -92,21 +92,29 @@ extension GroceryListPresenter: GroceryListPresenting {
     }
 
     public func didSelected(row: Int) {
+        guard let list = groceryListModel else { return }
 
+        coordinator?.showItemView(item: list.items[row]) {
+            self.updateList(hasToReloadTableView: true)
+        }
     }
 
     public func createNewItem() {
-        guard let list = groceryListModel else { return }
-
-        let newItem = GroceryItemModel(name: "Macarrão", quantity: 1, unit: .unit, price: 2.00)
-        let newModel = GroceryListModel(id: list.id, name: list.name, items: list.items + [newItem])
-
-        let result = updateGroceryListUseCase.execute(model: newModel)
-        result.successHandler { _ in
+        coordinator?.showItemView(item: nil) {
             self.updateList(hasToReloadTableView: true)
         }
-        result.failureHandler { error in
-            self.errorMessageBox.value = error.localizedDescription
-        }
+
+//        guard let list = groceryListModel else { return }
+//
+//        let newItem = GroceryItemModel(name: "Macarrão", quantity: 1, unit: .unit, price: 2.00)
+//        let newModel = GroceryListModel(id: list.id, name: list.name, items: list.items + [newItem])
+//
+//        let result = updateGroceryListUseCase.execute(model: newModel)
+//        result.successHandler { _ in
+//            self.updateList(hasToReloadTableView: true)
+//        }
+//        result.failureHandler { error in
+//            self.errorMessageBox.value = error.localizedDescription
+//        }
     }
 }

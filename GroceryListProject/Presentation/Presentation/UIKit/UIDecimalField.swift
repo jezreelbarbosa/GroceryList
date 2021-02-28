@@ -13,21 +13,21 @@ open class UIDecimalField: UITextField {
     // Public Types
     // Public Properties
 
-    final var decimal: Decimal { decimalFromString / pow(10, numberFormatter.maximumFractionDigits) }
+    public final var decimal: Decimal { decimalFromString / pow(10, numberFormatter.maximumFractionDigits) }
 
-    final var maximum: Decimal = 999_999_999.999999
+    public final var maximum: Decimal = 999_999_999.999999
 
-    final var numberFormatter = NumberFormatter() {
+    public final var numberFormatter = NumberFormatter() {
         didSet { sendActions(for: .editingChanged) }
     }
 
-    var isPlaceholderShownWhenValueIsZero: Bool = true {
+    public var isPlaceholderShownWhenValueIsZero: Bool = true {
         didSet { sendActions(for: .editingChanged) }
     }
 
     // Public Methods
 
-    @objc func editingChanged() {
+    @objc public func editingChanged() {
         guard decimal <= maximumFraction else {
             text = lastValue
             return

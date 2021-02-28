@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Domain
 import GroceryList
 
 public protocol GroceryListCoordinatorDelegate: CoordinatorDelegate {}
@@ -13,6 +14,7 @@ public protocol GroceryListCoordinatorDelegate: CoordinatorDelegate {}
 public protocol GroceryListVCFactory: DependencyFactory {
 
     func makeGroceryListViewController(id: UUID) -> GroceryListViewController
+    func makeGroceryItemViewController(item: GroceryItemModel?, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController
 }
 
 public class GroceryListCoordinator: NavigationCoordinator {
@@ -47,8 +49,12 @@ public class GroceryListCoordinator: NavigationCoordinator {
 
 extension GroceryListCoordinator: GroceryListCoordinating {
 
-    public func showItemView(successCompletion: @escaping VoidCompletion) {
-        // TODO: Implement Item View
+    public func showItemView(item: GroceryItemModel?, successCompletion: @escaping VoidCompletion) {
+        let viewController = viewControllersFactory.makeGroceryItemViewController(item: item, successCompletion: successCompletion)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalTransitionStyle = .coverVertical
+        navigationController.modalPresentationStyle = .fullScreen
+        self.navigationController.present(navigationController, animated: true, completion: nil)
     }
 
     public func didExit() {

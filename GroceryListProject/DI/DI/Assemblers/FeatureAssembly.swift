@@ -37,6 +37,12 @@ class FeatureAssembly {
                 updateGroceryListUseCase: resolver.resolveSafe(UpdateGroceryListUseCaseProtocol.self)
             )
         }
+        container.register(GroceryItemPresenting.self) { (resolver: Resolver, item: GroceryItemModel?, successCompletion: @escaping VoidCompletion) in
+            GroceryItemPresenter(
+                createNewGroceryListUseCase: resolver.resolveSafe(CreateNewGroceryListUseCaseProtocol.self),
+                item: item, successCompletion: successCompletion
+            )
+        }
     }
 }
 

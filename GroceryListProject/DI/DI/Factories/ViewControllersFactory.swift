@@ -6,6 +6,7 @@
 //
 
 import Swinject
+import Domain
 import AppNavigation
 import MainList
 import GroceryList
@@ -37,5 +38,10 @@ extension ViewControllersFactory: GroceryListVCFactory {
     func makeGroceryListViewController(id: UUID) -> GroceryListViewController {
         guard let presenter = resolver.resolve(GroceryListPresenting.self, argument: id) else { preconditionFailure() }
         return GroceryListViewController(presenter: presenter)
+    }
+
+    func makeGroceryItemViewController(item: GroceryItemModel?, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController {
+        guard let presenter = resolver.resolve(GroceryItemPresenting.self, arguments: item, successCompletion) else { preconditionFailure() }
+        return GroceryItemViewController(presenter: presenter)
     }
 }
