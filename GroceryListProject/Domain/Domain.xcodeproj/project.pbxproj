@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D08D5D325EBCDA800A09BAF /* GetGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */; };
 		0D0F2D0925E345E600146247 /* RemoveGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */; };
 		0D634A1B25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D634A1A25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift */; };
 		0D634A1F25DC5DF700F5FE25 /* NewGroceryListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D634A1E25DC5DF700F5FE25 /* NewGroceryListRequest.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroceryListUseCase.swift; sourceTree = "<group>"; };
 		0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGroceryListUseCase.swift; sourceTree = "<group>"; };
 		0D634A1A25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroceryListUseCase.swift; sourceTree = "<group>"; };
 		0D634A1E25DC5DF700F5FE25 /* NewGroceryListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroceryListRequest.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0D634A1A25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift */,
 				0D83153425D5957000825277 /* GetGroceryMainListUseCase.swift */,
 				0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */,
+				0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				0D0F2D0925E345E600146247 /* RemoveGroceryListUseCase.swift in Sources */,
 				0D7EAD1B25EAD9A700A97CC2 /* GroceryItemModel.swift in Sources */,
 				0D7EADD325EB229600A97CC2 /* GroceryListModel.swift in Sources */,
+				0D08D5D325EBCDA800A09BAF /* GetGroceryListUseCase.swift in Sources */,
 				0D83153525D5957000825277 /* GetGroceryMainListUseCase.swift in Sources */,
 				0D634A1B25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift in Sources */,
 				0D83153F25D5977F00825277 /* GroceriesRepository.swift in Sources */,

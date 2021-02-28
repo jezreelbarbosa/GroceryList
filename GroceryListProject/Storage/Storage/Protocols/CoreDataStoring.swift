@@ -76,8 +76,9 @@ extension CoreDataStoring {
 
     public func get(entity: ValueKeyable, item: (key: String, value: UUID)) throws -> [String: Any?] {
         let context = persistentContainer.viewContext
+        let entityDescription = NSEntityDescription.entity(forEntityName: entity.key, in: context)
         let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
-        let entityKeys = request.entity?.attributesByName.enumerated().map { $0.element.key } ?? []
+        let entityKeys = entityDescription?.attributesByName.enumerated().map { $0.element.key } ?? []
 
         guard let object = try context.fetch(request).first(where: { ($0.value(forKey: item.key) as? UUID) == item.value }) else {
             throw CoreError.error

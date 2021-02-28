@@ -27,15 +27,15 @@ public final class GroceryListPresenter {
 
     let groceryListID: UUID
 
-    let createNewGroceryListUseCase: CreateNewGroceryListUseCaseProtocol
+    let getGroceryListUseCase: GetGroceryListUseCaseProtocol
 
     // Lifecycle
 
     public init(groceryListID: UUID, coordinator: GroceryListCoordinating,
-                createNewGroceryListUseCase: CreateNewGroceryListUseCaseProtocol) {
+                getGroceryListUseCase: GetGroceryListUseCaseProtocol) {
         self.groceryListID = groceryListID
         self.coordinator = coordinator
-        self.createNewGroceryListUseCase = createNewGroceryListUseCase
+        self.getGroceryListUseCase = getGroceryListUseCase
 
         self.errorMessageBox = Box(.defaultValue)
         self.totalPriceBox = Box(.defaultValue)
@@ -51,22 +51,13 @@ public final class GroceryListPresenter {
     // Functions
 
     func updateList(hasToReloadTableView: Bool) {
-        self.groceryListBox.value = GroceryListViewModel(from: GroceryListModel(id: UUID(), name: "Grocery", items: [
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 0, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 0),
-            GroceryItemModel(name: "Macarrão", quantity: 2.5, unit: .kilogram, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 0.200, unit: .hundredGrams, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .liter, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85),
-            GroceryItemModel(name: "Macarrão", quantity: 2, unit: .unit, price: 2.85)
-        ]))
+        let result = getGroceryListUseCase.execute(id: groceryListID)
+        result.successHandler { model in
+            self.groceryListBox.value = GroceryListViewModel(from: model)
+        }
+        result.failureHandler { error in
+            self.errorMessageBox.value = error.localizedDescription
+        }
 
         if hasToReloadTableView {
             self.reloadTableView()

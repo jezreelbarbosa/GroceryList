@@ -36,4 +36,13 @@ extension GroceriesRepository: Domain.GroceriesRepository {
     public func removeGroceryList(id: UUID) -> Result<Void, Error> {
         local.removeGroceryList(id: id)
     }
+
+    public func getGroceryList(id: UUID) -> Result<GroceryListModel, Error> {
+        local.getGroceryList(id: id).map { newSuccess in
+            GroceryListModel(id: newSuccess.id, name: newSuccess.name, items: newSuccess.items.map { item in
+                GroceryItemModel(name: item.name, quantity: item.quantity,
+                                 unit: GroceryItemModel.Unit(rawValue: item.unit) ?? .unit, price: item.price)
+            })
+        }
+    }
 }

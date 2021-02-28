@@ -27,7 +27,7 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
             return .success(list)
         } catch let error {
             debugPrint(error)
-            return .failure(GroceryError.getListError)
+            return .failure(GroceryError.getAllListsError)
         }
     }
 
@@ -38,7 +38,7 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
             return .success(())
         } catch let error {
             debugPrint(error)
-            return .failure(GroceryError.getListError)
+            return .failure(GroceryError.saveNewListError)
         }
     }
 
@@ -46,6 +46,17 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
         do {
             try coreData.remove(entity: .groceryListEntity, item: ("id", id))
             return .success(())
+        } catch let error {
+            debugPrint(error)
+            return .failure(GroceryError.removeListError)
+        }
+    }
+
+    public func getGroceryList(id: UUID) -> Result<GroceryListCompleteInfoResponseDTO, Error> {
+        do {
+            let data = (try coreData.get(entity: .groceryListEntity, item: ("id", id))["data"] as? Data).defaultValue
+            let response = try JSONDecoder().decode(GroceryListCompleteInfoResponseDTO.self, from: data)
+            return .success(response)
         } catch let error {
             debugPrint(error)
             return .failure(GroceryError.getListError)
