@@ -9,7 +9,6 @@ public typealias ResultCompletion<T> = (_ result: Swift.Result<T, Error>) -> Voi
 
 public extension Swift.Result {
 
-    /// Returns the value if self represents a success, `nil` otherwise.
     var success: Success? {
         switch self {
         case let .success(value):
@@ -19,7 +18,6 @@ public extension Swift.Result {
         }
     }
 
-    /// Returns the error if self represents a failure, `nil` otherwise.
     var failure: Failure? {
         switch self {
         case .success:

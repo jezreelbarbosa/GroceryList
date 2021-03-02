@@ -14,6 +14,7 @@
 		0D634A1F25DC5DF700F5FE25 /* NewGroceryListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D634A1E25DC5DF700F5FE25 /* NewGroceryListRequest.swift */; };
 		0D7EAD1B25EAD9A700A97CC2 /* GroceryItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EAD1A25EAD9A700A97CC2 /* GroceryItemModel.swift */; };
 		0D7EADD325EB229600A97CC2 /* GroceryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADD225EB229600A97CC2 /* GroceryListModel.swift */; };
+		0D8247C525EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8247C425EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift */; };
 		0D83153525D5957000825277 /* GetGroceryMainListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83153425D5957000825277 /* GetGroceryMainListUseCase.swift */; };
 		0D83153A25D596D600825277 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83153925D596D600825277 /* Result+Extension.swift */; };
 		0D83153F25D5977F00825277 /* GroceriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83153E25D5977F00825277 /* GroceriesRepository.swift */; };
@@ -44,6 +45,7 @@
 		0D634A1E25DC5DF700F5FE25 /* NewGroceryListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroceryListRequest.swift; sourceTree = "<group>"; };
 		0D7EAD1A25EAD9A700A97CC2 /* GroceryItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemModel.swift; sourceTree = "<group>"; };
 		0D7EADD225EB229600A97CC2 /* GroceryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListModel.swift; sourceTree = "<group>"; };
+		0D8247C425EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertGroceryItemIntoListUseCase.swift; sourceTree = "<group>"; };
 		0D83153425D5957000825277 /* GetGroceryMainListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroceryMainListUseCase.swift; sourceTree = "<group>"; };
 		0D83153925D596D600825277 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		0D83153E25D5977F00825277 /* GroceriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesRepository.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */,
 				0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */,
 				0D08D5D625EBDE1E00A09BAF /* UpdateGroceryListUseCase.swift */,
+				0D8247C425EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				0D83153525D5957000825277 /* GetGroceryMainListUseCase.swift in Sources */,
 				0D634A1B25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift in Sources */,
 				0D83153F25D5977F00825277 /* GroceriesRepository.swift in Sources */,
+				0D8247C525EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

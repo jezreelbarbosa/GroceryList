@@ -76,4 +76,24 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
             return .failure(GroceryError.updateListError)
         }
     }
+
+    public func update(groceryItem: GroceryItemDTO, listID: UUID) -> Result<Void, Error> {
+        do {
+            let data = (try coreData.get(entity: .groceryListEntity, item: ("id", listID))["data"] as? Data).defaultValue
+            var response = try JSONDecoder().decode(GroceryListCompleteInfoResponseDTO.self, from: data)
+
+            if let index = response.items.firstIndex(where: { $0.id == groceryItem.id }) {
+                response.items.replaceSubrange(index...index, with: [groceryItem])
+            } else {
+                response.items.append(groceryItem)
+            }
+
+            let newData = try JSONEncoder().encode(response)
+            try coreData.update(values: ["data": newData], entity: .groceryListEntity, item: ("id", listID))
+            return .success(())
+        } catch let error {
+            debugPrint(error)
+            return .failure(GroceryError.updateListError)
+        }
+    }
 }

@@ -9,7 +9,7 @@ import Domain
 
 public protocol GroceryListCoordinating: AnyObject {
 
-    func showItemView(item: GroceryItemModel?, successCompletion: @escaping VoidCompletion)
+    func showItemView(item: GroceryItemModel, successCompletion: @escaping VoidCompletion)
     func didExit()
 }
 
@@ -100,7 +100,10 @@ extension GroceryListPresenter: GroceryListPresenting {
     }
 
     public func createNewItem() {
-        coordinator?.showItemView(item: nil) {
+        guard let list = groceryListModel else { return }
+
+        let item = GroceryItemModel(id: UUID(), listID: list.id, name: "", quantity: 0, unit: .unit, price: 0)
+        coordinator?.showItemView(item: item) {
             self.updateList(hasToReloadTableView: true)
         }
 

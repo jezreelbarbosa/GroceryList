@@ -16,5 +16,6 @@ class DomainAssembly: Assembly {
         container.autoregister(RemoveGroceryListUseCaseProtocol.self, initializer: RemoveGroceryListUseCase.init)
         container.autoregister(GetGroceryListUseCaseProtocol.self, initializer: GetGroceryListUseCase.init)
         container.autoregister(UpdateGroceryListUseCaseProtocol.self, initializer: UpdateGroceryListUseCase.init)
+        container.autoregister(InsertGroceryItemIntoListUseCaseProtocol.self, initializer: InsertGroceryItemIntoListUseCase.init)
     }
 }

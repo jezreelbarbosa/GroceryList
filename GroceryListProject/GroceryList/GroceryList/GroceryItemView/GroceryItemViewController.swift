@@ -10,8 +10,9 @@ import UIKit
 public protocol GroceryItemPresenting {
 
     var errorMessageBox: Box<String> { get }
+    var groceryItemBox: Box<GroceryItemUpdateRequest> { get }
 
-//    func createNewGroceryList(model: NewGroceryListHeaderViewModel, successCompletion: () -> Void)
+    func updateGroceryItem(item: GroceryItemUpdateRequest, successCompletion: () -> Void)
 }
 
 public class GroceryItemViewController: UIViewController {
@@ -61,17 +62,18 @@ public class GroceryItemViewController: UIViewController {
         presenter.errorMessageBox.bind { [unowned self] value in
             self.presentAttentionAlert(withMessage: value)
         }
+
+        presenter.groceryItemBox.bindAndFire { [unowned self] value in
+            self.mainView.setItem(item: value)
+        }
     }
 
     // Actions
 
     @objc private func saveBarButtonAction() {
-//        presenter.createNewGroceryList(model: NewGroceryListHeaderViewModel(
-//            icon: mainView.iconTextField.text.defaultValue,
-//            name: mainView.nameTextField.text.defaultValue
-//        )) {
-//            dismiss(animated: true, completion: nil)
-//        }
+        presenter.updateGroceryItem(item: mainView.getItem()) {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     @objc private func cancelBarButtonAction() {

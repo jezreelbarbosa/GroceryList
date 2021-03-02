@@ -13,7 +13,14 @@ open class UIDecimalField: UITextField {
     // Public Types
     // Public Properties
 
-    public final var decimal: Decimal { decimalFromString / pow(10, numberFormatter.maximumFractionDigits) }
+    public final var decimal: Decimal {
+        get {
+            decimalFromString / pow(10, numberFormatter.maximumFractionDigits)
+        }
+        set {
+            text = numberFormatter.string(for: newValue)
+        }
+    }
 
     public final var maximum: Decimal = 999_999_999.999999
 

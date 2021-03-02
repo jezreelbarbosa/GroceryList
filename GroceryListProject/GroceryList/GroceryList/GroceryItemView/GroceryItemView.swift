@@ -61,7 +61,7 @@ final class GroceryItemView: UICodeView {
 
         separatorView.leading(16).trailing(16).height(0.5).Top == quantityDecimalField.Bottom + 16
 
-        totalPriceLabel.height(34).Top == separatorView.Bottom + 16
+        totalPriceLabel.Top == separatorView.Bottom + 16
         totalNameLabel.leading(16).CenterY == totalPriceLabel.trailing(16).CenterY
         totalNameLabel.Trailing == totalPriceLabel.Leading + 8
         totalNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
@@ -153,7 +153,27 @@ final class GroceryItemView: UICodeView {
 
     // Functions
 
-    @objc private func textFieldEditingChanged() {
+    func getItem() -> GroceryItemUpdateRequest {
+        GroceryItemUpdateRequest(
+            itemName: itemNameTextField.text.defaultValue,
+            price: priceDecimalField.decimal,
+            unit: unitSegmentedControl.selectedSegmentIndex,
+            quantity: quantityDecimalField.decimal
+        )
+    }
+
+    func setItem(item: GroceryItemUpdateRequest) {
+        itemNameTextField.text = item.itemName
+        priceDecimalField.decimal = item.price
+        unitSegmentedControl.selectedSegmentIndex = item.unit
+        textFieldEditingChanged()
+        quantityDecimalField.decimal = item.quantity
+        textFieldEditingChanged()
+    }
+
+    // Actions
+
+    @objc func textFieldEditingChanged() {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         numberFormatter.maximumFractionDigits = 2

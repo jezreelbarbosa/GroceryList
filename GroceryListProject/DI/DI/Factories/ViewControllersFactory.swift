@@ -40,7 +40,7 @@ extension ViewControllersFactory: GroceryListVCFactory {
         return GroceryListViewController(presenter: presenter)
     }
 
-    func makeGroceryItemViewController(item: GroceryItemModel?, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController {
+    func makeGroceryItemViewController(item: GroceryItemModel, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController {
         guard let presenter = resolver.resolve(GroceryItemPresenting.self, arguments: item, successCompletion) else { preconditionFailure() }
         return GroceryItemViewController(presenter: presenter)
     }

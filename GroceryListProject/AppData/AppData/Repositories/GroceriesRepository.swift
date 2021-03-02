@@ -40,7 +40,7 @@ extension GroceriesRepository: Domain.GroceriesRepository {
     public func getGroceryList(id: UUID) -> Result<GroceryListModel, Error> {
         local.getGroceryList(id: id).map { newSuccess in
             GroceryListModel(id: newSuccess.id, name: newSuccess.name, items: newSuccess.items.map { item in
-                GroceryItemModel(name: item.name, quantity: item.quantity,
+                GroceryItemModel(id: item.id, listID: newSuccess.id, name: item.name, quantity: item.quantity,
                                  unit: GroceryItemModel.Unit(rawValue: item.unit) ?? .unit, price: item.price)
             })
         }
@@ -48,5 +48,9 @@ extension GroceriesRepository: Domain.GroceriesRepository {
 
     public func updateGroceryList(model: GroceryListModel) -> Result<Void, Error> {
         local.update(groceryList: GroceryListUpdatedItemsDTO(from: model))
+    }
+
+    public func updateGroceryItem(model: GroceryItemModel) -> Result<Void, Error> {
+        local.update(groceryItem: GroceryItemDTO(from: model), listID: model.listID)
     }
 }
