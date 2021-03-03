@@ -83,6 +83,7 @@
 		0D20C0D1241FE46700FCA5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D20C0D3241FE46700FCA5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D22D09225E438FD00E48981 /* GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D2AD29725EFC48B001B4F49 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0D9DD8E025D48DB800851531 /* Notification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4077C25A7460C0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4078825A748900005609F /* GroceryListProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,6 +322,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 0D20C0B6241FE46600FCA5B4;
 			productRefGroup = 0D20C0C0241FE46600FCA5B4 /* Products */;
@@ -486,6 +488,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0D20C0D1241FE46700FCA5B4 /* Base */,
+				0D2AD29725EFC48B001B4F49 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

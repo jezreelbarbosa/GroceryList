@@ -21,7 +21,7 @@ public protocol MainListPresenting {
     func deleteItem(at row: Int)
 }
 
-public class MainListViewController: UIViewController {
+public final class MainListViewController: UIViewController {
 
     // Properties
 

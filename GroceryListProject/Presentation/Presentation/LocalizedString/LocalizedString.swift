@@ -16,34 +16,24 @@ public enum Language: String {
     case ptBR = "pt_BR"
 }
 
-public struct LocalizedString {
-    // Static Properties
-    // Static Methods
-    // Public Types
-    // Public Properties
+public class LocalizedString {
+
+    // Properties
 
     public var localizedText: String {
-        switch NSLocalizedString("Localized", comment: "") {
+        switch NSLocalizedString("Localized", bundle: Bundle(for: LocalizedString.self), comment: "") {
         case Language.ptBR.rawValue: return texts[.ptBR] ?? defaultText
         case Language.enUS.rawValue: return texts[.enUS] ?? defaultText
         default: return defaultText
         }
     }
 
-    // Public Methods
-    // Initialization/Lifecycle Methods
+    private let texts: [Language: String]
+    private var defaultText: String { texts[.enUS] ?? "" }
+
+    // Lifecycle
 
     public init(texts: [Language: String]) {
         self.texts = texts
     }
-
-    // Override Methods
-    // Private Types
-    // Private Properties
-
-    private let texts: [Language: String]
-
-    private var defaultText: String { texts[.enUS] ?? "" }
-
-    // Private Methods
 }

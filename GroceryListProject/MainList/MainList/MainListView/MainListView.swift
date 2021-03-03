@@ -22,10 +22,7 @@ final class MainListView: UICodeView {
     }
 
     public override func initLayout() {
-        tableView.Top == safeAreaLayoutGuide.Top
-        tableView.Bottom == safeAreaLayoutGuide.Bottom
-        tableView.Leading == safeAreaLayoutGuide.Leading
-        tableView.Trailing == safeAreaLayoutGuide.Trailing
+        tableView.fillContainer()
 
         layoutIfNeeded()
     }

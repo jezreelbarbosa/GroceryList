@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import InputMask
 
 public class UICodeTextField: UITextField {
 
@@ -14,8 +13,6 @@ public class UICodeTextField: UITextField {
 
     public var padding = UIEdgeInsets()
     public var caracterLimit = Int.max
-
-    private var maskObject: MaskedTextFieldDelegate?
 
     // Override
 
@@ -37,29 +34,6 @@ public class UICodeTextField: UITextField {
         self.smartInsertDeleteType = .no
         self.delegate = self
         self.caracterLimit = limit
-    }
-}
-
-extension UICodeTextField: MaskedTextFieldDelegateListener {
-
-    public func setupMask(_ primaryMaskFormat: Mask.Formats, affineFormats: [Mask.Formats] = [], delegate: NSObject? = nil,
-                          stratagy: AffinityCalculationStrategy = .extractedValueCapacity) {
-        let maskObject = MaskedTextFieldDelegate()
-        self.maskObject = maskObject
-        self.delegate = maskObject
-        maskObject.affinityCalculationStrategy = stratagy
-        maskObject.autocompleteOnFocus = true
-        maskObject.primaryMaskFormat = primaryMaskFormat.format
-        maskObject.affineFormats = affineFormats.map({ $0.format })
-        maskObject.delegate = delegate
-    }
-
-    public func set(text: String) {
-        guard let maskObject = maskObject else {
-            self.text = text
-            return
-        }
-        maskObject.put(text: text, into: self)
     }
 }
 

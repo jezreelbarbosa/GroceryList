@@ -5,6 +5,8 @@
 //  Created by Jezreel Barbosa on 17/02/21.
 //
 
+/*
+
 import InputMask
 
 public extension Mask {
@@ -27,3 +29,5 @@ public extension Mask {
         }
     }
 }
+
+*/
