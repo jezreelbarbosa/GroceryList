@@ -1,16 +1,50 @@
 PODS:
+  - InputMask (6.0.0)
+  - IQKeyboardManagerSwift (6.5.7)
+  - KeychainAccess (4.2.1)
   - SteviaLayout (4.7.3)
+  - SwiftLint (0.42.0)
+  - Swinject (2.6.2)
+  - SwinjectAutoregistration (2.6.1):
+    - Swinject (~> 2.6)
 
 DEPENDENCIES:
+  - InputMask
+  - IQKeyboardManagerSwift (from `https://github.com/hackiftekhar/IQKeyboardManager`, branch `master`)
+  - KeychainAccess
   - SteviaLayout
+  - SwiftLint
+  - Swinject (~> 2.6.0)
+  - SwinjectAutoregistration (~> 2.6.0)
 
 SPEC REPOS:
   trunk:
+    - InputMask
+    - KeychainAccess
     - SteviaLayout
+    - SwiftLint
+    - Swinject
+    - SwinjectAutoregistration
+
+EXTERNAL SOURCES:
+  IQKeyboardManagerSwift:
+    :branch: master
+    :git: https://github.com/hackiftekhar/IQKeyboardManager
+
+CHECKOUT OPTIONS:
+  IQKeyboardManagerSwift:
+    :commit: 641ef9f19960a8ecdf22bc89290d0ba56ed37826
+    :git: https://github.com/hackiftekhar/IQKeyboardManager
 
 SPEC CHECKSUMS:
+  InputMask: f340bdc905a4c4f377e44d865f129f752ac2383d
+  IQKeyboardManagerSwift: 7d651cf47a4fb6a4d721e16ef15ec52cef6d57ce
+  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
+  Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
+  SwinjectAutoregistration: d0de7e48db3601b8b130f2f84e5a8399e0224135
 
-PODFILE CHECKSUM: 692bde5da04e50c3797973cb686bd2a2f1c82c64
+PODFILE CHECKSUM: c8d0f4aceb8e1038cc9ebf2a6016531a88ca71e1
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.10.0

@@ -1,0 +1,6 @@
+framework module Pods_AppData_AppDataTests {
+  umbrella header "Pods-AppData-AppDataTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
