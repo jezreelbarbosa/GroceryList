@@ -106,18 +106,5 @@ extension GroceryListPresenter: GroceryListPresenting {
         coordinator?.showItemView(item: item) {
             self.updateList(hasToReloadTableView: true)
         }
-
-//        guard let list = groceryListModel else { return }
-//
-//        let newItem = GroceryItemModel(name: "Macarrão", quantity: 1, unit: .unit, price: 2.00)
-//        let newModel = GroceryListModel(id: list.id, name: list.name, items: list.items + [newItem])
-//
-//        let result = updateGroceryListUseCase.execute(model: newModel)
-//        result.successHandler { _ in
-//            self.updateList(hasToReloadTableView: true)
-//        }
-//        result.failureHandler { error in
-//            self.errorMessageBox.value = error.localizedDescription
-//        }
     }
 }
