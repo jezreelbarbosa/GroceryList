@@ -49,7 +49,7 @@ public class GroceryItemViewController: UIViewController {
     private func setupView() {
         mainView.itemNameTextField.becomeFirstResponder()
 
-        navigationItem.title = Resources.Texts.newListNavigationTitle
+        navigationItem.title = Resources.Texts.itemNavigationTitle
         navigationController?.navigationBar.prefersLargeTitles = false
 
         let saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBarButtonAction))

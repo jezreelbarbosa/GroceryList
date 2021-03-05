@@ -27,9 +27,9 @@ class Resources {
 
         // - Navigation
 
-        static let newListNavigationTitle = LocalizedString(texts: [
-            .enUS: "New list",
-            .ptBR: "Nova lista"
+        static let itemNavigationTitle = LocalizedString(texts: [
+            .enUS: "Item",
+            .ptBR: "Item"
         ]).localizedText
 
         // - Unit

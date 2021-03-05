@@ -43,6 +43,13 @@ public class NewListViewController: UIViewController {
         setupPresenter()
     }
 
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        mainView.nameTextField.becomeFirstResponder()
+        mainView.nameTextField.selectAll(nil)
+    }
+
     // Functions
 
     private func setupView() {
