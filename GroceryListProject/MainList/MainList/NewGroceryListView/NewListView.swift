@@ -24,9 +24,9 @@ final class NewListView: UICodeView {
     }
 
     public override func initLayout() {
-        iconTextField.Top == safeAreaLayoutGuide.Top + 24
-        iconTextField.leading(16).size(48).Trailing == nameTextField.Leading - 24
-        nameTextField.trailing(16)
+        iconTextField.Top == safeAreaLayoutGuide.Top + 32
+        iconTextField.leading(16).size(56).Trailing == nameTextField.Leading - 16
+        nameTextField.trailing(16).height(56)
         align(.centerY, views: [iconTextField, nameTextField])
 
         layoutIfNeeded()
@@ -41,15 +41,21 @@ final class NewListView: UICodeView {
             s.font = Font.sfProText(.regular, size: 40)
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .center
-            s.borderStyle = .none
+            s.borderStyle = .roundedRect
+            s.backgroundColor = Resources.Colors.modalBackgroundColor
+            s.text = Resources.Texts.newListIconText
             s.setupCaracterLimit(limit: 1)
         }
 
         nameTextField.style { s in
             s.font = Font.sfProText(.regular, size: 24)
             s.textColor = Resources.Colors.textColor
-            s.borderStyle = .none
-            s.placeholder = Resources.Texts.newListNamePlaceholder
+            s.borderStyle = .roundedRect
+            s.placeholder = Resources.Texts.newListNameText
+            s.text = Resources.Texts.newListNameText
+            s.padding.left = 16
+            s.padding.right = 16
+            s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.addTarget(self, action: #selector(nameTextFieldEditingChanged), for: .editingChanged)
             s.sendActions(for: .editingChanged)
         }
