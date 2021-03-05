@@ -620,7 +620,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P38KT438VN;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = GroceryListProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -628,7 +629,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist;
 				PRODUCT_NAME = Listinha;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -641,7 +642,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P38KT438VN;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XCSQ883CT6;
 				INFOPLIST_FILE = GroceryListProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -649,7 +651,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jezreelbarbosa.grocerylist;
 				PRODUCT_NAME = Listinha;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

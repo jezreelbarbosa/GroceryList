@@ -42,16 +42,17 @@ final class NewListView: UICodeView {
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .center
             s.borderStyle = .roundedRect
-            s.setupCaracterLimit(limit: 1)
             s.backgroundColor = Resources.Colors.modalBackgroundColor
+            s.text = Resources.Texts.newListIconText
+            s.setupCaracterLimit(limit: 1)
         }
 
         nameTextField.style { s in
             s.font = Font.sfProText(.regular, size: 24)
             s.textColor = Resources.Colors.textColor
             s.borderStyle = .roundedRect
-            s.placeholder = Resources.Texts.newListNamePlaceholder
-            s.text = Resources.Texts.newListNamePlaceholder
+            s.placeholder = Resources.Texts.newListNameText
+            s.text = Resources.Texts.newListNameText
             s.padding.left = 16
             s.padding.right = 16
             s.backgroundColor = Resources.Colors.modalBackgroundColor
