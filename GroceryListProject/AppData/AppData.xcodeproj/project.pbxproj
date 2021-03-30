@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D08D5DB25EBE26500A09BAF /* GroceryListUpdatedItemsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D5DA25EBE26500A09BAF /* GroceryListUpdatedItemsDTO.swift */; };
-		0D63AF1325DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF1225DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift */; };
-		0D63AF1725DC45D2004DC196 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF1625DC45D2004DC196 /* GroceryItem.swift */; };
+		0D63AF1325DC4561004DC196 /* GroceryListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF1225DC4561004DC196 /* GroceryListDTO.swift */; };
+		0D63AF1725DC45D2004DC196 /* GroceryItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF1625DC45D2004DC196 /* GroceryItemDTO.swift */; };
 		0D63AF5125DC4A67004DC196 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF5025DC4A67004DC196 /* DataProtocols.swift */; };
 		0D83154525D5B00100825277 /* GroceriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83154425D5B00100825277 /* GroceriesRepository.swift */; };
 		0D83154A25D5B06000825277 /* GroceriesLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83154925D5B06000825277 /* GroceriesLocalDataSource.swift */; };
@@ -33,9 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D08D5DA25EBE26500A09BAF /* GroceryListUpdatedItemsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListUpdatedItemsDTO.swift; sourceTree = "<group>"; };
-		0D63AF1225DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListCompleteInfoResponseDTO.swift; sourceTree = "<group>"; };
-		0D63AF1625DC45D2004DC196 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		0D63AF1225DC4561004DC196 /* GroceryListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListDTO.swift; sourceTree = "<group>"; };
+		0D63AF1625DC45D2004DC196 /* GroceryItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemDTO.swift; sourceTree = "<group>"; };
 		0D63AF5025DC4A67004DC196 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
 		0D83154425D5B00100825277 /* GroceriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesRepository.swift; sourceTree = "<group>"; };
 		0D83154925D5B06000825277 /* GroceriesLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesLocalDataSource.swift; sourceTree = "<group>"; };
@@ -109,9 +107,8 @@
 		0D83154325D5AFEA00825277 /* DataTransferOutputs */ = {
 			isa = PBXGroup;
 			children = (
-				0D63AF1225DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift */,
-				0D63AF1625DC45D2004DC196 /* GroceryItem.swift */,
-				0D08D5DA25EBE26500A09BAF /* GroceryListUpdatedItemsDTO.swift */,
+				0D63AF1225DC4561004DC196 /* GroceryListDTO.swift */,
+				0D63AF1625DC45D2004DC196 /* GroceryItemDTO.swift */,
 			);
 			path = DataTransferOutputs;
 			sourceTree = "<group>";
@@ -336,10 +333,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D83154A25D5B06000825277 /* GroceriesLocalDataSource.swift in Sources */,
-				0D63AF1325DC4561004DC196 /* GroceryListCompleteInfoResponseDTO.swift in Sources */,
-				0D63AF1725DC45D2004DC196 /* GroceryItem.swift in Sources */,
+				0D63AF1325DC4561004DC196 /* GroceryListDTO.swift in Sources */,
+				0D63AF1725DC45D2004DC196 /* GroceryItemDTO.swift in Sources */,
 				0D83154525D5B00100825277 /* GroceriesRepository.swift in Sources */,
-				0D08D5DB25EBE26500A09BAF /* GroceryListUpdatedItemsDTO.swift in Sources */,
 				0D63AF5125DC4A67004DC196 /* DataProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

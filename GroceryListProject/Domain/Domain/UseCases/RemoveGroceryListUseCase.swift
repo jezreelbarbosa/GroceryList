@@ -7,7 +7,7 @@
 
 public protocol RemoveGroceryListUseCaseProtocol {
 
-    func execute(id: UUID) -> Result<Void, Error>
+    func execute(uri: URL) -> Result<Void, Error>
 }
 
 public class RemoveGroceryListUseCase {
@@ -21,7 +21,7 @@ public class RemoveGroceryListUseCase {
 
 extension RemoveGroceryListUseCase: RemoveGroceryListUseCaseProtocol {
 
-    public func execute(id: UUID) -> Result<Void, Error> {
-        repository.removeGroceryList(id: id)
+    public func execute(uri: URL) -> Result<Void, Error> {
+        repository.removeGroceryList(uri: uri)
     }
 }

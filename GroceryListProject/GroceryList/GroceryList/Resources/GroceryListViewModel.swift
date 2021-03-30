@@ -10,7 +10,7 @@ import Domain
 public struct GroceryListViewModel {
 
     static var empty: GroceryListViewModel {
-        GroceryListViewModel(from: GroceryListModel(id: UUID(), name: .defaultValue, items: .defaultValue))
+        GroceryListViewModel(from: GroceryListModel(uri: nil, icon: .defaultValue, name: .defaultValue, date: Date(), items: .defaultValue))
     }
 
     let listName: String

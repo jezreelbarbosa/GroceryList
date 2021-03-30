@@ -7,7 +7,7 @@
 
 public protocol GetGroceryMainListUseCaseProtocol {
 
-    func execute() -> Result<[GroceryListHeaderInfoResponse], Error>
+    func execute() -> Result<[GroceryListModel], Error>
 }
 
 public class GetGroceryMainListUseCase {
@@ -21,7 +21,7 @@ public class GetGroceryMainListUseCase {
 
 extension GetGroceryMainListUseCase: GetGroceryMainListUseCaseProtocol {
 
-    public func execute() -> Result<[GroceryListHeaderInfoResponse], Error> {
+    public func execute() -> Result<[GroceryListModel], Error> {
         repository.getGroceryMainList()
     }
 }

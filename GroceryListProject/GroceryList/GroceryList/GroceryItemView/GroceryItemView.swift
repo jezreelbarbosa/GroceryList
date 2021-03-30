@@ -26,6 +26,8 @@ final class GroceryItemView: UICodeView {
     let totalNameLabel = UILabel()
     let totalPriceLabel = UILabel()
 
+    var itemDate = Date()
+
     // Lifecycle
 
     public override func initSubViews() {
@@ -158,7 +160,8 @@ final class GroceryItemView: UICodeView {
             itemName: itemNameTextField.text.defaultValue,
             price: priceDecimalField.decimal,
             unit: unitSegmentedControl.selectedSegmentIndex,
-            quantity: quantityDecimalField.decimal
+            quantity: quantityDecimalField.decimal,
+            date: itemDate
         )
     }
 
@@ -169,6 +172,7 @@ final class GroceryItemView: UICodeView {
         textFieldEditingChanged()
         quantityDecimalField.decimal = item.quantity
         textFieldEditingChanged()
+        itemDate = item.date
     }
 
     // Actions

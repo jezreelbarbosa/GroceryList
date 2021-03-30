@@ -9,8 +9,6 @@ import UIKit
 
 open class UICodeTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
-    open class var reuseIdentifier: String { String(describing: self) }
-
     public override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
 

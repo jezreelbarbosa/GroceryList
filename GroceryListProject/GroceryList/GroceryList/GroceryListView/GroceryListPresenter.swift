@@ -9,7 +9,7 @@ import Domain
 
 public protocol GroceryListCoordinating: AnyObject {
 
-    func showItemView(item: GroceryItemModel, successCompletion: @escaping VoidCompletion)
+    func showItemView(itemURI: URL?, listURI: URL, successCompletion: @escaping VoidCompletion)
     func didExit()
 }
 
@@ -24,26 +24,32 @@ public final class GroceryListPresenter {
     public var groceryListBox: Box<GroceryListViewModel>
     public var reloadTableView: VoidCompletion
 
-    let groceryListID: UUID
-    var groceryListModel: GroceryListModel?
+    let groceryListURI: URL
+    var groceryListModel: GroceryListModel
 
     let getGroceryListUseCase: GetGroceryListUseCaseProtocol
-    let updateGroceryListUseCase: UpdateGroceryListUseCaseProtocol
+    let removeGroceryItemUseCase: RemoveGroceryItemUseCaseProtocol
 
     // Lifecycle
 
-    public init(groceryListID: UUID, coordinator: GroceryListCoordinating,
+    public init(groceryListURI: URL, coordinator: GroceryListCoordinating,
                 getGroceryListUseCase: GetGroceryListUseCaseProtocol,
-                updateGroceryListUseCase: UpdateGroceryListUseCaseProtocol) {
-        self.groceryListID = groceryListID
+                removeGroceryItemUseCase: RemoveGroceryItemUseCaseProtocol) {
+        self.groceryListURI = groceryListURI
         self.coordinator = coordinator
         self.getGroceryListUseCase = getGroceryListUseCase
-        self.updateGroceryListUseCase = updateGroceryListUseCase
+        self.removeGroceryItemUseCase = removeGroceryItemUseCase
 
         self.errorMessageBox = Box(.defaultValue)
         self.removeRowBox = Box(nil)
         self.groceryListBox = Box(GroceryListViewModel.empty)
         self.reloadTableView = {}
+
+        if let model = getGroceryListUseCase.execute(uri: groceryListURI).success {
+            self.groceryListModel = model
+        } else {
+            preconditionFailure()
+        }
     }
 
     deinit {
@@ -53,7 +59,7 @@ public final class GroceryListPresenter {
     // Functions
 
     func updateList(hasToReloadTableView: Bool) {
-        let result = getGroceryListUseCase.execute(id: groceryListID)
+        let result = getGroceryListUseCase.execute(uri: groceryListURI)
         result.successHandler { model in
             self.groceryListModel = model
             self.groceryListBox.value = GroceryListViewModel(from: model)
@@ -75,13 +81,11 @@ extension GroceryListPresenter: GroceryListPresenting {
     }
 
     public func deleteItem(at row: Int) {
-        guard let list = groceryListModel else { return }
-
-        var newItems = list.items
-        newItems.remove(at: row)
-        let newModel = GroceryListModel(id: list.id, name: list.name, items: newItems)
-
-        let result = updateGroceryListUseCase.execute(model: newModel)
+        guard let uri = groceryListModel.items.element(at: row)?.uri else {
+            self.errorMessageBox.value = "URI Error"
+            return
+        }
+        let result = removeGroceryItemUseCase.execute(uri: uri)
         result.successHandler { _ in
             self.updateList(hasToReloadTableView: false)
             self.removeRowBox.value = row
@@ -92,18 +96,17 @@ extension GroceryListPresenter: GroceryListPresenting {
     }
 
     public func didSelected(row: Int) {
-        guard let list = groceryListModel else { return }
-
-        coordinator?.showItemView(item: list.items[row]) {
+        guard let uri = groceryListModel.items.element(at: row)?.uri else {
+            self.errorMessageBox.value = "URI Error"
+            return
+        }
+        coordinator?.showItemView(itemURI: uri, listURI: groceryListURI) {
             self.updateList(hasToReloadTableView: true)
         }
     }
 
     public func createNewItem() {
-        guard let list = groceryListModel else { return }
-
-        let item = GroceryItemModel(id: UUID(), listID: list.id, name: "", quantity: 0, unit: .unit, price: 0)
-        coordinator?.showItemView(item: item) {
+        coordinator?.showItemView(itemURI: nil, listURI: groceryListURI) {
             self.updateList(hasToReloadTableView: true)
         }
     }

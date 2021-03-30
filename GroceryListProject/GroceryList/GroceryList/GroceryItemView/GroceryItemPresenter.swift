@@ -15,30 +15,40 @@ public final class GroceryItemPresenter {
     public var groceryItemBox: Box<GroceryItemUpdateRequest>
 
     let insertGroceryItemIntoListUseCase: InsertGroceryItemIntoListUseCaseProtocol
+    let getGroceryItemUseCase: GetGroceryItemUseCaseProtocol
     let successCompletion: VoidCompletion
 
-    let item: GroceryItemModel
+    let listURI: URL
+    let itemURI: URL?
 
     // Lifecycle
 
     public init(insertGroceryItemIntoListUseCase: InsertGroceryItemIntoListUseCaseProtocol,
-                item: GroceryItemModel, successCompletion: @escaping VoidCompletion) {
+                getGroceryItemUseCase: GetGroceryItemUseCaseProtocol,
+                itemURI: URL?, listURI: URL, successCompletion: @escaping VoidCompletion) {
         self.insertGroceryItemIntoListUseCase = insertGroceryItemIntoListUseCase
+        self.getGroceryItemUseCase = getGroceryItemUseCase
         self.successCompletion = successCompletion
-        self.item = item
+        self.listURI = listURI
+        self.itemURI = itemURI
 
         self.errorMessageBox = Box("")
-        self.groceryItemBox = Box(GroceryItemUpdateRequest.from(domain: item))
+
+        if let itemURI = itemURI, let groceryItem = getGroceryItemUseCase.execute(uri: itemURI).success {
+            self.groceryItemBox = Box(GroceryItemUpdateRequest.from(domain: groceryItem))
+        } else {
+            self.groceryItemBox = Box(GroceryItemUpdateRequest.empty)
+        }
     }
 }
 
 extension GroceryItemPresenter: GroceryItemPresenting {
 
     public func updateGroceryItem(item: GroceryItemUpdateRequest, successCompletion: () -> Void) {
-
-        let model = GroceryItemModel(id: self.item.id, listID: self.item.listID, name: item.itemName, quantity: item.quantity,
-                                     unit: GroceryItemModel.Unit(rawValue: item.unit) ?? .unit, price: item.price)
-        let result = insertGroceryItemIntoListUseCase.execute(model: model)
+        let model = GroceryItemModel(uri: itemURI, name: item.itemName, quantity: item.quantity,
+                                     unit: GroceryItemModel.Unit(rawValue: item.unit) ?? .unit,
+                                     price: item.price, date: item.date)
+        let result = insertGroceryItemIntoListUseCase.execute(model: model, listURI: listURI)
         result.successHandler { _ in
             successCompletion()
             self.successCompletion()

@@ -13,77 +13,62 @@ public protocol CoreDataStoring {
 
     var persistentContainer: NSPersistentContainer { get }
 
-    func setNew(values: [String: Any?], entity: ValueKeyable, item: (key: String, value: UUID)) throws
-    func update(values: [String: Any?], entity: ValueKeyable, item: (key: String, value: UUID)) throws
-    func remove(entity: ValueKeyable, item: (key: String, value: UUID)) throws
-    func removeAll(entity: ValueKeyable) throws
-    func get(entity: ValueKeyable) throws -> [[String: Any?]]
-    func get(entity: ValueKeyable, item: (key: String, value: UUID)) throws -> [String: Any?]
+    func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL) throws -> T
+    func getEntity<T: NSManagedObject>(_ type: T.Type) throws -> [T]
+    func newEntity<T: EntityNameble>(_ type: T.Type) throws -> T
+    func insert(object: NSManagedObject) throws
+    func saveIfNeeded() throws
+    func remove(itemAt uri: URL) throws
 }
 
 extension CoreDataStoring {
 
-    public func setNew(values: [String: Any?], entity: ValueKeyable, item: (key: String, value: UUID)) throws {
+    public func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL) throws -> T {
+        let coordinator = persistentContainer.persistentStoreCoordinator
         let context = persistentContainer.viewContext
-        let object = NSEntityDescription.insertNewObject(forEntityName: entity.key, into: context)
-
-        object.setValue(item.value, forKey: item.key)
-        values.forEach({ object.setValue($0.value, forKey: $0.key) })
-
-        try context.save()
+        guard let objectID = coordinator.managedObjectID(forURIRepresentation: uri),
+              let entity = context.object(with: objectID) as? T
+        else { throw CoreError.error }
+        return entity
     }
 
-    public func update(values: [String: Any?], entity: ValueKeyable, item: (key: String, value: UUID)) throws {
+    public func getEntity<T: NSManagedObject>(_ type: T.Type) throws -> [T] {
         let context = persistentContainer.viewContext
-        let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
+        let request = type.fetchRequest()
+        return try context.fetch(request).compactMap({ $0 as? T })
+    }
 
-        guard let object = try context.fetch(request).first(where: { ($0.value(forKey: item.key) as? UUID) == item.value }) else {
-            throw CoreError.error
+    public func newEntity<T: EntityNameble>(_ type: T.Type) throws -> T {
+        let context = persistentContainer.viewContext
+
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: type.entityName, in: context)
+        else { throw CoreError.error }
+
+        return T(entity: entityDescription, insertInto: nil)
+    }
+
+    public func insert(object: NSManagedObject) throws {
+        let context = persistentContainer.viewContext
+        context.insert(object)
+        try saveIfNeeded()
+    }
+
+    public func saveIfNeeded() throws {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            try context.save()
         }
-        object.setValuesForKeys(values as [String: Any])
-
-        try context.save()
     }
 
-    public func remove(entity: ValueKeyable, item: (key: String, value: UUID)) throws {
+    public func remove(itemAt uri: URL) throws {
+        let coordinator = persistentContainer.persistentStoreCoordinator
         let context = persistentContainer.viewContext
-        let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
 
-        guard let object = try context.fetch(request).first(where: { ($0.value(forKey: item.key) as? UUID) == item.value }) else {
-            throw CoreError.error
-        }
+        guard let objectID = coordinator.managedObjectID(forURIRepresentation: uri)
+        else { throw CoreError.error }
 
-        context.delete(object)
-        try context.save()
-    }
-
-    public func removeAll(entity: ValueKeyable) throws {
-        let context = persistentContainer.viewContext
-        let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
-        let objects = try context.fetch(request)
-
-        objects.forEach({ context.delete($0) })
-    }
-
-    public func get(entity: ValueKeyable) throws -> [[String: Any?]] {
-        let context = persistentContainer.viewContext
-        let entityDescription = NSEntityDescription.entity(forEntityName: entity.key, in: context)
-        let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
-        let entityKeys = entityDescription?.attributesByName.enumerated().map { $0.element.key } ?? []
-
-        return try context.fetch(request).map({ $0.dictionaryWithValues(forKeys: entityKeys) })
-    }
-
-    public func get(entity: ValueKeyable, item: (key: String, value: UUID)) throws -> [String: Any?] {
-        let context = persistentContainer.viewContext
-        let entityDescription = NSEntityDescription.entity(forEntityName: entity.key, in: context)
-        let request = NSFetchRequest<NSManagedObject>(entityName: entity.key)
-        let entityKeys = entityDescription?.attributesByName.enumerated().map { $0.element.key } ?? []
-
-        guard let object = try context.fetch(request).first(where: { ($0.value(forKey: item.key) as? UUID) == item.value }) else {
-            throw CoreError.error
-        }
-
-        return object.dictionaryWithValues(forKeys: entityKeys)
+        let entity = context.object(with: objectID)
+        context.delete(entity)
+        try saveIfNeeded()
     }
 }

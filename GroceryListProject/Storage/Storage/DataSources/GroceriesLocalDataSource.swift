@@ -6,6 +6,7 @@
 //
 
 import AppData
+import CoreData
 
 public class GroceriesLocalDataSource {
 
@@ -18,12 +19,9 @@ public class GroceriesLocalDataSource {
 
 extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
 
-    public func getGroceryMainList() -> Result<[GroceryListCompleteInfoResponseDTO], Error> {
+    public func getGroceryMainList() -> Result<[GroceryListDTO], Error> {
         do {
-            let dataArray = try coreData.get(entity: .groceryListEntity).map({ ($0["data"] as? Data).defaultValue })
-            let list = try dataArray.map { data in
-                try JSONDecoder().decode(GroceryListCompleteInfoResponseDTO.self, from: data)
-            }
+            let list = try coreData.getEntity(GroceryListEntity.self).map({ $0.toDTO })
             return .success(list)
         } catch let error {
             debugPrint(error)
@@ -31,10 +29,11 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
         }
     }
 
-    public func saveNewGroceryList(request: GroceryListCompleteInfoResponseDTO) -> Result<Void, Error> {
+    public func saveNewGroceryList(request: GroceryListDTO) -> Result<Void, Error> {
         do {
-            let data = try JSONEncoder().encode(request)
-            try coreData.setNew(values: ["data": data], entity: .groceryListEntity, item: ("id", request.id))
+            let entity = try coreData.newEntity(GroceryListEntity.self)
+            entity.update(icon: request.icon, name: request.name, date: request.date, items: [])
+            try coreData.insert(object: entity)
             return .success(())
         } catch let error {
             debugPrint(error)
@@ -42,58 +41,65 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
         }
     }
 
-    public func removeGroceryList(id: UUID) -> Result<Void, Error> {
+    public func removeGroceryList(uri: URL) -> Result<Void, Error> {
         do {
-            try coreData.remove(entity: .groceryListEntity, item: ("id", id))
+            try coreData.remove(itemAt: uri)
             return .success(())
         } catch let error {
             debugPrint(error)
-            return .failure(GroceryError.removeListError)
+            return .failure(GroceryError.getAllListsError)
         }
     }
 
-    public func getGroceryList(id: UUID) -> Result<GroceryListCompleteInfoResponseDTO, Error> {
+    public func getGroceryList(uri: URL) -> Result<GroceryListDTO, Error> {
         do {
-            let data = (try coreData.get(entity: .groceryListEntity, item: ("id", id))["data"] as? Data).defaultValue
-            let response = try JSONDecoder().decode(GroceryListCompleteInfoResponseDTO.self, from: data)
-            return .success(response)
+            let listDTO = try coreData.getEntity(GroceryListEntity.self, at: uri).toDTO
+            return .success(listDTO)
         } catch let error {
             debugPrint(error)
-            return .failure(GroceryError.getListError)
+            return .failure(GroceryError.getAllListsError)
         }
     }
 
-    public func update(groceryList: GroceryListUpdatedItemsDTO) -> Result<Void, Error> {
+    public func getGroceryItem(uri: URL) -> Result<GroceryItemDTO, Error> {
         do {
-            let data = (try coreData.get(entity: .groceryListEntity, item: ("id", groceryList.id))["data"] as? Data).defaultValue
-            var response = try JSONDecoder().decode(GroceryListCompleteInfoResponseDTO.self, from: data)
-            response.items = groceryList.items
-            let newData = try JSONEncoder().encode(response)
-            try coreData.update(values: ["data": newData], entity: .groceryListEntity, item: ("id", groceryList.id))
-            return .success(())
+            let itemDTO = try coreData.getEntity(GroceryItemEntity.self, at: uri).toDTO
+            return .success(itemDTO)
         } catch let error {
             debugPrint(error)
-            return .failure(GroceryError.updateListError)
+            return .failure(GroceryError.getAllListsError)
         }
     }
 
-    public func update(groceryItem: GroceryItemDTO, listID: UUID) -> Result<Void, Error> {
+    public func addOrUpdate(groceryItem: GroceryItemDTO, into listURI: URL) -> Result<Void, Error> {
         do {
-            let data = (try coreData.get(entity: .groceryListEntity, item: ("id", listID))["data"] as? Data).defaultValue
-            var response = try JSONDecoder().decode(GroceryListCompleteInfoResponseDTO.self, from: data)
-
-            if let index = response.items.firstIndex(where: { $0.id == groceryItem.id }) {
-                response.items.replaceSubrange(index...index, with: [groceryItem])
+            let itemEntity: GroceryItemEntity
+            if let itemURI = groceryItem.uri {
+                itemEntity = try coreData.getEntity(GroceryItemEntity.self, at: itemURI)
             } else {
-                response.items.append(groceryItem)
-            }
+                itemEntity = try coreData.newEntity(GroceryItemEntity.self)
 
-            let newData = try JSONEncoder().encode(response)
-            try coreData.update(values: ["data": newData], entity: .groceryListEntity, item: ("id", listID))
+                try coreData.insert(object: itemEntity)
+                let listEntity = try coreData.getEntity(GroceryListEntity.self, at: listURI)
+                listEntity.addToItems(itemEntity)
+            }
+            itemEntity.update(name: groceryItem.name, quantity: groceryItem.quantity, price: groceryItem.price,
+                              unit: groceryItem.unit, date: groceryItem.date)
+            try coreData.saveIfNeeded()
             return .success(())
         } catch let error {
             debugPrint(error)
-            return .failure(GroceryError.updateListError)
+            return .failure(GroceryError.getAllListsError)
+        }
+    }
+
+    public func removeGroceryItem(uri: URL) -> Result<Void, Error> {
+        do {
+            try coreData.remove(itemAt: uri)
+            return .success(())
+        } catch let error {
+            debugPrint(error)
+            return .failure(GroceryError.getAllListsError)
         }
     }
 }

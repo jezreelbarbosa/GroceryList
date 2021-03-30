@@ -7,10 +7,12 @@
 
 public protocol GroceriesRepository {
 
-    func getGroceryMainList() -> Result<[GroceryListHeaderInfoResponse], Error>
+    func getGroceryMainList() -> Result<[GroceryListModel], Error>
     func saveNewGroceryList(request: NewGroceryListRequest) -> Result<Void, Error>
-    func removeGroceryList(id: UUID) -> Result<Void, Error>
-    func getGroceryList(id: UUID) -> Result<GroceryListModel, Error>
-    func updateGroceryList(model: GroceryListModel) -> Result<Void, Error>
-    func updateGroceryItem(model: GroceryItemModel) -> Result<Void, Error>
+    func removeGroceryList(uri: URL) -> Result<Void, Error>
+
+    func getGroceryList(uri: URL) -> Result<GroceryListModel, Error>
+    func getGroceryItem(uri: URL) -> Result<GroceryItemModel, Error>
+    func addOrUpdate(groceryItem: GroceryItemModel, into listURI: URL) -> Result<Void, Error>
+    func removeGroceryItem(uri: URL) -> Result<Void, Error>
 }

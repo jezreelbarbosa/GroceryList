@@ -24,10 +24,6 @@ extension Coordinator {
     public func coordinatorDidExit(_ coordinator: Coordinator) {
         self.childCoordinators.removeAll(where: { $0 === coordinator })
     }
-
-    public func start() {
-        do { /* Nothing */ }
-    }
 }
 
 public protocol TabBarCoordinator: Coordinator {

@@ -7,7 +7,7 @@
 
 public protocol InsertGroceryItemIntoListUseCaseProtocol {
 
-    func execute(model: GroceryItemModel) -> Result<Void, Error>
+    func execute(model: GroceryItemModel, listURI: URL) -> Result<Void, Error>
 }
 
 public class InsertGroceryItemIntoListUseCase {
@@ -21,7 +21,7 @@ public class InsertGroceryItemIntoListUseCase {
 
 extension InsertGroceryItemIntoListUseCase: InsertGroceryItemIntoListUseCaseProtocol {
 
-    public func execute(model: GroceryItemModel) -> Result<Void, Error> {
-        repository.updateGroceryItem(model: model)
+    public func execute(model: GroceryItemModel, listURI: URL) -> Result<Void, Error> {
+        repository.addOrUpdate(groceryItem: model, into: listURI)
     }
 }
