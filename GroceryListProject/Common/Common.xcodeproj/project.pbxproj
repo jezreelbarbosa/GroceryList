@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D45FF2F2613B6E700F14702 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45FF2E2613B6E700F14702 /* Result+Extension.swift */; };
 		0D63AF0625DC0837004DC196 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF0525DC0837004DC196 /* Optional+Extension.swift */; };
 		0D63B01725DC4C99004DC196 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63B01625DC4C99004DC196 /* Defaultable.swift */; };
 		0DF4076A25A745DF0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4076025A745DF0005609F /* Common.framework */; };
 		0DF4076F25A745DF0005609F /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4076E25A745DF0005609F /* CommonTests.swift */; };
 		0DF4077125A745DF0005609F /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF4076325A745DF0005609F /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DF40B5125A7B4A40005609F /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B5025A7B4A40005609F /* Generics.swift */; };
+		0DF40B5125A7B4A40005609F /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B5025A7B4A40005609F /* Commons.swift */; };
 		0DF40B5525A7B4B90005609F /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B5425A7B4B90005609F /* DependencyFactory.swift */; };
 		2A9B232FCA64417C7B193365 /* Pods_Common_CommonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3978DF85AFCCC8964FB0075 /* Pods_Common_CommonTests.framework */; };
 		BE8A37DA36A82BA5AC71660C /* Pods_Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4E67B5F44F48C632FD9244 /* Pods_Common.framework */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		02FCDAF748703559442C2EFB /* Pods-Common-CommonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Common-CommonTests.release.xcconfig"; path = "Target Support Files/Pods-Common-CommonTests/Pods-Common-CommonTests.release.xcconfig"; sourceTree = "<group>"; };
+		0D45FF2E2613B6E700F14702 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		0D63AF0525DC0837004DC196 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		0D63B01625DC4C99004DC196 /* Defaultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		0DF4076025A745DF0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +40,7 @@
 		0DF4076925A745DF0005609F /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4076E25A745DF0005609F /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		0DF4077025A745DF0005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DF40B5025A7B4A40005609F /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
+		0DF40B5025A7B4A40005609F /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
 		0DF40B5425A7B4B90005609F /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
 		1A4E67B5F44F48C632FD9244 /* Pods_Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		380A07B4F093ABB8B8D28200 /* Pods-Common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Common.debug.xcconfig"; path = "Target Support Files/Pods-Common/Pods-Common.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,9 +93,10 @@
 		0DF4076225A745DF0005609F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0DF40B5025A7B4A40005609F /* Generics.swift */,
+				0DF40B5025A7B4A40005609F /* Commons.swift */,
 				0DF40B5425A7B4B90005609F /* DependencyFactory.swift */,
 				0D63AF0525DC0837004DC196 /* Optional+Extension.swift */,
+				0D45FF2E2613B6E700F14702 /* Result+Extension.swift */,
 				0D63B01625DC4C99004DC196 /* Defaultable.swift */,
 				0DF4076325A745DF0005609F /* Common.h */,
 				0DF4076425A745DF0005609F /* Info.plist */,
@@ -307,7 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DF40B5125A7B4A40005609F /* Generics.swift in Sources */,
+				0DF40B5125A7B4A40005609F /* Commons.swift in Sources */,
+				0D45FF2F2613B6E700F14702 /* Result+Extension.swift in Sources */,
 				0D63B01725DC4C99004DC196 /* Defaultable.swift in Sources */,
 				0D63AF0625DC0837004DC196 /* Optional+Extension.swift in Sources */,
 				0DF40B5525A7B4B90005609F /* DependencyFactory.swift in Sources */,

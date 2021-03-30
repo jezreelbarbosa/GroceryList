@@ -10,6 +10,7 @@
 		0D05394525D6EC9500478D0A /* Keyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05394425D6EC9400478D0A /* Keyable.swift */; };
 		0D05394E25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */; };
 		0D05395B25D6EDDB00478D0A /* CoreDataStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */; };
+		0D45FF112613B4A900F14702 /* EntityNameble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45FF102613B4A900F14702 /* EntityNameble.swift */; };
 		0D63AEFE25DBF87A004DC196 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */; };
 		0D63AF4B25DC4A34004DC196 /* StorageErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */; };
 		0D63AFE325DC4C61004DC196 /* AppData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4085625A74BBB0005609F /* AppData.framework */; };
@@ -45,6 +46,7 @@
 		0D05394425D6EC9400478D0A /* Keyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyable.swift; sourceTree = "<group>"; };
 		0D05394D25D6ED8500478D0A /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStoring.swift; sourceTree = "<group>"; };
+		0D45FF102613B4A900F14702 /* EntityNameble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityNameble.swift; sourceTree = "<group>"; };
 		0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageErrors.swift; sourceTree = "<group>"; };
 		0D83156125D5B9B200825277 /* GroceriesLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesLocalDataSource.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		0D49D01125F65BF000138953 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				0D45FF102613B4A900F14702 /* EntityNameble.swift */,
 				0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */,
 				0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */,
 				0DFD70A325F6EE0600FC3C09 /* Entities */,
@@ -451,6 +454,7 @@
 				0D63AEFE25DBF87A004DC196 /* CoreDataStorage.swift in Sources */,
 				0DFD70A625F6EE0600FC3C09 /* GroceryListEntity+CoreDataClass.swift in Sources */,
 				0D83156225D5B9B200825277 /* GroceriesLocalDataSource.swift in Sources */,
+				0D45FF112613B4A900F14702 /* EntityNameble.swift in Sources */,
 				0D05395B25D6EDDB00478D0A /* CoreDataStoring.swift in Sources */,
 				0DFD70AD25F6EE9C00FC3C09 /* GroceryItemEntity+CoreDataClass.swift in Sources */,
 				0D05394E25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld in Sources */,

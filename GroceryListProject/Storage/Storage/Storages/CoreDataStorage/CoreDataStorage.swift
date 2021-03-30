@@ -7,11 +7,6 @@
 
 import CoreData
 
-public protocol EntityNameble: NSManagedObject {
-
-    static var entityName: String { get }
-}
-
 public class CoreDataStorage: CoreDataStoring {
 
     public var persistentContainer: NSPersistentContainer
@@ -33,15 +28,5 @@ public class CoreDataStorage: CoreDataStoring {
         }
 
         self.persistentContainer = container
-    }
-
-    public enum ValueKeyable: String, Keyable, CaseIterable {
-
-        case groceryListEntity = "GroceryListEntity"
-        case groceryItemEntity = "GroceryItemEntity"
-
-        public var key: String {
-            return rawValue
-        }
     }
 }

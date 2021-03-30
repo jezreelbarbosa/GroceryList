@@ -17,7 +17,6 @@
 		0D7EADD325EB229600A97CC2 /* GroceryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADD225EB229600A97CC2 /* GroceryListModel.swift */; };
 		0D8247C525EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8247C425EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift */; };
 		0D83153525D5957000825277 /* GetGroceryMainListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83153425D5957000825277 /* GetGroceryMainListUseCase.swift */; };
-		0D83153A25D596D600825277 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83153925D596D600825277 /* Result+Extension.swift */; };
 		0D83153F25D5977F00825277 /* GroceriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83153E25D5977F00825277 /* GroceriesRepository.swift */; };
 		0DF4088025A74C3A0005609F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4087625A74C3A0005609F /* Domain.framework */; };
 		0DF4088525A74C3A0005609F /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4088425A74C3A0005609F /* DomainTests.swift */; };
@@ -48,7 +47,6 @@
 		0D7EADD225EB229600A97CC2 /* GroceryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListModel.swift; sourceTree = "<group>"; };
 		0D8247C425EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertGroceryItemIntoListUseCase.swift; sourceTree = "<group>"; };
 		0D83153425D5957000825277 /* GetGroceryMainListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroceryMainListUseCase.swift; sourceTree = "<group>"; };
-		0D83153925D596D600825277 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		0D83153E25D5977F00825277 /* GroceriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesRepository.swift; sourceTree = "<group>"; };
 		0DF4087625A74C3A0005609F /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4087925A74C3A0005609F /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
@@ -101,14 +99,6 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		0D83153825D596C600825277 /* Supporting */ = {
-			isa = PBXGroup;
-			children = (
-				0D83153925D596D600825277 /* Result+Extension.swift */,
-			);
-			path = Supporting;
-			sourceTree = "<group>";
-		};
 		0D83153D25D5975800825277 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +143,6 @@
 				0DE0B59425C6276500ADF4C7 /* Models */,
 				0D83153325D594B100825277 /* UseCases */,
 				0D83153D25D5975800825277 /* Repositories */,
-				0D83153825D596C600825277 /* Supporting */,
 				0DF4087925A74C3A0005609F /* Domain.h */,
 				0DF4087A25A74C3A0005609F /* Info.plist */,
 			);
@@ -350,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D45FF062612CEF800F14702 /* GetGroceryItemUseCase.swift in Sources */,
-				0D83153A25D596D600825277 /* Result+Extension.swift in Sources */,
 				0D45FF022612BCF100F14702 /* RemoveGroceryItemUseCase.swift in Sources */,
 				0D634A1F25DC5DF700F5FE25 /* NewGroceryListRequest.swift in Sources */,
 				0D0F2D0925E345E600146247 /* RemoveGroceryListUseCase.swift in Sources */,

@@ -9,8 +9,6 @@ import CoreData
 
 public protocol CoreDataStoring {
 
-    associatedtype ValueKeyable: Keyable, CaseIterable
-
     var persistentContainer: NSPersistentContainer { get }
 
     func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL) throws -> T
