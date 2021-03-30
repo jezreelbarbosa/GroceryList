@@ -5,12 +5,12 @@
 //  Created by Jezreel Barbosa on 28/02/21.
 //
 
-public protocol UpdateGroceryListUseCaseProtocol {
+public protocol UpdateGroceryItemUseCaseProtocol {
 
-    func execute(model: GroceryListModel) -> Result<Void, Error>
+    func execute(model: GroceryItemModel) -> Result<Void, Error>
 }
 
-public class UpdateGroceryListUseCase {
+public class UpdateGroceryItemUseCase {
 
     let repository: GroceriesRepository
 
@@ -19,9 +19,10 @@ public class UpdateGroceryListUseCase {
     }
 }
 
-extension UpdateGroceryListUseCase: UpdateGroceryListUseCaseProtocol {
+extension UpdateGroceryItemUseCase: UpdateGroceryItemUseCaseProtocol {
 
-    public func execute(model: GroceryListModel) -> Result<Void, Error> {
-        repository.updateGroceryList(model: model)
+    public func execute(model: GroceryItemModel) -> Result<Void, Error> {
+        
+        return .success(())
     }
 }

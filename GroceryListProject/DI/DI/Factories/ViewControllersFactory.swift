@@ -35,13 +35,14 @@ extension ViewControllersFactory: MainListVCFactory {
 
 extension ViewControllersFactory: GroceryListVCFactory {
 
-    func makeGroceryListViewController(id: UUID) -> GroceryListViewController {
-        guard let presenter = resolver.resolve(GroceryListPresenting.self, argument: id) else { preconditionFailure() }
+    func makeGroceryListViewController(uri: URL) -> GroceryListViewController {
+        guard let presenter = resolver.resolve(GroceryListPresenting.self, argument: uri) else { preconditionFailure() }
         return GroceryListViewController(presenter: presenter)
     }
 
-    func makeGroceryItemViewController(item: GroceryItemModel, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController {
-        guard let presenter = resolver.resolve(GroceryItemPresenting.self, arguments: item, successCompletion) else { preconditionFailure() }
+    func makeGroceryItemViewController(itemURI: URL?, listURI: URL, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController {
+        guard let presenter = resolver.resolve(GroceryItemPresenting.self, arguments: itemURI, listURI, successCompletion)
+        else { preconditionFailure() }
         return GroceryItemViewController(presenter: presenter)
     }
 }

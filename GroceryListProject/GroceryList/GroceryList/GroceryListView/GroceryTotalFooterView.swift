@@ -7,11 +7,11 @@
 
 import Stevia
 
-final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView {
+final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdentifiable {
 
     // Static properties
 
-    public override class var reuseIdentifier: String { "GroceryTotalFooterView" }
+    static let reuseIdentifier: String = "GroceryTotalFooterView"
     static let rowHeight: CGFloat = 44.0
 
     // Properties

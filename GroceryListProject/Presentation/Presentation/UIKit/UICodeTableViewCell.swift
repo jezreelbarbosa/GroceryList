@@ -9,8 +9,6 @@ import UIKit
 
 open class UICodeTableViewCell: UITableViewCell {
 
-    open class var reuseIdentifier: String { String(describing: self) }
-
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 

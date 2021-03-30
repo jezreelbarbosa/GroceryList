@@ -7,7 +7,7 @@
 
 public protocol GetGroceryListUseCaseProtocol {
 
-    func execute(id: UUID) -> Result<GroceryListModel, Error>
+    func execute(uri: URL) -> Result<GroceryListModel, Error>
 }
 
 public class GetGroceryListUseCase {
@@ -21,7 +21,7 @@ public class GetGroceryListUseCase {
 
 extension GetGroceryListUseCase: GetGroceryListUseCaseProtocol {
 
-    public func execute(id: UUID) -> Result<GroceryListModel, Error> {
-        repository.getGroceryList(id: id)
+    public func execute(uri: URL) -> Result<GroceryListModel, Error> {
+        repository.getGroceryList(uri: uri)
     }
 }

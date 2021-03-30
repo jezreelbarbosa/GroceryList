@@ -35,6 +35,7 @@ final class MainListView: UICodeView {
         tableView.style { s in
             s.backgroundColor = .clear
             s.separatorStyle = .singleLine
+            s.tableFooterView = UIView()
         }
     }
 

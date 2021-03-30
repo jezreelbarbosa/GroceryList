@@ -17,4 +17,12 @@ extension Optional {
             return false
         }
     }
+
+    public var isNil: Bool {
+        self == nil
+    }
+
+    public var isNotNil: Bool {
+        self != nil
+    }
 }

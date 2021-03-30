@@ -18,39 +18,35 @@ public class GroceriesRepository {
 
 extension GroceriesRepository: Domain.GroceriesRepository {
 
-    public func getGroceryMainList() -> Result<[GroceryListHeaderInfoResponse], Error> {
+    public func getGroceryMainList() -> Result<[GroceryListModel], Error> {
         local.getGroceryMainList().map { newSuccess in
-            newSuccess.map { response in
-                GroceryListHeaderInfoResponse(id: response.id, icon: response.icon, name: response.name, date: response.date)
-            }
+            newSuccess.map({ $0.toDomain })
         }
     }
 
     public func saveNewGroceryList(request: NewGroceryListRequest) -> Result<Void, Error> {
-        let requestDTO = GroceryListCompleteInfoResponseDTO(
-            id: UUID(), icon: request.icon, name: request.name, date: request.date, items: []
-        )
+        let requestDTO = GroceryListDTO(from: request)
         return local.saveNewGroceryList(request: requestDTO)
     }
 
-    public func removeGroceryList(id: UUID) -> Result<Void, Error> {
-        local.removeGroceryList(id: id)
+    public func removeGroceryList(uri: URL) -> Result<Void, Error> {
+        local.removeGroceryList(uri: uri)
     }
 
-    public func getGroceryList(id: UUID) -> Result<GroceryListModel, Error> {
-        local.getGroceryList(id: id).map { newSuccess in
-            GroceryListModel(id: newSuccess.id, name: newSuccess.name, items: newSuccess.items.map { item in
-                GroceryItemModel(id: item.id, listID: newSuccess.id, name: item.name, quantity: item.quantity,
-                                 unit: GroceryItemModel.Unit(rawValue: item.unit) ?? .unit, price: item.price)
-            })
-        }
+    public func getGroceryList(uri: URL) -> Result<GroceryListModel, Error> {
+        local.getGroceryList(uri: uri).map({ $0.toDomain })
     }
 
-    public func updateGroceryList(model: GroceryListModel) -> Result<Void, Error> {
-        local.update(groceryList: GroceryListUpdatedItemsDTO(from: model))
+    public func getGroceryItem(uri: URL) -> Result<GroceryItemModel, Error> {
+        local.getGroceryItem(uri: uri).map({ $0.toDomain })
     }
 
-    public func updateGroceryItem(model: GroceryItemModel) -> Result<Void, Error> {
-        local.update(groceryItem: GroceryItemDTO(from: model), listID: model.listID)
+    public func addOrUpdate(groceryItem: GroceryItemModel, into listURI: URL) -> Result<Void, Error> {
+        let requestDTO = GroceryItemDTO(from: groceryItem)
+        return local.addOrUpdate(groceryItem: requestDTO, into: listURI)
+    }
+
+    public func removeGroceryItem(uri: URL) -> Result<Void, Error> {
+        local.removeGroceryItem(uri: uri)
     }
 }

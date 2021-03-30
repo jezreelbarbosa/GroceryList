@@ -13,8 +13,8 @@ public protocol GroceryListCoordinatorDelegate: CoordinatorDelegate {}
 
 public protocol GroceryListVCFactory: DependencyFactory {
 
-    func makeGroceryListViewController(id: UUID) -> GroceryListViewController
-    func makeGroceryItemViewController(item: GroceryItemModel, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController
+    func makeGroceryListViewController(uri: URL) -> GroceryListViewController
+    func makeGroceryItemViewController(itemURI: URL?, listURI: URL, successCompletion: @escaping VoidCompletion) -> GroceryItemViewController
 }
 
 public class GroceryListCoordinator: NavigationCoordinator {
@@ -41,16 +41,20 @@ public class GroceryListCoordinator: NavigationCoordinator {
 
     // Functions
 
-    public func start(id: UUID) {
-        let viewController = viewControllersFactory.makeGroceryListViewController(id: id)
+    public func start() {
+        preconditionFailure("Must use start(uri:)")
+    }
+
+    public func start(uri: URL) {
+        let viewController = viewControllersFactory.makeGroceryListViewController(uri: uri)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
 
 extension GroceryListCoordinator: GroceryListCoordinating {
-
-    public func showItemView(item: GroceryItemModel, successCompletion: @escaping VoidCompletion) {
-        let viewController = viewControllersFactory.makeGroceryItemViewController(item: item, successCompletion: successCompletion)
+    public func showItemView(itemURI: URL?, listURI: URL, successCompletion: @escaping VoidCompletion) {
+        let viewController = viewControllersFactory.makeGroceryItemViewController(itemURI: itemURI, listURI: listURI,
+                                                                                  successCompletion: successCompletion)
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalTransitionStyle = .coverVertical
         navigationController.modalPresentationStyle = .fullScreen

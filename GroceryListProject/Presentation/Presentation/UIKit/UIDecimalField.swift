@@ -8,31 +8,52 @@
 import UIKit
 
 open class UIDecimalField: UITextField {
-    // Static Properties
-    // Static Methods
-    // Public Types
-    // Public Properties
+
+    // Properties
 
     public final var decimal: Decimal {
-        get {
-            decimalFromString / pow(10, numberFormatter.maximumFractionDigits)
-        }
-        set {
-            text = numberFormatter.string(for: newValue)
-        }
+        get { decimalFromString / pow(10, numberFormatter.maximumFractionDigits) }
+        set { text = numberFormatter.string(for: newValue) }
     }
-
     public final var maximum: Decimal = 999_999_999.999999
-
     public final var numberFormatter = NumberFormatter() {
         didSet { sendActions(for: .editingChanged) }
     }
-
     public var isPlaceholderShownWhenValueIsZero: Bool = true {
         didSet { sendActions(for: .editingChanged) }
     }
 
-    // Public Methods
+    private var lastValue: String?
+    private var string: String { text ?? "" }
+    private var stringFromDecimal: String { numberFormatter.string(for: decimal) ?? "" }
+    private var decimalFromString: Decimal { Decimal(string: digits) ?? 0 }
+    private var digits: String { string.filter({ $0.isWholeNumber }) }
+    private var maximumFraction: Decimal { maximum / pow(10, numberFormatter.maximumFractionDigits)}
+    private let selectionButton = UIButton()
+
+    // Lifecycle
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        initView()
+    }
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+
+        initView()
+    }
+
+    // Override
+
+    open override func deleteBackward() {
+        super.deleteBackward()
+
+        sendActions(for: .editingChanged)
+    }
+
+    // Functions
 
     @objc public func editingChanged() {
         guard decimal <= maximumFraction else {
@@ -47,43 +68,6 @@ open class UIDecimalField: UITextField {
             lastValue = text
         }
     }
-
-    // Initialization/Lifecycle Methods
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        initView()
-    }
-
-    required public init?(coder: NSCoder) {
-        super.init(coder: coder)
-
-        initView()
-    }
-
-    // Override Methods
-
-    open override func deleteBackward() {
-        super.deleteBackward()
-
-        sendActions(for: .editingChanged)
-    }
-
-    // Private Types
-    // Private Properties
-
-    private var lastValue: String?
-
-    private var string: String { text ?? "" }
-    private var stringFromDecimal: String { numberFormatter.string(for: decimal) ?? "" }
-    private var decimalFromString: Decimal { Decimal(string: digits) ?? 0 }
-    private var digits: String { string.filter({ $0.isWholeNumber }) }
-    private var maximumFraction: Decimal { maximum / pow(10, numberFormatter.maximumFractionDigits)}
-
-    private let selectionButton = UIButton()
-
-    // Private Methods
 
     private func initView() {
         addSubview(selectionButton)

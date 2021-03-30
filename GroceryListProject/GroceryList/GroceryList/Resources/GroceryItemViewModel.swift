@@ -9,6 +9,8 @@ import Domain
 
 struct GroceryItemViewModel {
 
+    let uri: URL?
+
     let name: String
     let details: String
     let totalPrice: String
@@ -16,6 +18,7 @@ struct GroceryItemViewModel {
     let totalDecimalPrice: Decimal
 
     init(from model: GroceryItemModel) {
+        self.uri = model.uri
         self.name = model.name
 
         let numberFormatter = NumberFormatter()

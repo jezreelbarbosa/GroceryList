@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D45FEC82612B6CB00F14702 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45FEC72612B6CB00F14702 /* Array+Extension.swift */; };
 		0D615B9B25DDE08D00868E66 /* UICodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */; };
-		0D615C0325DDE1E100868E66 /* Mask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615C0225DDE1E100868E66 /* Mask+Extension.swift */; };
 		0D7EADBD25EB0E0E00A97CC2 /* SFProText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */; };
 		0D7EADC925EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */; };
 		0DE0B57E25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0B57D25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf */; };
@@ -34,7 +34,6 @@
 		0DF40B3225A7AE7E0005609F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2025A7AE7E0005609F /* Box.swift */; };
 		0DF40B3325A7AE7E0005609F /* UIDecimalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2225A7AE7E0005609F /* UIDecimalField.swift */; };
 		0DF40B3425A7AE7E0005609F /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2525A7AE7E0005609F /* UIAlertController+Extension.swift */; };
-		0DF40B3525A7AE7E0005609F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2625A7AE7E0005609F /* UIFont+Extension.swift */; };
 		0DF40B3625A7AE7E0005609F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2725A7AE7E0005609F /* UIColor+Extension.swift */; };
 		0DF40B3725A7AE7E0005609F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2825A7AE7E0005609F /* UIView+Extension.swift */; };
 		0DF40B3825A7AE7E0005609F /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF40B2925A7AE7E0005609F /* UINavigationController+Extension.swift */; };
@@ -45,6 +44,7 @@
 		0DF4DB0A25AA05A90076D0EB /* UICodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB0925AA05A90076D0EB /* UICodeView.swift */; };
 		0DF4DB1425AA2D4E0076D0EB /* UICodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB1325AA2D4E0076D0EB /* UICodeTableViewCell.swift */; };
 		0DF4DC3525AA4DE80076D0EB /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DC3425AA4DE80076D0EB /* UITableView+Extension.swift */; };
+		0DF5A35B2600322300400C06 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5A35A2600322300400C06 /* ReuseIdentifiable.swift */; };
 		7A1B01834214BD5F1243DF56 /* Pods_Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133858936F2E416F5C84FBF1 /* Pods_Presentation.framework */; };
 		B51678155F4DE5FBBE60F88A /* Pods_Presentation_PresentationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387A42608BA0AD86508AE8DC /* Pods_Presentation_PresentationTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,10 +61,11 @@
 
 /* Begin PBXFileReference section */
 		0997657ACCDD93A2F9F25B44 /* Pods-Presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.debug.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.debug.xcconfig"; sourceTree = "<group>"; };
+		0D45FEC72612B6CB00F14702 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeTextField.swift; sourceTree = "<group>"; };
-		0D615C0225DDE1E100868E66 /* Mask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mask+Extension.swift"; sourceTree = "<group>"; };
 		0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.otf"; sourceTree = "<group>"; };
 		0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		0DC102CD25FC0583000AF5A6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0DE0B57D25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.otf"; sourceTree = "<group>"; };
 		0DE0B58225C5DED800ADF4C7 /* SFProDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFProDisplay.swift; sourceTree = "<group>"; };
 		0DE0B58625C5DF8900ADF4C7 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		0DF40B2025A7AE7E0005609F /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		0DF40B2225A7AE7E0005609F /* UIDecimalField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDecimalField.swift; sourceTree = "<group>"; };
 		0DF40B2525A7AE7E0005609F /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
-		0DF40B2625A7AE7E0005609F /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		0DF40B2725A7AE7E0005609F /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0DF40B2825A7AE7E0005609F /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0DF40B2925A7AE7E0005609F /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -103,6 +103,7 @@
 		0DF4DB0925AA05A90076D0EB /* UICodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeView.swift; sourceTree = "<group>"; };
 		0DF4DB1325AA2D4E0076D0EB /* UICodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeTableViewCell.swift; sourceTree = "<group>"; };
 		0DF4DC3425AA4DE80076D0EB /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		0DF5A35A2600322300400C06 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		133858936F2E416F5C84FBF1 /* Pods_Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C43CCF8A0AD1C329C3FD44 /* Pods-Presentation-PresentationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation-PresentationTests.release.xcconfig"; path = "Target Support Files/Pods-Presentation-PresentationTests/Pods-Presentation-PresentationTests.release.xcconfig"; sourceTree = "<group>"; };
 		387A42608BA0AD86508AE8DC /* Pods_Presentation_PresentationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Presentation_PresentationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,14 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D615C0125DDE1C300868E66 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0D615C0225DDE1E100868E66 /* Mask+Extension.swift */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		0DE0B58125C5DEB300ADF4C7 /* SFProDisplay */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE0B59A25C6299A00ADF4C7 /* String+Extension.swift */,
+				0D45FEC72612B6CB00F14702 /* Array+Extension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -188,6 +182,7 @@
 				0DF40B0625A7AD7C0005609F /* Fonts */,
 				0DF40B2325A7AE7E0005609F /* Extensions */,
 				0DF40B2D25A7AE7E0005609F /* LocalizedString */,
+				0DF5A3592600320B00400C06 /* Protocols */,
 				0DF40B2125A7AE7E0005609F /* UIKit */,
 				0DF40B1F25A7AE7E0005609F /* Utils */,
 				0DF4093125A74EB10005609F /* Presentation.h */,
@@ -276,9 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				0DF40B2225A7AE7E0005609F /* UIDecimalField.swift */,
+				0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */,
 				0DF4DB0925AA05A90076D0EB /* UICodeView.swift */,
 				0DF4DB1325AA2D4E0076D0EB /* UICodeTableViewCell.swift */,
-				0D615B9A25DDE08D00868E66 /* UICodeTextField.swift */,
 				0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */,
 			);
 			path = UIKit;
@@ -289,7 +284,6 @@
 			children = (
 				0DE0B59925C6298C00ADF4C7 /* Foundation */,
 				0DF40B2425A7AE7E0005609F /* UIKit */,
-				0D615C0125DDE1C300868E66 /* Pods */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,7 +291,6 @@
 		0DF40B2425A7AE7E0005609F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				0DF40B2625A7AE7E0005609F /* UIFont+Extension.swift */,
 				0DF40B2725A7AE7E0005609F /* UIColor+Extension.swift */,
 				0DF40B2825A7AE7E0005609F /* UIView+Extension.swift */,
 				0DF40B2925A7AE7E0005609F /* UINavigationController+Extension.swift */,
@@ -316,6 +309,14 @@
 				0DF40B4025A7B1800005609F /* PresentationTexts.swift */,
 			);
 			path = LocalizedString;
+			sourceTree = "<group>";
+		};
+		0DF5A3592600320B00400C06 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0DF5A35A2600322300400C06 /* ReuseIdentifiable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8A1EBB5EA19EA7475146B449 /* Pods */ = {
@@ -409,6 +410,7 @@
 				en,
 				Base,
 				"pt-BR",
+				fr,
 			);
 			mainGroup = 0DF4092425A74EB10005609F;
 			productRefGroup = 0DF4092F25A74EB10005609F /* Products */;
@@ -518,20 +520,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF5A35B2600322300400C06 /* ReuseIdentifiable.swift in Sources */,
 				0DF40B3725A7AE7E0005609F /* UIView+Extension.swift in Sources */,
 				0DF40B3925A7AE7E0005609F /* UIViewController+Extension.swift in Sources */,
 				0DF40AFA25A7A8E40005609F /* Assets.swift in Sources */,
 				0DF40B3325A7AE7E0005609F /* UIDecimalField.swift in Sources */,
 				0DF40B4125A7B1800005609F /* PresentationTexts.swift in Sources */,
-				0D615C0325DDE1E100868E66 /* Mask+Extension.swift in Sources */,
 				0DF40B3425A7AE7E0005609F /* UIAlertController+Extension.swift in Sources */,
 				0DF40B1A25A7ADFB0005609F /* SFProText.swift in Sources */,
 				0D615B9B25DDE08D00868E66 /* UICodeTextField.swift in Sources */,
 				0DF40B0125A7A94E0005609F /* Colors.swift in Sources */,
 				0DE0B59B25C6299A00ADF4C7 /* String+Extension.swift in Sources */,
 				0DF40B3225A7AE7E0005609F /* Box.swift in Sources */,
-				0DF40B3525A7AE7E0005609F /* UIFont+Extension.swift in Sources */,
 				0DF40B0825A7AD910005609F /* Font.swift in Sources */,
+				0D45FEC82612B6CB00F14702 /* Array+Extension.swift in Sources */,
 				0DF4DC3525AA4DE80076D0EB /* UITableView+Extension.swift in Sources */,
 				0DE0B58325C5DED800ADF4C7 /* SFProDisplay.swift in Sources */,
 				0DF40B1425A7ADFB0005609F /* NewYorkLarge.swift in Sources */,
@@ -568,6 +570,7 @@
 			children = (
 				0DF40B2F25A7AE7E0005609F /* en */,
 				0DF40B3125A7AE7E0005609F /* pt-BR */,
+				0DC102CD25FC0583000AF5A6 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

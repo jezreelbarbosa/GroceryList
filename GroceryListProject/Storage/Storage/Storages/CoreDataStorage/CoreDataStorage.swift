@@ -29,13 +29,4 @@ public class CoreDataStorage: CoreDataStoring {
 
         self.persistentContainer = container
     }
-
-    public enum ValueKeyable: String, Keyable, CaseIterable {
-
-        case groceryListEntity = "GroceryListEntity"
-
-        public var key: String {
-            return rawValue
-        }
-    }
 }

@@ -7,11 +7,11 @@
 
 import Stevia
 
-final class GroceryItemTableViewCell: UICodeTableViewCell {
+final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     // Static properties
 
-    public override class var reuseIdentifier: String { "GroceryItemTableViewCell" }
+    static let reuseIdentifier: String = "GroceryItemTableViewCell"
     static let rowHeight: CGFloat = 72.0
 
     // Properties

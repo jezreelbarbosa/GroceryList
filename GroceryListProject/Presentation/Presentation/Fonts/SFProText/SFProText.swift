@@ -15,7 +15,7 @@ public enum SFProTextFontWeight: CaseIterable {
         if isDispachedOnce { return }
         isDispachedOnce.toggle()
         allCases.forEach { font in
-            UIFont.register(path: "", fileNameString: font.name, type: ".otf")
+            Font.register(path: "", fileNameString: font.name, type: ".otf")
         }
     }
 

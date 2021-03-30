@@ -10,6 +10,7 @@
 		0D05394525D6EC9500478D0A /* Keyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05394425D6EC9400478D0A /* Keyable.swift */; };
 		0D05394E25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */; };
 		0D05395B25D6EDDB00478D0A /* CoreDataStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */; };
+		0D45FF112613B4A900F14702 /* EntityNameble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45FF102613B4A900F14702 /* EntityNameble.swift */; };
 		0D63AEFE25DBF87A004DC196 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */; };
 		0D63AF4B25DC4A34004DC196 /* StorageErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */; };
 		0D63AFE325DC4C61004DC196 /* AppData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4085625A74BBB0005609F /* AppData.framework */; };
@@ -24,6 +25,8 @@
 		0DF4081B25A74B050005609F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF4081A25A74B050005609F /* Preview Assets.xcassets */; };
 		0DF4084E25A74BB30005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4080225A74A8E0005609F /* Common.framework */; };
 		0DF4085725A74BBB0005609F /* AppData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4085625A74BBB0005609F /* AppData.framework */; };
+		0DFD70A625F6EE0600FC3C09 /* GroceryListEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD70A425F6EE0600FC3C09 /* GroceryListEntity+CoreDataClass.swift */; };
+		0DFD70AD25F6EE9C00FC3C09 /* GroceryItemEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD70AB25F6EE9C00FC3C09 /* GroceryItemEntity+CoreDataClass.swift */; };
 		3F94E66BE7EFADF98C83B13C /* Pods_Storage_StorageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5FDE451B74CB3B0C0134468 /* Pods_Storage_StorageTests.framework */; };
 		8300BBED147C23E88580BE8E /* Pods_Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D406343822E23F9648FB86E /* Pods_Storage.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +46,7 @@
 		0D05394425D6EC9400478D0A /* Keyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyable.swift; sourceTree = "<group>"; };
 		0D05394D25D6ED8500478D0A /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStoring.swift; sourceTree = "<group>"; };
+		0D45FF102613B4A900F14702 /* EntityNameble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityNameble.swift; sourceTree = "<group>"; };
 		0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		0D63AF4A25DC4A34004DC196 /* StorageErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageErrors.swift; sourceTree = "<group>"; };
 		0D83156125D5B9B200825277 /* GroceriesLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesLocalDataSource.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		0DF4081A25A74B050005609F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DF4081C25A74B050005609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DF4085625A74BBB0005609F /* AppData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DFD70A425F6EE0600FC3C09 /* GroceryListEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroceryListEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0DFD70AB25F6EE9C00FC3C09 /* GroceryItemEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroceryItemEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		64615BFA1D272CD9952D2EA4 /* Pods-Storage-StorageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage-StorageTests.release.xcconfig"; path = "Target Support Files/Pods-Storage-StorageTests/Pods-Storage-StorageTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D406343822E23F9648FB86E /* Pods_Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FDE451B74CB3B0C0134468 /* Pods_Storage_StorageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Storage_StorageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +108,7 @@
 		0D05394225D6EBF200478D0A /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */,
-				0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */,
+				0D49D01125F65BF000138953 /* CoreDataStorage */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -115,6 +120,17 @@
 				0D05395A25D6EDDB00478D0A /* CoreDataStoring.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0D49D01125F65BF000138953 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				0D45FF102613B4A900F14702 /* EntityNameble.swift */,
+				0D63AEFD25DBF87A004DC196 /* CoreDataStorage.swift */,
+				0D05394C25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld */,
+				0DFD70A325F6EE0600FC3C09 /* Entities */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		0D63AF4925DC4A22004DC196 /* Supporting */ = {
@@ -206,6 +222,15 @@
 				0DF4081A25A74B050005609F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0DFD70A325F6EE0600FC3C09 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0DFD70A425F6EE0600FC3C09 /* GroceryListEntity+CoreDataClass.swift */,
+				0DFD70AB25F6EE9C00FC3C09 /* GroceryItemEntity+CoreDataClass.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C5F52C54A8E7D6859D66D48D /* Pods */ = {
@@ -427,8 +452,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D63AEFE25DBF87A004DC196 /* CoreDataStorage.swift in Sources */,
+				0DFD70A625F6EE0600FC3C09 /* GroceryListEntity+CoreDataClass.swift in Sources */,
 				0D83156225D5B9B200825277 /* GroceriesLocalDataSource.swift in Sources */,
+				0D45FF112613B4A900F14702 /* EntityNameble.swift in Sources */,
 				0D05395B25D6EDDB00478D0A /* CoreDataStoring.swift in Sources */,
+				0DFD70AD25F6EE9C00FC3C09 /* GroceryItemEntity+CoreDataClass.swift in Sources */,
 				0D05394E25D6ED8500478D0A /* CoreDataStorage.xcdatamodeld in Sources */,
 				0D63AF4B25DC4A34004DC196 /* StorageErrors.swift in Sources */,
 				0D05394525D6EC9500478D0A /* Keyable.swift in Sources */,

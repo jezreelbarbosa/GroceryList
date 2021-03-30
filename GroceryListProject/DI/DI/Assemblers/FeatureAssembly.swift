@@ -30,17 +30,18 @@ class FeatureAssembly {
         let coordinator = container.resolveSafe(GroceryListCoordinator.self)
         container.register(GroceryListCoordinating.self) { _ in coordinator }
 
-        container.register(GroceryListPresenting.self) { (resolver: Resolver, id: UUID) in
+        container.register(GroceryListPresenting.self) { (resolver: Resolver, uri: URL) in
             GroceryListPresenter(
-                groceryListID: id, coordinator: coordinator,
+                groceryListURI: uri, coordinator: coordinator,
                 getGroceryListUseCase: resolver.resolveSafe(GetGroceryListUseCaseProtocol.self),
-                updateGroceryListUseCase: resolver.resolveSafe(UpdateGroceryListUseCaseProtocol.self)
+                removeGroceryItemUseCase: resolver.resolveSafe(RemoveGroceryItemUseCaseProtocol.self)
             )
         }
-        container.register(GroceryItemPresenting.self) { (resolver: Resolver, item: GroceryItemModel, successCompletion: @escaping VoidCompletion) in
+        container.register(GroceryItemPresenting.self) { (resolver: Resolver, uri: URL?, listURI: URL, successCompletion: @escaping VoidCompletion) in
             GroceryItemPresenter(
                 insertGroceryItemIntoListUseCase: resolver.resolveSafe(InsertGroceryItemIntoListUseCaseProtocol.self),
-                item: item, successCompletion: successCompletion
+                getGroceryItemUseCase: resolver.resolveSafe(GetGroceryItemUseCaseProtocol.self),
+                itemURI: uri, listURI: listURI, successCompletion: successCompletion
             )
         }
     }

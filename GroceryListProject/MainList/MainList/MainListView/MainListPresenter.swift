@@ -10,7 +10,7 @@ import Domain
 public protocol MainListCoordinating: AnyObject {
 
     func showNewListView(successCompletion: @escaping VoidCompletion)
-    func showGroceryList(id: UUID)
+    func showGroceryList(uri: URL)
     func didExit()
 }
 
@@ -28,7 +28,7 @@ public final class MainListPresenter {
     private let getGroceryMainListUseCase: GetGroceryMainListUseCaseProtocol
     private let removeGroceryListUseCase: RemoveGroceryListUseCaseProtocol
 
-    private var groceriesInfos: [GroceryListHeaderInfoResponse]
+    private var groceriesInfos: [GroceryListModel]
 
     // Lifecycle
 
@@ -76,7 +76,11 @@ extension MainListPresenter: MainListPresenting {
     }
 
     public func didSelected(row: Int) {
-        coordinator?.showGroceryList(id: groceriesInfos[row].id)
+        guard let uri = groceriesInfos.element(at: row)?.uri else {
+            self.errorMessageBox.value = "URI Error"
+            return
+        }
+        coordinator?.showGroceryList(uri: uri)
     }
 
     public func createNewList() {
@@ -86,7 +90,12 @@ extension MainListPresenter: MainListPresenting {
     }
 
     public func deleteItem(at row: Int) {
-        let result = removeGroceryListUseCase.execute(id: groceriesInfos[row].id)
+        guard let uri = groceriesInfos.element(at: row)?.uri else {
+            self.errorMessageBox.value = "URI Error"
+            return
+        }
+
+        let result = removeGroceryListUseCase.execute(uri: uri)
         result.successHandler { _ in
             self.updateList(hasToReloadTableView: false)
             self.removeRowBox.value = row

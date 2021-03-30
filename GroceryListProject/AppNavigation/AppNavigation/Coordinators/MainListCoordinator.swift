@@ -61,10 +61,10 @@ extension MainListCoordinator: MainListCoordinating {
         self.navigationController.present(navigationController, animated: true, completion: nil)
     }
 
-    public func showGroceryList(id: UUID) {
+    public func showGroceryList(uri: URL) {
         let coordinator = coordinatorFactory.makeGroceryListCoordinator()
         childCoordinators.append(coordinator)
-        coordinator.start(id: id)
+        coordinator.start(uri: uri)
     }
 
     public func didExit() {

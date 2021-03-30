@@ -6,19 +6,24 @@
 //
 
 public final class Box<T> {
-    // Static Properties
-    // Static Methods
-    // Public Types
 
     public typealias Listener = (T) -> Void
 
-    // Public Properties
+    // Properties
 
     public var value: T {
         didSet { fire() }
     }
 
-    // Public Methods
+    private var listener: Listener?
+
+    // Lifecycle
+
+    public init(_ value: T) {
+        self.value = value
+    }
+
+    // Functions
 
     public func bind(listener: Listener?) {
         self.listener = listener
@@ -32,18 +37,4 @@ public final class Box<T> {
         bind(listener: listener)
         fire()
     }
-
-    // Initialization/Lifecycle Methods
-
-    public init(_ value: T) {
-        self.value = value
-    }
-
-    // Override Methods
-    // Private Types
-    // Private Properties
-
-    private var listener: Listener?
-    
-    // Private Methods
 }

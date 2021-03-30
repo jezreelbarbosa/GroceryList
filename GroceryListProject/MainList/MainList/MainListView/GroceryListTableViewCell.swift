@@ -7,11 +7,11 @@
 
 import Stevia
 
-final class GroceryListTableViewCell: UICodeTableViewCell {
+final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     // Static properties
 
-    public override class var reuseIdentifier: String { "GroceryListTableViewCell" }
+    static let reuseIdentifier: String = "GroceryListTableViewCell"
     static let rowHeight: CGFloat = 80.0
 
     // Properties
@@ -126,12 +126,5 @@ final class GroceryListTableViewCell: UICodeTableViewCell {
             bottomSeparatorLine.isHidden = false
             bottomSeparatorLineHiddenStatus = false
         }
-    }
-
-    // Type
-
-    enum CellType {
-        case firstCell
-        case lastCell
     }
 }
