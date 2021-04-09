@@ -11,9 +11,7 @@ public protocol MainListPresenting {
 
     var groceriesBox: Box<[GroceryListHeaderInfoViewModel]> { get }
     var errorMessageBox: Box<String> { get }
-    var removeRowBox: Box<Int?> { get }
-
-    var reloadTableView: VoidCompletion { get set }
+    var reloadTableViewBox: Box<[Int]> { get }
 
     func updateList()
     func didSelected(row: Int)
@@ -21,23 +19,13 @@ public protocol MainListPresenting {
     func deleteItem(at row: Int)
 }
 
-public final class MainListViewController: UIViewController {
+public final class MainListViewController: UICodeViewController<MainListPresenting> {
 
     // Properties
 
     private lazy var mainView = MainListView()
-    private var presenter: MainListPresenting
 
     private var groceriesList: [GroceryListHeaderInfoViewModel] = []
-
-    // Lifecycle
-
-    public init(presenter: MainListPresenting) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) { fatalError() }
 
     // Override
 
@@ -83,17 +71,18 @@ public final class MainListViewController: UIViewController {
             self.presentAttentionAlert(withMessage: value)
         }
 
-        presenter.removeRowBox.bind { [unowned self] value in
-            guard let value = value else { return }
-
-            DispatchQueue.main.async {
-                self.mainView.tableView.deleteRows(at: [IndexPath(row: value, section: 0)], with: .fade)
-            }
-        }
-
-        presenter.reloadTableView = { [unowned self] in
-            DispatchQueue.main.async {
-                self.mainView.tableView.reloadData()
+        presenter.reloadTableViewBox.bind { [unowned self] removedRows in
+            if removedRows.isEmpty {
+                DispatchQueue.main.async {
+                    self.mainView.tableView.reloadData()
+                }
+            } else {
+                self.mainView.tableView.performBatchUpdates({
+                    let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
+                    self.mainView.tableView.deleteRows(at: indexes, with: .fade)
+                }, completion: { _ in
+                    self.mainView.tableView.reloadData()
+                })
             }
         }
     }

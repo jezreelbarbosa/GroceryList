@@ -9,8 +9,8 @@ import UIKit
 
 public extension UITableView {
 
-    func register<T: UITableViewCell & ReuseIdentifiable>(_ cellCodeClass: T.Type) {
-        self.register(cellCodeClass.self, forCellReuseIdentifier: cellCodeClass.reuseIdentifier)
+    func register<T: UITableViewCell & ReuseIdentifiable>(_ cellClass: T.Type) {
+        self.register(cellClass.self, forCellReuseIdentifier: cellClass.reuseIdentifier)
     }
 
     func dequeueReusableCell<T: UITableViewCell & ReuseIdentifiable>(_ reusableCell: T.Type) -> T {
@@ -20,8 +20,8 @@ public extension UITableView {
         return cell
     }
 
-    func register<T: UITableViewHeaderFooterView & ReuseIdentifiable>(_ headerFooterCellCodeClass: T.Type) {
-        self.register(headerFooterCellCodeClass.self, forHeaderFooterViewReuseIdentifier: headerFooterCellCodeClass.reuseIdentifier)
+    func register<T: UITableViewHeaderFooterView & ReuseIdentifiable>(_ headerFooterCellClass: T.Type) {
+        self.register(headerFooterCellClass.self, forHeaderFooterViewReuseIdentifier: headerFooterCellClass.reuseIdentifier)
     }
 
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView & ReuseIdentifiable>(_ reusableCell: T.Type) -> T {

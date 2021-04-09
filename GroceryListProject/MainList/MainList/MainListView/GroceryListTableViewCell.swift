@@ -51,8 +51,9 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         titleLabel.Bottom == dateLabel.Top - 8
         dateLabel.leading(0).trailing(0).bottom(0)
 
-        topSeparatorLine.leading(0).top(0).height(0.5).width(78)
-        bottomSeparatorLine.leading(0).bottom(0).height(0.5).width(78)
+        let separatorHeight = 1.0 / UIScreen.main.scale
+        topSeparatorLine.leading(0).top(0).height(separatorHeight).width(78)
+        bottomSeparatorLine.leading(0).bottom(0).height(separatorHeight).width(78)
 
         layoutIfNeeded()
     }
@@ -102,11 +103,11 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         bottomSeparatorLineHiddenStatus = true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
 
-        topSeparatorLine.isHidden = selected ? true : topSeparatorLineHiddenStatus
-        bottomSeparatorLine.isHidden = selected ? true : bottomSeparatorLineHiddenStatus
+        topSeparatorLine.isHidden = highlighted ? true : topSeparatorLineHiddenStatus
+        bottomSeparatorLine.isHidden = highlighted ? true : bottomSeparatorLineHiddenStatus
     }
 
     // Functions

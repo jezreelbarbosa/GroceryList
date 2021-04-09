@@ -20,9 +20,8 @@ public final class GroceryListPresenter {
     weak var coordinator: GroceryListCoordinating?
 
     public var errorMessageBox: Box<String>
-    public var removeRowBox: Box<Int?>
     public var groceryListBox: Box<GroceryListViewModel>
-    public var reloadTableView: VoidCompletion
+    public let reloadTableViewBox: Box<[Int]>
 
     let groceryListURI: URL
     var groceryListModel: GroceryListModel
@@ -41,9 +40,8 @@ public final class GroceryListPresenter {
         self.removeGroceryItemUseCase = removeGroceryItemUseCase
 
         self.errorMessageBox = Box(.defaultValue)
-        self.removeRowBox = Box(nil)
         self.groceryListBox = Box(GroceryListViewModel.empty)
-        self.reloadTableView = {}
+        self.reloadTableViewBox = Box([])
 
         if let model = getGroceryListUseCase.execute(uri: groceryListURI).success {
             self.groceryListModel = model
@@ -58,18 +56,16 @@ public final class GroceryListPresenter {
 
     // Functions
 
-    func updateList(hasToReloadTableView: Bool) {
+    func updateList(removingRows: [Int]) {
         let result = getGroceryListUseCase.execute(uri: groceryListURI)
         result.successHandler { model in
             self.groceryListModel = model
             self.groceryListBox.value = GroceryListViewModel(from: model)
+
+            self.reloadTableViewBox.value = removingRows
         }
         result.failureHandler { error in
             self.errorMessageBox.value = error.localizedDescription
-        }
-
-        if hasToReloadTableView {
-            self.reloadTableView()
         }
     }
 }
@@ -77,7 +73,7 @@ public final class GroceryListPresenter {
 extension GroceryListPresenter: GroceryListPresenting {
 
     public func updateList() {
-        self.updateList(hasToReloadTableView: true)
+        self.updateList(removingRows: [])
     }
 
     public func deleteItem(at row: Int) {
@@ -87,8 +83,7 @@ extension GroceryListPresenter: GroceryListPresenting {
         }
         let result = removeGroceryItemUseCase.execute(uri: uri)
         result.successHandler { _ in
-            self.updateList(hasToReloadTableView: false)
-            self.removeRowBox.value = row
+            self.updateList(removingRows: [row])
         }
         result.failureHandler { error in
             self.errorMessageBox.value = error.localizedDescription
@@ -101,13 +96,13 @@ extension GroceryListPresenter: GroceryListPresenting {
             return
         }
         coordinator?.showItemView(itemURI: uri, listURI: groceryListURI) {
-            self.updateList(hasToReloadTableView: true)
+            self.updateList()
         }
     }
 
     public func createNewItem() {
         coordinator?.showItemView(itemURI: nil, listURI: groceryListURI) {
-            self.updateList(hasToReloadTableView: true)
+            self.updateList()
         }
     }
 }

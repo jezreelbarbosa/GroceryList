@@ -15,21 +15,11 @@ public protocol GroceryItemPresenting {
     func updateGroceryItem(item: GroceryItemUpdateRequest, successCompletion: () -> Void)
 }
 
-public class GroceryItemViewController: UIViewController {
+public class GroceryItemViewController: UICodeViewController<GroceryItemPresenting> {
 
     // Properties
 
     private lazy var mainView = GroceryItemView()
-    private let presenter: GroceryItemPresenting
-
-    // Lifecycle
-
-    public init(presenter: GroceryItemPresenting) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) { fatalError() }
 
     // Override
 

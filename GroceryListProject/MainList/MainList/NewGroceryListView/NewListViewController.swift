@@ -14,21 +14,11 @@ public protocol NewListPresenting {
     func createNewGroceryList(model: NewGroceryListHeaderViewModel, successCompletion: () -> Void)
 }
 
-public class NewListViewController: UIViewController {
+public class NewListViewController: UICodeViewController<NewListPresenting> {
 
     // Properties
 
     private lazy var mainView = NewListView()
-    private let presenter: NewListPresenting
-
-    // Lifecycle
-
-    public init(presenter: NewListPresenting) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) { fatalError() }
 
     // Override
 

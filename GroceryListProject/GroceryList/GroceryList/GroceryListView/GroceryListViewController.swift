@@ -10,9 +10,8 @@ import UIKit
 public protocol GroceryListPresenting {
 
     var errorMessageBox: Box<String> { get }
-    var removeRowBox: Box<Int?> { get }
     var groceryListBox: Box<GroceryListViewModel> { get }
-    var reloadTableView: VoidCompletion { get set }
+    var reloadTableViewBox: Box<[Int]> { get }
 
     func updateList()
     func deleteItem(at row: Int)
@@ -20,25 +19,13 @@ public protocol GroceryListPresenting {
     func createNewItem()
 }
 
-public class GroceryListViewController: UIViewController {
+public class GroceryListViewController: UICodeViewController<GroceryListPresenting> {
 
     // Properties
 
     private lazy var mainView = GroceryListView()
-    private var presenter: GroceryListPresenting
 
-    private var groceryList: GroceryListViewModel
-
-    // Lifecycle
-
-    public init(presenter: GroceryListPresenting) {
-        self.presenter = presenter
-        self.groceryList = presenter.groceryListBox.value
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) { fatalError() }
+    private var groceryList: GroceryListViewModel = .empty
 
     // Override
 
@@ -57,6 +44,7 @@ public class GroceryListViewController: UIViewController {
         super.viewWillAppear(animated)
 
         presenter.updateList()
+        mainView.tableView.selectRow(at: nil, animated: animated, scrollPosition: .none)
     }
 
     // Functions
@@ -66,7 +54,6 @@ public class GroceryListViewController: UIViewController {
         mainView.tableView.delegate = self
         mainView.tableView.register(GroceryItemTableViewCell.self)
         mainView.tableView.register(GroceryTotalFooterView.self)
-        mainView.tableView.tableFooterView = UIView()
 
         navigationItem.largeTitleDisplayMode = .never
 
@@ -79,24 +66,24 @@ public class GroceryListViewController: UIViewController {
             self.presentAttentionAlert(withMessage: value)
         }
 
-        presenter.removeRowBox.bind { [unowned self] value in
-            guard let value = value else { return }
-
-            DispatchQueue.main.async {
-                self.mainView.tableView.deleteRows(at: [IndexPath(row: value, section: 0)], with: .fade)
-                self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self).fill(total: groceryList.totalPrice)
-            }
-        }
-
-        presenter.reloadTableView = { [unowned self] in
-            DispatchQueue.main.async {
-                self.mainView.tableView.reloadData()
-            }
-        }
-
         presenter.groceryListBox.bind { [unowned self] value in
             self.navigationItem.title = value.listName
             self.groceryList = value
+        }
+        
+        presenter.reloadTableViewBox.bind { [unowned self] removedRows in
+            if removedRows.isEmpty {
+                DispatchQueue.main.async {
+                    self.mainView.tableView.reloadData()
+                }
+            } else {
+                self.mainView.tableView.performBatchUpdates({
+                    let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
+                    self.mainView.tableView.deleteRows(at: indexes, with: .fade)
+                }, completion: { _ in
+                    self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self).fill(total: groceryList.totalPrice)
+                })
+            }
         }
     }
 

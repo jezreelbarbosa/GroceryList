@@ -48,7 +48,7 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     public override func initStyle() {
         style { s in
-            s.selectionStyle = .none
+            s.selectionStyle = .default
             s.backgroundColor = Resources.Colors.cellBackgroundColor
         }
 
