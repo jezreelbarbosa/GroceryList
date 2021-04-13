@@ -110,22 +110,22 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         bottomSeparatorLine.isHidden = highlighted ? true : bottomSeparatorLineHiddenStatus
     }
 
+    override func didSet(isFirstCell: Bool, isLastCell: Bool) {
+        if isFirstCell {
+            topSeparatorLine.isHidden = false
+            topSeparatorLineHiddenStatus = false
+        }
+        if isLastCell {
+            bottomSeparatorLine.isHidden = false
+            bottomSeparatorLineHiddenStatus = false
+        }
+    }
+
     // Functions
 
     func fill(model: GroceryListHeaderInfoViewModel) {
         iconLabel.text = model.icon
         titleLabel.text = model.name
         dateLabel.text = model.date
-    }
-
-    func setFirstLastCellFor(row: Int, count: Int) {
-        if row == 0 {
-            topSeparatorLine.isHidden = false
-            topSeparatorLineHiddenStatus = false
-        }
-        if count == row + 1 {
-            bottomSeparatorLine.isHidden = false
-            bottomSeparatorLineHiddenStatus = false
-        }
     }
 }

@@ -117,13 +117,17 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
         presenter.didSelected(row: indexPath.row)
     }
 
-    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            presenter.deleteItem(at: indexPath.row)
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.deleteAction(style: .image) { [unowned self] (_, _, completion) in
+            self.presenter.deleteItem(at: indexPath.row)
+            completion(true)
         }
+
+        let editAction = UIContextualAction.editAction(style: .image) { (_, _, completion) in
+            // TODO: presenter to edit screen
+            completion(true)
+        }
+
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }
