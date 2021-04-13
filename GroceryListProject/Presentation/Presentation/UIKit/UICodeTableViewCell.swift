@@ -22,4 +22,13 @@ open class UICodeTableViewCell: UITableViewCell {
     open func initSubViews() {}
     open func initLayout() {}
     open func initStyle() {}
+
+    open func didSet(isFirstCell: Bool, isLastCell: Bool) {}
+}
+
+public extension UICodeTableViewCell {
+
+    final func setFirstLastCellFor(row: Int, count: Int) {
+        didSet(isFirstCell: row == 0, isLastCell: count == row + 1)
+    }
 }
