@@ -18,10 +18,10 @@ public extension UIContextualAction {
     static func deleteAction(style: UIStyle, handler: @escaping UIContextualAction.Handler) -> UIContextualAction {
         let deleteAction = UIContextualAction(style: .destructive, title: nil, handler: handler)
         switch style {
-            case .image:
-                deleteAction.image = Assets.System.trash.image
-            case .text:
-                deleteAction.title = Texts.deleteAction.localizedText
+        case .image:
+            deleteAction.image = Assets.System.trash.image
+        case .text:
+            deleteAction.title = Texts.deleteAction.localizedText
         }
         return deleteAction
     }
@@ -29,10 +29,10 @@ public extension UIContextualAction {
     static func editAction(style: UIStyle, handler: @escaping UIContextualAction.Handler) -> UIContextualAction {
         let editAction = UIContextualAction(style: .normal, title: nil, handler: handler)
         switch style {
-            case .image:
-                editAction.image = Assets.System.pencil.image
-            case .text:
-                editAction.title = Texts.editAction.localizedText
+        case .image:
+            editAction.image = Assets.System.pencil.image
+        case .text:
+            editAction.title = Texts.editAction.localizedText
         }
         return editAction
     }
