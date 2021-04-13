@@ -21,7 +21,9 @@ extension AssetImage where RawValue == String {
 
 public final class Assets {
 
-    public enum Basics: String, AssetImage {
-        case example
+    public enum System: String, AssetImage {
+
+        case trash
+        case pencil
     }
 }
