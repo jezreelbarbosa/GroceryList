@@ -13,6 +13,7 @@
 		0D77475B261FBE2100E1EB91 /* CodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77475A261FBE2100E1EB91 /* CodePresenter.swift */; };
 		0D7EADBD25EB0E0E00A97CC2 /* SFProText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */; };
 		0D7EADC925EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */; };
+		0D8321B926261DE9004C962D /* UIContextualAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8321B826261DE9004C962D /* UIContextualAction+Extension.swift */; };
 		0DE0B57E25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0B57D25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf */; };
 		0DE0B58325C5DED800ADF4C7 /* SFProDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0B58225C5DED800ADF4C7 /* SFProDisplay.swift */; };
 		0DE0B58925C5DF8900ADF4C7 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0B58625C5DF8900ADF4C7 /* SFProDisplay-Regular.otf */; };
@@ -69,6 +70,7 @@
 		0D77475A261FBE2100E1EB91 /* CodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePresenter.swift; sourceTree = "<group>"; };
 		0D7EADBC25EB0E0E00A97CC2 /* SFProText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.otf"; sourceTree = "<group>"; };
 		0D7EADC825EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICodeTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		0D8321B826261DE9004C962D /* UIContextualAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContextualAction+Extension.swift"; sourceTree = "<group>"; };
 		0DC102CD25FC0583000AF5A6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0DE0B57D25C5DD8A00ADF4C7 /* SFProDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.otf"; sourceTree = "<group>"; };
 		0DE0B58225C5DED800ADF4C7 /* SFProDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFProDisplay.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				0DF40B2525A7AE7E0005609F /* UIAlertController+Extension.swift */,
 				0DF40B2A25A7AE7E0005609F /* UIViewController+Extension.swift */,
 				0DF4DC3425AA4DE80076D0EB /* UITableView+Extension.swift */,
+				0D8321B826261DE9004C962D /* UIContextualAction+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				0DF40B1425A7ADFB0005609F /* NewYorkLarge.swift in Sources */,
 				0DF40B3625A7AE7E0005609F /* UIColor+Extension.swift in Sources */,
 				0D7EADC925EB131E00A97CC2 /* UICodeTableViewHeaderFooterView.swift in Sources */,
+				0D8321B926261DE9004C962D /* UIContextualAction+Extension.swift in Sources */,
 				0DF40B3D25A7AE7E0005609F /* LocalizedString.swift in Sources */,
 				0D77475B261FBE2100E1EB91 /* CodePresenter.swift in Sources */,
 				0DF4DB1425AA2D4E0076D0EB /* UICodeTableViewCell.swift in Sources */,

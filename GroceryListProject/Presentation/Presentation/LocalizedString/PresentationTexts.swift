@@ -16,4 +16,14 @@ struct Texts {
         .enUS: "OK",
         .ptBR: "OK"
     ])
+
+    static let deleteAction = LocalizedString(texts: [
+        .enUS: "Delete",
+        .ptBR: "Apagar"
+    ])
+
+    static let editAction = LocalizedString(texts: [
+        .enUS: "Edit",
+        .ptBR: "Editar"
+    ])
 }
