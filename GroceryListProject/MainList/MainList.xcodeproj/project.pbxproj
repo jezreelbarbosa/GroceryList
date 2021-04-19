@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,12 +13,13 @@
 		0D615B4625DD599700868E66 /* NewGroceryListHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615B4525DD599700868E66 /* NewGroceryListHeaderViewModel.swift */; };
 		0DCEB1DE25B2316C00CA353B /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCEB1DD25B2316C00CA353B /* Resources.swift */; };
 		0DE0B59125C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0B59025C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift */; };
+		0DE5EB09262DE37A00A0990B /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EB08262DE37A00A0990B /* Presentation */; };
+		0DE5EB0A262DE37A00A0990B /* Presentation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EB08262DE37A00A0990B /* Presentation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0DF4096925A75D0D0005609F /* MainList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4095F25A75D0D0005609F /* MainList.framework */; };
 		0DF4096E25A75D0D0005609F /* MainListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4096D25A75D0D0005609F /* MainListTests.swift */; };
 		0DF4097025A75D0D0005609F /* MainList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF4096225A75D0D0005609F /* MainList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DF4097D25A75D2E0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4097C25A75D2E0005609F /* Common.framework */; };
 		0DF4098125A75D350005609F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098025A75D350005609F /* Domain.framework */; };
-		0DF4098525A75D3D0005609F /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098425A75D3D0005609F /* Presentation.framework */; };
 		0DF4DAFE25AA03140076D0EB /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DAFD25AA03140076D0EB /* MainListView.swift */; };
 		0DF4DB0225AA03230076D0EB /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB0125AA03230076D0EB /* MainListViewController.swift */; };
 		0DF4DB0625AA03300076D0EB /* MainListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4DB0525AA03300076D0EB /* MainListPresenter.swift */; };
@@ -36,6 +37,20 @@
 			remoteInfo = MainList;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0DE5EB0B262DE37A00A0990B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0DE5EB0A262DE37A00A0990B /* Presentation in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D1A635D25DC7A8100C77914 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
@@ -70,9 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE5EB09262DE37A00A0990B /* Presentation in Frameworks */,
 				0DF4097D25A75D2E0005609F /* Common.framework in Frameworks */,
 				0DF4098125A75D350005609F /* Domain.framework in Frameworks */,
-				0DF4098525A75D3D0005609F /* Presentation.framework in Frameworks */,
 				5DC5CC3848A4B88348ED34F9 /* Pods_MainList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,12 +223,16 @@
 				0DF4095B25A75D0D0005609F /* Sources */,
 				0DF4095C25A75D0D0005609F /* Frameworks */,
 				0DF4095D25A75D0D0005609F /* Resources */,
+				0DE5EB0B262DE37A00A0990B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MainList;
+			packageProductDependencies = (
+				0DE5EB08262DE37A00A0990B /* Presentation */,
+			);
 			productName = MainList;
 			productReference = 0DF4095F25A75D0D0005609F /* MainList.framework */;
 			productType = "com.apple.product-type.framework";
@@ -265,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 0DF4095525A75D0D0005609F;
+			packageReferences = (
+				0DE5EB07262DE37A00A0990B /* XCRemoteSwiftPackageReference "Presentation" */,
+			);
 			productRefGroup = 0DF4096025A75D0D0005609F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -639,6 +661,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0DE5EB07262DE37A00A0990B /* XCRemoteSwiftPackageReference "Presentation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0DE5EB08262DE37A00A0990B /* Presentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DE5EB07262DE37A00A0990B /* XCRemoteSwiftPackageReference "Presentation" */;
+			productName = Presentation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0DF4095625A75D0D0005609F /* Project object */;
 }

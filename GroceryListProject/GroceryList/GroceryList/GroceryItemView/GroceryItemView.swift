@@ -6,6 +6,7 @@
 //
 
 import Stevia
+import Presentation
 
 final class GroceryItemView: UICodeView {
 
@@ -77,12 +78,12 @@ final class GroceryItemView: UICodeView {
         }
 
         itemNameTextField.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
                 string: Resources.Texts.itemNamePlaceholder,
-                attributes: [.font: Font.sfProText(.regular, size: 17)]
+                attributes: [.font: SFProText.regular.size(17)]
             )
             s.borderStyle = .roundedRect
             s.padding.left = 16
@@ -90,19 +91,19 @@ final class GroceryItemView: UICodeView {
         }
 
         priceLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.priceText
         }
         priceDecimalField.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
-                string: "", attributes: [.font: Font.sfProText(.regular, size: 17)]
+                string: "", attributes: [.font: SFProText.regular.size(17)]
             )
             s.borderStyle = .roundedRect
-            s.numberFormatter.numberStyle = .currency
+            s.numberStyle = .currency
             s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
             s.sendActions(for: .editingChanged)
         }
@@ -117,20 +118,19 @@ final class GroceryItemView: UICodeView {
         }
 
         quantityLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.quantityText
         }
         quantityDecimalField.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
-                string: "", attributes: [.font: Font.sfProText(.regular, size: 17)]
+                string: "", attributes: [.font: SFProText.regular.size(17)]
             )
             s.borderStyle = .roundedRect
-            s.numberFormatter.minimumFractionDigits = 0
-            s.numberFormatter.maximumFractionDigits = 0
+            s.fractionDigits = 0
             s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
             s.sendActions(for: .editingChanged)
         }
@@ -140,12 +140,12 @@ final class GroceryItemView: UICodeView {
         }
 
         totalNameLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.totalText
         }
         totalPriceLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .right
         }
@@ -185,8 +185,7 @@ final class GroceryItemView: UICodeView {
         numberFormatter.locale = .current
 
         let digits = unitSegmentedControl.selectedSegmentIndex == 0 ? 0 : 3
-        quantityDecimalField.numberFormatter.minimumFractionDigits = digits
-        quantityDecimalField.numberFormatter.maximumFractionDigits = digits
+        quantityDecimalField.fractionDigits = digits
         quantityDecimalField.editingChanged()
 
         let factor: Decimal = unitSegmentedControl.selectedSegmentIndex == 2 ? 10 : 1

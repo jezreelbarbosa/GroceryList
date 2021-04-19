@@ -6,6 +6,7 @@
 //
 
 import Stevia
+import Presentation
 
 final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
@@ -68,17 +69,17 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
         iconLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProDisplay(.semibold, size: 40)
+            s.font = SFProDisplay.semibold.size(40)
             s.textAlignment = .center
         }
 
         titleLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProDisplay(.regular, size: 17)
+            s.font = SFProDisplay.regular.size(17)
         }
         dateLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProDisplay(.light, size: 14)
+            s.font = SFProDisplay.light.size(14)
         }
 
         topSeparatorLine.style { s in

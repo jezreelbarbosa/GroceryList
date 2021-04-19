@@ -6,6 +6,7 @@
 //
 
 import Stevia
+import Presentation
 
 final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdentifiable {
 
@@ -44,13 +45,13 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
 
         titleLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProText(.semibold, size: 17)
+            s.font = SFProText.semibold.size(17)
             s.text = Resources.Texts.totalFooterText
         }
 
         priceLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.size(17)
             s.textAlignment = .right
         }
     }

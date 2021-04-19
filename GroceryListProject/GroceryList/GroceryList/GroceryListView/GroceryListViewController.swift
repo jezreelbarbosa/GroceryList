@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 public protocol GroceryListPresenting {
 
@@ -63,7 +64,8 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(withMessage: value)
+            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
+            self.presentAlert(title: title, message: value)
         }
 
         presenter.groceryListBox.bind { [unowned self] value in
@@ -81,7 +83,7 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
                     let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
                     self.mainView.tableView.deleteRows(at: indexes, with: .fade)
                 }, completion: { _ in
-                    self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self).fill(total: groceryList.totalPrice)
+                    self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self)?.fill(total: groceryList.totalPrice)
                 })
             }
         }
@@ -117,7 +119,8 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.deleteAction(style: .image) { [unowned self] (_, _, completion) in
+        let deleteTitle = LocalizedString().enUS("Delete").ptBR("Apagar").localizedText
+        let deleteAction = UIContextualAction(.destructive, title: deleteTitle) { [unowned self] (_, _, completion) in
             self.presenter.deleteItem(at: indexPath.row)
             completion(true)
         }

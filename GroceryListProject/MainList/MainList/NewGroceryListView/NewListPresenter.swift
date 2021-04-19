@@ -6,6 +6,7 @@
 //
 
 import Domain
+import Presentation
 
 public final class NewListPresenter {
 

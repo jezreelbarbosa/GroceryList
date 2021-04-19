@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 public protocol NewListPresenting {
 
@@ -54,7 +55,8 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(withMessage: value)
+            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
+            self.presentAlert(title: title, message: value)
         }
     }
 

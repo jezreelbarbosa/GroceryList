@@ -59,8 +59,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF4091225A74E070005609F /* Common.framework in Frameworks */,
-				0DF4098925A75D750005609F /* MainList.framework in Frameworks */,
 				0D22D08F25E438E100E48981 /* GroceryList.framework in Frameworks */,
+				0DF4098925A75D750005609F /* MainList.framework in Frameworks */,
 				9CDAAB9CE011251D4DAB063A /* Pods_AppNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

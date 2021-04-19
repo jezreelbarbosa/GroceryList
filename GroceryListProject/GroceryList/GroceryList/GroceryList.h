@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Presentation/Presentation.h"
 
 //! Project version number for GroceryList.
 FOUNDATION_EXPORT double GroceryListVersionNumber;

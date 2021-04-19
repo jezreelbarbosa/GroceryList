@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 public protocol GroceryItemPresenting {
 
@@ -50,7 +51,8 @@ public class GroceryItemViewController: UICodeViewController<GroceryItemPresenti
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(withMessage: value)
+            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
+            self.presentAlert(title: title, message: value)
         }
 
         presenter.groceryItemBox.bindAndFire { [unowned self] value in

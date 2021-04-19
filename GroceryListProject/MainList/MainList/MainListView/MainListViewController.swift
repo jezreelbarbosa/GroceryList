@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 public protocol MainListPresenting {
 
@@ -68,7 +69,8 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
         }
 
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(withMessage: value)
+            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
+            self.presentAlert(title: title, message: value)
         }
 
         presenter.reloadTableViewBox.bind { [unowned self] removedRows in
@@ -118,12 +120,14 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.deleteAction(style: .image) { [unowned self] (_, _, completion) in
+        let deleteTitle = LocalizedString().enUS("Delete").ptBR("Apagar").localizedText
+        let deleteAction = UIContextualAction(.destructive, title: deleteTitle) { [unowned self] (_, _, completion) in
             self.presenter.deleteItem(at: indexPath.row)
             completion(true)
         }
 
-        let editAction = UIContextualAction.editAction(style: .image) { (_, _, completion) in
+        let editTitle = LocalizedString().enUS("Edit").ptBR("Editar").localizedText
+        let editAction = UIContextualAction(title: editTitle) { (_, _, completion) in
             // TODO: presenter to edit screen
             completion(true)
         }
