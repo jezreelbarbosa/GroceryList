@@ -29,6 +29,26 @@ extension GroceriesLocalDataSource: AppData.GroceriesLocalDataSource {
         }
     }
 
+    public func addOrUpdate(groceryList: GroceryListDTO) -> Result<Void, Error> {
+        do {
+            let listEntity: GroceryListEntity
+            if let uri = groceryList.uri {
+                listEntity = try coreData.getEntity(GroceryListEntity.self, at: uri)
+            } else {
+                listEntity = try coreData.newEntity(GroceryListEntity.self)
+                try coreData.insert(object: listEntity)
+            }
+            let items = try groceryList.items.map({ try coreData.getEntity(GroceryItemEntity.self, at: $0.uri) })
+            listEntity.update(icon: groceryList.icon, name: groceryList.name,
+                              date: groceryList.date, items: Set(items))
+            try coreData.saveIfNeeded()
+            return .success(())
+        } catch let error {
+            debugPrint(error)
+            return .failure(GroceryError.getAllListsError)
+        }
+    }
+
     public func saveNewGroceryList(request: GroceryListDTO) -> Result<Void, Error> {
         do {
             let entity = try coreData.newEntity(GroceryListEntity.self)

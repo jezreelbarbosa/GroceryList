@@ -26,8 +26,8 @@ final class NewListView: UICodeView {
 
     public override func initLayout() {
         iconTextField.Top == safeAreaLayoutGuide.Top + 32
-        iconTextField.leading(16).size(56).Trailing == nameTextField.Leading - 16
-        nameTextField.trailing(16).height(56)
+        iconTextField.leading(16).size(64).Trailing == nameTextField.Leading - 16
+        nameTextField.trailing(16).height(64)
         align(.centerY, views: [iconTextField, nameTextField])
 
         layoutIfNeeded()
@@ -63,6 +63,13 @@ final class NewListView: UICodeView {
     }
 
     // Functions
+
+    func set(model: GroceryListHeaderInfoViewModel) {
+        iconTextField.text = model.icon
+        nameTextField.text = model.name
+    }
+
+    // Actions
 
     @objc private func nameTextFieldEditingChanged() {
         let letter: String

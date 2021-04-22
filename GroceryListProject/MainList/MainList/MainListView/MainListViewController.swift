@@ -18,6 +18,7 @@ public protocol MainListPresenting {
     func didSelected(row: Int)
     func createNewList()
     func deleteItem(at row: Int)
+    func editItem(at row: Int)
 }
 
 public final class MainListViewController: UICodeViewController<MainListPresenting> {
@@ -128,7 +129,7 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
 
         let editTitle = LocalizedString().enUS("Edit").ptBR("Editar").localizedText
         let editAction = UIContextualAction(title: editTitle) { (_, _, completion) in
-            // TODO: presenter to edit screen
+            self.presenter.editItem(at: indexPath.row)
             completion(true)
         }
 

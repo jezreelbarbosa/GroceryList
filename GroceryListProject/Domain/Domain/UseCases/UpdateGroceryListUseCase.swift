@@ -2,15 +2,15 @@
 //  UpdateGroceryListUseCase.swift
 //  Domain
 //
-//  Created by Jezreel Barbosa on 28/02/21.
+//  Created by Jezreel Barbosa on 21/04/21.
 //
 
-public protocol UpdateGroceryItemUseCaseProtocol {
+public protocol UpdateGroceryListUseCaseProtocol {
 
-    func execute(model: GroceryItemModel) -> Result<Void, Error>
+    func execute(request: GroceryListModel) -> Result<Void, Error>
 }
 
-public class UpdateGroceryItemUseCase {
+public class UpdateGroceryListUseCase {
 
     let repository: GroceriesRepository
 
@@ -19,10 +19,9 @@ public class UpdateGroceryItemUseCase {
     }
 }
 
-extension UpdateGroceryItemUseCase: UpdateGroceryItemUseCaseProtocol {
+extension UpdateGroceryListUseCase: UpdateGroceryListUseCaseProtocol {
 
-    public func execute(model: GroceryItemModel) -> Result<Void, Error> {
-        
-        return .success(())
+    public func execute(request: GroceryListModel) -> Result<Void, Error> {
+        repository.addOrUpdate(groceryList: request)
     }
 }

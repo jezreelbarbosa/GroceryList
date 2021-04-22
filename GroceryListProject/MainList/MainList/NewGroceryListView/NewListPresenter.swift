@@ -14,24 +14,41 @@ public final class NewListPresenter {
 
     public var errorMessageBox = Box(String())
 
-    private let createNewGroceryListUseCase: CreateNewGroceryListUseCaseProtocol
-
+    private let getGroceryListUseCase: GetGroceryListUseCaseProtocol
+    private let updateGroceryListUseCase: UpdateGroceryListUseCaseProtocol
+    private let listURI: URL?
+    private var groceryListModel: GroceryListModel?
     private let successCompletion: VoidCompletion
 
     // Lifecycle
 
-    public init(createNewGroceryListUseCase: CreateNewGroceryListUseCaseProtocol,
-                successCompletion: @escaping VoidCompletion) {
-        self.createNewGroceryListUseCase = createNewGroceryListUseCase
+    public init(getGroceryListUseCase: GetGroceryListUseCaseProtocol,
+                updateGroceryListUseCase: UpdateGroceryListUseCaseProtocol,
+                uri: URL?, successCompletion: @escaping VoidCompletion) {
+        self.getGroceryListUseCase = getGroceryListUseCase
+        self.updateGroceryListUseCase = updateGroceryListUseCase
+        self.listURI = uri
         self.successCompletion = successCompletion
     }
 }
 
 extension NewListPresenter: NewListPresenting {
 
-    public func createNewGroceryList(model: NewGroceryListHeaderViewModel, successCompletion: VoidCompletion) {
-        let request = NewGroceryListRequest(icon: model.icon, name: model.name, date: Date())
-        let result = createNewGroceryListUseCase.execute(request: request)
+    public func getGroceryList() -> GroceryListHeaderInfoViewModel? {
+        guard let uri = listURI,
+              let response = getGroceryListUseCase.execute(uri: uri).failureHandler({ error in
+                self.errorMessageBox.value = error.localizedDescription
+              }).success
+        else { return nil }
+
+        groceryListModel = response
+        return GroceryListHeaderInfoViewModel(response: response)
+    }
+
+    public func createNewGroceryList(model: GroceryListHeaderInfoViewModel, successCompletion: VoidCompletion) {
+        let request = GroceryListModel(uri: listURI, icon: model.icon, name: model.name,
+                                       date: groceryListModel?.date ?? Date(), items: groceryListModel?.items ?? [])
+        let result = updateGroceryListUseCase.execute(request: request)
         result.successHandler { _ in
             successCompletion()
             self.successCompletion()

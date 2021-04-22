@@ -13,7 +13,7 @@ public protocol MainListCoordinatorDelegate: CoordinatorDelegate {}
 public protocol MainListVCFactory: DependencyFactory {
 
     func makeMainListViewController() -> MainListViewController
-    func makeNewListViewController(successCompletion: @escaping VoidCompletion) -> NewListViewController
+    func makeNewListViewController(uri: URL?, successCompletion: @escaping VoidCompletion) -> NewListViewController
 }
 
 public protocol MainListCoordinatorFactory: DependencyFactory {
@@ -53,8 +53,8 @@ public class MainListCoordinator: NavigationCoordinator {
 
 extension MainListCoordinator: MainListCoordinating {
 
-    public func showNewListView(successCompletion: @escaping VoidCompletion) {
-        let viewController = viewControllersFactory.makeNewListViewController(successCompletion: successCompletion)
+    public func showNewListView(uri: URL?, successCompletion: @escaping VoidCompletion) {
+        let viewController = viewControllersFactory.makeNewListViewController(uri: uri, successCompletion: successCompletion)
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalTransitionStyle = .coverVertical
         navigationController.modalPresentationStyle = .fullScreen

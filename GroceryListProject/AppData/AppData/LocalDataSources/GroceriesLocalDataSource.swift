@@ -9,6 +9,7 @@ public protocol GroceriesLocalDataSource {
 
     func getGroceryMainList() -> Result<[GroceryListDTO], Error>
     func saveNewGroceryList(request: GroceryListDTO) -> Result<Void, Error>
+    func addOrUpdate(groceryList: GroceryListDTO) -> Result<Void, Error>
     func removeGroceryList(uri: URL) -> Result<Void, Error>
 
     func getGroceryList(uri: URL) -> Result<GroceryListDTO, Error>

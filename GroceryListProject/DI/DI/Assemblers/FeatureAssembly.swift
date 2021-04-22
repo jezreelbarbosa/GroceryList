@@ -18,10 +18,11 @@ class FeatureAssembly {
         container.register(MainListCoordinating.self) { _ in coordinator }
 
         container.autoregister(MainListPresenting.self, initializer: MainListPresenter.init)
-        container.register(NewListPresenting.self) { (resolver: Resolver, successCompletion: @escaping VoidCompletion) in
+        container.register(NewListPresenting.self) { (resolver: Resolver, uri: URL?, successCompletion: @escaping VoidCompletion) in
             NewListPresenter(
-                createNewGroceryListUseCase: resolver.resolveSafe(CreateNewGroceryListUseCaseProtocol.self),
-                successCompletion: successCompletion
+                getGroceryListUseCase: resolver.resolveSafe(GetGroceryListUseCaseProtocol.self),
+                updateGroceryListUseCase: resolver.resolveSafe(UpdateGroceryListUseCaseProtocol.self),
+                uri: uri, successCompletion: successCompletion
             )
         }
     }

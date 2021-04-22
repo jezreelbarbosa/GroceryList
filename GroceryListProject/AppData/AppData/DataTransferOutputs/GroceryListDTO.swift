@@ -33,6 +33,14 @@ public struct GroceryListDTO {
         self.items = []
     }
 
+    public init(from model: GroceryListModel) {
+        self.uri = model.uri
+        self.icon = model.icon
+        self.name = model.name
+        self.date = model.date
+        self.items = model.items.map({ GroceryItemDTO(from: $0) })
+    }
+
     var toDomain: GroceryListModel {
         GroceryListModel(uri: uri, icon: icon, name: name, date: date, items: items.map({ $0.toDomain }))
     }

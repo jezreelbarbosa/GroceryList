@@ -10,7 +10,7 @@ import Presentation
 
 public protocol MainListCoordinating: AnyObject {
 
-    func showNewListView(successCompletion: @escaping VoidCompletion)
+    func showNewListView(uri: URL?, successCompletion: @escaping VoidCompletion)
     func showGroceryList(uri: URL)
     func didExit()
 }
@@ -81,7 +81,7 @@ extension MainListPresenter: MainListPresenting {
     }
 
     public func createNewList() {
-        coordinator?.showNewListView { [weak self] in
+        coordinator?.showNewListView(uri: nil) { [weak self] in
             self?.updateList()
         }
     }
@@ -98,6 +98,16 @@ extension MainListPresenter: MainListPresenting {
         }
         result.failureHandler { error in
             self.errorMessageBox.value = error.localizedDescription
+        }
+    }
+
+    public func editItem(at row: Int) {
+        guard let uri = groceriesInfos.element(at: row)?.uri else {
+            self.errorMessageBox.value = "URI Error"
+            return
+        }
+        coordinator?.showNewListView(uri: uri) { [weak self] in
+            self?.updateList()
         }
     }
 }

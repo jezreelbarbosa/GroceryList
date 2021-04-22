@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D08D5D325EBCDA800A09BAF /* GetGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */; };
 		0D0F2D0925E345E600146247 /* RemoveGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */; };
+		0D11BFFB2630C1240032B777 /* UpdateGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11BFFA2630C1240032B777 /* UpdateGroceryListUseCase.swift */; };
 		0D45FF022612BCF100F14702 /* RemoveGroceryItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45FF012612BCF100F14702 /* RemoveGroceryItemUseCase.swift */; };
 		0D45FF062612CEF800F14702 /* GetGroceryItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45FF052612CEF800F14702 /* GetGroceryItemUseCase.swift */; };
 		0D634A1B25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D634A1A25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroceryListUseCase.swift; sourceTree = "<group>"; };
 		0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGroceryListUseCase.swift; sourceTree = "<group>"; };
+		0D11BFFA2630C1240032B777 /* UpdateGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGroceryListUseCase.swift; sourceTree = "<group>"; };
 		0D45FF012612BCF100F14702 /* RemoveGroceryItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGroceryItemUseCase.swift; sourceTree = "<group>"; };
 		0D45FF052612CEF800F14702 /* GetGroceryItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroceryItemUseCase.swift; sourceTree = "<group>"; };
 		0D634A1A25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroceryListUseCase.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				0D634A1A25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift */,
+				0D11BFFA2630C1240032B777 /* UpdateGroceryListUseCase.swift */,
 				0D83153425D5957000825277 /* GetGroceryMainListUseCase.swift */,
 				0D0F2D0825E345E600146247 /* RemoveGroceryListUseCase.swift */,
 				0D08D5D225EBCDA800A09BAF /* GetGroceryListUseCase.swift */,
@@ -346,6 +349,7 @@
 				0D7EADD325EB229600A97CC2 /* GroceryListModel.swift in Sources */,
 				0D08D5D325EBCDA800A09BAF /* GetGroceryListUseCase.swift in Sources */,
 				0D83153525D5957000825277 /* GetGroceryMainListUseCase.swift in Sources */,
+				0D11BFFB2630C1240032B777 /* UpdateGroceryListUseCase.swift in Sources */,
 				0D634A1B25DC5DB900F5FE25 /* CreateNewGroceryListUseCase.swift in Sources */,
 				0D83153F25D5977F00825277 /* GroceriesRepository.swift in Sources */,
 				0D8247C525EDC13B0049F79F /* InsertGroceryItemIntoListUseCase.swift in Sources */,

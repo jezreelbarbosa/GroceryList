@@ -104,8 +104,8 @@ final class GroceryItemView: UICodeView {
             )
             s.borderStyle = .roundedRect
             s.numberStyle = .currency
-            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
             s.sendActions(for: .editingChanged)
+            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         }
 
         unitSegmentedControl.style { s in
@@ -114,7 +114,7 @@ final class GroceryItemView: UICodeView {
             s.insertSegment(withTitle: Resources.Texts.unitHundredGrams, at: 2, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitLiter, at: 3, animated: false)
             s.selectedSegmentIndex = 0
-            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .valueChanged)
+            s.addTarget(self, action: #selector(updateQuantityDecimalField), for: .valueChanged)
         }
 
         quantityLabel.style { s in
@@ -131,8 +131,8 @@ final class GroceryItemView: UICodeView {
             )
             s.borderStyle = .roundedRect
             s.fractionDigits = 0
-            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
             s.sendActions(for: .editingChanged)
+            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         }
 
         separatorView.style { s in
@@ -166,13 +166,13 @@ final class GroceryItemView: UICodeView {
     }
 
     func setItem(item: GroceryItemUpdateRequest) {
+        itemDate = item.date
+        unitSegmentedControl.selectedSegmentIndex = item.unit
+        updateQuantityDecimalField()
+        quantityDecimalField.decimal = item.quantity
         itemNameTextField.text = item.itemName
         priceDecimalField.decimal = item.price
-        unitSegmentedControl.selectedSegmentIndex = item.unit
         textFieldEditingChanged()
-        quantityDecimalField.decimal = item.quantity
-        textFieldEditingChanged()
-        itemDate = item.date
     }
 
     // Actions
@@ -184,13 +184,14 @@ final class GroceryItemView: UICodeView {
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.locale = .current
 
-        let digits = unitSegmentedControl.selectedSegmentIndex == 0 ? 0 : 3
-        quantityDecimalField.fractionDigits = digits
-        quantityDecimalField.editingChanged()
-
         let factor: Decimal = unitSegmentedControl.selectedSegmentIndex == 2 ? 10 : 1
         let total = priceDecimalField.decimal * quantityDecimalField.decimal * factor
 
         totalPriceLabel.text = numberFormatter.string(for: total)
+    }
+
+    @objc func updateQuantityDecimalField() {
+        let digits = unitSegmentedControl.selectedSegmentIndex == 0 ? 0 : 3
+        quantityDecimalField.fractionDigits = digits
     }
 }

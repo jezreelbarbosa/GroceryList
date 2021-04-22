@@ -12,7 +12,8 @@ public protocol NewListPresenting {
 
     var errorMessageBox: Box<String> { get }
 
-    func createNewGroceryList(model: NewGroceryListHeaderViewModel, successCompletion: () -> Void)
+    func getGroceryList() -> GroceryListHeaderInfoViewModel?
+    func createNewGroceryList(model: GroceryListHeaderInfoViewModel, successCompletion: VoidCompletion)
 }
 
 public class NewListViewController: UICodeViewController<NewListPresenting> {
@@ -32,6 +33,14 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
 
         setupView()
         setupPresenter()
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let list = presenter.getGroceryList() {
+            mainView.set(model: list)
+        }
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -63,9 +72,10 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
     // Actions
 
     @objc private func saveBarButtonAction() {
-        presenter.createNewGroceryList(model: NewGroceryListHeaderViewModel(
+        presenter.createNewGroceryList(model: GroceryListHeaderInfoViewModel(
             icon: mainView.iconTextField.text.defaultValue,
-            name: mainView.nameTextField.text.defaultValue
+            name: mainView.nameTextField.text.defaultValue,
+            date: ""
         )) {
             dismiss(animated: true, completion: nil)
         }
