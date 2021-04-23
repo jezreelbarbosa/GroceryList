@@ -5,6 +5,7 @@
 //  Created by Jezreel Barbosa on 09/01/21.
 //
 
+import UIKit
 import Stevia
 import Presentation
 
@@ -32,9 +33,9 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     // Lifecycle
 
     public override func initSubViews() {
-        sv(
+        subviews(
             iconLabel,
-            infoView.sv(
+            infoView.subviews(
                 titleLabel,
                 dateLabel
             ),

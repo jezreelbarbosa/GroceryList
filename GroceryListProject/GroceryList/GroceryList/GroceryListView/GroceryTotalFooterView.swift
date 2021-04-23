@@ -5,6 +5,7 @@
 //  Created by Jezreel Barbosa on 27/02/21.
 //
 
+import UIKit
 import Stevia
 import Presentation
 
@@ -23,7 +24,7 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
     // Lifecycle
 
     public override func initSubViews() {
-        sv(
+        subviews(
             titleLabel,
             priceLabel
         )

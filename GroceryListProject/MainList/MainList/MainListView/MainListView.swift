@@ -5,6 +5,7 @@
 //  Created by Jezreel Barbosa on 09/01/21.
 //
 
+import UIKit
 import Stevia
 import Presentation
 
@@ -17,7 +18,7 @@ final class MainListView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        sv(
+        subviews(
             tableView
         )
     }

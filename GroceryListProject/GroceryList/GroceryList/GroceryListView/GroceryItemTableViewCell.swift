@@ -5,6 +5,7 @@
 //  Created by Jezreel Barbosa on 27/02/21.
 //
 
+import UIKit
 import Stevia
 import Presentation
 
@@ -26,8 +27,8 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     // Lifecycle
 
     public override func initSubViews() {
-        sv(
-            textView.sv(
+        subviews(
+            textView.subviews(
                 nameLabel,
                 detailsLabel
             ),

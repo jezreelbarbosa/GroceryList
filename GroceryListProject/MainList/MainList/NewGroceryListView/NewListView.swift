@@ -5,6 +5,7 @@
 //  Created by Jezreel Barbosa on 16/02/21.
 //
 
+import UIKit
 import Stevia
 import Presentation
 
@@ -18,7 +19,7 @@ final class NewListView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        sv(
+        subviews(
             iconTextField,
             nameTextField
         )

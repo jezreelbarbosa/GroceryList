@@ -5,6 +5,7 @@
 //  Created by Jezreel Barbosa on 28/02/21.
 //
 
+import UIKit
 import Stevia
 import Presentation
 
@@ -32,7 +33,7 @@ final class GroceryItemView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        sv(
+        subviews(
             itemNameTextField,
             priceLabel,
             priceDecimalField,
@@ -62,7 +63,8 @@ final class GroceryItemView: UICodeView {
         quantityLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         quantityLabel.setContentHuggingPriority(.required, for: .horizontal)
 
-        separatorView.leading(16).trailing(16).height(0.5).Top == quantityDecimalField.Bottom + 16
+        let separatorHeight = 1.0 / UIScreen.main.scale
+        separatorView.leading(16).trailing(16).height(separatorHeight).Top == quantityDecimalField.Bottom + 16
 
         totalPriceLabel.Top == separatorView.Bottom + 16
         totalNameLabel.leading(16).CenterY == totalPriceLabel.trailing(16).CenterY
