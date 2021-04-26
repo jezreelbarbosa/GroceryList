@@ -19,7 +19,7 @@ final class NewListView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
+        sv(
             iconTextField,
             nameTextField
         )

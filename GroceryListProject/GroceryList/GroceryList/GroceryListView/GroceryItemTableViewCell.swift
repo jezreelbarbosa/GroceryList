@@ -27,8 +27,8 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
-            textView.subviews(
+        sv(
+            textView.sv(
                 nameLabel,
                 detailsLabel
             ),

@@ -24,7 +24,7 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
+        sv(
             titleLabel,
             priceLabel
         )

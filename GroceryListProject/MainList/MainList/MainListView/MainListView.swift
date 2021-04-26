@@ -18,15 +18,13 @@ final class MainListView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
+        sv(
             tableView
         )
     }
 
     public override func initLayout() {
         tableView.fillContainer()
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {

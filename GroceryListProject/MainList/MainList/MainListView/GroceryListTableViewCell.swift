@@ -33,9 +33,9 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
+        sv(
             iconLabel,
-            infoView.subviews(
+            infoView.sv(
                 titleLabel,
                 dateLabel
             ),
@@ -56,8 +56,6 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         let separatorHeight = 1.0 / UIScreen.main.scale
         topSeparatorLine.leading(0).top(0).height(separatorHeight).width(78)
         bottomSeparatorLine.leading(0).bottom(0).height(separatorHeight).width(78)
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {

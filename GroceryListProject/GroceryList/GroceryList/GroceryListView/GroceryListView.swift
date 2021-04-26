@@ -19,7 +19,7 @@ final class GroceryListView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
+        sv(
             tableView,
             effectView
         )

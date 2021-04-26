@@ -33,7 +33,7 @@ final class GroceryItemView: UICodeView {
     // Lifecycle
 
     public override func initSubViews() {
-        subviews(
+        sv(
             itemNameTextField,
             priceLabel,
             priceDecimalField,
