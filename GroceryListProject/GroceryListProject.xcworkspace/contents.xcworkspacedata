@@ -29,6 +29,9 @@
    <FileRef
       location = "group:AppNavigation/AppNavigation.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:AppUI/AppUI.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "Features">

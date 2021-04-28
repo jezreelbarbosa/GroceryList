@@ -112,25 +112,17 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return GroceryListTableViewCell.rowHeight
-    }
-
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelected(row: indexPath.row)
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteTitle = LocalizedString().enUS("Delete").ptBR("Apagar").localizedText
-        let deleteAction = UIContextualAction(.destructive, title: deleteTitle) { [unowned self] (_, _, completion) in
+        let deleteAction = UIContextualAction.deleteAction { [unowned self] in
             self.presenter.deleteItem(at: indexPath.row)
-            completion(true)
         }
 
-        let editTitle = LocalizedString().enUS("Edit").ptBR("Editar").localizedText
-        let editAction = UIContextualAction(title: editTitle) { (_, _, completion) in
+        let editAction = UIContextualAction.editAction { [unowned self] in
             self.presenter.editItem(at: indexPath.row)
-            completion(true)
         }
 
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])

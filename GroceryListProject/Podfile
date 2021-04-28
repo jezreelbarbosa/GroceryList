@@ -119,14 +119,14 @@ target 'AppNavigation' do
   target 'AppNavigationTests'
 end
 
-#target 'AppUI' do
-#  project 'AppUI/AppUI'
-#  # Pods for SharedPresentation
-#  sharedPods
-#  presentationPods
-#
-#  target 'AppUITests'
-#end
+target 'AppUI' do
+  project 'AppUI/AppUI'
+  # Pods for SharedPresentation
+  sharedPods
+  presentationPods
+
+  target 'AppUITests'
+end
 
 # Mark: - Feature Targets
 

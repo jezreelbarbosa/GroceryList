@@ -40,7 +40,7 @@ final class NewListView: UICodeView {
         }
 
         iconTextField.style { s in
-            s.font = SFProText.regular.size(40)
+            s.font = SFProText.regular.font(size: 40)
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .center
             s.borderStyle = .roundedRect
@@ -50,7 +50,7 @@ final class NewListView: UICodeView {
         }
 
         nameTextField.style { s in
-            s.font = SFProText.regular.size(24)
+            s.font = SFProText.regular.font(size: 24)
             s.textColor = Resources.Colors.textColor
             s.borderStyle = .roundedRect
             s.placeholder = Resources.Texts.newListNameText

@@ -14,6 +14,8 @@
 		0DE5EA96262DE27500A0990B /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EA95262DE27500A0990B /* Presentation */; };
 		0DE5EA97262DE27500A0990B /* Presentation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EA95262DE27500A0990B /* Presentation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0DE5EBD8262DE8E700A0990B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE5EBD7262DE8E700A0990B /* Assets.xcassets */; };
+		0DF0F3AE263674AB00F6ED3D /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3AD263674AB00F6ED3D /* AppUI.framework */; };
+		0DF0F3AF263674AB00F6ED3D /* AppUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3AD263674AB00F6ED3D /* AppUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DF4077D25A7460C0005609F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; };
 		0DF4077E25A7460C0005609F /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4077C25A7460C0005609F /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DF4078B25A748900005609F /* GroceryListProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4078A25A748900005609F /* GroceryListProjectTests.swift */; };
@@ -61,6 +63,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0DF4077E25A7460C0005609F /* Common.framework in Embed Frameworks */,
+				0DF0F3AF263674AB00F6ED3D /* AppUI.framework in Embed Frameworks */,
 				0DF4089D25A74C5D0005609F /* Domain.framework in Embed Frameworks */,
 				0DF4086225A74BE50005609F /* AppData.framework in Embed Frameworks */,
 				0DF4080825A74AA10005609F /* Storage.framework in Embed Frameworks */,
@@ -86,6 +89,7 @@
 		0D9DD8E025D48DB800851531 /* Notification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC102CC25FC0568000AF5A6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0DE5EBD7262DE8E700A0990B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DF0F3AD263674AB00F6ED3D /* AppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4077C25A7460C0005609F /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4078825A748900005609F /* GroceryListProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4078A25A748900005609F /* GroceryListProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListProjectTests.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF4077D25A7460C0005609F /* Common.framework in Frameworks */,
+				0DF0F3AE263674AB00F6ED3D /* AppUI.framework in Frameworks */,
 				0DF4089C25A74C5D0005609F /* Domain.framework in Frameworks */,
 				0DF4086125A74BE50005609F /* AppData.framework in Frameworks */,
 				0DF4080725A74AA10005609F /* Storage.framework in Frameworks */,
@@ -202,6 +207,7 @@
 		7B0BEA66D762A2BB6D40756B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DF0F3AD263674AB00F6ED3D /* AppUI.framework */,
 				0D22D09225E438FD00E48981 /* GroceryList.framework */,
 				0D9DD8E025D48DB800851531 /* Notification.framework */,
 				0DF4098C25A75DA70005609F /* MainList.framework */,

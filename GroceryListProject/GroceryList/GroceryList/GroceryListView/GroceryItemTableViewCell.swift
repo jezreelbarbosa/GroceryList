@@ -56,17 +56,17 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
         nameLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProText.semibold.size(17)
+            s.font = SFProText.semibold.font(.body)
         }
 
         detailsLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProText.light.size(14)
+            s.font = SFProText.light.font(.footnote)
         }
 
         priceLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProText.regular.size(17)
+            s.font = SFProText.regular.font(.body)
             s.textAlignment = .right
         }
     }

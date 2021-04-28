@@ -14,7 +14,6 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     // Static properties
 
     static let reuseIdentifier: String = "GroceryListTableViewCell"
-    static let rowHeight: CGFloat = 80.0
 
     // Properties
 
@@ -45,9 +44,10 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     }
 
     public override func initLayout() {
-        iconLabel.centerVertically().leading(16).size(48)
+        iconLabel.centerVertically().leading(16).size(48).top(>=0).bottom(>=0)
+        iconLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         infoView.Leading == iconLabel.Trailing + 16
-        infoView.centerVertically().trailing(16)
+        infoView.centerVertically().trailing(16).top(>=16).bottom(>=16)
 
         titleLabel.leading(0).trailing(0).top(0)
         titleLabel.Bottom == dateLabel.Top - 8
@@ -68,17 +68,20 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
         iconLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProDisplay.semibold.size(40)
+            s.font = SFProDisplay.semibold.font(.headline, size: 40)
+            s.adjustsFontForContentSizeCategory = true
             s.textAlignment = .center
         }
 
         titleLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProDisplay.regular.size(17)
+            s.font = SFProDisplay.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
         }
         dateLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProDisplay.light.size(14)
+            s.font = SFProDisplay.light.font(.footnote)
+            s.adjustsFontForContentSizeCategory = true
         }
 
         topSeparatorLine.style { s in
