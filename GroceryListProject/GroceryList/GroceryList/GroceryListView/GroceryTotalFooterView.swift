@@ -14,7 +14,6 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
     // Static properties
 
     static let reuseIdentifier: String = "GroceryTotalFooterView"
-    static let rowHeight: CGFloat = 44.0
 
     // Properties
 
@@ -31,12 +30,11 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
     }
 
     public override func initLayout() {
-        titleLabel.leading(16).centerVertically().Trailing == priceLabel.Leading + 16
+        titleLabel.leading(16).centerVertically().top(>=16).bottom(>=16)
+        titleLabel.Trailing == priceLabel.Leading + 16
 
-        priceLabel.centerVertically().trailing(16)
+        priceLabel.centerVertically().trailing(16).top(>=16).bottom(>=16)
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {

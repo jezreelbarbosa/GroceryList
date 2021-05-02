@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC34944263CA92300C89810 /* UIViewController+Extension.swift */; };
 		0DF0F39B2636747600F6ED3D /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3912636747600F6ED3D /* AppUI.framework */; };
 		0DF0F3A02636747600F6ED3D /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0F39F2636747600F6ED3D /* AppUITests.swift */; };
 		0DF0F3A22636747600F6ED3D /* AppUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF0F3942636747600F6ED3D /* AppUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0DC34944263CA92300C89810 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0DF0F3912636747600F6ED3D /* AppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0F3942636747600F6ED3D /* AppUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUI.h; sourceTree = "<group>"; };
 		0DF0F3952636747600F6ED3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF0F3B92636754600F6ED3D /* UIContextualAction+Extension.swift */,
+				0DC34944263CA92300C89810 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */,
 				0DF0F4832636F7C000F6ED3D /* Assets.swift in Sources */,
 				0DF0F3BA2636754600F6ED3D /* UIContextualAction+Extension.swift in Sources */,
 			);

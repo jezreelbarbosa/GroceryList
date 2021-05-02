@@ -70,8 +70,7 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
         }
 
         presenter.errorMessageBox.bind { [unowned self] value in
-            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
-            self.presentAlert(title: title, message: value)
+            self.presentAttentionAlert(message: value)
         }
 
         presenter.reloadTableViewBox.bind { [unowned self] removedRows in
@@ -117,7 +116,7 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.deleteAction { [unowned self] in
+        let deleteAction = UIContextualAction.deleteConfirmationAction(view: self) { [unowned self] in
             self.presenter.deleteItem(at: indexPath.row)
         }
 

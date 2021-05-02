@@ -29,8 +29,6 @@ final class GroceryListView: UICodeView {
         tableView.fillContainer()
         effectView.fillHorizontally().Top == safeAreaLayoutGuide.Bottom
         effectView.Bottom == Bottom
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {

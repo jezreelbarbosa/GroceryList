@@ -64,8 +64,7 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
-            self.presentAlert(title: title, message: value)
+            self.presentAttentionAlert(message: value)
         }
 
         presenter.groceryListBox.bind { [unowned self] value in
@@ -110,21 +109,14 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return GroceryItemTableViewCell.rowHeight
-    }
-
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelected(row: indexPath.row)
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteTitle = LocalizedString().enUS("Delete").ptBR("Apagar").localizedText
-        let deleteAction = UIContextualAction(.destructive, title: deleteTitle) { [unowned self] (_, _, completion) in
+        let deleteAction = UIContextualAction.deleteConfirmationAction(view: self) { [unowned self] in
             self.presenter.deleteItem(at: indexPath.row)
-            completion(true)
         }
-
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
@@ -136,9 +128,5 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
         footer.fill(total: groceryList.totalPrice)
 
         return footer
-    }
-
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return GroceryTotalFooterView.rowHeight
     }
 }

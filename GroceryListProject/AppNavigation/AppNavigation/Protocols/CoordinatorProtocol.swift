@@ -8,7 +8,7 @@
 import UIKit
 import Swinject
 
-public protocol CoordinatorDelegate: class {
+public protocol CoordinatorDelegate: AnyObject {
 
     func coordinatorDidExit(_ coordinator: Coordinator)
 }

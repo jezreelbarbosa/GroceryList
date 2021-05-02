@@ -14,7 +14,6 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     // Static properties
 
     static let reuseIdentifier: String = "GroceryItemTableViewCell"
-    static let rowHeight: CGFloat = 72.0
 
     // Properties
 
@@ -37,15 +36,14 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
     }
 
     public override func initLayout() {
-        textView.leading(16).centerVertically().Trailing == priceLabel.Leading + 16
+        textView.leading(16).centerVertically().top(>=16).bottom(>=16)
+        textView.Trailing == priceLabel.Leading + 16
 
-        nameLabel.leading(0).top(0).trailing(0).Bottom == detailsLabel.Top
+        nameLabel.leading(0).top(0).trailing(0).Bottom == detailsLabel.Top - 4
         detailsLabel.leading(0).trailing(0).bottom(0)
 
-        priceLabel.centerVertically().trailing(16)
+        priceLabel.centerVertically().trailing(16).top(>=16).bottom(>=16)
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {

@@ -51,8 +51,7 @@ public class GroceryItemViewController: UICodeViewController<GroceryItemPresenti
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
-            self.presentAlert(title: title, message: value)
+            self.presentAttentionAlert(message: value)
         }
 
         presenter.groceryItemBox.bindAndFire { [unowned self] value in

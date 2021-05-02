@@ -70,8 +70,6 @@ final class GroceryItemView: UICodeView {
         totalNameLabel.leading(16).CenterY == totalPriceLabel.trailing(16).CenterY
         totalNameLabel.Trailing == totalPriceLabel.Leading + 8
         totalNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {

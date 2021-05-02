@@ -40,6 +40,9 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
 
         if let list = presenter.getGroceryList() {
             mainView.set(model: list)
+            title = Resources.Texts.editListNavigationTitle
+        } else {
+            title = Resources.Texts.newListNavigationTitle
         }
     }
 
@@ -53,7 +56,6 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
     // Functions
 
     private func setupView() {
-        navigationItem.title = Resources.Texts.newListNavigationTitle
         navigationController?.navigationBar.prefersLargeTitles = false
 
         let saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBarButtonAction))
@@ -64,19 +66,14 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            let title = LocalizedString().enUS("Attention").ptBR("Atenção").localizedText
-            self.presentAlert(title: title, message: value)
+            self.presentAttentionAlert(message: value)
         }
     }
 
     // Actions
 
     @objc private func saveBarButtonAction() {
-        presenter.createNewGroceryList(model: GroceryListHeaderInfoViewModel(
-            icon: mainView.iconTextField.text.defaultValue,
-            name: mainView.nameTextField.text.defaultValue,
-            date: ""
-        )) {
+        presenter.createNewGroceryList(model: mainView.getModel()) {
             dismiss(animated: true, completion: nil)
         }
     }

@@ -78,6 +78,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
             s.font = SFProDisplay.regular.font(.body)
             s.adjustsFontForContentSizeCategory = true
         }
+
         dateLabel.style { s in
             s.textColor = Resources.Colors.textColor
             s.font = SFProDisplay.light.font(.footnote)
@@ -88,6 +89,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
             s.backgroundColor = Resources.Colors.cellSeparatorColor
             s.isHidden = true
         }
+
         bottomSeparatorLine.style { s in
             s.backgroundColor = Resources.Colors.cellSeparatorColor
             s.isHidden = true

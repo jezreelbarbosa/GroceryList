@@ -34,6 +34,11 @@ class Resources {
             .ptBR("Nova lista")
             .localizedText
 
+        static let editListNavigationTitle = LocalizedString()
+            .enUS("Edit list")
+            .ptBR("Editar lista")
+            .localizedText
+
         static let newListNameText = LocalizedString()
             .enUS("Grocery List")
             .ptBR("Lista de Compras")
