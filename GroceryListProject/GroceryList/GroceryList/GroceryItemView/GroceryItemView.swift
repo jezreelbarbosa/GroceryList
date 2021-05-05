@@ -47,7 +47,7 @@ final class GroceryItemView: UICodeView {
     }
 
     public override func initLayout() {
-        itemNameTextField.leading(16).trailing(16).Top == safeAreaLayoutGuide.Top + 24
+        itemNameTextField.height(34).leading(16).trailing(16).Top == safeAreaLayoutGuide.Top + 24
 
         priceDecimalField.height(34).Top == itemNameTextField.Bottom + 8
         priceLabel.leading(16).CenterY == priceDecimalField.trailing(16).CenterY
@@ -71,6 +71,7 @@ final class GroceryItemView: UICodeView {
         totalNameLabel.Trailing == totalPriceLabel.Leading + 8
         totalNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
+        itemNameTextField.heightConstraint?.scaledConstant()
         priceDecimalField.heightConstraint?.scaledConstant()
         unitSegmentedControl.heightConstraint?.scaledConstant()
         quantityDecimalField.heightConstraint?.scaledConstant()
@@ -117,6 +118,7 @@ final class GroceryItemView: UICodeView {
         }
 
         unitSegmentedControl.style { s in
+            s.font = SFProText.regular.font(.footnote)
             s.insertSegment(withTitle: Resources.Texts.unitUnit, at: 0, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitKilogram, at: 1, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitHundredGrams, at: 2, animated: false)
@@ -166,13 +168,6 @@ final class GroceryItemView: UICodeView {
 
         textFieldEditingChanged()
     }
-
-    // Override
-
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        let size = UIFontMetrics(forTextStyle: .body).scaledValue(for: 64)
-//
-//    }
 
     // Functions
 
