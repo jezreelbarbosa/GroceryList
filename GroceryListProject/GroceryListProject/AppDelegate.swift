@@ -7,12 +7,12 @@
 //
 
 import Common
-import Swinject
 import Domain
 import DI
 import AppNavigation
 import Presentation
 import IQKeyboardManagerSwift
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,12 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: LaunchOptions?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        Font.registerFonts()
+        SFProText.registerFonts()
+        SFProDisplay.registerFonts()
         IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = LocalizedString(texts: [
-            .enUS: "Done",
-            .ptBR: "Concluído"
-        ]).localizedText
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = LocalizedString().enUS("Done").ptBR("Concluído").localizedText
 
         dependencyInjector = DependencyInjector(launchOptions: launchOptions, window: window)
         dependencyInjector.build(completion: { [unowned self] (assembler, appCoordinator) in

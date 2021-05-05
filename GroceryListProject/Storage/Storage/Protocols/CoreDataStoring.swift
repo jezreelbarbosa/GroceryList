@@ -11,7 +11,7 @@ public protocol CoreDataStoring {
 
     var persistentContainer: NSPersistentContainer { get }
 
-    func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL) throws -> T
+    func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL?) throws -> T
     func getEntity<T: NSManagedObject>(_ type: T.Type) throws -> [T]
     func newEntity<T: EntityNameble>(_ type: T.Type) throws -> T
     func insert(object: NSManagedObject) throws
@@ -21,10 +21,10 @@ public protocol CoreDataStoring {
 
 extension CoreDataStoring {
 
-    public func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL) throws -> T {
+    public func getEntity<T: NSManagedObject>(_ type: T.Type, at uri: URL?) throws -> T {
         let coordinator = persistentContainer.persistentStoreCoordinator
         let context = persistentContainer.viewContext
-        guard let objectID = coordinator.managedObjectID(forURIRepresentation: uri),
+        guard let uri = uri, let objectID = coordinator.managedObjectID(forURIRepresentation: uri),
               let entity = context.object(with: objectID) as? T
         else { throw CoreError.error }
         return entity

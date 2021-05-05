@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 public protocol GroceryItemPresenting {
 
@@ -15,21 +16,11 @@ public protocol GroceryItemPresenting {
     func updateGroceryItem(item: GroceryItemUpdateRequest, successCompletion: () -> Void)
 }
 
-public class GroceryItemViewController: UIViewController {
+public class GroceryItemViewController: UICodeViewController<GroceryItemPresenting> {
 
     // Properties
 
     private lazy var mainView = GroceryItemView()
-    private let presenter: GroceryItemPresenting
-
-    // Lifecycle
-
-    public init(presenter: GroceryItemPresenting) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) { fatalError() }
 
     // Override
 
@@ -60,7 +51,7 @@ public class GroceryItemViewController: UIViewController {
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(withMessage: value)
+            self.presentAttentionAlert(message: value)
         }
 
         presenter.groceryItemBox.bindAndFire { [unowned self] value in

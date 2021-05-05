@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 class Resources {
 
@@ -23,24 +24,29 @@ class Resources {
 
     struct Texts {
 
-        static let homeNavigationTitle = LocalizedString(texts: [
-            .enUS: "Home",
-            .ptBR: "Início"
-        ]).localizedText
+        static let homeNavigationTitle = LocalizedString()
+            .enUS("Home")
+            .ptBR("Início")
+            .localizedText
 
-        static let newListNavigationTitle = LocalizedString(texts: [
-            .enUS: "New list",
-            .ptBR: "Nova lista"
-        ]).localizedText
+        static let newListNavigationTitle = LocalizedString()
+            .enUS("New list")
+            .ptBR("Nova lista")
+            .localizedText
 
-        static let newListNameText = LocalizedString(texts: [
-            .enUS: "Grocery List",
-            .ptBR: "Lista de Compras"
-        ]).localizedText
+        static let editListNavigationTitle = LocalizedString()
+            .enUS("Edit list")
+            .ptBR("Editar lista")
+            .localizedText
 
-        static let newListIconText = LocalizedString(texts: [
-            .enUS: "🛒",
-            .ptBR: "🛒"
-        ]).localizedText
+        static let newListNameText = LocalizedString()
+            .enUS("Grocery List")
+            .ptBR("Lista de Compras")
+            .localizedText
+
+        static let newListIconText = LocalizedString()
+            .enUS("🛒")
+            .ptBR("🛒")
+            .localizedText
     }
 }

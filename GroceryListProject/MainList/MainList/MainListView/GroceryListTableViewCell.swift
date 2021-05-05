@@ -5,17 +5,19 @@
 //  Created by Jezreel Barbosa on 09/01/21.
 //
 
+import UIKit
 import Stevia
+import Presentation
 
 final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     // Static properties
 
     static let reuseIdentifier: String = "GroceryListTableViewCell"
-    static let rowHeight: CGFloat = 80.0
 
     // Properties
 
+    let layoutIconLabel = UILabel()
     let iconLabel = UILabel()
 
     let infoView = UIView()
@@ -24,6 +26,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     let topSeparatorLine = UIView()
     let bottomSeparatorLine = UIView()
+    let separatorLine = UIView()
 
     var topSeparatorLineHiddenStatus = true
     var bottomSeparatorLineHiddenStatus = true
@@ -32,29 +35,35 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     public override func initSubViews() {
         sv(
+            layoutIconLabel,
             iconLabel,
             infoView.sv(
                 titleLabel,
                 dateLabel
             ),
             topSeparatorLine,
-            bottomSeparatorLine
+            bottomSeparatorLine,
+            separatorLine
         )
     }
 
     public override func initLayout() {
-        iconLabel.centerVertically().leading(16).size(48)
-        infoView.Leading == iconLabel.Trailing + 16
-        infoView.centerVertically().trailing(16)
+        iconLabel.followEdges(layoutIconLabel)
+        layoutIconLabel.centerVertically().leading(16).top(>=4).bottom(>=4)
+        layoutIconLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        layoutIconLabel.setContentHuggingPriority(.required, for: .horizontal)
+        infoView.Leading == layoutIconLabel.Trailing + 16
+        infoView.centerVertically().trailing(16).top(>=16).bottom(>=16)
 
         titleLabel.leading(0).trailing(0).top(0)
         titleLabel.Bottom == dateLabel.Top - 8
         dateLabel.leading(0).trailing(0).bottom(0)
 
-        topSeparatorLine.leading(0).top(0).height(0.5).width(78)
-        bottomSeparatorLine.leading(0).bottom(0).height(0.5).width(78)
-
-        layoutIfNeeded()
+        let separatorHeight = 1.0 / UIScreen.main.scale
+        topSeparatorLine.leading(0).top(0).height(separatorHeight).Trailing == Trailing
+        bottomSeparatorLine.leading(0).bottom(0).height(separatorHeight).Trailing == separatorLine.Leading
+        separatorLine.bottom(0).height(separatorHeight).Leading == infoView.Leading
+        separatorLine.Trailing == Trailing
     }
 
     public override func initStyle() {
@@ -62,31 +71,48 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
             s.selectionStyle = .default
             s.accessoryType = .disclosureIndicator
             s.backgroundColor = Resources.Colors.cellBackgroundColor
-            s.separatorInset.left = 78
+        }
+
+        layoutIconLabel.style { s in
+            s.textColor = Resources.Colors.textColor
+            s.font = SFProDisplay.semibold.font(.largeTitle, size: 40)
+            s.adjustsFontForContentSizeCategory = true
+            s.textAlignment = .center
+            s.text = "⬜️"
+            s.alpha = 0
         }
 
         iconLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProDisplay(.semibold, size: 40)
+            s.font = SFProDisplay.semibold.font(.largeTitle, size: 40)
+            s.adjustsFontForContentSizeCategory = true
             s.textAlignment = .center
         }
 
         titleLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProDisplay(.regular, size: 17)
+            s.font = SFProDisplay.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
         }
+
         dateLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProDisplay(.light, size: 14)
+            s.font = SFProDisplay.light.font(.footnote)
+            s.adjustsFontForContentSizeCategory = true
         }
 
         topSeparatorLine.style { s in
             s.backgroundColor = Resources.Colors.cellSeparatorColor
             s.isHidden = true
         }
+
         bottomSeparatorLine.style { s in
             s.backgroundColor = Resources.Colors.cellSeparatorColor
             s.isHidden = true
+        }
+
+        separatorLine.style { s in
+            s.backgroundColor = Resources.Colors.cellSeparatorColor
         }
     }
 
@@ -102,11 +128,23 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         bottomSeparatorLineHiddenStatus = true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
 
-        topSeparatorLine.isHidden = selected ? true : topSeparatorLineHiddenStatus
-        bottomSeparatorLine.isHidden = selected ? true : bottomSeparatorLineHiddenStatus
+        topSeparatorLine.isHidden = highlighted ? true : topSeparatorLineHiddenStatus
+        bottomSeparatorLine.isHidden = highlighted ? true : bottomSeparatorLineHiddenStatus
+        separatorLine.isHidden = highlighted
+    }
+
+    override func didSet(isFirstCell: Bool, isLastCell: Bool) {
+        if isFirstCell {
+            topSeparatorLine.isHidden = false
+            topSeparatorLineHiddenStatus = false
+        }
+        if isLastCell {
+            bottomSeparatorLine.isHidden = false
+            bottomSeparatorLineHiddenStatus = false
+        }
     }
 
     // Functions
@@ -115,16 +153,5 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         iconLabel.text = model.icon
         titleLabel.text = model.name
         dateLabel.text = model.date
-    }
-
-    func setFirstLastCellFor(row: Int, count: Int) {
-        if row == 0 {
-            topSeparatorLine.isHidden = false
-            topSeparatorLineHiddenStatus = false
-        }
-        if count == row + 1 {
-            bottomSeparatorLine.isHidden = false
-            bottomSeparatorLineHiddenStatus = false
-        }
     }
 }

@@ -5,7 +5,9 @@
 //  Created by Jezreel Barbosa on 09/01/21.
 //
 
+import UIKit
 import Stevia
+import Presentation
 
 final class MainListView: UICodeView {
 
@@ -23,8 +25,6 @@ final class MainListView: UICodeView {
 
     public override func initLayout() {
         tableView.fillContainer()
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {
@@ -34,11 +34,8 @@ final class MainListView: UICodeView {
 
         tableView.style { s in
             s.backgroundColor = .clear
-            s.separatorStyle = .singleLine
+            s.separatorStyle = .none
             s.tableFooterView = UIView()
         }
     }
-
-    // Functions
-
 }

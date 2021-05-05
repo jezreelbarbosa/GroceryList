@@ -29,6 +29,11 @@ extension GroceriesRepository: Domain.GroceriesRepository {
         return local.saveNewGroceryList(request: requestDTO)
     }
 
+    public func addOrUpdate(groceryList: GroceryListModel) -> Result<Void, Error> {
+        let requestDTO = GroceryListDTO(from: groceryList)
+        return local.addOrUpdate(groceryList: requestDTO)
+    }
+
     public func removeGroceryList(uri: URL) -> Result<Void, Error> {
         local.removeGroceryList(uri: uri)
     }

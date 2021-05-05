@@ -5,14 +5,15 @@
 //  Created by Jezreel Barbosa on 27/02/21.
 //
 
+import UIKit
 import Stevia
+import Presentation
 
 final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdentifiable {
 
     // Static properties
 
     static let reuseIdentifier: String = "GroceryTotalFooterView"
-    static let rowHeight: CGFloat = 44.0
 
     // Properties
 
@@ -29,12 +30,11 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
     }
 
     public override func initLayout() {
-        titleLabel.leading(16).centerVertically().Trailing == priceLabel.Leading + 16
+        titleLabel.leading(16).centerVertically().top(>=16).bottom(>=16)
+        titleLabel.Trailing == priceLabel.Leading + 16
 
-        priceLabel.centerVertically().trailing(16)
+        priceLabel.centerVertically().trailing(16).top(>=16).bottom(>=16)
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-        layoutIfNeeded()
     }
 
     public override func initStyle() {
@@ -44,13 +44,13 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
 
         titleLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProText(.semibold, size: 17)
+            s.font = SFProText.semibold.font(.body)
             s.text = Resources.Texts.totalFooterText
         }
 
         priceLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textAlignment = .right
         }
     }

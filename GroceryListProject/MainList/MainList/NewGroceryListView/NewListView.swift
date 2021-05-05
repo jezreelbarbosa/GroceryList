@@ -5,7 +5,9 @@
 //  Created by Jezreel Barbosa on 16/02/21.
 //
 
+import UIKit
 import Stevia
+import Presentation
 
 final class NewListView: UICodeView {
 
@@ -25,11 +27,13 @@ final class NewListView: UICodeView {
 
     public override func initLayout() {
         iconTextField.Top == safeAreaLayoutGuide.Top + 32
-        iconTextField.leading(16).size(56).Trailing == nameTextField.Leading - 16
-        nameTextField.trailing(16).height(56)
+        iconTextField.leading(16).size(64).Trailing == nameTextField.Leading - 16
+        nameTextField.trailing(16).height(64)
         align(.centerY, views: [iconTextField, nameTextField])
 
-        layoutIfNeeded()
+        iconTextField.heightConstraint?.scaledConstant()
+        iconTextField.widthConstraint?.scaledConstant()
+        nameTextField.heightConstraint?.scaledConstant()
     }
 
     public override func initStyle() {
@@ -38,20 +42,26 @@ final class NewListView: UICodeView {
         }
 
         iconTextField.style { s in
-            s.font = Font.sfProText(.regular, size: 40)
+            s.font = SFProText.regular.font(size: 40)
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .center
             s.borderStyle = .roundedRect
+            s.attributedPlaceholder = NSAttributedString(
+                string: "", attributes: [.font: SFProText.regular.font(size: 40)]
+            )
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.text = Resources.Texts.newListIconText
-            s.setupCaracterLimit(limit: 1)
+            s.setupCharacterLimit(limit: 1)
         }
 
         nameTextField.style { s in
-            s.font = Font.sfProText(.regular, size: 24)
+            s.font = SFProText.regular.font(size: 24)
             s.textColor = Resources.Colors.textColor
             s.borderStyle = .roundedRect
-            s.placeholder = Resources.Texts.newListNameText
+            s.attributedPlaceholder = NSAttributedString(
+                string: Resources.Texts.newListNameText,
+                attributes: [.font: SFProText.regular.font(size: 24)]
+            )
             s.text = Resources.Texts.newListNameText
             s.padding.left = 16
             s.padding.right = 16
@@ -62,6 +72,19 @@ final class NewListView: UICodeView {
     }
 
     // Functions
+
+    func set(model: GroceryListHeaderInfoViewModel) {
+        iconTextField.text = model.icon
+        nameTextField.text = model.name
+    }
+
+    func getModel() -> GroceryListHeaderInfoViewModel {
+        let isNameEmpty = nameTextField.text.defaultValue.isEmpty
+        let name = isNameEmpty ? nameTextField.placeholder.defaultValue : nameTextField.text.defaultValue
+        return GroceryListHeaderInfoViewModel(icon: iconTextField.text.defaultValue, name: name, date: .defaultValue)
+    }
+
+    // Actions
 
     @objc private func nameTextFieldEditingChanged() {
         let letter: String

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 class Resources {
 
@@ -27,60 +28,60 @@ class Resources {
 
         // - Navigation
 
-        static let itemNavigationTitle = LocalizedString(texts: [
-            .enUS: "Item",
-            .ptBR: "Item"
-        ]).localizedText
+        static let itemNavigationTitle = LocalizedString()
+            .enUS("Item")
+            .ptBR("Item")
+            .localizedText
 
         // - Unit
 
-        static let unitUnit = LocalizedString(texts: [
-            .enUS: "unit",
-            .ptBR: "unidade"
-        ]).localizedText
+        static let unitUnit = LocalizedString()
+            .enUS("unit")
+            .ptBR("unidade")
+            .localizedText
 
-        static let unitKilogram = LocalizedString(texts: [
-            .enUS: "Kg",
-            .ptBR: "Kg"
-        ]).localizedText
+        static let unitKilogram = LocalizedString()
+            .enUS("Kg")
+            .ptBR("Kg")
+            .localizedText
 
-        static let unitHundredGrams = LocalizedString(texts: [
-            .enUS: "Kg / 100g",
-            .ptBR: "Kg / 100g"
-        ]).localizedText
+        static let unitHundredGrams = LocalizedString()
+            .enUS("Kg / 100g")
+            .ptBR("Kg / 100g")
+            .localizedText
 
-        static let unitLiter = LocalizedString(texts: [
-            .enUS: "L",
-            .ptBR: "L"
-        ]).localizedText
+        static let unitLiter = LocalizedString()
+            .enUS("L")
+            .ptBR("L")
+            .localizedText
 
         // - Footer
 
-        static let totalFooterText = LocalizedString(texts: [
-            .enUS: "TOTAL",
-            .ptBR: "TOTAL"
-        ]).localizedText
+        static let totalFooterText = LocalizedString()
+            .enUS("TOTAL")
+            .ptBR("TOTAL")
+            .localizedText
 
         // - Item View
 
-        static let itemNamePlaceholder = LocalizedString(texts: [
-            .enUS: "Item name",
-            .ptBR: "Nome do item"
-        ]).localizedText
+        static let itemNamePlaceholder = LocalizedString()
+            .enUS("Item name")
+            .ptBR("Nome do item")
+            .localizedText
 
-        static let priceText = LocalizedString(texts: [
-            .enUS: "Price:",
-            .ptBR: "Preço:"
-        ]).localizedText
+        static let priceText = LocalizedString()
+            .enUS("Price:")
+            .ptBR("Preço:")
+            .localizedText
 
-        static let quantityText = LocalizedString(texts: [
-            .enUS: "Quantity:",
-            .ptBR: "Quantidade:"
-        ]).localizedText
+        static let quantityText = LocalizedString()
+            .enUS("Quantity:")
+            .ptBR("Quantidade:")
+            .localizedText
 
-        static let totalText = LocalizedString(texts: [
-            .enUS: "Total:",
-            .ptBR: "Total:"
-        ]).localizedText
+        static let totalText = LocalizedString()
+            .enUS("Total:")
+            .ptBR("Total:")
+            .localizedText
     }
 }

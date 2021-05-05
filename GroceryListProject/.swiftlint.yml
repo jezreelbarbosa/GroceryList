@@ -61,3 +61,4 @@ custom_rules:
 
 disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
+  - multiple_closures_with_trailing_closure

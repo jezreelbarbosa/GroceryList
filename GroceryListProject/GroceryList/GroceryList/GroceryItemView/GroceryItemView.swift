@@ -5,7 +5,9 @@
 //  Created by Jezreel Barbosa on 28/02/21.
 //
 
+import UIKit
 import Stevia
+import Presentation
 
 final class GroceryItemView: UICodeView {
 
@@ -61,14 +63,17 @@ final class GroceryItemView: UICodeView {
         quantityLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         quantityLabel.setContentHuggingPriority(.required, for: .horizontal)
 
-        separatorView.leading(16).trailing(16).height(0.5).Top == quantityDecimalField.Bottom + 16
+        let separatorHeight = 1.0 / UIScreen.main.scale
+        separatorView.leading(16).trailing(16).height(separatorHeight).Top == quantityDecimalField.Bottom + 16
 
         totalPriceLabel.Top == separatorView.Bottom + 16
         totalNameLabel.leading(16).CenterY == totalPriceLabel.trailing(16).CenterY
         totalNameLabel.Trailing == totalPriceLabel.Leading + 8
         totalNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
-        layoutIfNeeded()
+        priceDecimalField.heightConstraint?.scaledConstant()
+        unitSegmentedControl.heightConstraint?.scaledConstant()
+        quantityDecimalField.heightConstraint?.scaledConstant()
     }
 
     public override func initStyle() {
@@ -77,34 +82,38 @@ final class GroceryItemView: UICodeView {
         }
 
         itemNameTextField.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
                 string: Resources.Texts.itemNamePlaceholder,
-                attributes: [.font: Font.sfProText(.regular, size: 17)]
+                attributes: [.font: SFProText.regular.font(.body)]
             )
             s.borderStyle = .roundedRect
             s.padding.left = 16
             s.padding.right = 16
+            s.adjustsFontForContentSizeCategory = true
         }
 
         priceLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.priceText
+            s.adjustsFontForContentSizeCategory = true
         }
+
         priceDecimalField.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
-                string: "", attributes: [.font: Font.sfProText(.regular, size: 17)]
+                string: "", attributes: [.font: SFProText.regular.font(.body)]
             )
             s.borderStyle = .roundedRect
-            s.numberFormatter.numberStyle = .currency
-            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+            s.numberStyle = .currency
+            s.adjustsFontForContentSizeCategory = true
             s.sendActions(for: .editingChanged)
+            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         }
 
         unitSegmentedControl.style { s in
@@ -113,26 +122,28 @@ final class GroceryItemView: UICodeView {
             s.insertSegment(withTitle: Resources.Texts.unitHundredGrams, at: 2, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitLiter, at: 3, animated: false)
             s.selectedSegmentIndex = 0
-            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .valueChanged)
+            s.addTarget(self, action: #selector(updateQuantityDecimalField), for: .valueChanged)
         }
 
         quantityLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.quantityText
+            s.adjustsFontForContentSizeCategory = true
         }
+
         quantityDecimalField.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
-                string: "", attributes: [.font: Font.sfProText(.regular, size: 17)]
+                string: "", attributes: [.font: SFProText.regular.font(.body)]
             )
             s.borderStyle = .roundedRect
-            s.numberFormatter.minimumFractionDigits = 0
-            s.numberFormatter.maximumFractionDigits = 0
-            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+            s.fractionDigits = 0
+            s.adjustsFontForContentSizeCategory = true
             s.sendActions(for: .editingChanged)
+            s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         }
 
         separatorView.style { s in
@@ -140,18 +151,28 @@ final class GroceryItemView: UICodeView {
         }
 
         totalNameLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.totalText
+            s.adjustsFontForContentSizeCategory = true
         }
+
         totalPriceLabel.style { s in
-            s.font = Font.sfProText(.regular, size: 17)
+            s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .right
+            s.adjustsFontForContentSizeCategory = true
         }
 
         textFieldEditingChanged()
     }
+
+    // Override
+
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        let size = UIFontMetrics(forTextStyle: .body).scaledValue(for: 64)
+//
+//    }
 
     // Functions
 
@@ -166,13 +187,13 @@ final class GroceryItemView: UICodeView {
     }
 
     func setItem(item: GroceryItemUpdateRequest) {
+        itemDate = item.date
+        unitSegmentedControl.selectedSegmentIndex = item.unit
+        updateQuantityDecimalField()
+        quantityDecimalField.decimal = item.quantity
         itemNameTextField.text = item.itemName
         priceDecimalField.decimal = item.price
-        unitSegmentedControl.selectedSegmentIndex = item.unit
         textFieldEditingChanged()
-        quantityDecimalField.decimal = item.quantity
-        textFieldEditingChanged()
-        itemDate = item.date
     }
 
     // Actions
@@ -184,14 +205,14 @@ final class GroceryItemView: UICodeView {
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.locale = .current
 
-        let digits = unitSegmentedControl.selectedSegmentIndex == 0 ? 0 : 3
-        quantityDecimalField.numberFormatter.minimumFractionDigits = digits
-        quantityDecimalField.numberFormatter.maximumFractionDigits = digits
-        quantityDecimalField.editingChanged()
-
         let factor: Decimal = unitSegmentedControl.selectedSegmentIndex == 2 ? 10 : 1
         let total = priceDecimalField.decimal * quantityDecimalField.decimal * factor
 
         totalPriceLabel.text = numberFormatter.string(for: total)
+    }
+
+    @objc func updateQuantityDecimalField() {
+        let digits = unitSegmentedControl.selectedSegmentIndex == 0 ? 0 : 3
+        quantityDecimalField.fractionDigits = digits
     }
 }

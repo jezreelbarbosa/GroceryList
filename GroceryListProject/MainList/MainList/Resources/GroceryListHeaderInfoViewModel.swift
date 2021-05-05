@@ -13,6 +13,12 @@ public struct GroceryListHeaderInfoViewModel {
     let name: String
     let date: String
 
+    init(icon: String, name: String, date: String) {
+        self.icon = icon
+        self.name = name
+        self.date = date
+    }
+
     init(response: GroceryListModel) {
         self.icon = response.icon.isEmpty ? response.name[0..<1] : response.icon
         self.name = response.name

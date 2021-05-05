@@ -18,8 +18,8 @@ def presentationPods
 end
 
 def diPods
-  pod 'Swinject', '~> 2.6.0'
-  pod 'SwinjectAutoregistration', '~> 2.6.0'
+  pod 'Swinject'
+  pod 'SwinjectAutoregistration'
 end
 
 def networkingPods
@@ -119,13 +119,13 @@ target 'AppNavigation' do
   target 'AppNavigationTests'
 end
 
-target 'Presentation' do
-  project 'Presentation/Presentation'
+target 'AppUI' do
+  project 'AppUI/AppUI'
   # Pods for SharedPresentation
   sharedPods
   presentationPods
 
-  target 'PresentationTests'
+  target 'AppUITests'
 end
 
 # Mark: - Feature Targets
