@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D15E01E2642556F00F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E01D2642556F00F73B30 /* Presentation */; };
 		0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC34944263CA92300C89810 /* UIViewController+Extension.swift */; };
 		0DF0F39B2636747600F6ED3D /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3912636747600F6ED3D /* AppUI.framework */; };
 		0DF0F3A02636747600F6ED3D /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0F39F2636747600F6ED3D /* AppUITests.swift */; };
 		0DF0F3A22636747600F6ED3D /* AppUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF0F3942636747600F6ED3D /* AppUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DF0F3B42636751200F6ED3D /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0DF0F3B32636751200F6ED3D /* Presentation */; };
-		0DF0F3B52636751200F6ED3D /* Presentation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0DF0F3B32636751200F6ED3D /* Presentation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0DF0F3BA2636754600F6ED3D /* UIContextualAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0F3B92636754600F6ED3D /* UIContextualAction+Extension.swift */; };
 		0DF0F4832636F7C000F6ED3D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0F4822636F7C000F6ED3D /* Assets.swift */; };
 		8DCD036094D178FD1ED478CB /* Pods_AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2721B6CAAFC885F03AD6E5FD /* Pods_AppUI.framework */; };
@@ -36,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0DF0F3B52636751200F6ED3D /* Presentation in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DF0F3B42636751200F6ED3D /* Presentation in Frameworks */,
+				0D15E01E2642556F00F73B30 /* Presentation in Frameworks */,
 				8DCD036094D178FD1ED478CB /* Pods_AppUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,7 +182,7 @@
 			);
 			name = AppUI;
 			packageProductDependencies = (
-				0DF0F3B32636751200F6ED3D /* Presentation */,
+				0D15E01D2642556F00F73B30 /* Presentation */,
 			);
 			productName = AppUI;
 			productReference = 0DF0F3912636747600F6ED3D /* AppUI.framework */;
@@ -238,7 +236,7 @@
 			);
 			mainGroup = 0DF0F3872636747600F6ED3D;
 			packageReferences = (
-				0DF0F3B22636751200F6ED3D /* XCRemoteSwiftPackageReference "Presentation" */,
+				0D15E01C2642556F00F73B30 /* XCRemoteSwiftPackageReference "Presentation" */,
 			);
 			productRefGroup = 0DF0F3922636747600F6ED3D /* Products */;
 			projectDirPath = "";
@@ -609,7 +607,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0DF0F3B22636751200F6ED3D /* XCRemoteSwiftPackageReference "Presentation" */ = {
+		0D15E01C2642556F00F73B30 /* XCRemoteSwiftPackageReference "Presentation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
 			requirement = {
@@ -620,9 +618,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0DF0F3B32636751200F6ED3D /* Presentation */ = {
+		0D15E01D2642556F00F73B30 /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0DF0F3B22636751200F6ED3D /* XCRemoteSwiftPackageReference "Presentation" */;
+			package = 0D15E01C2642556F00F73B30 /* XCRemoteSwiftPackageReference "Presentation" */;
 			productName = Presentation;
 		};
 /* End XCSwiftPackageProductDependency section */

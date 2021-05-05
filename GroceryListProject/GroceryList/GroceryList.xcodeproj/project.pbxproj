@@ -10,6 +10,8 @@
 		0D08D61925EC202700A09BAF /* GroceryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D61825EC202700A09BAF /* GroceryItemView.swift */; };
 		0D08D61D25EC203000A09BAF /* GroceryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D61C25EC203000A09BAF /* GroceryItemViewController.swift */; };
 		0D08D62125EC203900A09BAF /* GroceryItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D62025EC203900A09BAF /* GroceryItemPresenter.swift */; };
+		0D15E0192642381600F73B30 /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D15E0182642381600F73B30 /* AppUI.framework */; };
+		0D15E026264255B200F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E025264255B200F73B30 /* Presentation */; };
 		0D22D06F25E4385400E48981 /* GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D06525E4385400E48981 /* GroceryList.framework */; };
 		0D22D07425E4385400E48981 /* GroceryListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22D07325E4385400E48981 /* GroceryListTests.swift */; };
 		0D22D07625E4385400E48981 /* GroceryList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D22D06825E4385400E48981 /* GroceryList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,8 +26,6 @@
 		0D7EADC325EB0FF300A97CC2 /* GroceryTotalFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADC225EB0FF300A97CC2 /* GroceryTotalFooterView.swift */; };
 		0D7EADCD25EB21DD00A97CC2 /* GroceryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EADCC25EB21DD00A97CC2 /* GroceryListViewModel.swift */; };
 		0D8247BF25EDB4110049F79F /* GroceryItemUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8247BE25EDB4110049F79F /* GroceryItemUpdateRequest.swift */; };
-		0DE5EB3D262DE39600A0990B /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EB3C262DE39600A0990B /* Presentation */; };
-		0DE5EB3E262DE39600A0990B /* Presentation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EB3C262DE39600A0990B /* Presentation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		57B8C161EDE2B844C99CACCB /* Pods_GroceryList_GroceryListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B5EAD3BCB2F76A80EC7531 /* Pods_GroceryList_GroceryListTests.framework */; };
 		ABA0FFA93C52C05B1808B438 /* Pods_GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02A96F473FBAA887B2E45F6 /* Pods_GroceryList.framework */; };
 /* End PBXBuildFile section */
@@ -41,13 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0DE5EB3F262DE39600A0990B /* Embed Frameworks */ = {
+		0D15E028264255B200F73B30 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0DE5EB3E262DE39600A0990B /* Presentation in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +57,7 @@
 		0D08D61825EC202700A09BAF /* GroceryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemView.swift; sourceTree = "<group>"; };
 		0D08D61C25EC203000A09BAF /* GroceryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemViewController.swift; sourceTree = "<group>"; };
 		0D08D62025EC203900A09BAF /* GroceryItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemPresenter.swift; sourceTree = "<group>"; };
+		0D15E0182642381600F73B30 /* AppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D22D06525E4385400E48981 /* GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D22D06825E4385400E48981 /* GroceryList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroceryList.h; sourceTree = "<group>"; };
 		0D22D06925E4385400E48981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,9 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DE5EB3D262DE39600A0990B /* Presentation in Frameworks */,
 				0D22D08525E438B300E48981 /* Common.framework in Frameworks */,
+				0D15E0192642381600F73B30 /* AppUI.framework in Frameworks */,
 				0D22D08925E438B800E48981 /* Domain.framework in Frameworks */,
+				0D15E026264255B200F73B30 /* Presentation in Frameworks */,
 				ABA0FFA93C52C05B1808B438 /* Pods_GroceryList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +163,7 @@
 		0D22D08325E438B300E48981 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D15E0182642381600F73B30 /* AppUI.framework */,
 				0D22D08B25E438BD00E48981 /* Presentation.framework */,
 				0D22D08825E438B800E48981 /* Domain.framework */,
 				0D22D08425E438B300E48981 /* Common.framework */,
@@ -229,7 +231,7 @@
 				0D22D06125E4385400E48981 /* Sources */,
 				0D22D06225E4385400E48981 /* Frameworks */,
 				0D22D06325E4385400E48981 /* Resources */,
-				0DE5EB3F262DE39600A0990B /* Embed Frameworks */,
+				0D15E028264255B200F73B30 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,7 +239,7 @@
 			);
 			name = GroceryList;
 			packageProductDependencies = (
-				0DE5EB3C262DE39600A0990B /* Presentation */,
+				0D15E025264255B200F73B30 /* Presentation */,
 			);
 			productName = GroceryList;
 			productReference = 0D22D06525E4385400E48981 /* GroceryList.framework */;
@@ -291,7 +293,7 @@
 			);
 			mainGroup = 0D22D05B25E4385400E48981;
 			packageReferences = (
-				0DE5EB3B262DE39600A0990B /* XCRemoteSwiftPackageReference "Presentation" */,
+				0D15E024264255B200F73B30 /* XCRemoteSwiftPackageReference "Presentation" */,
 			);
 			productRefGroup = 0D22D06625E4385400E48981 /* Products */;
 			projectDirPath = "";
@@ -671,7 +673,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0DE5EB3B262DE39600A0990B /* XCRemoteSwiftPackageReference "Presentation" */ = {
+		0D15E024264255B200F73B30 /* XCRemoteSwiftPackageReference "Presentation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
 			requirement = {
@@ -682,9 +684,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0DE5EB3C262DE39600A0990B /* Presentation */ = {
+		0D15E025264255B200F73B30 /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0DE5EB3B262DE39600A0990B /* XCRemoteSwiftPackageReference "Presentation" */;
+			package = 0D15E024264255B200F73B30 /* XCRemoteSwiftPackageReference "Presentation" */;
 			productName = Presentation;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D15E0162642380400F73B30 /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D15E0152642380400F73B30 /* AppUI.framework */; };
+		0D15E0222642559100F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E0212642559100F73B30 /* Presentation */; };
 		0D1A635E25DC7A8100C77914 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A635D25DC7A8100C77914 /* NewListViewController.swift */; };
 		0D1A636225DC7AC300C77914 /* NewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A636125DC7AC300C77914 /* NewListView.swift */; };
 		0D1A636825DC7AD400C77914 /* NewListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A636725DC7AD400C77914 /* NewListPresenter.swift */; };
 		0D615B4625DD599700868E66 /* NewGroceryListHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D615B4525DD599700868E66 /* NewGroceryListHeaderViewModel.swift */; };
 		0DCEB1DE25B2316C00CA353B /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCEB1DD25B2316C00CA353B /* Resources.swift */; };
 		0DE0B59125C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0B59025C6265A00ADF4C7 /* GroceryListHeaderInfoViewModel.swift */; };
-		0DE5EB09262DE37A00A0990B /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EB08262DE37A00A0990B /* Presentation */; };
-		0DE5EB0A262DE37A00A0990B /* Presentation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EB08262DE37A00A0990B /* Presentation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0DF4096925A75D0D0005609F /* MainList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4095F25A75D0D0005609F /* MainList.framework */; };
 		0DF4096E25A75D0D0005609F /* MainListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4096D25A75D0D0005609F /* MainListTests.swift */; };
 		0DF4097025A75D0D0005609F /* MainList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF4096225A75D0D0005609F /* MainList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0DE5EB0A262DE37A00A0990B /* Presentation in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D15E0152642380400F73B30 /* AppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1A635D25DC7A8100C77914 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
 		0D1A636125DC7AC300C77914 /* NewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListView.swift; sourceTree = "<group>"; };
 		0D1A636725DC7AD400C77914 /* NewListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListPresenter.swift; sourceTree = "<group>"; };
@@ -85,9 +85,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DE5EB09262DE37A00A0990B /* Presentation in Frameworks */,
 				0DF4097D25A75D2E0005609F /* Common.framework in Frameworks */,
+				0D15E0162642380400F73B30 /* AppUI.framework in Frameworks */,
 				0DF4098125A75D350005609F /* Domain.framework in Frameworks */,
+				0D15E0222642559100F73B30 /* Presentation in Frameworks */,
 				5DC5CC3848A4B88348ED34F9 /* Pods_MainList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +159,7 @@
 		0DF4097B25A75D2E0005609F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D15E0152642380400F73B30 /* AppUI.framework */,
 				0DF4098425A75D3D0005609F /* Presentation.framework */,
 				0DF4098025A75D350005609F /* Domain.framework */,
 				0DF4097C25A75D2E0005609F /* Common.framework */,
@@ -231,7 +233,7 @@
 			);
 			name = MainList;
 			packageProductDependencies = (
-				0DE5EB08262DE37A00A0990B /* Presentation */,
+				0D15E0212642559100F73B30 /* Presentation */,
 			);
 			productName = MainList;
 			productReference = 0DF4095F25A75D0D0005609F /* MainList.framework */;
@@ -285,7 +287,7 @@
 			);
 			mainGroup = 0DF4095525A75D0D0005609F;
 			packageReferences = (
-				0DE5EB07262DE37A00A0990B /* XCRemoteSwiftPackageReference "Presentation" */,
+				0D15E0202642559100F73B30 /* XCRemoteSwiftPackageReference "Presentation" */,
 			);
 			productRefGroup = 0DF4096025A75D0D0005609F /* Products */;
 			projectDirPath = "";
@@ -663,7 +665,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0DE5EB07262DE37A00A0990B /* XCRemoteSwiftPackageReference "Presentation" */ = {
+		0D15E0202642559100F73B30 /* XCRemoteSwiftPackageReference "Presentation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
 			requirement = {
@@ -674,9 +676,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0DE5EB08262DE37A00A0990B /* Presentation */ = {
+		0D15E0212642559100F73B30 /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0DE5EB07262DE37A00A0990B /* XCRemoteSwiftPackageReference "Presentation" */;
+			package = 0D15E0202642559100F73B30 /* XCRemoteSwiftPackageReference "Presentation" */;
 			productName = Presentation;
 		};
 /* End XCSwiftPackageProductDependency section */
