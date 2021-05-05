@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D15E01E2642556F00F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E01D2642556F00F73B30 /* Presentation */; };
+		0D79337E264343350049AD6E /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79337D264343350049AD6E /* UISegmentedControl+Extension.swift */; };
+		0D793380264346680049AD6E /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79337F264346680049AD6E /* Common.framework */; };
 		0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC34944263CA92300C89810 /* UIViewController+Extension.swift */; };
 		0DF0F39B2636747600F6ED3D /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3912636747600F6ED3D /* AppUI.framework */; };
 		0DF0F3A02636747600F6ED3D /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0F39F2636747600F6ED3D /* AppUITests.swift */; };
@@ -28,20 +30,9 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		0DF0F3B62636751200F6ED3D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		0D79337D264343350049AD6E /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
+		0D79337F264346680049AD6E /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC34944263CA92300C89810 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0DF0F3912636747600F6ED3D /* AppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0F3942636747600F6ED3D /* AppUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUI.h; sourceTree = "<group>"; };
@@ -64,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D793380264346680049AD6E /* Common.framework in Frameworks */,
 				0D15E01E2642556F00F73B30 /* Presentation in Frameworks */,
 				8DCD036094D178FD1ED478CB /* Pods_AppUI.framework in Frameworks */,
 			);
@@ -138,6 +130,7 @@
 			children = (
 				0DF0F3B92636754600F6ED3D /* UIContextualAction+Extension.swift */,
 				0DC34944263CA92300C89810 /* UIViewController+Extension.swift */,
+				0D79337D264343350049AD6E /* UISegmentedControl+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,6 +138,7 @@
 		73B482D5B97E28BE87C65C28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D79337F264346680049AD6E /* Common.framework */,
 				2721B6CAAFC885F03AD6E5FD /* Pods_AppUI.framework */,
 				458C6DF66E3021EEEFAB6CA0 /* Pods_AppUI_AppUITests.framework */,
 			);
@@ -174,7 +168,6 @@
 				0DF0F38D2636747600F6ED3D /* Sources */,
 				0DF0F38E2636747600F6ED3D /* Frameworks */,
 				0DF0F38F2636747600F6ED3D /* Resources */,
-				0DF0F3B62636751200F6ED3D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D79337E264343350049AD6E /* UISegmentedControl+Extension.swift in Sources */,
 				0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */,
 				0DF0F4832636F7C000F6ED3D /* Assets.swift in Sources */,
 				0DF0F3BA2636754600F6ED3D /* UIContextualAction+Extension.swift in Sources */,

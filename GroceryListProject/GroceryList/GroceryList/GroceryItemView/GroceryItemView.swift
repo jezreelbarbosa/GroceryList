@@ -118,8 +118,7 @@ final class GroceryItemView: UICodeView {
         }
 
         unitSegmentedControl.style { s in
-            s.setTitleTextAttributes([.font: SFProText.regular.font(.footnote)], for: .normal)
-            s.updateFont()
+            s.font = SFProText.regular.font(.footnote)
             s.insertSegment(withTitle: Resources.Texts.unitUnit, at: 0, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitKilogram, at: 1, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitHundredGrams, at: 2, animated: false)
@@ -210,16 +209,5 @@ final class GroceryItemView: UICodeView {
     @objc func updateQuantityDecimalField() {
         let digits = unitSegmentedControl.selectedSegmentIndex == 0 ? 0 : 3
         quantityDecimalField.fractionDigits = digits
-    }
-}
-
-extension UISegmentedControl {
-
-    func updateFont() {
-        NotificationCenter.default.addObserver(self, selector: #selector(update), name: UIContentSizeCategory.didChangeNotification, object: nil)
-    }
-
-    @objc private func update() {
-        setTitleTextAttributes([.font: SFProText.regular.font(.footnote)], for: .normal)
     }
 }
