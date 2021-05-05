@@ -46,7 +46,4 @@ final class GroceryListView: UICodeView {
             s.effect = UIBlurEffect(style: .regular)
         }
     }
-
-    // Functions
-
 }

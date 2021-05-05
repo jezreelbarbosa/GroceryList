@@ -17,6 +17,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     // Properties
 
+    let layoutIconLabel = UILabel()
     let iconLabel = UILabel()
 
     let infoView = UIView()
@@ -25,6 +26,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     let topSeparatorLine = UIView()
     let bottomSeparatorLine = UIView()
+    let separatorLine = UIView()
 
     var topSeparatorLineHiddenStatus = true
     var bottomSeparatorLineHiddenStatus = true
@@ -33,20 +35,24 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     public override func initSubViews() {
         sv(
+            layoutIconLabel,
             iconLabel,
             infoView.sv(
                 titleLabel,
                 dateLabel
             ),
             topSeparatorLine,
-            bottomSeparatorLine
+            bottomSeparatorLine,
+            separatorLine
         )
     }
 
     public override func initLayout() {
-        iconLabel.centerVertically().leading(16).size(48).top(>=0).bottom(>=0)
-        iconLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        infoView.Leading == iconLabel.Trailing + 16
+        iconLabel.followEdges(layoutIconLabel)
+        layoutIconLabel.centerVertically().leading(16).top(>=4).bottom(>=4)
+        layoutIconLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        layoutIconLabel.setContentHuggingPriority(.required, for: .horizontal)
+        infoView.Leading == layoutIconLabel.Trailing + 16
         infoView.centerVertically().trailing(16).top(>=16).bottom(>=16)
 
         titleLabel.leading(0).trailing(0).top(0)
@@ -54,8 +60,10 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         dateLabel.leading(0).trailing(0).bottom(0)
 
         let separatorHeight = 1.0 / UIScreen.main.scale
-        topSeparatorLine.leading(0).top(0).height(separatorHeight).width(78)
-        bottomSeparatorLine.leading(0).bottom(0).height(separatorHeight).width(78)
+        topSeparatorLine.leading(0).top(0).height(separatorHeight).Trailing == Trailing
+        bottomSeparatorLine.leading(0).bottom(0).height(separatorHeight).Trailing == separatorLine.Leading
+        separatorLine.bottom(0).height(separatorHeight).Leading == infoView.Leading
+        separatorLine.Trailing == Trailing
     }
 
     public override func initStyle() {
@@ -63,12 +71,20 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
             s.selectionStyle = .default
             s.accessoryType = .disclosureIndicator
             s.backgroundColor = Resources.Colors.cellBackgroundColor
-            s.separatorInset.left = 78
+        }
+
+        layoutIconLabel.style { s in
+            s.textColor = Resources.Colors.textColor
+            s.font = SFProDisplay.semibold.font(.largeTitle, size: 40)
+            s.adjustsFontForContentSizeCategory = true
+            s.textAlignment = .center
+            s.text = "⬜️"
+            s.alpha = 0
         }
 
         iconLabel.style { s in
             s.textColor = Resources.Colors.textColor
-            s.font = SFProDisplay.semibold.font(.headline, size: 40)
+            s.font = SFProDisplay.semibold.font(.largeTitle, size: 40)
             s.adjustsFontForContentSizeCategory = true
             s.textAlignment = .center
         }
@@ -94,6 +110,10 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
             s.backgroundColor = Resources.Colors.cellSeparatorColor
             s.isHidden = true
         }
+
+        separatorLine.style { s in
+            s.backgroundColor = Resources.Colors.cellSeparatorColor
+        }
     }
 
     // Override
@@ -113,6 +133,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
         topSeparatorLine.isHidden = highlighted ? true : topSeparatorLineHiddenStatus
         bottomSeparatorLine.isHidden = highlighted ? true : bottomSeparatorLineHiddenStatus
+        separatorLine.isHidden = highlighted
     }
 
     override func didSet(isFirstCell: Bool, isLastCell: Bool) {

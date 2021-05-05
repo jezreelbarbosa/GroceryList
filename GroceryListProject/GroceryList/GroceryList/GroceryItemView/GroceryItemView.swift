@@ -70,6 +70,10 @@ final class GroceryItemView: UICodeView {
         totalNameLabel.leading(16).CenterY == totalPriceLabel.trailing(16).CenterY
         totalNameLabel.Trailing == totalPriceLabel.Leading + 8
         totalNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+
+        priceDecimalField.heightConstraint?.scaledConstant()
+        unitSegmentedControl.heightConstraint?.scaledConstant()
+        quantityDecimalField.heightConstraint?.scaledConstant()
     }
 
     public override func initStyle() {
@@ -88,13 +92,16 @@ final class GroceryItemView: UICodeView {
             s.borderStyle = .roundedRect
             s.padding.left = 16
             s.padding.right = 16
+            s.adjustsFontForContentSizeCategory = true
         }
 
         priceLabel.style { s in
             s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.priceText
+            s.adjustsFontForContentSizeCategory = true
         }
+
         priceDecimalField.style { s in
             s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
@@ -104,6 +111,7 @@ final class GroceryItemView: UICodeView {
             )
             s.borderStyle = .roundedRect
             s.numberStyle = .currency
+            s.adjustsFontForContentSizeCategory = true
             s.sendActions(for: .editingChanged)
             s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         }
@@ -121,7 +129,9 @@ final class GroceryItemView: UICodeView {
             s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.quantityText
+            s.adjustsFontForContentSizeCategory = true
         }
+
         quantityDecimalField.style { s in
             s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
@@ -131,6 +141,7 @@ final class GroceryItemView: UICodeView {
             )
             s.borderStyle = .roundedRect
             s.fractionDigits = 0
+            s.adjustsFontForContentSizeCategory = true
             s.sendActions(for: .editingChanged)
             s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         }
@@ -143,15 +154,25 @@ final class GroceryItemView: UICodeView {
             s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.totalText
+            s.adjustsFontForContentSizeCategory = true
         }
+
         totalPriceLabel.style { s in
             s.font = SFProText.regular.font(.body)
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .right
+            s.adjustsFontForContentSizeCategory = true
         }
 
         textFieldEditingChanged()
     }
+
+    // Override
+
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        let size = UIFontMetrics(forTextStyle: .body).scaledValue(for: 64)
+//
+//    }
 
     // Functions
 

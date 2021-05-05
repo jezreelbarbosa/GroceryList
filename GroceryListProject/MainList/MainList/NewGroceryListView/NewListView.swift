@@ -30,6 +30,10 @@ final class NewListView: UICodeView {
         iconTextField.leading(16).size(64).Trailing == nameTextField.Leading - 16
         nameTextField.trailing(16).height(64)
         align(.centerY, views: [iconTextField, nameTextField])
+
+        iconTextField.heightConstraint?.scaledConstant()
+        iconTextField.widthConstraint?.scaledConstant()
+        nameTextField.heightConstraint?.scaledConstant()
     }
 
     public override func initStyle() {
@@ -43,7 +47,7 @@ final class NewListView: UICodeView {
             s.textAlignment = .center
             s.borderStyle = .roundedRect
             s.attributedPlaceholder = NSAttributedString(
-                string: "", attributes: [.font: SFProText.regular.font(size: 24)]
+                string: "", attributes: [.font: SFProText.regular.font(size: 40)]
             )
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.text = Resources.Texts.newListIconText
@@ -65,15 +69,6 @@ final class NewListView: UICodeView {
             s.addTarget(self, action: #selector(nameTextFieldEditingChanged), for: .editingChanged)
             s.sendActions(for: .editingChanged)
         }
-    }
-
-    // Override
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        let size = UIFontMetrics(forTextStyle: .body).scaledValue(for: 64)
-        iconTextField.heightConstraint?.constant = size
-        iconTextField.widthConstraint?.constant = size
-        nameTextField.heightConstraint?.constant = size
     }
 
     // Functions
