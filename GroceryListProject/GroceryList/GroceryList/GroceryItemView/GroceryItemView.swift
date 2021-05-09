@@ -8,68 +8,91 @@
 import UIKit
 import Stevia
 import Presentation
+import IQKeyboardManagerSwift
 
-final class GroceryItemView: UICodeView {
+final class GroceryItemView: UICodeView, ContentSizeObserver {
 
     // Properties
 
+    let scrollView = UIScrollView()
+    let contentView = IQPreviousNextView()
+
     let itemNameTextField = UICodeTextField()
 
+    let priceStackView = UIStackView()
     let priceLabel = UILabel()
     let priceDecimalField = UIDecimalField()
 
-    let unitSegmentedControl = UISegmentedControl()
+    let unitSegmentedControl = UICodeSegmentedControl()
 
+    let quantityStackView = UIStackView()
     let quantityLabel = UILabel()
     let quantityDecimalField = UIDecimalField()
 
     let separatorView = UIView()
 
+    let totalStackView = UIStackView()
     let totalNameLabel = UILabel()
     let totalPriceLabel = UILabel()
 
     var itemDate = Date()
 
+    var notificationTokens: [NotificationToken] = []
+
     // Lifecycle
 
     public override func initSubViews() {
         sv(
+            scrollView.sv(
+                contentView
+            )
+        )
+        contentView.sv(
             itemNameTextField,
-            priceLabel,
-            priceDecimalField,
+            priceStackView.asv(
+                priceLabel,
+                priceDecimalField
+            ),
             unitSegmentedControl,
-            quantityLabel,
-            quantityDecimalField,
+            quantityStackView.asv(
+                quantityLabel,
+                quantityDecimalField
+            ),
             separatorView,
-            totalNameLabel,
-            totalPriceLabel
+            totalStackView.asv(
+                totalNameLabel,
+                totalPriceLabel
+            )
         )
     }
 
     public override func initLayout() {
-        itemNameTextField.height(34).leading(16).trailing(16).Top == safeAreaLayoutGuide.Top + 24
+        scrollView.Top == safeAreaLayoutGuide.Top
+        scrollView.Bottom == safeAreaLayoutGuide.Bottom
+        scrollView.Leading == safeAreaLayoutGuide.Leading
+        scrollView.Trailing == safeAreaLayoutGuide.Trailing
 
-        priceDecimalField.height(34).Top == itemNameTextField.Bottom + 8
-        priceLabel.leading(16).CenterY == priceDecimalField.trailing(16).CenterY
-        priceLabel.Trailing == priceDecimalField.Leading - 8
+        contentView.Leading == safeAreaLayoutGuide.Leading
+        contentView.Trailing == safeAreaLayoutGuide.Trailing
+        contentView.fillContainer()
+
+        itemNameTextField.top(24).height(36).leading(16).trailing(16)
+
+        priceStackView.fillHorizontally(m: 16).Top == itemNameTextField.Bottom + 8
+        priceDecimalField.height(36).Width == priceStackView.Width
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        priceLabel.setContentHuggingPriority(.required, for: .horizontal)
 
-        unitSegmentedControl.height(34).leading(16).trailing(16).Top == priceDecimalField.Bottom + 8
+        unitSegmentedControl.height(36).leading(16).trailing(16).Top == priceStackView.Bottom + 8
 
-        quantityDecimalField.height(34).Top == unitSegmentedControl.Bottom + 8
-        quantityLabel.leading(16).CenterY == quantityDecimalField.trailing(16).CenterY
-        quantityLabel.Trailing == quantityDecimalField.Leading - 8
+        quantityStackView.fillHorizontally(m: 16).Top == unitSegmentedControl.Bottom + 8
+        quantityDecimalField.height(36).Width == quantityStackView.Width
         quantityLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        quantityLabel.setContentHuggingPriority(.required, for: .horizontal)
 
         let separatorHeight = 1.0 / UIScreen.main.scale
         separatorView.leading(16).trailing(16).height(separatorHeight).Top == quantityDecimalField.Bottom + 16
 
-        totalPriceLabel.Top == separatorView.Bottom + 16
-        totalNameLabel.leading(16).CenterY == totalPriceLabel.trailing(16).CenterY
-        totalNameLabel.Trailing == totalPriceLabel.Leading + 8
-        totalNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        totalStackView.fillHorizontally(m: 16).bottom(24).Top == separatorView.Bottom + 16
+        totalPriceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         itemNameTextField.heightConstraint?.scaledConstant()
         priceDecimalField.heightConstraint?.scaledConstant()
@@ -77,13 +100,19 @@ final class GroceryItemView: UICodeView {
         quantityDecimalField.heightConstraint?.scaledConstant()
     }
 
+    // swiftlint:disable function_body_length
     public override func initStyle() {
         style { s in
             s.backgroundColor = Resources.Colors.modalBackgroundColor
         }
 
+        scrollView.style { s in
+            s.showsVerticalScrollIndicator = true
+        }
+
         itemNameTextField.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
@@ -93,18 +122,27 @@ final class GroceryItemView: UICodeView {
             s.borderStyle = .roundedRect
             s.padding.left = 16
             s.padding.right = 16
-            s.adjustsFontForContentSizeCategory = true
+        }
+
+        priceStackView.style { s in
+            s.axis = .horizontal
+            s.spacing = 8
+            bindObserver { category in
+                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = category >= .accessibilityMedium ? 4 : 8
+            }
         }
 
         priceLabel.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.priceText
-            s.adjustsFontForContentSizeCategory = true
         }
 
         priceDecimalField.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
@@ -112,13 +150,17 @@ final class GroceryItemView: UICodeView {
             )
             s.borderStyle = .roundedRect
             s.numberStyle = .currency
-            s.adjustsFontForContentSizeCategory = true
+            s.padding.left = 16
+            s.padding.right = 16
             s.sendActions(for: .editingChanged)
             s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+            bindObserver { c in
+                s.textAlignment = c >= .accessibilityMedium ? .left : .right
+            }
         }
 
         unitSegmentedControl.style { s in
-            s.font = SFProText.regular.font(.footnote)
+            s.setScaledFont(for: .normal, font: { SFProDisplay.regular.font(.subheadline) })
             s.insertSegment(withTitle: Resources.Texts.unitUnit, at: 0, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitKilogram, at: 1, animated: false)
             s.insertSegment(withTitle: Resources.Texts.unitHundredGrams, at: 2, animated: false)
@@ -127,15 +169,25 @@ final class GroceryItemView: UICodeView {
             s.addTarget(self, action: #selector(updateQuantityDecimalField), for: .valueChanged)
         }
 
+        quantityStackView.style { s in
+            s.axis = .horizontal
+            s.spacing = 8
+            bindObserver { category in
+                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = category >= .accessibilityMedium ? 4 : 8
+            }
+        }
+
         quantityLabel.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.quantityText
-            s.adjustsFontForContentSizeCategory = true
         }
 
         quantityDecimalField.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.backgroundColor = Resources.Colors.modalBackgroundColor
             s.attributedPlaceholder = NSAttributedString(
@@ -143,27 +195,43 @@ final class GroceryItemView: UICodeView {
             )
             s.borderStyle = .roundedRect
             s.fractionDigits = 0
-            s.adjustsFontForContentSizeCategory = true
+            s.padding.left = 16
+            s.padding.right = 16
             s.sendActions(for: .editingChanged)
             s.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+            bindObserver { c in
+                s.textAlignment = c >= .accessibilityMedium ? .left : .right
+            }
         }
 
         separatorView.style { s in
             s.backgroundColor = Resources.Colors.separatorColor
         }
 
+        totalStackView.style { s in
+            s.axis = .horizontal
+            s.spacing = 8
+            bindObserver { category in
+                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = category >= .accessibilityMedium ? 4 : 8
+            }
+        }
+
         totalNameLabel.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.text = Resources.Texts.totalText
-            s.adjustsFontForContentSizeCategory = true
         }
 
         totalPriceLabel.style { s in
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .right
-            s.adjustsFontForContentSizeCategory = true
+            bindObserver { category in
+                s.textAlignment = category >= .accessibilityMedium ? .left : .right
+            }
         }
 
         textFieldEditingChanged()

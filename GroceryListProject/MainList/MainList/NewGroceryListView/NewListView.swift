@@ -9,36 +9,51 @@ import UIKit
 import Stevia
 import Presentation
 
-final class NewListView: UICodeView {
+final class NewListView: UICodeView, ContentSizeObserver {
 
     // Properties
 
+    let infoStackView = UIStackView()
     let iconTextField = UICodeTextField()
     let nameTextField = UICodeTextField()
+
+    var notificationTokens: [NotificationToken] = []
 
     // Lifecycle
 
     public override func initSubViews() {
         sv(
-            iconTextField,
-            nameTextField
+            infoStackView.asv(
+                iconTextField,
+                nameTextField
+            )
         )
     }
 
     public override func initLayout() {
-        iconTextField.Top == safeAreaLayoutGuide.Top + 32
-        iconTextField.leading(16).size(64).Trailing == nameTextField.Leading - 16
-        nameTextField.trailing(16).height(64)
-        align(.centerY, views: [iconTextField, nameTextField])
+        infoStackView.fillHorizontally(m: 16).Top == safeAreaLayoutGuide.Top + 32
+        infoStackView.leadingConstraint?.priority = .required
+        infoStackView.trailingConstraint?.priority = .required
+        iconTextField.size(64).setContentCompressionResistancePriority(.required, for: .horizontal)
+        nameTextField.height(64)
 
         iconTextField.heightConstraint?.scaledConstant()
-        iconTextField.widthConstraint?.scaledConstant()
+        iconTextField.widthConstraint?.scaledConstant().priority = .init(1)
         nameTextField.heightConstraint?.scaledConstant()
     }
 
     public override func initStyle() {
         style { s in
             s.backgroundColor = Resources.Colors.modalBackgroundColor
+        }
+
+        infoStackView.style { s in
+            s.axis = .horizontal
+            s.spacing = 16
+            bindObserver { c in
+                s.axis = c >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = c >= .accessibilityMedium ? 8 : 16
+            }
         }
 
         iconTextField.style { s in
@@ -50,8 +65,8 @@ final class NewListView: UICodeView {
                 string: "", attributes: [.font: SFProText.regular.font(size: 40)]
             )
             s.backgroundColor = Resources.Colors.modalBackgroundColor
-            s.text = Resources.Texts.newListIconText
             s.setupCharacterLimit(limit: 1)
+            s.setLimited(text: Resources.Texts.newListIconText)
         }
 
         nameTextField.style { s in
@@ -74,7 +89,7 @@ final class NewListView: UICodeView {
     // Functions
 
     func set(model: GroceryListHeaderInfoViewModel) {
-        iconTextField.text = model.icon
+        iconTextField.setLimited(text: model.icon)
         nameTextField.text = model.name
     }
 

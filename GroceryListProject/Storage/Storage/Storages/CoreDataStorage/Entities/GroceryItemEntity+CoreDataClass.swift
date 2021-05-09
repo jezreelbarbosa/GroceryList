@@ -23,7 +23,7 @@ public class GroceryItemEntity: NSManagedObject, EntityNameble {
     }
 
     // Properties
-    
+
     @NSManaged public weak var list: GroceryListEntity?
     @NSManaged public var name: String
     @NSManaged public var quantity: NSDecimalNumber

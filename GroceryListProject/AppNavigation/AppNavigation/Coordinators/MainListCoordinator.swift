@@ -24,7 +24,7 @@ public protocol MainListCoordinatorFactory: DependencyFactory {
 public class MainListCoordinator: NavigationCoordinator {
 
     // Properties
-    
+
     public var navigationController: UINavigationController
     public var childCoordinators: [Coordinator]
 

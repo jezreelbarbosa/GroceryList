@@ -31,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: LaunchOptions?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        SFProText.registerFonts()
-        SFProDisplay.registerFonts()
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = LocalizedString().enUS("Done").ptBR("Concluído").localizedText
 
