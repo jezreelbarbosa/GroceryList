@@ -9,18 +9,25 @@ import Domain
 
 struct GroceryItemViewModel {
 
-    let uri: URL?
+    // Models
 
-    let name: String
-    let details: String
-    let totalPrice: String
-
-    let totalDecimalPrice: Decimal
+    private let model: GroceryItemModel
 
     init(from model: GroceryItemModel) {
-        self.uri = model.uri
-        self.name = model.name
+        self.model = model
+    }
 
+    // Resources
+
+    var uri: URL? {
+        model.uri
+    }
+
+    var name: String {
+        model.name
+    }
+
+    var details: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = .current
         numberFormatter.numberStyle = .decimal
@@ -44,8 +51,20 @@ struct GroceryItemViewModel {
         case .liter: unit = Resources.Texts.unitLiter
         }
 
-        self.details = price + " • " + quantity + " " + unit
-        self.totalDecimalPrice = model.price * model.quantity * ((model.unit == .hundredGrams) ? 10 : 1)
-        self.totalPrice = numberFormatter.string(for: totalDecimalPrice).defaultValue
+        return price + " • " + quantity + " " + unit
+    }
+
+    var totalPrice: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = .current
+        numberFormatter.numberStyle = .currency
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+
+        return numberFormatter.string(for: totalDecimalPrice).defaultValue
+    }
+
+    var totalDecimalPrice: Decimal {
+        model.price * model.quantity * ((model.unit == .hundredGrams) ? 10 : 1)
     }
 }

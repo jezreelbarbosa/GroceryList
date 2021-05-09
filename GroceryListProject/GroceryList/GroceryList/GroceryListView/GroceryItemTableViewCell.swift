@@ -9,7 +9,7 @@ import UIKit
 import Stevia
 import Presentation
 
-final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
+final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable, ContentSizeObserver {
 
     // Static properties
 
@@ -17,32 +17,32 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     // Properties
 
-    let textView = UIView()
+    let cellStackView = UIStackView()
+    let textStackView = UIStackView()
+
     let nameLabel = UILabel()
     let detailsLabel = UILabel()
 
     let priceLabel = UILabel()
 
+    var notificationTokens: [NotificationToken] = []
+
     // Lifecycle
 
     public override func initSubViews() {
         sv(
-            textView.sv(
-                nameLabel,
-                detailsLabel
-            ),
-            priceLabel
+            cellStackView.asv(
+                textStackView.asv(
+                    nameLabel,
+                    detailsLabel
+                ),
+                priceLabel
+            )
         )
     }
 
     public override func initLayout() {
-        textView.leading(16).centerVertically().top(>=16).bottom(>=16)
-        textView.Trailing == priceLabel.Leading + 16
-
-        nameLabel.leading(0).top(0).trailing(0).Bottom == detailsLabel.Top - 4
-        detailsLabel.leading(0).trailing(0).bottom(0)
-
-        priceLabel.centerVertically().trailing(16).top(>=16).bottom(>=16)
+        cellStackView.fillContainer(16)
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 
@@ -50,6 +50,19 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         style { s in
             s.selectionStyle = .default
             s.backgroundColor = Resources.Colors.cellBackgroundColor
+        }
+
+        textStackView.style { s in
+            s.axis = .vertical
+            s.spacing = 4
+        }
+
+        cellStackView.style { s in
+            s.axis = .horizontal
+            s.spacing = 4
+            bindObserver { category in
+                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
+            }
         }
 
         nameLabel.style { s in
@@ -60,12 +73,16 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
         detailsLabel.style { s in
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.light.font(.footnote)
+            s.numberOfLines = 2
         }
 
         priceLabel.style { s in
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.regular.font(.body)
             s.textAlignment = .right
+            bindObserver { category in
+                s.textAlignment = category >= .accessibilityMedium ? .left : .right
+            }
         }
     }
 

@@ -9,7 +9,7 @@ import UIKit
 import Stevia
 import Presentation
 
-final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdentifiable {
+final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdentifiable, ContentSizeObserver {
 
     // Static properties
 
@@ -17,29 +17,41 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
 
     // Properties
 
+    let totalStackView = UIStackView()
+
     let titleLabel = UILabel()
     let priceLabel = UILabel()
+
+    var notificationTokens: [NotificationToken] = []
 
     // Lifecycle
 
     public override func initSubViews() {
         sv(
-            titleLabel,
-            priceLabel
+            totalStackView.asv(
+                titleLabel,
+                priceLabel
+            )
         )
     }
 
     public override func initLayout() {
-        titleLabel.leading(16).centerVertically().top(>=16).bottom(>=16)
-        titleLabel.Trailing == priceLabel.Leading + 16
-
-        priceLabel.centerVertically().trailing(16).top(>=16).bottom(>=16)
+        totalStackView.fillContainer(16)
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        priceLabel.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     public override func initStyle() {
         style { s in
             s.backgroundView?.backgroundColor = Resources.Colors.footerBackgroundColor
+        }
+
+        totalStackView.style { s in
+            s.axis = .horizontal
+            s.spacing = 4
+            bindObserver { category in
+                s.axis = category >= .accessibilityLarge ? .vertical : .horizontal
+            }
         }
 
         titleLabel.style { s in
@@ -52,6 +64,9 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdenti
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.regular.font(.body)
             s.textAlignment = .right
+            bindObserver { category in
+                s.textAlignment = category >= .accessibilityLarge ? .left : .right
+            }
         }
     }
 

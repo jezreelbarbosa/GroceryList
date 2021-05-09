@@ -71,7 +71,7 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
             self.navigationItem.title = value.listName
             self.groceryList = value
         }
-        
+
         presenter.reloadTableViewBox.bind { [unowned self] removedRows in
             if removedRows.isEmpty {
                 DispatchQueue.main.async {
