@@ -149,7 +149,9 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 
     // Functions
 
-    func fill(model: GroceryListHeaderInfoViewModel) {
+    func fill(model: GroceryListHeaderInfoViewModel?) {
+        guard let model = model else { return }
+
         iconLabel.text = model.icon
         titleLabel.text = model.name
         dateLabel.text = model.date

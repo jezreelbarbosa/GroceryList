@@ -48,5 +48,10 @@ class Resources {
             .enUS("🛒")
             .ptBR("🛒")
             .localizedText
+
+        static var unknowError = LocalizedString()
+            .enUS("Unknow Error! Please, restart the app and try again.")
+            .ptBR("Erro desconhecido! Por favor, reinicie o app e tente novamente.")
+            .localizedText
     }
 }

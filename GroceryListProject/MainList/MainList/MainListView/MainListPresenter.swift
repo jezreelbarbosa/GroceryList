@@ -72,38 +72,38 @@ extension MainListPresenter: MainListPresenting {
         self.updateList(removingRows: [])
     }
 
-    public func didSelected(row: Int) {
-        guard let uri = groceriesInfos.element(at: row)?.uri else {
-            self.errorMessageBox.value = "URI Error"
-            return
-        }
-        coordinator?.showGroceryList(uri: uri)
-    }
-
     public func createNewList() {
         coordinator?.showNewListView(uri: nil) { [weak self] in
             self?.updateList()
         }
     }
 
-    public func deleteItem(at row: Int) {
-        guard let uri = groceriesInfos.element(at: row)?.uri else {
-            self.errorMessageBox.value = "URI Error"
+    public func didSelected(uri: URL?) {
+        guard let uri = uri else {
+            errorMessageBox.value = Resources.Texts.unknowError
+            return
+        }
+        coordinator?.showGroceryList(uri: uri)
+    }
+
+    public func deleteItem(uri: URL?, at row: Int) {
+        guard let uri = uri else {
+            errorMessageBox.value = Resources.Texts.unknowError
             return
         }
 
         let result = removeGroceryListUseCase.execute(uri: uri)
-        result.successHandler { _ in
-            self.updateList(removingRows: [row])
+        result.successHandler {
+            updateList(removingRows: [row])
         }
         result.failureHandler { error in
-            self.errorMessageBox.value = error.localizedDescription
+            errorMessageBox.value = error.localizedDescription
         }
     }
 
-    public func editItem(at row: Int) {
-        guard let uri = groceriesInfos.element(at: row)?.uri else {
-            self.errorMessageBox.value = "URI Error"
+    public func editItem(uri: URL?) {
+        guard let uri = uri else {
+            errorMessageBox.value = Resources.Texts.unknowError
             return
         }
         coordinator?.showNewListView(uri: uri) { [weak self] in

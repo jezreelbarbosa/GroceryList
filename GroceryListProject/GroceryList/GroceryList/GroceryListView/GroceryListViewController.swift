@@ -15,8 +15,8 @@ public protocol GroceryListPresenting {
     var reloadTableViewBox: Box<[Int]> { get }
 
     func updateList()
-    func deleteItem(at row: Int)
-    func didSelected(row: Int)
+    func deleteItem(uri: URL?, at row: Int)
+    func didSelectedItem(uri: URL?)
     func createNewItem()
 }
 
@@ -27,6 +27,7 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
     private lazy var mainView = GroceryListView()
 
     private var groceryList: GroceryListViewModel = .empty
+    private var items: [GroceryItemViewModel] = []
 
     // Override
 
@@ -53,8 +54,6 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
     private func setupView() {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
-        mainView.tableView.register(GroceryItemTableViewCell.self)
-        mainView.tableView.register(GroceryTotalFooterView.self)
 
         navigationItem.largeTitleDisplayMode = .never
 
@@ -64,25 +63,26 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(message: value)
+            presentAttentionAlert(message: value)
         }
 
-        presenter.groceryListBox.bind { [unowned self] value in
-            self.navigationItem.title = value.listName
-            self.groceryList = value
+        presenter.groceryListBox.bind { [unowned self] list in
+            navigationItem.title = list.listName
+            groceryList = list
+            items = list.items
         }
 
         presenter.reloadTableViewBox.bind { [unowned self] removedRows in
             if removedRows.isEmpty {
                 DispatchQueue.main.async {
-                    self.mainView.tableView.reloadData()
+                    mainView.tableView.reloadData()
                 }
             } else {
-                self.mainView.tableView.performBatchUpdates({
+                mainView.tableView.performBatchUpdates({
                     let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
-                    self.mainView.tableView.deleteRows(at: indexes, with: .fade)
+                    mainView.tableView.deleteRows(at: indexes, with: .fade)
                 }, completion: { _ in
-                    self.mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self)?.fill(total: groceryList.totalPrice)
+                    mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self)?.fill(total: groceryList.totalPrice)
                 })
             }
         }
@@ -98,24 +98,24 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
 extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groceryList.items.count
+        return items.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(GroceryItemTableViewCell.self)
 
-        cell.fill(model: groceryList.items[indexPath.row])
+        cell.fill(model: items.element(at: indexPath.row))
 
         return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelected(row: indexPath.row)
+        presenter.didSelectedItem(uri: items.element(at: indexPath.row)?.uri)
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.deleteConfirmationAction(view: self) { [unowned self] in
-            self.presenter.deleteItem(at: indexPath.row)
+            presenter.deleteItem(uri: items.element(at: indexPath.row)?.uri, at: indexPath.row)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }

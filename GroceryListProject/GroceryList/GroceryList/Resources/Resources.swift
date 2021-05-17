@@ -46,8 +46,8 @@ class Resources {
             .localizedText
 
         static let unitHundredGrams = LocalizedString()
-            .enUS("Kg / 100g")
-            .ptBR("Kg / 100g")
+            .enUS("100g")
+            .ptBR("100g")
             .localizedText
 
         static let unitLiter = LocalizedString()
@@ -82,6 +82,13 @@ class Resources {
         static let totalText = LocalizedString()
             .enUS("Total:")
             .ptBR("Total:")
+            .localizedText
+
+        // - Error
+
+        static var unknowError = LocalizedString()
+            .enUS("Unknow Error! Please, restart the app and try again.")
+            .ptBR("Erro desconhecido! Por favor, reinicie o app e tente novamente.")
             .localizedText
     }
 }

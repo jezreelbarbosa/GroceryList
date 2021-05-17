@@ -88,7 +88,9 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable, Co
 
     // Functions
 
-    func fill(model: GroceryItemViewModel) {
+    func fill(model: GroceryItemViewModel?) {
+        guard let model = model else { return }
+
         self.nameLabel.text = model.name
         self.detailsLabel.text = model.details
         self.priceLabel.text = model.totalPrice

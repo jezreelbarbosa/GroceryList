@@ -15,10 +15,10 @@ public protocol MainListPresenting {
     var reloadTableViewBox: Box<[Int]> { get }
 
     func updateList()
-    func didSelected(row: Int)
+    func didSelected(uri: URL?)
     func createNewList()
-    func deleteItem(at row: Int)
-    func editItem(at row: Int)
+    func deleteItem(uri: URL?, at row: Int)
+    func editItem(uri: URL?)
 }
 
 public final class MainListViewController: UICodeViewController<MainListPresenting> {
@@ -54,7 +54,6 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
     private func setupView() {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
-        mainView.tableView.register(GroceryListTableViewCell.self)
 
         navigationItem.title = Resources.Texts.homeNavigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -66,24 +65,24 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
 
     private func setupPresenter() {
         presenter.groceriesBox.bind { [unowned self] value in
-            self.groceriesList = value
+            groceriesList = value
         }
 
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(message: value)
+            presentAttentionAlert(message: value)
         }
 
         presenter.reloadTableViewBox.bind { [unowned self] removedRows in
             if removedRows.isEmpty {
                 DispatchQueue.main.async {
-                    self.mainView.tableView.reloadData()
+                    mainView.tableView.reloadData()
                 }
             } else {
-                self.mainView.tableView.performBatchUpdates({
+                mainView.tableView.performBatchUpdates({
                     let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
-                    self.mainView.tableView.deleteRows(at: indexes, with: .fade)
+                    mainView.tableView.deleteRows(at: indexes, with: .fade)
                 }, completion: { _ in
-                    self.mainView.tableView.reloadData()
+                    mainView.tableView.reloadData()
                 })
             }
         }
@@ -105,23 +104,23 @@ extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(GroceryListTableViewCell.self)
 
-        cell.fill(model: groceriesList[indexPath.row])
+        cell.fill(model: groceriesList.element(at: indexPath.row))
         cell.setFirstLastCellFor(row: indexPath.row, count: groceriesList.count)
 
         return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelected(row: indexPath.row)
+        presenter.didSelected(uri: groceriesList.element(at: indexPath.row)?.uri)
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.deleteConfirmationAction(view: self) { [unowned self] in
-            self.presenter.deleteItem(at: indexPath.row)
+            presenter.deleteItem(uri: groceriesList.element(at: indexPath.row)?.uri, at: indexPath.row)
         }
 
         let editAction = UIContextualAction.editAction { [unowned self] in
-            self.presenter.editItem(at: indexPath.row)
+            presenter.editItem(uri: groceriesList.element(at: indexPath.row)?.uri)
         }
 
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
