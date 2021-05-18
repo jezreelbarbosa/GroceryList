@@ -18,11 +18,15 @@ class Resources {
 
         static let tableBackgroundColor = UIColor.dynamic(any: Palette.White.ghostWhite, dark: Palette.Black.black)
         static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
-        static let cellSeparatorColor = UIColor.dynamic(any: Palette.Gray.jet.withAlphaComponent(0.29),
-                                                        dark: Palette.Gray.devisGrey.withAlphaComponent(0.65))
+        static let cellSeparatorColor = UIColor.dynamic(any: Palette.Gray.jet29, dark: Palette.Gray.devisGrey65)
     }
 
     struct Texts {
+
+        static let searchPlaceholder = LocalizedString()
+            .enUS("Search list")
+            .ptBR("Procurar list")
+            .localizedText
 
         static let homeNavigationTitle = LocalizedString()
             .enUS("Home")

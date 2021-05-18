@@ -27,7 +27,10 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
     private lazy var mainView = GroceryListView()
 
     private var groceryList: GroceryListViewModel = .empty
-    private var items: [GroceryItemViewModel] = []
+
+    private var isSearching: Bool = false
+    private var searchingList: [GroceryItemViewModel] = []
+    private var items: [GroceryItemViewModel] { isSearching ? searchingList : groceryList.items }
 
     // Override
 
@@ -59,17 +62,17 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
 
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonAction))
         navigationItem.rightBarButtonItem = addBarButton
+        insertSearchViewController(with: Resources.Texts.searchPlaceholder)
     }
 
     private func setupPresenter() {
-        presenter.errorMessageBox.bind { [unowned self] value in
-            presentAttentionAlert(message: value)
+        presenter.errorMessageBox.bind { [unowned self] message in
+            presentAttentionAlert(message: message)
         }
 
         presenter.groceryListBox.bind { [unowned self] list in
             navigationItem.title = list.listName
             groceryList = list
-            items = list.items
         }
 
         presenter.reloadTableViewBox.bind { [unowned self] removedRows in
@@ -82,7 +85,8 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
                     let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
                     mainView.tableView.deleteRows(at: indexes, with: .fade)
                 }, completion: { _ in
-                    mainView.tableView.footerView(forSection: 0, as: GroceryTotalFooterView.self)?.fill(total: groceryList.totalPrice)
+                    let footerView = mainView.tableView.footerView(forSection: 0) as? GroceryTotalFooterView
+                    footerView?.fill(total: groceryList.totalPrice)
                 })
             }
         }
@@ -94,6 +98,8 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
         presenter.createNewItem()
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate {
 
@@ -128,5 +134,26 @@ extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate 
         footer.fill(total: groceryList.totalPrice)
 
         return footer
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension GroceryListViewController: UISearchResultsUpdating {
+
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text)
+    }
+
+    func filterContentForSearchText(_ searchText: String?) {
+        if let searchText = searchText?.lowercased(), !searchText.isEmpty {
+            isSearching = true
+            searchingList = groceryList.items.filterContains(searchText).prefixSorted(by: searchText)
+        } else {
+            isSearching = false
+        }
+        DispatchQueue.main.async {
+            self.mainView.tableView.reloadData()
+        }
     }
 }

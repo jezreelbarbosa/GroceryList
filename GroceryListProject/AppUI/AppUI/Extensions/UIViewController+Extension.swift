@@ -41,3 +41,18 @@ public extension UIViewController {
         return alert
     }
 }
+
+public extension UISearchResultsUpdating where Self: UIViewController {
+
+    @discardableResult
+    func insertSearchViewController(with placeholder: String? = nil) -> UISearchController {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = placeholder
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        definesPresentationContext = true
+        return searchController
+    }
+}

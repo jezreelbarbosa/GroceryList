@@ -32,3 +32,10 @@ public struct GroceryListHeaderInfoViewModel {
         self.date = dateFormatter.string(from: response.date)
     }
 }
+
+extension GroceryListHeaderInfoViewModel: StringSortable {
+
+    public var sortString: String {
+        name
+    }
+}

@@ -19,11 +19,11 @@ public final class MainListPresenter {
 
     // Properties
 
-    weak var coordinator: MainListCoordinating?
-
     public let groceriesBox: Box<[GroceryListHeaderInfoViewModel]>
     public let errorMessageBox: Box<String>
     public let reloadTableViewBox: Box<[Int]>
+
+    private weak var coordinator: MainListCoordinating?
 
     private let getGroceryMainListUseCase: GetGroceryMainListUseCaseProtocol
     private let removeGroceryListUseCase: RemoveGroceryListUseCaseProtocol

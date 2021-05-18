@@ -71,7 +71,7 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable, Co
         }
 
         detailsLabel.style { s in
-            s.textColor = Resources.Colors.textColor
+            s.textColor = Resources.Colors.detailColor
             s.font = SFProText.light.font(.footnote)
             s.numberOfLines = 2
         }

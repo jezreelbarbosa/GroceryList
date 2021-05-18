@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		0D15E01E2642556F00F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E01D2642556F00F73B30 /* Presentation */; };
 		0D793380264346680049AD6E /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79337F264346680049AD6E /* Common.framework */; };
+		0DA35F402652B7760009ECCF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA35F3F2652B7760009ECCF /* Colors.swift */; };
 		0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC34944263CA92300C89810 /* UIViewController+Extension.swift */; };
+		0DC71C6A265302FE00666CE2 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC71C69265302FE00666CE2 /* Array+Extension.swift */; };
 		0DF0F39B2636747600F6ED3D /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3912636747600F6ED3D /* AppUI.framework */; };
 		0DF0F3A02636747600F6ED3D /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0F39F2636747600F6ED3D /* AppUITests.swift */; };
 		0DF0F3A22636747600F6ED3D /* AppUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF0F3942636747600F6ED3D /* AppUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,7 +33,9 @@
 
 /* Begin PBXFileReference section */
 		0D79337F264346680049AD6E /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DA35F3F2652B7760009ECCF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0DC34944263CA92300C89810 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		0DC71C69265302FE00666CE2 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		0DF0F3912636747600F6ED3D /* AppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0F3942636747600F6ED3D /* AppUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUI.h; sourceTree = "<group>"; };
 		0DF0F3952636747600F6ED3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF0F4822636F7C000F6ED3D /* Assets.swift */,
+				0DA35F3F2652B7760009ECCF /* Colors.swift */,
 				0DF0F3B82636752500F6ED3D /* Extensions */,
 				0DF0F3942636747600F6ED3D /* AppUI.h */,
 				0DF0F3952636747600F6ED3D /* Info.plist */,
@@ -128,6 +133,7 @@
 			children = (
 				0DF0F3B92636754600F6ED3D /* UIContextualAction+Extension.swift */,
 				0DC34944263CA92300C89810 /* UIViewController+Extension.swift */,
+				0DC71C69265302FE00666CE2 /* Array+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,6 +331,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */,
+				0DC71C6A265302FE00666CE2 /* Array+Extension.swift in Sources */,
+				0DA35F402652B7760009ECCF /* Colors.swift in Sources */,
 				0DF0F4832636F7C000F6ED3D /* Assets.swift in Sources */,
 				0DF0F3BA2636754600F6ED3D /* UIContextualAction+Extension.swift in Sources */,
 			);

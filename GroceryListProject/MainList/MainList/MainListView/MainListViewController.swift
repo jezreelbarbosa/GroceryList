@@ -29,6 +29,10 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
 
     private var groceriesList: [GroceryListHeaderInfoViewModel] = []
 
+    private var isSearching: Bool = false
+    private var searchingList: [GroceryListHeaderInfoViewModel] = []
+    private var items: [GroceryListHeaderInfoViewModel] { isSearching ? searchingList : groceriesList }
+
     // Override
 
     public override func loadView() {
@@ -61,6 +65,7 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
 
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonAction))
         navigationItem.rightBarButtonItem = addBarButton
+        insertSearchViewController(with: Resources.Texts.searchPlaceholder)
     }
 
     private func setupPresenter() {
@@ -95,34 +100,57 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension MainListViewController: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groceriesList.count
+        return items.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(GroceryListTableViewCell.self)
 
-        cell.fill(model: groceriesList.element(at: indexPath.row))
-        cell.setFirstLastCellFor(row: indexPath.row, count: groceriesList.count)
+        cell.fill(model: items.element(at: indexPath.row))
+        cell.setFirstLastCellFor(row: indexPath.row, count: items.count)
 
         return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelected(uri: groceriesList.element(at: indexPath.row)?.uri)
+        presenter.didSelected(uri: items.element(at: indexPath.row)?.uri)
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.deleteConfirmationAction(view: self) { [unowned self] in
-            presenter.deleteItem(uri: groceriesList.element(at: indexPath.row)?.uri, at: indexPath.row)
+            presenter.deleteItem(uri: items.element(at: indexPath.row)?.uri, at: indexPath.row)
         }
 
         let editAction = UIContextualAction.editAction { [unowned self] in
-            presenter.editItem(uri: groceriesList.element(at: indexPath.row)?.uri)
+            presenter.editItem(uri: items.element(at: indexPath.row)?.uri)
         }
 
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension MainListViewController: UISearchResultsUpdating {
+
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text)
+    }
+
+    func filterContentForSearchText(_ searchText: String?) {
+        if let searchText = searchText?.lowercased(), !searchText.isEmpty {
+            isSearching = true
+            searchingList = groceriesList.filterContains(searchText).prefixSorted(by: searchText)
+        } else {
+            isSearching = false
+        }
+        DispatchQueue.main.async {
+            self.mainView.tableView.reloadData()
+        }
     }
 }
