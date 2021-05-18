@@ -9,16 +9,26 @@ import Domain
 
 public struct GroceryListViewModel {
 
+    // Models
+
     static var empty: GroceryListViewModel {
         GroceryListViewModel(from: GroceryListModel(uri: nil, icon: .defaultValue, name: .defaultValue, date: Date(), items: .defaultValue))
     }
 
-    let listName: String
-    let items: [GroceryItemViewModel]
+    private let model: GroceryListModel
 
     init(from model: GroceryListModel) {
-        self.listName = model.name
-        self.items = model.items.map({ GroceryItemViewModel(from: $0) })
+        self.model = model
+    }
+
+    // Resources
+
+    var listName: String {
+        return model.name
+    }
+
+    var items: [GroceryItemViewModel] {
+        return model.items.map({ GroceryItemViewModel(from: $0) })
     }
 
     var totalPrice: String {

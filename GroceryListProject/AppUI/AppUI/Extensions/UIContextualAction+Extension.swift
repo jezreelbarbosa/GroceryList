@@ -11,7 +11,7 @@ import Presentation
 public extension UIContextualAction {
 
     static func deleteAction(_ completion: @escaping () -> Void) -> UIContextualAction {
-        let image = AppUIAssets.Icons.trash.image?.withRenderingMode(.alwaysOriginal)
+        let image = Assets.Icons.trash.image?.withRenderingMode(.alwaysOriginal)
         return UIContextualAction(.destructive, image: image, title: nil) { _, _, handler in
             completion()
             handler(true)
@@ -19,7 +19,7 @@ public extension UIContextualAction {
     }
 
     static func deleteConfirmationAction(view: UIViewController, _ completion: @escaping () -> Void) -> UIContextualAction {
-        let image = AppUIAssets.Icons.trash.image?.withRenderingMode(.alwaysOriginal)
+        let image = Assets.Icons.trash.image?.withRenderingMode(.alwaysOriginal)
         return UIContextualAction(.destructive, image: image, title: nil) { _, _, handler in
             view.deletingConfirmationAlert(deletingHandler: {
                 completion()
@@ -31,7 +31,7 @@ public extension UIContextualAction {
     }
 
     static func editAction(_ completion: @escaping () -> Void) -> UIContextualAction {
-        let image = AppUIAssets.Icons.pencil.image?.withRenderingMode(.alwaysOriginal)
+        let image = Assets.Icons.pencil.image?.withRenderingMode(.alwaysOriginal)
         return UIContextualAction(image: image, title: nil) { _, _, handler in
             completion()
             handler(true)

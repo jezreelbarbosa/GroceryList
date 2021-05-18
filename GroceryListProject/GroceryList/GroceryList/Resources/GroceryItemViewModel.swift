@@ -68,3 +68,10 @@ struct GroceryItemViewModel {
         model.price * model.quantity * ((model.unit == .hundredGrams) ? 10 : 1)
     }
 }
+
+extension GroceryItemViewModel: StringSortable {
+
+    var sortString: String {
+        name
+    }
+}

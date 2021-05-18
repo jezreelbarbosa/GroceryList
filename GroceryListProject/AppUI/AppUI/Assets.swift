@@ -7,7 +7,7 @@
 
 import Presentation
 
-public final class AppUIAssets {
+public final class Assets {
 
     public enum Icons: String, AssetImage {
 

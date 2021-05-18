@@ -66,7 +66,7 @@ public class NewListViewController: UICodeViewController<NewListPresenting> {
 
     private func setupPresenter() {
         presenter.errorMessageBox.bind { [unowned self] value in
-            self.presentAttentionAlert(message: value)
+            presentAttentionAlert(message: value)
         }
     }
 

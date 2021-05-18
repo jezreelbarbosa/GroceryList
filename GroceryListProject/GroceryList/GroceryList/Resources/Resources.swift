@@ -13,6 +13,7 @@ class Resources {
     struct Colors {
 
         static let textColor = UIColor.dynamic(any: Palette.Black.black, dark: Palette.White.white)
+        static let detailColor = UIColor.dynamic(any: Palette.Gray.jet60, dark: Palette.White.magnolia60)
 
         static let modalBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.eerieBlack)
 
@@ -20,11 +21,17 @@ class Resources {
         static let cellBackgroundColor = UIColor.dynamic(any: Palette.White.white, dark: Palette.Black.black)
         static let footerBackgroundColor = UIColor.dynamic(any: Palette.White.ghostWhite, dark: Palette.Black.eerieBlack)
 
-        static let separatorColor = UIColor.dynamic(any: Palette.Gray.jet.withAlphaComponent(0.29),
-                                                    dark: Palette.Gray.devisGrey.withAlphaComponent(0.65))
+        static let separatorColor = UIColor.dynamic(any: Palette.Gray.jet29, dark: Palette.Gray.devisGrey65)
     }
 
     struct Texts {
+
+        // - List View
+
+        static let searchPlaceholder = LocalizedString()
+            .enUS("Search item")
+            .ptBR("Procurar item")
+            .localizedText
 
         // - Navigation
 
@@ -46,8 +53,8 @@ class Resources {
             .localizedText
 
         static let unitHundredGrams = LocalizedString()
-            .enUS("Kg / 100g")
-            .ptBR("Kg / 100g")
+            .enUS("100g")
+            .ptBR("100g")
             .localizedText
 
         static let unitLiter = LocalizedString()
@@ -82,6 +89,13 @@ class Resources {
         static let totalText = LocalizedString()
             .enUS("Total:")
             .ptBR("Total:")
+            .localizedText
+
+        // - Error
+
+        static var unknowError = LocalizedString()
+            .enUS("Unknow Error! Please, restart the app and try again.")
+            .ptBR("Erro desconhecido! Por favor, reinicie o app e tente novamente.")
             .localizedText
     }
 }
