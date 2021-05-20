@@ -1,6 +1,6 @@
 source 'https://cdn.cocoapods.org/'
 
-platform :ios, '12.0'
+platform :ios, '12.1'
 # inhibit_all_warnings!
 use_frameworks!
 workspace 'GroceryListProject'
@@ -13,7 +13,8 @@ end
 
 def presentationPods
   pod 'SteviaLayout'
-  pod 'InputMask'
+  pod 'ArchitectUtils', :git => 'https://github.com/jezreelbarbosa/ArchitectUtils', :branch => 'main'
+#  pod 'InputMask'
   pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager', :branch => 'master'
 end
 
@@ -27,7 +28,7 @@ def networkingPods
 end
 
 def storagePods
-  pod 'KeychainAccess'
+#  pod 'KeychainAccess'
 end
 
 plugin 'cocoapods-wholemodule'

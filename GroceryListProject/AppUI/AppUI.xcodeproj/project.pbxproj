@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D15E01E2642556F00F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E01D2642556F00F73B30 /* Presentation */; };
 		0D793380264346680049AD6E /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79337F264346680049AD6E /* Common.framework */; };
+		0D804CB3265716E000F5E492 /* SFProDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D804CB1265716E000F5E492 /* SFProDisplay.swift */; };
+		0D804CB4265716E000F5E492 /* SFProText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D804CB2265716E000F5E492 /* SFProText.swift */; };
 		0DA35F402652B7760009ECCF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA35F3F2652B7760009ECCF /* Colors.swift */; };
 		0DC34945263CA92300C89810 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC34944263CA92300C89810 /* UIViewController+Extension.swift */; };
 		0DC71C6A265302FE00666CE2 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC71C69265302FE00666CE2 /* Array+Extension.swift */; };
@@ -33,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		0D79337F264346680049AD6E /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D804CB1265716E000F5E492 /* SFProDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFProDisplay.swift; sourceTree = "<group>"; };
+		0D804CB2265716E000F5E492 /* SFProText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFProText.swift; sourceTree = "<group>"; };
 		0DA35F3F2652B7760009ECCF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0DC34944263CA92300C89810 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0DC71C69265302FE00666CE2 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -58,7 +61,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D793380264346680049AD6E /* Common.framework in Frameworks */,
-				0D15E01E2642556F00F73B30 /* Presentation in Frameworks */,
 				8DCD036094D178FD1ED478CB /* Pods_AppUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +89,15 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		0D804C652657168E00F5E492 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0D804CB1265716E000F5E492 /* SFProDisplay.swift */,
+				0D804CB2265716E000F5E492 /* SFProText.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0DF0F3872636747600F6ED3D = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +121,7 @@
 		0DF0F3932636747600F6ED3D /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				0D804C652657168E00F5E492 /* Fonts */,
 				0DF0F4822636F7C000F6ED3D /* Assets.swift */,
 				0DA35F3F2652B7760009ECCF /* Colors.swift */,
 				0DF0F3B82636752500F6ED3D /* Extensions */,
@@ -178,7 +190,6 @@
 			);
 			name = AppUI;
 			packageProductDependencies = (
-				0D15E01D2642556F00F73B30 /* Presentation */,
 			);
 			productName = AppUI;
 			productReference = 0DF0F3912636747600F6ED3D /* AppUI.framework */;
@@ -232,7 +243,6 @@
 			);
 			mainGroup = 0DF0F3872636747600F6ED3D;
 			packageReferences = (
-				0D15E01C2642556F00F73B30 /* XCRemoteSwiftPackageReference "Presentation" */,
 			);
 			productRefGroup = 0DF0F3922636747600F6ED3D /* Products */;
 			projectDirPath = "";
@@ -335,6 +345,8 @@
 				0DA35F402652B7760009ECCF /* Colors.swift in Sources */,
 				0DF0F4832636F7C000F6ED3D /* Assets.swift in Sources */,
 				0DF0F3BA2636754600F6ED3D /* UIContextualAction+Extension.swift in Sources */,
+				0D804CB4265716E000F5E492 /* SFProText.swift in Sources */,
+				0D804CB3265716E000F5E492 /* SFProDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,25 +615,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0D15E01C2642556F00F73B30 /* XCRemoteSwiftPackageReference "Presentation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0D15E01D2642556F00F73B30 /* Presentation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0D15E01C2642556F00F73B30 /* XCRemoteSwiftPackageReference "Presentation" */;
-			productName = Presentation;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0DF0F3882636747600F6ED3D /* Project object */;
 }

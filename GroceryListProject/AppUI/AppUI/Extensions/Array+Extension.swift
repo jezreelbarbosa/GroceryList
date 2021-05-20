@@ -5,7 +5,7 @@
 //  Created by Jezreel Barbosa on 17/05/21.
 //
 
-import Foundation
+import ArchitectUtils
 
 public protocol StringSortable {
 

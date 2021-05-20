@@ -1,0 +1,6 @@
+framework module ArchitectUtils {
+  umbrella header "ArchitectUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}

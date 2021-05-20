@@ -6,7 +6,7 @@
 //
 
 import Domain
-import Presentation
+import ArchitectUtils
 
 public protocol GroceryListCoordinating: AnyObject {
 

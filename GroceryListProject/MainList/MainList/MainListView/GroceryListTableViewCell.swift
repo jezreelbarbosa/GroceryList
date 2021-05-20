@@ -7,7 +7,7 @@
 
 import UIKit
 import Stevia
-import Presentation
+import ArchitectUtils
 
 final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
 

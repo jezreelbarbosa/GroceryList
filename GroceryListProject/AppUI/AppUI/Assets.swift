@@ -5,7 +5,7 @@
 //  Created by Jezreel Barbosa on 26/04/21.
 //
 
-import Presentation
+import ArchitectUtils
 
 public final class Assets {
 

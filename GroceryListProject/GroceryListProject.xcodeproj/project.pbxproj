@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,42 @@
 		0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */; };
 		0D22D09325E438FD00E48981 /* GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D09225E438FD00E48981 /* GroceryList.framework */; };
 		0D22D09425E438FD00E48981 /* GroceryList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D09225E438FD00E48981 /* GroceryList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0D7933792642C40D0049AD6E /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EA95262DE27500A0990B /* Presentation */; };
-		0D79337C2642CCB60049AD6E /* Presentation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0DE5EA95262DE27500A0990B /* Presentation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0D804C8D265716C500F5E492 /* SFProText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C68265716C400F5E492 /* SFProText-Regular.otf */; };
+		0D804C8E265716C500F5E492 /* SFProText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C69265716C400F5E492 /* SFProText-BoldItalic.otf */; };
+		0D804C8F265716C500F5E492 /* SFProText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C6A265716C400F5E492 /* SFProText-Light.otf */; };
+		0D804C90265716C500F5E492 /* SFProText-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C6B265716C400F5E492 /* SFProText-ThinItalic.otf */; };
+		0D804C91265716C500F5E492 /* SFProText-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C6C265716C400F5E492 /* SFProText-MediumItalic.otf */; };
+		0D804C92265716C500F5E492 /* SFProText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C6D265716C400F5E492 /* SFProText-LightItalic.otf */; };
+		0D804C93265716C500F5E492 /* SFProText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C6E265716C400F5E492 /* SFProText-HeavyItalic.otf */; };
+		0D804C94265716C500F5E492 /* SFProText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C6F265716C400F5E492 /* SFProText-RegularItalic.otf */; };
+		0D804C95265716C500F5E492 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C70265716C400F5E492 /* SFProText-Semibold.otf */; };
+		0D804C96265716C500F5E492 /* SFProText-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C71265716C400F5E492 /* SFProText-Ultralight.otf */; };
+		0D804C97265716C500F5E492 /* SFProText-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C72265716C400F5E492 /* SFProText-UltralightItalic.otf */; };
+		0D804C98265716C500F5E492 /* SFProText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C73265716C400F5E492 /* SFProText-Medium.otf */; };
+		0D804C99265716C500F5E492 /* SFProText-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C74265716C400F5E492 /* SFProText-BlackItalic.otf */; };
+		0D804C9A265716C500F5E492 /* SFProText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C75265716C400F5E492 /* SFProText-Heavy.otf */; };
+		0D804C9B265716C500F5E492 /* SFProText-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C76265716C400F5E492 /* SFProText-Thin.otf */; };
+		0D804C9C265716C500F5E492 /* SFProText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C77265716C400F5E492 /* SFProText-Bold.otf */; };
+		0D804C9D265716C500F5E492 /* SFProText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C78265716C400F5E492 /* SFProText-SemiboldItalic.otf */; };
+		0D804C9E265716C500F5E492 /* SFProText-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C79265716C400F5E492 /* SFProText-Black.otf */; };
+		0D804C9F265716C500F5E492 /* SFProDisplay-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C7B265716C500F5E492 /* SFProDisplay-BoldItalic.otf */; };
+		0D804CA0265716C500F5E492 /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C7C265716C500F5E492 /* SFProDisplay-Medium.otf */; };
+		0D804CA1265716C500F5E492 /* SFProDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C7D265716C500F5E492 /* SFProDisplay-Black.otf */; };
+		0D804CA2265716C500F5E492 /* SFProDisplay-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C7E265716C500F5E492 /* SFProDisplay-ThinItalic.otf */; };
+		0D804CA3265716C500F5E492 /* SFProDisplay-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C7F265716C500F5E492 /* SFProDisplay-SemiboldItalic.otf */; };
+		0D804CA4265716C500F5E492 /* SFProDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C80265716C500F5E492 /* SFProDisplay-Ultralight.otf */; };
+		0D804CA5265716C500F5E492 /* SFProDisplay-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C81265716C500F5E492 /* SFProDisplay-RegularItalic.otf */; };
+		0D804CA6265716C500F5E492 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C82265716C500F5E492 /* SFProDisplay-Semibold.otf */; };
+		0D804CA7265716C500F5E492 /* SFProDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C83265716C500F5E492 /* SFProDisplay-Heavy.otf */; };
+		0D804CA8265716C500F5E492 /* SFProDisplay-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C84265716C500F5E492 /* SFProDisplay-HeavyItalic.otf */; };
+		0D804CA9265716C500F5E492 /* SFProDisplay-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C85265716C500F5E492 /* SFProDisplay-LightItalic.otf */; };
+		0D804CAA265716C500F5E492 /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C86265716C500F5E492 /* SFProDisplay-Thin.otf */; };
+		0D804CAB265716C500F5E492 /* SFProDisplay-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C87265716C500F5E492 /* SFProDisplay-UltralightItalic.otf */; };
+		0D804CAC265716C500F5E492 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C88265716C500F5E492 /* SFProDisplay-Bold.otf */; };
+		0D804CAD265716C500F5E492 /* SFProDisplay-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C89265716C500F5E492 /* SFProDisplay-MediumItalic.otf */; };
+		0D804CAE265716C500F5E492 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C8A265716C500F5E492 /* SFProDisplay-Regular.otf */; };
+		0D804CAF265716C500F5E492 /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C8B265716C500F5E492 /* SFProDisplay-Light.otf */; };
+		0D804CB0265716C500F5E492 /* SFProDisplay-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D804C8C265716C500F5E492 /* SFProDisplay-BlackItalic.otf */; };
 		0DE5EBD8262DE8E700A0990B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE5EBD7262DE8E700A0990B /* Assets.xcassets */; };
 		0DF0F3AE263674AB00F6ED3D /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3AD263674AB00F6ED3D /* AppUI.framework */; };
 		0DF0F3AF263674AB00F6ED3D /* AppUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0F3AD263674AB00F6ED3D /* AppUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -34,8 +68,8 @@
 		0DF4091725A74E200005609F /* AppNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4091525A74E200005609F /* AppNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DF4098D25A75DA70005609F /* MainList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098C25A75DA70005609F /* MainList.framework */; };
 		0DF4098E25A75DA70005609F /* MainList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF4098C25A75DA70005609F /* MainList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		721A1F0FB7F7E0B0062249E1 /* Pods_GroceryListProjectTarget_GroceryListProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4071FC4E841F3F707FA76B /* Pods_GroceryListProjectTarget_GroceryListProject.framework */; };
-		EE9AA707EB8AF22E89F178FD /* Pods_GroceryListProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85869F134BA5BBA8F8E03682 /* Pods_GroceryListProjectTests.framework */; };
+		2C0728776D43AA34DD26840A /* Pods_GroceryListProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0BD23FFE16D2CD97C03EEF /* Pods_GroceryListProjectTests.framework */; };
+		C818A03C70044BAC62D5DDED /* Pods_GroceryListProjectTarget_GroceryListProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C792BCAFC729036BA33CC0A /* Pods_GroceryListProjectTarget_GroceryListProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +103,6 @@
 				0DF4080825A74AA10005609F /* Storage.framework in Embed Frameworks */,
 				0DF407D425A749970005609F /* Networking.framework in Embed Frameworks */,
 				0DF4091725A74E200005609F /* AppNavigation.framework in Embed Frameworks */,
-				0D79337C2642CCB60049AD6E /* Presentation in Embed Frameworks */,
 				0DF4098E25A75DA70005609F /* MainList.framework in Embed Frameworks */,
 				0D22D09425E438FD00E48981 /* GroceryList.framework in Embed Frameworks */,
 				0DF408E325A74D790005609F /* DI.framework in Embed Frameworks */,
@@ -87,6 +120,42 @@
 		0D22D09225E438FD00E48981 /* GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2AD29725EFC48B001B4F49 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0D79337A2642C6A70049AD6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0D804C68265716C400F5E492 /* SFProText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.otf"; sourceTree = "<group>"; };
+		0D804C69265716C400F5E492 /* SFProText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-BoldItalic.otf"; sourceTree = "<group>"; };
+		0D804C6A265716C400F5E492 /* SFProText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.otf"; sourceTree = "<group>"; };
+		0D804C6B265716C400F5E492 /* SFProText-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-ThinItalic.otf"; sourceTree = "<group>"; };
+		0D804C6C265716C400F5E492 /* SFProText-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-MediumItalic.otf"; sourceTree = "<group>"; };
+		0D804C6D265716C400F5E492 /* SFProText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-LightItalic.otf"; sourceTree = "<group>"; };
+		0D804C6E265716C400F5E492 /* SFProText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-HeavyItalic.otf"; sourceTree = "<group>"; };
+		0D804C6F265716C400F5E492 /* SFProText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-RegularItalic.otf"; sourceTree = "<group>"; };
+		0D804C70265716C400F5E492 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
+		0D804C71265716C400F5E492 /* SFProText-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Ultralight.otf"; sourceTree = "<group>"; };
+		0D804C72265716C400F5E492 /* SFProText-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-UltralightItalic.otf"; sourceTree = "<group>"; };
+		0D804C73265716C400F5E492 /* SFProText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.otf"; sourceTree = "<group>"; };
+		0D804C74265716C400F5E492 /* SFProText-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-BlackItalic.otf"; sourceTree = "<group>"; };
+		0D804C75265716C400F5E492 /* SFProText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Heavy.otf"; sourceTree = "<group>"; };
+		0D804C76265716C400F5E492 /* SFProText-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Thin.otf"; sourceTree = "<group>"; };
+		0D804C77265716C400F5E492 /* SFProText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.otf"; sourceTree = "<group>"; };
+		0D804C78265716C400F5E492 /* SFProText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		0D804C79265716C400F5E492 /* SFProText-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Black.otf"; sourceTree = "<group>"; };
+		0D804C7B265716C500F5E492 /* SFProDisplay-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BoldItalic.otf"; sourceTree = "<group>"; };
+		0D804C7C265716C500F5E492 /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
+		0D804C7D265716C500F5E492 /* SFProDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Black.otf"; sourceTree = "<group>"; };
+		0D804C7E265716C500F5E492 /* SFProDisplay-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-ThinItalic.otf"; sourceTree = "<group>"; };
+		0D804C7F265716C500F5E492 /* SFProDisplay-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		0D804C80265716C500F5E492 /* SFProDisplay-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Ultralight.otf"; sourceTree = "<group>"; };
+		0D804C81265716C500F5E492 /* SFProDisplay-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-RegularItalic.otf"; sourceTree = "<group>"; };
+		0D804C82265716C500F5E492 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		0D804C83265716C500F5E492 /* SFProDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Heavy.otf"; sourceTree = "<group>"; };
+		0D804C84265716C500F5E492 /* SFProDisplay-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-HeavyItalic.otf"; sourceTree = "<group>"; };
+		0D804C85265716C500F5E492 /* SFProDisplay-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-LightItalic.otf"; sourceTree = "<group>"; };
+		0D804C86265716C500F5E492 /* SFProDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.otf"; sourceTree = "<group>"; };
+		0D804C87265716C500F5E492 /* SFProDisplay-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-UltralightItalic.otf"; sourceTree = "<group>"; };
+		0D804C88265716C500F5E492 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
+		0D804C89265716C500F5E492 /* SFProDisplay-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MediumItalic.otf"; sourceTree = "<group>"; };
+		0D804C8A265716C500F5E492 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
+		0D804C8B265716C500F5E492 /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.otf"; sourceTree = "<group>"; };
+		0D804C8C265716C500F5E492 /* SFProDisplay-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BlackItalic.otf"; sourceTree = "<group>"; };
 		0D9DD8E025D48DB800851531 /* Notification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Notification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC102CC25FC0568000AF5A6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0DE5EBD7262DE8E700A0990B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,14 +174,12 @@
 		0DF408E125A74D790005609F /* DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4091525A74E200005609F /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4098C25A75DA70005609F /* MainList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MainList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AA39BE0C3FDE10DEC5D6CD4 /* Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
-		7CCBA280822E7C615D0EA60A /* Pods-GroceryListProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTests/Pods-GroceryListProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		85869F134BA5BBA8F8E03682 /* Pods_GroceryListProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryListProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC4071FC4E841F3F707FA76B /* Pods_GroceryListProjectTarget_GroceryListProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryListProjectTarget_GroceryListProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C34BEB336CA79A050B230D77 /* Pods-GroceryListProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTests/Pods-GroceryListProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		CE8BB9143B6ECD485D237C96 /* Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
-		DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
-		DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProject/Pods-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
+		3E258803372F08D381E40EB7 /* Pods-GroceryListProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTests/Pods-GroceryListProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		431983CEE8C89BB0E9E40B22 /* Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig"; sourceTree = "<group>"; };
+		6B0FED8BB33489B4BB3F4FC2 /* Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig"; sourceTree = "<group>"; };
+		75A06861011F2AC32996B967 /* Pods-GroceryListProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroceryListProjectTests/Pods-GroceryListProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C792BCAFC729036BA33CC0A /* Pods_GroceryListProjectTarget_GroceryListProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryListProjectTarget_GroceryListProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0BD23FFE16D2CD97C03EEF /* Pods_GroceryListProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryListProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,14 +191,13 @@
 				0DF0F3AE263674AB00F6ED3D /* AppUI.framework in Frameworks */,
 				0DF4089C25A74C5D0005609F /* Domain.framework in Frameworks */,
 				0DF4086125A74BE50005609F /* AppData.framework in Frameworks */,
-				0D7933792642C40D0049AD6E /* Presentation in Frameworks */,
 				0DF4080725A74AA10005609F /* Storage.framework in Frameworks */,
 				0DF407D325A749970005609F /* Networking.framework in Frameworks */,
 				0DF4091625A74E200005609F /* AppNavigation.framework in Frameworks */,
 				0D22D09325E438FD00E48981 /* GroceryList.framework in Frameworks */,
 				0DF4098D25A75DA70005609F /* MainList.framework in Frameworks */,
 				0DF408E225A74D790005609F /* DI.framework in Frameworks */,
-				721A1F0FB7F7E0B0062249E1 /* Pods_GroceryListProjectTarget_GroceryListProject.framework in Frameworks */,
+				C818A03C70044BAC62D5DDED /* Pods_GroceryListProjectTarget_GroceryListProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9AA707EB8AF22E89F178FD /* Pods_GroceryListProjectTests.framework in Frameworks */,
+				2C0728776D43AA34DD26840A /* Pods_GroceryListProjectTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,12 +244,72 @@
 		0D20C0C1241FE46600FCA5B4 /* GroceryListProject */ = {
 			isa = PBXGroup;
 			children = (
+				0D804C66265716A800F5E492 /* Resources */,
 				0D20C0C2241FE46600FCA5B4 /* AppDelegate.swift */,
 				0D20C0D0241FE46700FCA5B4 /* LaunchScreen.storyboard */,
 				0DE5EBD7262DE8E700A0990B /* Assets.xcassets */,
 				0D20C0D3241FE46700FCA5B4 /* Info.plist */,
 			);
 			path = GroceryListProject;
+			sourceTree = "<group>";
+		};
+		0D804C66265716A800F5E492 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0D804C7A265716C500F5E492 /* SFProDisplay */,
+				0D804C67265716C400F5E492 /* SFProText */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0D804C67265716C400F5E492 /* SFProText */ = {
+			isa = PBXGroup;
+			children = (
+				0D804C68265716C400F5E492 /* SFProText-Regular.otf */,
+				0D804C69265716C400F5E492 /* SFProText-BoldItalic.otf */,
+				0D804C6A265716C400F5E492 /* SFProText-Light.otf */,
+				0D804C6B265716C400F5E492 /* SFProText-ThinItalic.otf */,
+				0D804C6C265716C400F5E492 /* SFProText-MediumItalic.otf */,
+				0D804C6D265716C400F5E492 /* SFProText-LightItalic.otf */,
+				0D804C6E265716C400F5E492 /* SFProText-HeavyItalic.otf */,
+				0D804C6F265716C400F5E492 /* SFProText-RegularItalic.otf */,
+				0D804C70265716C400F5E492 /* SFProText-Semibold.otf */,
+				0D804C71265716C400F5E492 /* SFProText-Ultralight.otf */,
+				0D804C72265716C400F5E492 /* SFProText-UltralightItalic.otf */,
+				0D804C73265716C400F5E492 /* SFProText-Medium.otf */,
+				0D804C74265716C400F5E492 /* SFProText-BlackItalic.otf */,
+				0D804C75265716C400F5E492 /* SFProText-Heavy.otf */,
+				0D804C76265716C400F5E492 /* SFProText-Thin.otf */,
+				0D804C77265716C400F5E492 /* SFProText-Bold.otf */,
+				0D804C78265716C400F5E492 /* SFProText-SemiboldItalic.otf */,
+				0D804C79265716C400F5E492 /* SFProText-Black.otf */,
+			);
+			path = SFProText;
+			sourceTree = "<group>";
+		};
+		0D804C7A265716C500F5E492 /* SFProDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				0D804C7B265716C500F5E492 /* SFProDisplay-BoldItalic.otf */,
+				0D804C7C265716C500F5E492 /* SFProDisplay-Medium.otf */,
+				0D804C7D265716C500F5E492 /* SFProDisplay-Black.otf */,
+				0D804C7E265716C500F5E492 /* SFProDisplay-ThinItalic.otf */,
+				0D804C7F265716C500F5E492 /* SFProDisplay-SemiboldItalic.otf */,
+				0D804C80265716C500F5E492 /* SFProDisplay-Ultralight.otf */,
+				0D804C81265716C500F5E492 /* SFProDisplay-RegularItalic.otf */,
+				0D804C82265716C500F5E492 /* SFProDisplay-Semibold.otf */,
+				0D804C83265716C500F5E492 /* SFProDisplay-Heavy.otf */,
+				0D804C84265716C500F5E492 /* SFProDisplay-HeavyItalic.otf */,
+				0D804C85265716C500F5E492 /* SFProDisplay-LightItalic.otf */,
+				0D804C86265716C500F5E492 /* SFProDisplay-Thin.otf */,
+				0D804C87265716C500F5E492 /* SFProDisplay-UltralightItalic.otf */,
+				0D804C88265716C500F5E492 /* SFProDisplay-Bold.otf */,
+				0D804C89265716C500F5E492 /* SFProDisplay-MediumItalic.otf */,
+				0D804C8A265716C500F5E492 /* SFProDisplay-Regular.otf */,
+				0D804C8B265716C500F5E492 /* SFProDisplay-Light.otf */,
+				0D804C8C265716C500F5E492 /* SFProDisplay-BlackItalic.otf */,
+			);
+			path = SFProDisplay;
 			sourceTree = "<group>";
 		};
 		0DF4078925A748900005609F /* GroceryListProjectTests */ = {
@@ -219,8 +345,8 @@
 				0DF4080625A74AA10005609F /* Storage.framework */,
 				0DF407D225A749970005609F /* Networking.framework */,
 				0DF4077C25A7460C0005609F /* Common.framework */,
-				BC4071FC4E841F3F707FA76B /* Pods_GroceryListProjectTarget_GroceryListProject.framework */,
-				85869F134BA5BBA8F8E03682 /* Pods_GroceryListProjectTests.framework */,
+				8C792BCAFC729036BA33CC0A /* Pods_GroceryListProjectTarget_GroceryListProject.framework */,
+				BF0BD23FFE16D2CD97C03EEF /* Pods_GroceryListProjectTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,12 +354,10 @@
 		7C150F7AFA53548FCF2B104B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DA861DB08733DB0A45E72667 /* Pods-GroceryListProject.debug.xcconfig */,
-				DC0699EE1B8C5323AA7C14BE /* Pods-GroceryListProject.release.xcconfig */,
-				CE8BB9143B6ECD485D237C96 /* Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig */,
-				2AA39BE0C3FDE10DEC5D6CD4 /* Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig */,
-				7CCBA280822E7C615D0EA60A /* Pods-GroceryListProjectTests.debug.xcconfig */,
-				C34BEB336CA79A050B230D77 /* Pods-GroceryListProjectTests.release.xcconfig */,
+				6B0FED8BB33489B4BB3F4FC2 /* Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig */,
+				431983CEE8C89BB0E9E40B22 /* Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig */,
+				3E258803372F08D381E40EB7 /* Pods-GroceryListProjectTests.debug.xcconfig */,
+				75A06861011F2AC32996B967 /* Pods-GroceryListProjectTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -245,22 +369,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D20C0D6241FE46700FCA5B4 /* Build configuration list for PBXNativeTarget "GroceryListProject" */;
 			buildPhases = (
-				6BF34DAB937D60ADA9D3BF93 /* [CP] Check Pods Manifest.lock */,
+				EE17DB3A68983A50C0728089 /* [CP] Check Pods Manifest.lock */,
 				0D20C0BB241FE46600FCA5B4 /* Sources */,
 				0D20C0BC241FE46600FCA5B4 /* Frameworks */,
 				0D20C0BD241FE46600FCA5B4 /* Resources */,
 				0DF4077F25A7460D0005609F /* Embed Frameworks */,
 				0DF4DC0225AA456B0076D0EB /* ShellScript */,
-				6D190C040BDF02F51AEB34C0 /* [CP] Embed Pods Frameworks */,
+				00131F3426446E128DC9CA16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GroceryListProject;
-			packageProductDependencies = (
-				0DE5EA95262DE27500A0990B /* Presentation */,
-			);
 			productName = GroceryListProject;
 			productReference = 0D20C0BF241FE46600FCA5B4 /* Listinha.app */;
 			productType = "com.apple.product-type.application";
@@ -269,7 +390,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DF4078F25A748900005609F /* Build configuration list for PBXNativeTarget "GroceryListProjectTests" */;
 			buildPhases = (
-				AC0897C535D9FEBFFED9DA11 /* [CP] Check Pods Manifest.lock */,
+				4132D4B77EE9AFDB1CE1406D /* [CP] Check Pods Manifest.lock */,
 				0DF4078425A748900005609F /* Sources */,
 				0DF4078525A748900005609F /* Frameworks */,
 				0DF4078625A748900005609F /* Resources */,
@@ -336,9 +457,6 @@
 				fr,
 			);
 			mainGroup = 0D20C0B6241FE46600FCA5B4;
-			packageReferences = (
-				0DE5EA94262DE27500A0990B /* XCRemoteSwiftPackageReference "Presentation" */,
-			);
 			productRefGroup = 0D20C0C0241FE46600FCA5B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,8 +473,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D804C9C265716C500F5E492 /* SFProText-Bold.otf in Resources */,
+				0D804CA7265716C500F5E492 /* SFProDisplay-Heavy.otf in Resources */,
+				0D804CAE265716C500F5E492 /* SFProDisplay-Regular.otf in Resources */,
+				0D804CAC265716C500F5E492 /* SFProDisplay-Bold.otf in Resources */,
+				0D804C91265716C500F5E492 /* SFProText-MediumItalic.otf in Resources */,
+				0D804C90265716C500F5E492 /* SFProText-ThinItalic.otf in Resources */,
+				0D804CA3265716C500F5E492 /* SFProDisplay-SemiboldItalic.otf in Resources */,
+				0D804C92265716C500F5E492 /* SFProText-LightItalic.otf in Resources */,
+				0D804C9A265716C500F5E492 /* SFProText-Heavy.otf in Resources */,
+				0D804C9F265716C500F5E492 /* SFProDisplay-BoldItalic.otf in Resources */,
+				0D804C9D265716C500F5E492 /* SFProText-SemiboldItalic.otf in Resources */,
+				0D804C99265716C500F5E492 /* SFProText-BlackItalic.otf in Resources */,
+				0D804C8F265716C500F5E492 /* SFProText-Light.otf in Resources */,
+				0D804C94265716C500F5E492 /* SFProText-RegularItalic.otf in Resources */,
+				0D804CAA265716C500F5E492 /* SFProDisplay-Thin.otf in Resources */,
+				0D804C95265716C500F5E492 /* SFProText-Semibold.otf in Resources */,
+				0D804CA6265716C500F5E492 /* SFProDisplay-Semibold.otf in Resources */,
+				0D804CB0265716C500F5E492 /* SFProDisplay-BlackItalic.otf in Resources */,
+				0D804C98265716C500F5E492 /* SFProText-Medium.otf in Resources */,
+				0D804CAD265716C500F5E492 /* SFProDisplay-MediumItalic.otf in Resources */,
+				0D804C9E265716C500F5E492 /* SFProText-Black.otf in Resources */,
+				0D804CA1265716C500F5E492 /* SFProDisplay-Black.otf in Resources */,
 				0DE5EBD8262DE8E700A0990B /* Assets.xcassets in Resources */,
+				0D804CAB265716C500F5E492 /* SFProDisplay-UltralightItalic.otf in Resources */,
+				0D804CAF265716C500F5E492 /* SFProDisplay-Light.otf in Resources */,
+				0D804CA0265716C500F5E492 /* SFProDisplay-Medium.otf in Resources */,
+				0D804CA9265716C500F5E492 /* SFProDisplay-LightItalic.otf in Resources */,
+				0D804CA4265716C500F5E492 /* SFProDisplay-Ultralight.otf in Resources */,
+				0D804CA2265716C500F5E492 /* SFProDisplay-ThinItalic.otf in Resources */,
+				0D804C97265716C500F5E492 /* SFProText-UltralightItalic.otf in Resources */,
+				0D804C96265716C500F5E492 /* SFProText-Ultralight.otf in Resources */,
+				0D804C8D265716C500F5E492 /* SFProText-Regular.otf in Resources */,
+				0D804C8E265716C500F5E492 /* SFProText-BoldItalic.otf in Resources */,
+				0D804C93265716C500F5E492 /* SFProText-HeavyItalic.otf in Resources */,
+				0D804CA5265716C500F5E492 /* SFProDisplay-RegularItalic.otf in Resources */,
+				0D804CA8265716C500F5E492 /* SFProDisplay-HeavyItalic.otf in Resources */,
 				0D20C0D2241FE46700FCA5B4 /* LaunchScreen.storyboard in Resources */,
+				0D804C9B265716C500F5E492 /* SFProText-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +531,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00131F3426446E128DC9CA16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0DF4DC0225AA456B0076D0EB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,46 +565,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		6BF34DAB937D60ADA9D3BF93 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GroceryListProjectTarget-GroceryListProject-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D190C040BDF02F51AEB34C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GroceryListProjectTarget-GroceryListProject/Pods-GroceryListProjectTarget-GroceryListProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC0897C535D9FEBFFED9DA11 /* [CP] Check Pods Manifest.lock */ = {
+		4132D4B77EE9AFDB1CE1406D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -449,6 +581,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-GroceryListProjectTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE17DB3A68983A50C0728089 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroceryListProjectTarget-GroceryListProject-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -631,7 +785,7 @@
 		};
 		0D20C0D7241FE46700FCA5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE8BB9143B6ECD485D237C96 /* Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig */;
+			baseConfigurationReference = 6B0FED8BB33489B4BB3F4FC2 /* Pods-GroceryListProjectTarget-GroceryListProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -653,7 +807,7 @@
 		};
 		0D20C0D8241FE46700FCA5B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AA39BE0C3FDE10DEC5D6CD4 /* Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig */;
+			baseConfigurationReference = 431983CEE8C89BB0E9E40B22 /* Pods-GroceryListProjectTarget-GroceryListProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -675,7 +829,7 @@
 		};
 		0DF4079025A748900005609F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CCBA280822E7C615D0EA60A /* Pods-GroceryListProjectTests.debug.xcconfig */;
+			baseConfigurationReference = 3E258803372F08D381E40EB7 /* Pods-GroceryListProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -697,7 +851,7 @@
 		};
 		0DF4079125A748900005609F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C34BEB336CA79A050B230D77 /* Pods-GroceryListProjectTests.release.xcconfig */;
+			baseConfigurationReference = 75A06861011F2AC32996B967 /* Pods-GroceryListProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -797,25 +951,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0DE5EA94262DE27500A0990B /* XCRemoteSwiftPackageReference "Presentation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0DE5EA95262DE27500A0990B /* Presentation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0DE5EA94262DE27500A0990B /* XCRemoteSwiftPackageReference "Presentation" */;
-			productName = Presentation;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0D20C0B7241FE46600FCA5B4 /* Project object */;
 }

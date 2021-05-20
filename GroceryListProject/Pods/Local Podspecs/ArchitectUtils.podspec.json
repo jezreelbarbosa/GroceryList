@@ -1,0 +1,24 @@
+{
+  "name": "ArchitectUtils",
+  "version": "0.1.0",
+  "summary": "Utils lib",
+  "swift_versions": "5.3",
+  "description": "Just an utils lib to help on coding projects.",
+  "homepage": "https://github.com/jezreelbarbosa/ArchitectUtils",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jezreelbarbosa": "jezreel.barbosa.42@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jezreelbarbosa/ArchitectUtils.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "12.1"
+  },
+  "source_files": "ArchitectUtils/Classes/**/*",
+  "swift_version": "5.3"
+}

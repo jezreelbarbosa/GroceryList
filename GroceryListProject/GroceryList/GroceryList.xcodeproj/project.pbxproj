@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		0D08D61D25EC203000A09BAF /* GroceryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D61C25EC203000A09BAF /* GroceryItemViewController.swift */; };
 		0D08D62125EC203900A09BAF /* GroceryItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08D62025EC203900A09BAF /* GroceryItemPresenter.swift */; };
 		0D15E0192642381600F73B30 /* AppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D15E0182642381600F73B30 /* AppUI.framework */; };
-		0D15E026264255B200F73B30 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 0D15E025264255B200F73B30 /* Presentation */; };
 		0D22D06F25E4385400E48981 /* GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D22D06525E4385400E48981 /* GroceryList.framework */; };
 		0D22D07425E4385400E48981 /* GroceryListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22D07325E4385400E48981 /* GroceryListTests.swift */; };
 		0D22D07625E4385400E48981 /* GroceryList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D22D06825E4385400E48981 /* GroceryList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,7 +91,6 @@
 				0D22D08525E438B300E48981 /* Common.framework in Frameworks */,
 				0D15E0192642381600F73B30 /* AppUI.framework in Frameworks */,
 				0D22D08925E438B800E48981 /* Domain.framework in Frameworks */,
-				0D15E026264255B200F73B30 /* Presentation in Frameworks */,
 				ABA0FFA93C52C05B1808B438 /* Pods_GroceryList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +237,6 @@
 			);
 			name = GroceryList;
 			packageProductDependencies = (
-				0D15E025264255B200F73B30 /* Presentation */,
 			);
 			productName = GroceryList;
 			productReference = 0D22D06525E4385400E48981 /* GroceryList.framework */;
@@ -293,7 +290,6 @@
 			);
 			mainGroup = 0D22D05B25E4385400E48981;
 			packageReferences = (
-				0D15E024264255B200F73B30 /* XCRemoteSwiftPackageReference "Presentation" */,
 			);
 			productRefGroup = 0D22D06625E4385400E48981 /* Products */;
 			projectDirPath = "";
@@ -671,25 +667,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0D15E024264255B200F73B30 /* XCRemoteSwiftPackageReference "Presentation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jezreelbarbosa/Presentation.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0D15E025264255B200F73B30 /* Presentation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0D15E024264255B200F73B30 /* XCRemoteSwiftPackageReference "Presentation" */;
-			productName = Presentation;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0D22D05C25E4385400E48981 /* Project object */;
 }

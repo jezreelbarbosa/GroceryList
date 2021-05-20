@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Presentation
+import ArchitectUtils
 
 public protocol NewListPresenting {
 
