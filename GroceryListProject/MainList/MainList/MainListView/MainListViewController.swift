@@ -21,11 +21,9 @@ public protocol MainListPresenting {
     func editItem(uri: URL?)
 }
 
-public final class MainListViewController: UICodeViewController<MainListPresenting> {
+public final class MainListViewController: UIMainCodeViewController<MainListPresenting, MainListView> {
 
     // Properties
-
-    private lazy var mainView = MainListView()
 
     private var groceriesList: [GroceryListHeaderInfoViewModel] = []
 
@@ -34,10 +32,6 @@ public final class MainListViewController: UICodeViewController<MainListPresenti
     private var items: [GroceryListHeaderInfoViewModel] { isSearching ? searchingList : groceriesList }
 
     // Override
-
-    public override func loadView() {
-        self.view = mainView
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()

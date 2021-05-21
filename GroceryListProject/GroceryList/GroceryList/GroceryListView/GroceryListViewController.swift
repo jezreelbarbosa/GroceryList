@@ -20,11 +20,9 @@ public protocol GroceryListPresenting {
     func createNewItem()
 }
 
-public class GroceryListViewController: UICodeViewController<GroceryListPresenting> {
+public class GroceryListViewController: UIMainCodeViewController<GroceryListPresenting, GroceryListView> {
 
     // Properties
-
-    private lazy var mainView = GroceryListView()
 
     private var groceryList: GroceryListViewModel = .empty
 
@@ -33,10 +31,6 @@ public class GroceryListViewController: UICodeViewController<GroceryListPresenti
     private var items: [GroceryItemViewModel] { isSearching ? searchingList : groceryList.items }
 
     // Override
-
-    public override func loadView() {
-        self.view = mainView
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()

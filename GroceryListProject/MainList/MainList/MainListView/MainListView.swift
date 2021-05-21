@@ -9,7 +9,7 @@ import UIKit
 import Stevia
 import ArchitectUtils
 
-final class MainListView: UICodeView {
+public final class MainListView: UICodeView {
 
     // Properties
 

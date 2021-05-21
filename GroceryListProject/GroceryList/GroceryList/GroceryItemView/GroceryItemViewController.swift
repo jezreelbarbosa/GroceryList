@@ -16,17 +16,9 @@ public protocol GroceryItemPresenting {
     func updateGroceryItem(item: GroceryItemUpdateRequest, successCompletion: () -> Void)
 }
 
-public class GroceryItemViewController: UICodeViewController<GroceryItemPresenting> {
-
-    // Properties
-
-    private lazy var mainView = GroceryItemView()
+public class GroceryItemViewController: UIMainCodeViewController<GroceryItemPresenting, GroceryItemView> {
 
     // Override
-
-    public override func loadView() {
-        self.view = mainView
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()

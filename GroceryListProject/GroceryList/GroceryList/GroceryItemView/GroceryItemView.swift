@@ -10,7 +10,7 @@ import Stevia
 import ArchitectUtils
 import IQKeyboardManagerSwift
 
-final class GroceryItemView: UICodeView, ContentSizeObserver {
+public final class GroceryItemView: UICodeView, ContentSizeObserver {
 
     // Properties
 
@@ -37,7 +37,7 @@ final class GroceryItemView: UICodeView, ContentSizeObserver {
 
     var itemDate = Date()
 
-    var notificationTokens: [NotificationToken] = []
+    public var notificationTokens: [NotificationToken] = []
 
     // Lifecycle
 

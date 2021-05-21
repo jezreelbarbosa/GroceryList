@@ -16,17 +16,9 @@ public protocol NewListPresenting {
     func createNewGroceryList(model: GroceryListHeaderInfoViewModel, successCompletion: VoidCompletion)
 }
 
-public class NewListViewController: UICodeViewController<NewListPresenting> {
-
-    // Properties
-
-    private lazy var mainView = NewListView()
+public class NewListViewController: UIMainCodeViewController<NewListPresenting, NewListView> {
 
     // Override
-
-    public override func loadView() {
-        self.view = mainView
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()

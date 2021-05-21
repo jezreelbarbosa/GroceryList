@@ -9,7 +9,7 @@ import UIKit
 import Stevia
 import ArchitectUtils
 
-final class NewListView: UICodeView, ContentSizeObserver {
+public final class NewListView: UICodeView, ContentSizeObserver {
 
     // Properties
 
@@ -17,7 +17,7 @@ final class NewListView: UICodeView, ContentSizeObserver {
     let iconTextField = UICodeTextField()
     let nameTextField = UICodeTextField()
 
-    var notificationTokens: [NotificationToken] = []
+    public var notificationTokens: [NotificationToken] = []
 
     // Lifecycle
 
