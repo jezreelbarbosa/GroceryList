@@ -1,5 +1,5 @@
 PODS:
-  - ArchitectUtils (0.1.0)
+  - ArchitectUtils (0.1.1)
   - IQKeyboardManagerSwift (6.5.7)
   - SteviaLayout (4.7.3)
   - SwiftLint (0.43.1)
@@ -32,14 +32,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ArchitectUtils:
-    :commit: b06c13803b0fa5a9b7ce0d815693504e5750aadd
+    :commit: 4eb8556fccce126c8de7d5c55d8db586c6d9d8fb
     :git: https://github.com/jezreelbarbosa/ArchitectUtils
   IQKeyboardManagerSwift:
     :commit: 641ef9f19960a8ecdf22bc89290d0ba56ed37826
     :git: https://github.com/hackiftekhar/IQKeyboardManager
 
 SPEC CHECKSUMS:
-  ArchitectUtils: f4c29b08016fa546137091d9acb133bad7c3fea5
+  ArchitectUtils: 352613833c457da76f15e3e4058a7175a5a6303e
   IQKeyboardManagerSwift: 7d651cf47a4fb6a4d721e16ef15ec52cef6d57ce
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52

@@ -1,6 +1,6 @@
 {
   "name": "ArchitectUtils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "Utils lib",
   "swift_versions": "5.3",
   "description": "Just an utils lib to help on coding projects.",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/jezreelbarbosa/ArchitectUtils.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "12.1"

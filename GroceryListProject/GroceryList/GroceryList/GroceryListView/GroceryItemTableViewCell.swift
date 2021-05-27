@@ -9,11 +9,7 @@ import UIKit
 import Stevia
 import ArchitectUtils
 
-final class GroceryItemTableViewCell: UICodeTableViewCell, ReuseIdentifiable, ContentSizeObserver {
-
-    // Static properties
-
-    static let reuseIdentifier: String = "GroceryItemTableViewCell"
+final class GroceryItemTableViewCell: UICodeTableViewCell, ContentSizeObserver {
 
     // Properties
 

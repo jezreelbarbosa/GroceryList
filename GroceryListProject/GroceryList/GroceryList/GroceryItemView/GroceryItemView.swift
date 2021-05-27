@@ -127,9 +127,9 @@ public final class GroceryItemView: UICodeView, ContentSizeObserver {
         priceStackView.style { s in
             s.axis = .horizontal
             s.spacing = 8
-            bindObserver { category in
-                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
-                s.spacing = category >= .accessibilityMedium ? 4 : 8
+            bindObserver { c in
+                s.axis = c >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = c >= .accessibilityMedium ? 4 : 8
             }
         }
 
@@ -172,9 +172,9 @@ public final class GroceryItemView: UICodeView, ContentSizeObserver {
         quantityStackView.style { s in
             s.axis = .horizontal
             s.spacing = 8
-            bindObserver { category in
-                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
-                s.spacing = category >= .accessibilityMedium ? 4 : 8
+            bindObserver { c in
+                s.axis = c >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = c >= .accessibilityMedium ? 4 : 8
             }
         }
 
@@ -211,9 +211,9 @@ public final class GroceryItemView: UICodeView, ContentSizeObserver {
         totalStackView.style { s in
             s.axis = .horizontal
             s.spacing = 8
-            bindObserver { category in
-                s.axis = category >= .accessibilityMedium ? .vertical : .horizontal
-                s.spacing = category >= .accessibilityMedium ? 4 : 8
+            bindObserver { c in
+                s.axis = c >= .accessibilityMedium ? .vertical : .horizontal
+                s.spacing = c >= .accessibilityMedium ? 4 : 8
             }
         }
 
@@ -229,8 +229,8 @@ public final class GroceryItemView: UICodeView, ContentSizeObserver {
             s.adjustsFontForContentSizeCategory = true
             s.textColor = Resources.Colors.textColor
             s.textAlignment = .right
-            bindObserver { category in
-                s.textAlignment = category >= .accessibilityMedium ? .left : .right
+            bindObserver { c in
+                s.textAlignment = c >= .accessibilityMedium ? .left : .right
             }
         }
 

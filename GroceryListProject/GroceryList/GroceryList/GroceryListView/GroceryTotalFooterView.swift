@@ -9,11 +9,7 @@ import UIKit
 import Stevia
 import ArchitectUtils
 
-final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ReuseIdentifiable, ContentSizeObserver {
-
-    // Static properties
-
-    static let reuseIdentifier: String = "GroceryTotalFooterView"
+final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ContentSizeObserver {
 
     // Properties
 

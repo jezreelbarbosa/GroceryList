@@ -9,31 +9,31 @@ import UIKit
 
 public extension UITableView {
 
-    func register<T: UITableViewCell & ReuseIdentifiable>(_ cellClass: T.Type) {
-        register(cellClass.self, forCellReuseIdentifier: cellClass.reuseIdentifier)
+    func register<T: UITableViewCell>(_ cellClass: T.Type) {
+        register(cellClass.self, forCellReuseIdentifier: String(describing: cellClass))
     }
 
-    func dequeueReusableCell<T: UITableViewCell & ReuseIdentifiable>(_ cellClass: T.Type) -> T {
-        if let cell = dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier) as? T {
+    func dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type) -> T {
+        if let cell = dequeueReusableCell(withIdentifier: String(describing: cellClass)) as? T {
             return cell
         }
         register(cellClass)
-        if let cell = dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier) as? T {
+        if let cell = dequeueReusableCell(withIdentifier: String(describing: cellClass)) as? T {
             return cell
         }
         preconditionFailure("Reusable cell is nil: \(cellClass)")
     }
 
-    func register<T: UITableViewHeaderFooterView & ReuseIdentifiable>(_ headerFooterCellClass: T.Type) {
-        register(headerFooterCellClass.self, forHeaderFooterViewReuseIdentifier: headerFooterCellClass.reuseIdentifier)
+    func register<T: UITableViewHeaderFooterView>(_ headerFooterCellClass: T.Type) {
+        register(headerFooterCellClass.self, forHeaderFooterViewReuseIdentifier: String(describing: headerFooterCellClass))
     }
 
-    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView & ReuseIdentifiable>(_ cellClass: T.Type) -> T {
-        if let cell = dequeueReusableHeaderFooterView(withIdentifier: cellClass.reuseIdentifier) as? T {
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ cellClass: T.Type) -> T {
+        if let cell = dequeueReusableHeaderFooterView(withIdentifier: String(describing: cellClass)) as? T {
             return cell
         }
         register(cellClass)
-        if let cell = dequeueReusableHeaderFooterView(withIdentifier: cellClass.reuseIdentifier) as? T {
+        if let cell = dequeueReusableHeaderFooterView(withIdentifier: String(describing: cellClass)) as? T {
             return cell
         }
         preconditionFailure("Reusable cell is nil: \(cellClass)")
