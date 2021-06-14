@@ -22,7 +22,7 @@ public final class GroceryListPresenter {
 
     public var errorMessageBox: Box<String>
     public var groceryListBox: Box<GroceryListViewModel>
-    public let reloadTableViewBox: Box<[Int]>
+    public var reloadTableViewBox: Box<([IndexPath], [IndexPath])>
 
     let groceryListURI: URL
     var groceryListModel: GroceryListModel
@@ -42,7 +42,7 @@ public final class GroceryListPresenter {
 
         self.errorMessageBox = Box(.defaultValue)
         self.groceryListBox = Box(GroceryListViewModel.empty)
-        self.reloadTableViewBox = Box([])
+        self.reloadTableViewBox = Box(([], []))
 
         if let model = getGroceryListUseCase.execute(uri: groceryListURI).success {
             self.groceryListModel = model
@@ -57,13 +57,13 @@ public final class GroceryListPresenter {
 
     // Functions
 
-    func updateList(removingRows: [Int]) {
+    func updateList(addingRows: [IndexPath], removingRows: [IndexPath]) {
         let result = getGroceryListUseCase.execute(uri: groceryListURI)
         result.successHandler { model in
             groceryListModel = model
             groceryListBox.value = GroceryListViewModel(from: model)
 
-            reloadTableViewBox.value = removingRows
+            reloadTableViewBox.value = (addingRows, removingRows)
         }
         result.failureHandler { error in
             errorMessageBox.value = error.localizedDescription
@@ -74,17 +74,17 @@ public final class GroceryListPresenter {
 extension GroceryListPresenter: GroceryListPresenting {
 
     public func updateList() {
-        self.updateList(removingRows: [])
+        self.updateList(addingRows: [], removingRows: [])
     }
 
-    public func deleteItem(uri: URL?, at row: Int) {
+    public func deleteItem(uri: URL?, at indexPath: IndexPath) {
         guard let uri = uri else {
             errorMessageBox.value = Resources.Texts.unknowError
             return
         }
         let result = removeGroceryItemUseCase.execute(uri: uri)
         result.successHandler {
-            updateList(removingRows: [row])
+            updateList(addingRows: [], removingRows: [indexPath])
         }
         result.failureHandler { error in
             errorMessageBox.value = error.localizedDescription

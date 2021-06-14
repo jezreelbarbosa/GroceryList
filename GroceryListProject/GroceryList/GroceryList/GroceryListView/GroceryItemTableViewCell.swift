@@ -64,17 +64,21 @@ final class GroceryItemTableViewCell: UICodeTableViewCell, ContentSizeObserver {
         nameLabel.style { s in
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.semibold.font(.body)
+            s.adjustsFontForContentSizeCategory = true
+            s.numberOfLines = 2
         }
 
         detailsLabel.style { s in
             s.textColor = Resources.Colors.detailColor
             s.font = SFProText.light.font(.footnote)
+            s.adjustsFontForContentSizeCategory = true
             s.numberOfLines = 2
         }
 
         priceLabel.style { s in
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.regular.font(.body)
+            s.adjustsFontForContentSizeCategory = true
             s.textAlignment = .right
             bindObserver { category in
                 s.textAlignment = category >= .accessibilityMedium ? .left : .right

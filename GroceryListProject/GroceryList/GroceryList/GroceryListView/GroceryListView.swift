@@ -14,21 +14,20 @@ public final class GroceryListView: UICodeView {
     // Properties
 
     let tableView = UITableView()
-    let effectView = UIVisualEffectView()
+    let footerView = GroceryTotalFooterView()
 
     // Lifecycle
 
     public override func initSubViews() {
         sv(
             tableView,
-            effectView
+            footerView
         )
     }
 
     public override func initLayout() {
-        tableView.fillContainer()
-        effectView.fillHorizontally().Top == safeAreaLayoutGuide.Bottom
-        effectView.Bottom == Bottom
+        tableView.top(0).fillHorizontally().Bottom == footerView.Top
+        footerView.fillHorizontally().Bottom == Bottom
     }
 
     public override func initStyle() {
@@ -40,10 +39,6 @@ public final class GroceryListView: UICodeView {
             s.backgroundColor = .clear
             s.separatorStyle = .singleLine
             s.tableFooterView = UIView()
-        }
-
-        effectView.style { s in
-            s.effect = UIBlurEffect(style: .regular)
         }
     }
 }

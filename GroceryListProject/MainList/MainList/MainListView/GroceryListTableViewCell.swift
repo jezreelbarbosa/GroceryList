@@ -93,6 +93,7 @@ final class GroceryListTableViewCell: UICodeTableViewCell, ReuseIdentifiable {
             s.textColor = Resources.Colors.textColor
             s.font = SFProDisplay.regular.font(.body)
             s.adjustsFontForContentSizeCategory = true
+            s.numberOfLines = 2
         }
 
         dateLabel.style { s in

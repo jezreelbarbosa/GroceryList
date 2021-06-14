@@ -12,10 +12,10 @@ public protocol GroceryListPresenting {
 
     var errorMessageBox: Box<String> { get }
     var groceryListBox: Box<GroceryListViewModel> { get }
-    var reloadTableViewBox: Box<[Int]> { get }
+    var reloadTableViewBox: Box<([IndexPath], [IndexPath])> { get }
 
     func updateList()
-    func deleteItem(uri: URL?, at row: Int)
+    func deleteItem(uri: URL?, at indexPath: IndexPath)
     func didSelectedItem(uri: URL?)
     func createNewItem()
 }
@@ -69,19 +69,18 @@ public class GroceryListViewController: UIMainCodeViewController<GroceryListPres
             groceryList = list
         }
 
-        presenter.reloadTableViewBox.bind { [unowned self] removedRows in
-            if removedRows.isEmpty {
+        presenter.reloadTableViewBox.bind { [unowned self] addedRows, removedRows in
+            mainView.footerView.fill(total: groceryList.totalPrice)
+
+            guard !addedRows.isEmpty || !removedRows.isEmpty else {
                 DispatchQueue.main.async {
                     mainView.tableView.reloadData()
                 }
-            } else {
-                mainView.tableView.performBatchUpdates({
-                    let indexes = removedRows.map({ IndexPath(row: $0, section: 0) })
-                    mainView.tableView.deleteRows(at: indexes, with: .fade)
-                }, completion: { _ in
-                    let footerView = mainView.tableView.footerView(forSection: 0) as? GroceryTotalFooterView
-                    footerView?.fill(total: groceryList.totalPrice)
-                })
+                return
+            }
+            mainView.tableView.performBatchUpdates {
+                mainView.tableView.insertRows(at: addedRows, with: .fade)
+                mainView.tableView.deleteRows(at: removedRows, with: .fade)
             }
         }
     }
@@ -97,37 +96,67 @@ public class GroceryListViewController: UIMainCodeViewController<GroceryListPres
 
 extension GroceryListViewController: UITableViewDataSource, UITableViewDelegate {
 
+    private enum Sections: Int, CaseIterable {
+
+        case unchecked = 0
+        case checked = 1
+    }
+
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return Sections.allCases.count
+    }
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        switch Sections(rawValue: section) {
+        case .unchecked:
+            return items.count
+        case .checked:
+            return 0
+        case .none:
+            return 0
+        }
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(GroceryItemTableViewCell.self)
 
-        cell.fill(model: items.element(at: indexPath.row))
+        let section = Sections(rawValue: indexPath.section)
+        section.doOn(.unchecked) {
+            cell.fill(model: items.element(at: indexPath.row))
+        }
+        section.doOn(.checked) {
+            cell.fill(model: items.element(at: indexPath.row))
+        }
 
         return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectedItem(uri: items.element(at: indexPath.row)?.uri)
+        let section = Sections(rawValue: indexPath.section)
+        section.doOn(.unchecked) {
+            let uri = items.element(at: indexPath.row)?.uri
+            presenter.didSelectedItem(uri: uri)
+        }
+        section.doOn(.checked) {
+            let uri = items.element(at: indexPath.row)?.uri
+            presenter.didSelectedItem(uri: uri)
+        }
     }
 
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.deleteConfirmationAction(view: self) { [unowned self] in
-            presenter.deleteItem(uri: items.element(at: indexPath.row)?.uri, at: indexPath.row)
+            let uri = items.element(at: indexPath.row)?.uri
+            presenter.deleteItem(uri: uri, at: indexPath)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
-    // Footer View
-
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footer = tableView.dequeueReusableHeaderFooterView(GroceryTotalFooterView.self)
-
-        footer.fill(total: groceryList.totalPrice)
-
-        return footer
+    public func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = items[indexPath.row]
+        let checkAction = UIContextualAction.checkAction(isChecked: false) {
+            debugPrint(item.name)
+        }
+        return UISwipeActionsConfiguration(actions: [checkAction])
     }
 }
 

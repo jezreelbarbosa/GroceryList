@@ -13,5 +13,18 @@ public final class Assets {
 
         case pencil
         case trash
+        case checkmark
+        case xmark
+    }
+}
+
+public extension UIImage {
+
+    var template: UIImage {
+        withRenderingMode(.alwaysTemplate)
+    }
+
+    var original: UIImage {
+        withRenderingMode(.alwaysOriginal)
     }
 }

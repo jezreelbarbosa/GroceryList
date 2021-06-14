@@ -9,7 +9,7 @@ import UIKit
 import Stevia
 import ArchitectUtils
 
-final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ContentSizeObserver {
+final class GroceryTotalFooterView: UICodeView, ContentSizeObserver {
 
     // Properties
 
@@ -32,21 +32,24 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ContentSize
     }
 
     public override func initLayout() {
-        totalStackView.fillContainer(16)
+        totalStackView.top(16)
+        totalStackView.Leading == safeAreaLayoutGuide.Leading + 16
+        totalStackView.Trailing == safeAreaLayoutGuide.Trailing - 16
+        totalStackView.Bottom == safeAreaLayoutGuide.Bottom - 16
         priceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         priceLabel.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     public override func initStyle() {
         style { s in
-            s.backgroundView?.backgroundColor = Resources.Colors.footerBackgroundColor
+            s.backgroundColor = Resources.Colors.footerBackgroundColor
         }
 
         totalStackView.style { s in
             s.axis = .horizontal
             s.spacing = 4
-            bindObserver { category in
-                s.axis = category >= .accessibilityLarge ? .vertical : .horizontal
+            bindObserver { c in
+                s.axis = c >= .accessibilityLarge ? .vertical : .horizontal
             }
         }
 
@@ -54,14 +57,16 @@ final class GroceryTotalFooterView: UICodeTableViewHeaderFooterView, ContentSize
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.semibold.font(.body)
             s.text = Resources.Texts.totalFooterText
+            s.adjustsFontForContentSizeCategory = true
         }
 
         priceLabel.style { s in
             s.textColor = Resources.Colors.textColor
             s.font = SFProText.regular.font(.body)
             s.textAlignment = .right
-            bindObserver { category in
-                s.textAlignment = category >= .accessibilityLarge ? .left : .right
+            s.adjustsFontForContentSizeCategory = true
+            bindObserver { c in
+                s.textAlignment = c >= .accessibilityLarge ? .left : .right
             }
         }
     }
